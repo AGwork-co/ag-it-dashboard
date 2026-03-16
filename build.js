@@ -122,38 +122,70 @@ function stripHtml(html) {
     .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
 }
 
-/** Generate a short sprint goals summary from story titles and descriptions */
+/** Generate a concise 2-3 sentence sprint goals summary from story titles and descriptions */
 function generateSprintGoals(sprintStories) {
   if (!sprintStories.length) return '';
 
-  // Group stories by theme (use title keywords) and collect summaries
-  const goals = [];
-  const seen = new Set();
-
+  // Collect meaningful content from each story
+  const themes = [];
   for (const story of sprintStories) {
-    const title = story.title || '';
+    const title = (story.title || '').trim();
     const desc = stripHtml(story.description || '');
-    const acceptance = stripHtml(story.acceptanceCriteria || '');
-
-    // Build a concise goal line from title + first meaningful sentence of description
-    let goal = title;
-    if (desc && desc.length > 10) {
-      // Take first sentence of description (up to 150 chars)
-      const firstSentence = desc.split(/[.!?\n]/).filter(s => s.trim().length > 10)[0];
-      if (firstSentence && !title.toLowerCase().includes(firstSentence.trim().toLowerCase().slice(0, 20))) {
-        goal += ' — ' + firstSentence.trim().slice(0, 150);
-      }
-    }
-
-    // Deduplicate similar goals
-    const key = title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 30);
-    if (!seen.has(key)) {
-      seen.add(key);
-      goals.push(goal);
+    if (title) themes.push(title);
+    // Extract key phrases from descriptions (first meaningful clause)
+    if (desc && desc.length > 15) {
+      const clause = desc.split(/[.!?\n;]/).filter(s => s.trim().length > 15)[0];
+      if (clause) themes.push(clause.trim());
     }
   }
 
-  return goals.join('\n');
+  // Extract common keywords to identify themes (ignore stop words)
+  const stopWords = new Set(['the','a','an','as','is','are','was','were','be','been','to','of','in','for','on','with','at','by','from','and','or','not','this','that','it','we','i','can','will','should','must','have','has','do','does','so','if','but','all','new','get','set','add','update','create','make']);
+  const wordFreq = {};
+  themes.forEach(t => {
+    t.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/).forEach(w => {
+      if (w.length > 2 && !stopWords.has(w)) wordFreq[w] = (wordFreq[w] || 0) + 1;
+    });
+  });
+  const topKeywords = Object.entries(wordFreq)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8)
+    .map(([w]) => w);
+
+  // Group story titles into thematic clusters based on shared keywords
+  const clusters = {};
+  for (const story of sprintStories) {
+    const title = (story.title || '').toLowerCase();
+    const matchedKey = topKeywords.find(k => title.includes(k)) || 'general';
+    if (!clusters[matchedKey]) clusters[matchedKey] = [];
+    clusters[matchedKey].push(story.title || '');
+  }
+
+  // Build a concise summary from the clusters
+  const clusterSummaries = [];
+  for (const [key, titles] of Object.entries(clusters)) {
+    if (titles.length === 1) {
+      clusterSummaries.push(titles[0]);
+    } else {
+      // Summarize: "N stories focused on [key area]: [first title] and related work"
+      clusterSummaries.push(`${titles[0]}${titles.length > 1 ? ` and ${titles.length - 1} related ${titles.length - 1 === 1 ? 'story' : 'stories'}` : ''}`);
+    }
+  }
+
+  // Compose 2-3 sentence summary
+  const total = sprintStories.length;
+  const sp = sprintStories.reduce((s, st) => s + (st.storyPoints || 0), 0);
+
+  let summary = `This sprint covers ${total} ${total === 1 ? 'story' : 'stories'} (${sp} SP) focused on: `;
+  summary += clusterSummaries.slice(0, 4).join('; ');
+  summary += '.';
+
+  // Keep it under ~300 chars
+  if (summary.length > 300) {
+    summary = summary.slice(0, 297) + '...';
+  }
+
+  return summary;
 }
 
 /** Build burndown data from story completion dates within a sprint */
