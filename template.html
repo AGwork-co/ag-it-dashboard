@@ -166,6 +166,44 @@
   .epics-table tr:nth-child(even) td { background: #F8FAFC; }
   .epics-table tr:hover td { background: #EBF0F5; }
 
+  /* Sprint tracking */
+  .sprint-project-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin-bottom: 28px; }
+  .sprint-proj-card {
+    background: var(--card); border-radius: 10px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06); border: 1px solid var(--border);
+    cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .sprint-proj-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .sprint-proj-card .spc-header {
+    padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .sprint-proj-card .spc-header h4 { font-size: 14px; font-weight: 600; color: var(--primary); }
+  .sprint-proj-card .spc-body { padding: 14px 18px; }
+  .sprint-proj-card .spc-stats { display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .sprint-proj-card .spc-stat { text-align: center; min-width: 55px; }
+  .sprint-proj-card .spc-stat .num { font-size: 18px; font-weight: 700; color: var(--primary); }
+  .sprint-proj-card .spc-stat .lbl { font-size: 9px; color: var(--text-muted); text-transform: uppercase; }
+  .sprint-progress-bar { height: 8px; background: #E0E0E0; border-radius: 4px; overflow: hidden; }
+  .sprint-progress-fill { height: 100%; border-radius: 4px; background: var(--accent); transition: width 0.5s; }
+  .sprint-progress-label { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+
+  .stories-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+  .stories-table th { background: var(--primary); color: white; padding: 8px 12px; text-align: left; font-weight: 600; }
+  .stories-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+  .stories-table tr:nth-child(even) td { background: #F8FAFC; }
+  .stories-table tr:hover td { background: #EBF0F5; }
+  .stories-table a { color: var(--primary-light); text-decoration: none; font-weight: 500; }
+  .stories-table a:hover { text-decoration: underline; }
+
+  .state-pill {
+    display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.3px;
+  }
+  .state-pill.done { background: #E8F5E9; color: #1B5E20; }
+  .state-pill.active { background: #E3F2FD; color: #1565C0; }
+  .state-pill.new { background: #ECEFF1; color: #546E7A; }
+
   /* Print styles */
   @media print {
     .nav-bar { display: none; }
@@ -196,10 +234,23 @@
 </div>
 
 <div class="nav-bar" id="navBar">
-  <div class="nav-tab active" data-view="overview">Overview</div>
+  <div class="nav-tab active" data-view="sprint">Sprint Tracking</div>
+  <div class="nav-tab" data-view="overview">Overview</div>
 </div>
 
-<div class="main">
+<!-- =============== SPRINT TRACKING VIEW =============== -->
+<div class="main view-panel" id="viewSprint">
+  <div class="kpi-row" id="sprintKpiRow"></div>
+  <div class="charts-row">
+    <div class="chart-card" style="grid-column: 1 / -1"><h3>Sprint Burndown — All Projects</h3><canvas id="chartSprintBurndown"></canvas></div>
+  </div>
+  <div class="sprint-project-cards" id="sprintProjectCards"></div>
+  <!-- Sprint project drill-down -->
+  <div class="detail-panel" id="sprintDetailPanel"></div>
+</div>
+
+<!-- =============== OVERVIEW VIEW =============== -->
+<div class="main view-panel" id="viewOverview" style="display:none">
   <!-- KPIs -->
   <div class="kpi-row" id="kpiRow"></div>
 
@@ -328,7 +379,7 @@ function renderCharts() {
   html += '</div>';
   widget.innerHTML = html;
 }
-renderCharts();
+// Charts rendered lazily on first Overview tab visit
 
 // Project cards
 function renderCards() {
@@ -363,7 +414,7 @@ function renderCards() {
     </div>`;
   }).join('');
 }
-renderCards();
+// Cards rendered lazily with overview charts
 
 // Detail panel
 function showDetail(idx) {
@@ -406,13 +457,278 @@ function showDetail(idx) {
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Nav tabs
+// ============================================================
+// TAB NAVIGATION
+// ============================================================
+let overviewChartsRendered = false;
+function switchView(view) {
+  document.querySelectorAll('.view-panel').forEach(v => v.style.display = 'none');
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  const target = document.getElementById(view === 'sprint' ? 'viewSprint' : 'viewOverview');
+  if (target) target.style.display = 'block';
+  document.querySelector(`.nav-tab[data-view="${view}"]`)?.classList.add('active');
+  // Lazy-render overview charts and cards on first visit
+  if (view === 'overview' && !overviewChartsRendered) {
+    renderCharts();
+    renderCards();
+    overviewChartsRendered = true;
+  }
+}
 document.querySelectorAll('.nav-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-  });
+  tab.addEventListener('click', () => switchView(tab.dataset.view));
 });
+
+// ============================================================
+// SPRINT TRACKING
+// ============================================================
+const DONE_STATES = ['Closed', 'Resolved', 'Done', 'Removed'];
+
+function renderSprintView() {
+  const sprintProjects = projects.filter(p => p.currentSprint);
+  const allSprintStories = sprintProjects.flatMap(p => p.currentSprint.stories || []);
+  const totalSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.totalSP, 0);
+  const completedSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.completedSP, 0);
+  const remainingSprintSP = totalSprintSP - completedSprintSP;
+  const totalCapacityHrs = sprintProjects.reduce((s, p) => s + (p.currentSprint.capacity?.hoursPerDay || 0), 0);
+  const totalMembers = new Set(sprintProjects.flatMap(p => (p.currentSprint.capacity?.members || []).map(m => m.name))).size;
+
+  // Sprint name (use first project's sprint name as representative)
+  const sprintName = sprintProjects.length > 0 ? sprintProjects[0].currentSprint.name : 'No Active Sprint';
+  const sprintStart = sprintProjects[0]?.currentSprint.startDate;
+  const sprintEnd = sprintProjects[0]?.currentSprint.endDate;
+  const dateRange = sprintStart && sprintEnd
+    ? `${new Date(sprintStart).toLocaleDateString('en-US', {month:'short',day:'numeric'})} — ${new Date(sprintEnd).toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})}`
+    : '';
+
+  // KPIs
+  document.getElementById('sprintKpiRow').innerHTML = [
+    { value: sprintName, label: dateRange || 'Current Sprint', isText: true },
+    { value: allSprintStories.length, label: 'Sprint Stories' },
+    { value: totalSprintSP, label: 'Total SP' },
+    { value: completedSprintSP, label: 'Completed SP' },
+    { value: remainingSprintSP, label: 'Remaining SP' },
+    { value: totalMembers || '—', label: 'Team Members' },
+    { value: totalCapacityHrs ? totalCapacityHrs + 'h' : '—', label: 'Capacity/Day' },
+  ].map(k => `<div class="kpi-card"><div class="value" style="${k.isText ? 'font-size:20px' : ''}">${k.value}</div><div class="label">${k.label}</div></div>`).join('');
+
+  // Cross-project burndown chart
+  renderSprintBurndown(sprintProjects);
+
+  // Project cards
+  const grid = document.getElementById('sprintProjectCards');
+  grid.innerHTML = sprintProjects.map((p, i) => {
+    const sp = p.currentSprint;
+    const pct = sp.totalSP > 0 ? Math.round((sp.completedSP / sp.totalSP) * 100) : 0;
+    return `<div class="sprint-proj-card" onclick="showSprintDetail(${i})">
+      <div class="spc-header">
+        <h4>${p.shortName}</h4>
+        <span style="font-size:11px;color:var(--text-muted)">${sp.name}</span>
+      </div>
+      <div class="spc-body">
+        <div class="spc-stats">
+          <div class="spc-stat"><span class="num">${sp.storyCount}</span><span class="lbl">Stories</span></div>
+          <div class="spc-stat"><span class="num">${sp.completedSP}</span><span class="lbl">Done SP</span></div>
+          <div class="spc-stat"><span class="num">${sp.remainingSP}</span><span class="lbl">Left SP</span></div>
+          <div class="spc-stat"><span class="num">${sp.totalSP}</span><span class="lbl">Total SP</span></div>
+        </div>
+        <div class="sprint-progress-bar"><div class="sprint-progress-fill" style="width:${pct}%"></div></div>
+        <div class="sprint-progress-label">${pct}% complete</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  if (sprintProjects.length === 0) {
+    grid.innerHTML = '<div class="chart-card" style="text-align:center;padding:40px;grid-column:1/-1"><p style="color:var(--text-muted)">No active sprint found for any project.</p></div>';
+  }
+}
+
+function renderSprintBurndown(sprintProjects) {
+  const canvas = document.getElementById('chartSprintBurndown');
+  if (!canvas) return;
+
+  // Merge all burndown data across projects
+  const allDates = new Set();
+  sprintProjects.forEach(p => {
+    if (p.currentSprint.burndown) {
+      p.currentSprint.burndown.points.forEach(pt => allDates.add(pt.date));
+      p.currentSprint.burndown.ideal.forEach(pt => allDates.add(pt.date));
+    }
+  });
+  const dates = [...allDates].sort();
+  if (dates.length === 0) return;
+
+  // Sum remaining SP across all projects for each date
+  const actualData = dates.map(d => {
+    let total = 0;
+    let hasData = false;
+    sprintProjects.forEach(p => {
+      if (p.currentSprint.burndown) {
+        const pt = p.currentSprint.burndown.points.find(x => x.date === d);
+        if (pt) { total += pt.remaining; hasData = true; }
+      }
+    });
+    return hasData ? total : null;
+  });
+
+  const idealData = dates.map(d => {
+    let total = 0;
+    sprintProjects.forEach(p => {
+      if (p.currentSprint.burndown) {
+        const pt = p.currentSprint.burndown.ideal.find(x => x.date === d);
+        if (pt) total += pt.remaining;
+      }
+    });
+    return total;
+  });
+
+  const labels = dates.map(d => {
+    const dt = new Date(d + 'T12:00:00');
+    return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  });
+
+  new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Actual Remaining',
+          data: actualData,
+          borderColor: '#1F4E79',
+          backgroundColor: 'rgba(31,78,121,0.1)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 4,
+          borderWidth: 2,
+          spanGaps: false
+        },
+        {
+          label: 'Ideal Burndown',
+          data: idealData,
+          borderColor: '#E0E0E0',
+          borderDash: [6, 4],
+          pointRadius: 0,
+          borderWidth: 2,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { beginAtZero: true, title: { display: true, text: 'Story Points Remaining', font: { size: 11 } }, grid: { color: '#f0f0f0' } }
+      }
+    }
+  });
+}
+
+let sprintDetailChart = null;
+function showSprintDetail(idx) {
+  const sprintProjects = projects.filter(p => p.currentSprint);
+  const p = sprintProjects[idx];
+  if (!p) return;
+  const sp = p.currentSprint;
+  const panel = document.getElementById('sprintDetailPanel');
+
+  const stateClass = (state) => DONE_STATES.includes(state) ? 'done' : (state === 'Active' || state === 'In Progress' || state === 'Committed') ? 'active' : 'new';
+
+  const storyRows = (sp.stories || []).map(s =>
+    `<tr>
+      <td><a href="${s.url}" target="_blank">${s.id}</a></td>
+      <td>${s.title}</td>
+      <td>${s.assignedTo}</td>
+      <td><span class="state-pill ${stateClass(s.state)}">${s.state}</span></td>
+      <td style="text-align:center">${s.completedSP}</td>
+      <td style="text-align:center">${s.remainingSP}</td>
+      <td style="text-align:center">${s.storyPoints}</td>
+    </tr>`
+  ).join('');
+
+  panel.innerHTML = `
+    <div class="detail-header">
+      <h2>${p.name} — ${sp.name}</h2>
+      <button class="detail-close" onclick="document.getElementById('sprintDetailPanel').classList.remove('visible')">&times;</button>
+    </div>
+    <div class="detail-body">
+      <div class="detail-section">
+        <h4>Sprint Burndown</h4>
+        <div style="height:280px"><canvas id="chartProjectBurndown"></canvas></div>
+      </div>
+      <div class="detail-section">
+        <h4>User Stories (${sp.stories?.length || 0})</h4>
+        ${sp.stories?.length > 0 ? `<table class="stories-table">
+          <thead><tr><th>ID</th><th>Story</th><th>Assigned To</th><th>State</th><th>Done SP</th><th>Left SP</th><th>Total SP</th></tr></thead>
+          <tbody>${storyRows}</tbody>
+        </table>` : '<p style="color:var(--text-muted)">No stories in this sprint.</p>'}
+      </div>
+      ${sp.capacity?.members?.length > 0 ? `<div class="detail-section">
+        <h4>Team Capacity</h4>
+        <table class="stories-table">
+          <thead><tr><th>Team Member</th><th>Hours/Day</th></tr></thead>
+          <tbody>${sp.capacity.members.map(m => `<tr><td>${m.name}</td><td>${m.dailyHours}h</td></tr>`).join('')}</tbody>
+        </table>
+      </div>` : ''}
+    </div>`;
+
+  panel.classList.add('visible');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Render project-level burndown
+  if (sp.burndown) {
+    const canvas = document.getElementById('chartProjectBurndown');
+    if (sprintDetailChart) sprintDetailChart.destroy();
+
+    const labels = sp.burndown.points.map(pt => {
+      const dt = new Date(pt.date + 'T12:00:00');
+      return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    });
+    const idealLabels = sp.burndown.ideal.map(pt => {
+      const dt = new Date(pt.date + 'T12:00:00');
+      return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    });
+
+    sprintDetailChart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: idealLabels,
+        datasets: [
+          {
+            label: 'Actual Remaining',
+            data: sp.burndown.points.map(pt => pt.remaining),
+            borderColor: '#1F4E79',
+            backgroundColor: 'rgba(31,78,121,0.1)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 4,
+            borderWidth: 2
+          },
+          {
+            label: 'Ideal Burndown',
+            data: sp.burndown.ideal.map(pt => pt.remaining),
+            borderColor: '#E0E0E0',
+            borderDash: [6, 4],
+            pointRadius: 0,
+            borderWidth: 2,
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+          y: { beginAtZero: true, title: { display: true, text: 'SP Remaining', font: { size: 11 } }, grid: { color: '#f0f0f0' } }
+        }
+      }
+    });
+  }
+}
+
+// Render sprint view on load (it's the default tab)
+renderSprintView();
 </script>
 </body>
 </html>

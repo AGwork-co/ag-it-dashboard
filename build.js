@@ -87,6 +87,100 @@ async function getWorkItemDetails(ids, fields) {
   return results;
 }
 
+// ── Sprint / Iteration helpers ──────────────────────────────────────────────
+
+/** Get the current iteration for a project's default team */
+async function getCurrentIteration(project) {
+  const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations?$timeframe=current&api-version=${API_VERSION}`;
+  const data = await adoFetch(url);
+  if (data && data.value && data.value.length > 0) return data.value[0];
+  return null;
+}
+
+/** Get team capacity for a specific iteration */
+async function getIterationCapacity(project, iterationId) {
+  const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations/${iterationId}/capacities?api-version=${API_VERSION}`;
+  const data = await adoFetch(url);
+  if (data && data.value) return data.value;
+  return [];
+}
+
+/** Get work item updates (revision history) for burndown calculation */
+async function getWorkItemUpdates(workItemId) {
+  const url = `${ORG_URL}/_apis/wit/workitems/${workItemId}/updates?api-version=${API_VERSION}`;
+  const data = await adoFetch(url);
+  if (data && data.value) return data.value;
+  return [];
+}
+
+const DONE_STATES = ['Closed', 'Resolved', 'Done', 'Removed'];
+
+/** Build burndown data from story completion dates within a sprint */
+function buildBurndown(sprintStories, startDate, endDate) {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const cutoff = end < today ? end : today;
+
+  const totalSP = sprintStories.reduce((s, st) => s + (st.storyPoints || 0), 0);
+
+  // Build a map of date -> SP completed on that date
+  const completedByDate = {};
+  sprintStories.forEach(st => {
+    if (st.completedDate && st.storyPoints) {
+      const d = st.completedDate.split('T')[0];
+      completedByDate[d] = (completedByDate[d] || 0) + st.storyPoints;
+    }
+  });
+
+  // Generate daily burndown points
+  const points = [];
+  let remaining = totalSP;
+  const numDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
+
+  for (let i = 0; i < numDays; i++) {
+    const d = new Date(start);
+    d.setDate(d.getDate() + i);
+    const dateStr = d.toISOString().split('T')[0];
+    const dayOfWeek = d.getDay();
+
+    // Skip weekends
+    if (dayOfWeek === 0 || dayOfWeek === 6) continue;
+
+    remaining -= (completedByDate[dateStr] || 0);
+
+    // Only include data up to today
+    if (d <= cutoff) {
+      points.push({ date: dateStr, remaining: Math.max(0, remaining) });
+    }
+  }
+
+  // Calculate ideal burndown (working days only)
+  const workingDays = points.length > 0 ? (() => {
+    let count = 0;
+    for (let i = 0; i < numDays; i++) {
+      const d = new Date(start);
+      d.setDate(d.getDate() + i);
+      if (d.getDay() !== 0 && d.getDay() !== 6) count++;
+    }
+    return count;
+  })() : 1;
+
+  const ideal = [];
+  let wd = 0;
+  for (let i = 0; i < numDays; i++) {
+    const d = new Date(start);
+    d.setDate(d.getDate() + i);
+    const dateStr = d.toISOString().split('T')[0];
+    if (d.getDay() === 0 || d.getDay() === 6) continue;
+    ideal.push({ date: dateStr, remaining: Math.max(0, totalSP - (totalSP / (workingDays - 1)) * wd) });
+    wd++;
+  }
+
+  return { totalSP, points, ideal };
+}
+
 // ── Data collection ─────────────────────────────────────────────────────────
 
 async function fetchProjectData(config) {
@@ -117,7 +211,7 @@ async function fetchProjectData(config) {
     ]);
   }
 
-  // 3. Get User Stories with story points
+  // 3. Get User Stories with story points + assigned to
   const storyRefs = await wiqlQuery(project,
     `SELECT [System.Id] FROM WorkItems WHERE [System.WorkItemType] = 'User Story' AND [System.TeamProject] = '${project}' ORDER BY [System.Id]`
   );
@@ -126,9 +220,10 @@ async function fetchProjectData(config) {
   let stories = [];
   if (storyIds.length) {
     stories = await getWorkItemDetails(storyIds, [
-      'System.Id', 'System.State', 'System.Parent',
+      'System.Id', 'System.Title', 'System.State', 'System.Parent',
       'Microsoft.VSTS.Scheduling.StoryPoints',
-      'System.IterationPath'
+      'System.IterationPath',
+      'System.AssignedTo'
     ]);
   }
 
@@ -176,10 +271,107 @@ async function fetchProjectData(config) {
   if (states.includes('Active') || states.includes('In Progress')) phase = 'Active';
   if (states.every(s => ['Closed', 'Resolved', 'Done'].includes(s))) phase = 'Completed';
 
+  // 8. Current sprint data
+  let currentSprint = null;
+  try {
+    const iteration = await getCurrentIteration(project);
+    if (iteration) {
+      const iterPath = iteration.path || '';
+      const sprintName = iteration.name || 'Unknown Sprint';
+      const startDate = iteration.attributes?.startDate || null;
+      const endDate = iteration.attributes?.finishDate || null;
+
+      // Get stories in this sprint
+      const sprintStories = stories.filter(s => {
+        const sIter = s.fields['System.IterationPath'] || '';
+        return sIter === iterPath || sIter.endsWith('\\' + sprintName);
+      });
+
+      // Build story details with assigned-to info
+      const sprintStoryDetails = sprintStories.map(s => {
+        const f = s.fields;
+        const assignedTo = f['System.AssignedTo'];
+        const state = f['System.State'];
+        const sp = f['Microsoft.VSTS.Scheduling.StoryPoints'] || 0;
+        const isDone = DONE_STATES.includes(state);
+        return {
+          id: s.id,
+          title: f['System.Title'],
+          state,
+          storyPoints: sp,
+          completedSP: isDone ? sp : 0,
+          remainingSP: isDone ? 0 : sp,
+          assignedTo: assignedTo ? (assignedTo.displayName || assignedTo) : 'Unassigned',
+          completedDate: null, // will be populated below
+          url: `${ORG_URL}/${encodeURIComponent(project)}/_workitems/edit/${s.id}`
+        };
+      });
+
+      // Fetch completion dates for done stories (for burndown)
+      const doneStories = sprintStoryDetails.filter(s => DONE_STATES.includes(s.state));
+      for (const story of doneStories) {
+        try {
+          const updates = await getWorkItemUpdates(story.id);
+          // Find the update where state changed to a done state
+          for (let u = updates.length - 1; u >= 0; u--) {
+            const stateChange = updates[u]?.fields?.['System.State'];
+            if (stateChange && DONE_STATES.includes(stateChange.newValue)) {
+              story.completedDate = updates[u].revisedDate || updates[u].fields?.['System.ChangedDate']?.newValue;
+              break;
+            }
+          }
+        } catch (e) {
+          // Skip if we can't get updates for this item
+        }
+      }
+
+      const sprintTotalSP = sprintStoryDetails.reduce((s, st) => s + st.storyPoints, 0);
+      const sprintCompletedSP = sprintStoryDetails.reduce((s, st) => s + st.completedSP, 0);
+      const sprintRemainingSP = sprintTotalSP - sprintCompletedSP;
+
+      // Get team capacity
+      let capacityHoursPerDay = 0;
+      let members = [];
+      try {
+        const capacities = await getIterationCapacity(project, iteration.id);
+        capacities.forEach(c => {
+          const name = c.teamMember?.displayName || 'Unknown';
+          const dailyHours = (c.activities || []).reduce((sum, a) => sum + (a.capacityPerDay || 0), 0);
+          const daysOff = (c.daysOff || []).length;
+          members.push({ name, dailyHours, daysOff });
+          capacityHoursPerDay += dailyHours;
+        });
+      } catch (e) {
+        // Capacity data may not be available for all projects
+      }
+
+      // Build burndown
+      const burndown = (startDate && endDate) ? buildBurndown(sprintStoryDetails, startDate, endDate) : null;
+
+      currentSprint = {
+        name: sprintName,
+        startDate,
+        endDate,
+        totalSP: sprintTotalSP,
+        completedSP: sprintCompletedSP,
+        remainingSP: sprintRemainingSP,
+        storyCount: sprintStoryDetails.length,
+        stories: sprintStoryDetails,
+        capacity: { hoursPerDay: capacityHoursPerDay, members },
+        burndown
+      };
+
+      console.log(`   🏃 Sprint "${sprintName}": ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)`);
+    }
+  } catch (e) {
+    console.warn(`   ⚠ Could not fetch sprint data for ${project}: ${e.message}`);
+  }
+
   return {
     priority: config.priority,
     name: config.displayName,
     shortName: config.shortName,
+    devopsProject: config.devopsProject,
     phase,
     epics: epicSummaries,
     estimation: {
@@ -189,7 +381,8 @@ async function fetchProjectData(config) {
       totalSP: Math.round(totalSP * 100) / 100,
       incompleteSP: Math.round(incompleteSP * 100) / 100,
       sprintSP
-    }
+    },
+    currentSprint
   };
 }
 
