@@ -212,7 +212,10 @@
     padding-bottom: 8px; border-bottom: 2px solid var(--primary);
   }
   .team-member-cards {
-    display: flex; flex-direction: column; gap: 8px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  }
+  @media (max-width: 900px) {
+    .team-member-cards { grid-template-columns: 1fr; }
   }
   .team-member-card {
     background: white; border-radius: 8px; border: 1px solid var(--border);
