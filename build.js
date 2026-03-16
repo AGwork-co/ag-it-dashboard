@@ -115,6 +115,47 @@ async function getWorkItemUpdates(workItemId) {
 
 const DONE_STATES = ['Closed', 'Resolved', 'Done', 'Removed'];
 
+/** Strip HTML tags to get plain text */
+function stripHtml(html) {
+  if (!html) return '';
+  return html.replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
+}
+
+/** Generate a short sprint goals summary from story titles and descriptions */
+function generateSprintGoals(sprintStories) {
+  if (!sprintStories.length) return '';
+
+  // Group stories by theme (use title keywords) and collect summaries
+  const goals = [];
+  const seen = new Set();
+
+  for (const story of sprintStories) {
+    const title = story.title || '';
+    const desc = stripHtml(story.description || '');
+    const acceptance = stripHtml(story.acceptanceCriteria || '');
+
+    // Build a concise goal line from title + first meaningful sentence of description
+    let goal = title;
+    if (desc && desc.length > 10) {
+      // Take first sentence of description (up to 150 chars)
+      const firstSentence = desc.split(/[.!?\n]/).filter(s => s.trim().length > 10)[0];
+      if (firstSentence && !title.toLowerCase().includes(firstSentence.trim().toLowerCase().slice(0, 20))) {
+        goal += ' — ' + firstSentence.trim().slice(0, 150);
+      }
+    }
+
+    // Deduplicate similar goals
+    const key = title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 30);
+    if (!seen.has(key)) {
+      seen.add(key);
+      goals.push(goal);
+    }
+  }
+
+  return goals.join('\n');
+}
+
 /** Build burndown data from story completion dates within a sprint */
 function buildBurndown(sprintStories, startDate, endDate) {
   const start = new Date(startDate);
@@ -223,7 +264,9 @@ async function fetchProjectData(config) {
       'System.Id', 'System.Title', 'System.State', 'System.Parent',
       'Microsoft.VSTS.Scheduling.StoryPoints',
       'System.IterationPath',
-      'System.AssignedTo'
+      'System.AssignedTo',
+      'System.Description',
+      'Microsoft.VSTS.Common.AcceptanceCriteria'
     ]);
   }
 
@@ -297,6 +340,8 @@ async function fetchProjectData(config) {
         return {
           id: s.id,
           title: f['System.Title'],
+          description: f['System.Description'] || '',
+          acceptanceCriteria: f['Microsoft.VSTS.Common.AcceptanceCriteria'] || '',
           state,
           storyPoints: sp,
           completedSP: isDone ? sp : 0,
@@ -348,6 +393,15 @@ async function fetchProjectData(config) {
       // Build burndown
       const burndown = (startDate && endDate) ? buildBurndown(sprintStoryDetails, startDate, endDate) : null;
 
+      // Generate sprint goals summary from story titles/descriptions
+      const sprintGoals = generateSprintGoals(sprintStoryDetails);
+
+      // Strip descriptions from story details before output (keep JSON small)
+      const storiesForOutput = sprintStoryDetails.map(s => {
+        const { description, acceptanceCriteria, ...rest } = s;
+        return rest;
+      });
+
       currentSprint = {
         name: sprintName,
         startDate,
@@ -355,8 +409,9 @@ async function fetchProjectData(config) {
         totalSP: sprintTotalSP,
         completedSP: sprintCompletedSP,
         remainingSP: sprintRemainingSP,
-        storyCount: sprintStoryDetails.length,
-        stories: sprintStoryDetails,
+        storyCount: storiesForOutput.length,
+        stories: storiesForOutput,
+        sprintGoals,
         capacity: { hoursPerDay: capacityHoursPerDay, members },
         burndown
       };
