@@ -172,7 +172,7 @@ function generateSprintGoals(sprintStories) {
     });
     const coTop = Object.entries(coWords).sort((a, b) => b[1] - a[1])[0];
     const modifier = coTop && coTop[1] >= 2 ? ` ${coTop[0]}` : '';
-    phrases.push(`${label.toLowerCase()}${modifier} enhancements (${n} stories)`);
+    phrases.push(`${label.toLowerCase()}${modifier} enhancements`);
   }
 
   // Summarize remaining stories concisely
