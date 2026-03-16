@@ -1,12 +1,9 @@
 name: Build & Deploy Dashboard
 
 on:
-  # Run every 4 hours on weekdays (CST business hours focus)
   schedule:
-    - cron: '0 13,17,21 * * 1-5'→ Runs at 13:00, 17:00 and 21:00, Monday through Friday  # 7am, 11am, 3pm CST
-  # Manual trigger from GitHub UI
+    - cron: '0 13,17,21 * * 1-5'
   workflow_dispatch:
-  # Also rebuild on push to main (for template/config changes)
   push:
     branches: [main]
 
@@ -34,3 +31,11 @@ jobs:
           AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
           AZURE_DEVOPS_ORG_URL: ${{ secrets.AZURE_DEVOPS_ORG_URL }}
         run: npm run build
+
+      - name: Commit and push updated dashboard
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "Dashboard updated"
+          git push
