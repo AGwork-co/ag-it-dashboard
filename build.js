@@ -393,7 +393,12 @@ async function fetchProjectData(config) {
           for (let u = updates.length - 1; u >= 0; u--) {
             const stateChange = updates[u]?.fields?.['System.State'];
             if (stateChange && DONE_STATES.includes(stateChange.newValue)) {
-              story.completedDate = updates[u].revisedDate || updates[u].fields?.['System.ChangedDate']?.newValue;
+              // revisedDate on the latest revision is "9999-01-01T00:00:00Z" (sentinel)
+              // Use ChangedDate from the revision, or revisedDate only if it's a real date
+              const revised = updates[u].revisedDate;
+              const changed = updates[u].fields?.['System.ChangedDate']?.newValue;
+              const isRealDate = revised && !revised.startsWith('9999');
+              story.completedDate = isRealDate ? revised : (changed || revised);
               break;
             }
           }
