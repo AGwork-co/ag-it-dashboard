@@ -205,6 +205,34 @@
   .state-pill.active { background: #E3F2FD; color: #1565C0; }
   .state-pill.new { background: #ECEFF1; color: #546E7A; }
 
+  /* Team Sprint Section */
+  .team-sprint-section { margin-top: 32px; }
+  .team-sprint-section h3 {
+    font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 16px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--primary);
+  }
+  .team-member-cards {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 16px;
+  }
+  .team-member-card {
+    background: white; border-radius: 8px; border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: hidden;
+  }
+  .tmc-header {
+    padding: 12px 18px; background: var(--primary); color: white;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .tmc-header h4 { margin: 0; font-size: 14px; font-weight: 600; }
+  .tmc-header .tmc-stats { font-size: 11px; opacity: 0.9; }
+  .tmc-burndown { padding: 12px 18px; height: 200px; }
+  .tmc-stories { padding: 0 18px 14px; }
+  .tmc-stories table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .tmc-stories th { background: #F1F5F9; padding: 6px 10px; text-align: left; font-weight: 600; color: var(--text-muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .tmc-stories td { padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  .tmc-stories tr:hover td { background: #F8FAFC; }
+  .tmc-stories a { color: var(--primary-light); text-decoration: none; font-weight: 500; }
+  .tmc-stories a:hover { text-decoration: underline; }
+
   /* Sprint header */
   .sprint-header {
     margin-bottom: 24px; padding: 20px 24px;
@@ -246,7 +274,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, March 16, 2026 at 3:24 PM</span>
+    <span>Last updated: Monday, March 16, 2026 at 3:55 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
   </div>
 </div>
@@ -266,6 +294,8 @@
   <div class="sprint-project-cards" id="sprintProjectCards"></div>
   <!-- Sprint project drill-down -->
   <div class="detail-panel" id="sprintDetailPanel"></div>
+  <!-- Per-person sprint view -->
+  <div class="team-sprint-section" id="teamSprintSection"></div>
 </div>
 
 <!-- =============== OVERVIEW VIEW =============== -->
@@ -351,7 +381,7 @@ const projects = [
       "incompleteSP": 121.25,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 32,
+        "CRM": 30,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -366,7 +396,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q1 2026 - Sprint 6": 113.75,
+        "Q1 2026 - Sprint 6": 115.75,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42
       }
@@ -375,10 +405,10 @@ const projects = [
       "name": "Q1 2026 - Sprint 6",
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
-      "totalSP": 113.75,
+      "totalSP": 115.75,
       "completedSP": 18.5,
-      "remainingSP": 95.25,
-      "storyCount": 38,
+      "remainingSP": 97.25,
+      "storyCount": 39,
       "stories": [
         {
           "id": 23670,
@@ -667,6 +697,17 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27381"
         },
         {
+          "id": 27383,
+          "title": "Design and implement data transformation layer (Salesforce composite to MIA source tables)",
+          "state": "New",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27383"
+        },
+        {
           "id": 27440,
           "title": "Configure Salesforce objects and fields for MIA integration",
           "state": "Committed",
@@ -799,87 +840,87 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27562"
         }
       ],
-      "sprintGoals": "Delivering want admin enhancements, connector enhancements, flink enhancements, mia enhancements, kafka connect enhancements, frontend enhancements, postgresql schema enhancements, and na-blackbox-sf finalize, sf to na: account services testing session, and 6 other items.",
+      "sprintGoals": "Delivering want admin enhancements, connector enhancements, mia salesforce enhancements, kafka connect enhancements, frontend enhancements, postgresql schema enhancements, and na-blackbox-sf finalize, sf to na: account services testing session, and 7 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 113.75,
+        "totalSP": 115.75,
         "points": [
           {
             "date": "2026-03-11",
-            "remaining": 106.5
+            "remaining": 108.5
           },
           {
             "date": "2026-03-12",
-            "remaining": 99.75
+            "remaining": 101.75
           },
           {
             "date": "2026-03-13",
-            "remaining": 98.75
+            "remaining": 100.75
           },
           {
             "date": "2026-03-16",
-            "remaining": 97.75
+            "remaining": 99.75
           }
         ],
         "ideal": [
           {
             "date": "2026-03-11",
-            "remaining": 113.75
+            "remaining": 115.75
           },
           {
             "date": "2026-03-12",
-            "remaining": 105.625
+            "remaining": 107.48214285714286
           },
           {
             "date": "2026-03-13",
-            "remaining": 97.5
+            "remaining": 99.21428571428572
           },
           {
             "date": "2026-03-16",
-            "remaining": 89.375
+            "remaining": 90.94642857142857
           },
           {
             "date": "2026-03-17",
-            "remaining": 81.25
+            "remaining": 82.67857142857143
           },
           {
             "date": "2026-03-18",
-            "remaining": 73.125
+            "remaining": 74.41071428571429
           },
           {
             "date": "2026-03-19",
-            "remaining": 65
+            "remaining": 66.14285714285714
           },
           {
             "date": "2026-03-20",
-            "remaining": 56.875
+            "remaining": 57.875
           },
           {
             "date": "2026-03-23",
-            "remaining": 48.75
+            "remaining": 49.60714285714286
           },
           {
             "date": "2026-03-24",
-            "remaining": 40.625
+            "remaining": 41.33928571428572
           },
           {
             "date": "2026-03-25",
-            "remaining": 32.5
+            "remaining": 33.071428571428584
           },
           {
             "date": "2026-03-26",
-            "remaining": 24.375
+            "remaining": 24.80357142857143
           },
           {
             "date": "2026-03-27",
-            "remaining": 16.25
+            "remaining": 16.535714285714292
           },
           {
             "date": "2026-03-30",
-            "remaining": 8.125
+            "remaining": 8.267857142857153
           },
           {
             "date": "2026-03-31",
@@ -4308,6 +4349,9 @@ function renderSprintView() {
   if (window._sprintCardProjects.length === 0) {
     grid.innerHTML = '<div class="chart-card" style="text-align:center;padding:40px;grid-column:1/-1"><p style="color:var(--text-muted)">No projects with stories assigned to the current sprint.</p></div>';
   }
+
+  // Render per-person team view at the bottom
+  renderTeamSprintView(sprintProjects, sprintStart, sprintEnd);
 }
 
 function renderSprintBurndown(sprintProjects) {
@@ -4555,6 +4599,161 @@ function alignSprintCards() {
       });
     }
   }
+}
+
+// ── Team Sprint View (per-person burndown + stories) ─────────────────────
+let teamBurndownCharts = [];
+function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
+  const section = document.getElementById('teamSprintSection');
+  if (!section) return;
+
+  // Collect all stories across on-schedule projects
+  const allStories = sprintProjects.flatMap(p =>
+    (p.currentSprint.stories || []).map(s => ({ ...s, projectName: p.shortName }))
+  );
+  if (allStories.length === 0) { section.innerHTML = ''; return; }
+
+  // Group by assignee
+  const byPerson = {};
+  allStories.forEach(s => {
+    const name = s.assignedTo || 'Unassigned';
+    if (!byPerson[name]) byPerson[name] = [];
+    byPerson[name].push(s);
+  });
+
+  // Sort people: by total SP descending
+  const people = Object.entries(byPerson).sort((a, b) => {
+    const spA = a[1].reduce((sum, s) => sum + (s.storyPoints || 0), 0);
+    const spB = b[1].reduce((sum, s) => sum + (s.storyPoints || 0), 0);
+    return spB - spA;
+  });
+
+  const stateOrder = { 'Done': 0, 'Closed': 0, 'Resolved': 1, 'Committed': 2, 'Active': 3, 'In Progress': 3, 'New': 4, 'To Do': 5, 'Removed': 6 };
+  const stateClass = (state) => DONE_STATES.includes(state) ? 'done' : (state === 'Active' || state === 'In Progress' || state === 'Committed') ? 'active' : 'new';
+
+  // Destroy previous charts
+  teamBurndownCharts.forEach(c => c.destroy());
+  teamBurndownCharts = [];
+
+  let html = '<h3>Team Member Sprint View</h3><div class="team-member-cards">';
+
+  people.forEach(([name, stories], idx) => {
+    const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
+    const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
+    const doneSP = stories.filter(st => DONE_STATES.includes(st.state)).reduce((s, st) => s + (st.storyPoints || 0), 0);
+    const pct = totalSP > 0 ? Math.round((doneSP / totalSP) * 100) : 0;
+
+    const rows = sorted.map(s =>
+      `<tr>
+        <td><a href="${s.url}" target="_blank">${s.id}</a></td>
+        <td>${s.projectName}</td>
+        <td>${s.title}</td>
+        <td><span class="state-pill ${stateClass(s.state)}">${s.state}</span></td>
+        <td style="text-align:center">${s.storyPoints || 0}</td>
+      </tr>`
+    ).join('');
+
+    html += `<div class="team-member-card">
+      <div class="tmc-header">
+        <h4>${name}</h4>
+        <span class="tmc-stats">${stories.length} stories &bull; ${doneSP}/${totalSP} SP (${pct}%)</span>
+      </div>
+      <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
+      <div class="tmc-stories">
+        <table>
+          <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th>SP</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>`;
+  });
+
+  html += '</div>';
+  section.innerHTML = html;
+
+  // Render per-person burndown charts
+  if (!sprintStart || !sprintEnd) return;
+  const start = new Date(sprintStart);
+  const end = new Date(sprintEnd);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const cutoff = end < today ? end : today;
+
+  // Build working days list
+  const numDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
+  const workingDays = [];
+  for (let i = 0; i < numDays; i++) {
+    const d = new Date(start); d.setDate(d.getDate() + i);
+    if (d.getDay() !== 0 && d.getDay() !== 6) workingDays.push(d.toISOString().split('T')[0]);
+  }
+
+  people.forEach(([name, stories], idx) => {
+    const canvas = document.getElementById(`teamBurndown_${idx}`);
+    if (!canvas) return;
+
+    const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
+
+    // Build completed-by-date map
+    const completedByDate = {};
+    stories.forEach(st => {
+      if (st.completedDate && st.storyPoints) {
+        const d = st.completedDate.split('T')[0];
+        completedByDate[d] = (completedByDate[d] || 0) + st.storyPoints;
+      }
+    });
+
+    // Actual burndown
+    let remaining = totalSP;
+    const actualData = [];
+    const actualLabels = [];
+    workingDays.forEach(dateStr => {
+      remaining -= (completedByDate[dateStr] || 0);
+      const d = new Date(dateStr + 'T12:00:00');
+      if (d <= cutoff) {
+        actualData.push(Math.max(0, remaining));
+        actualLabels.push(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+      }
+    });
+
+    // Ideal burndown
+    const idealData = workingDays.map((_, i) =>
+      Math.max(0, totalSP - (totalSP / (workingDays.length - 1)) * i)
+    );
+    const idealLabels = workingDays.map(dateStr => {
+      const d = new Date(dateStr + 'T12:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    });
+
+    const chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: idealLabels,
+        datasets: [
+          {
+            label: 'Actual',
+            data: actualData,
+            borderColor: '#1F4E79',
+            backgroundColor: 'rgba(31,78,121,0.1)',
+            fill: true, tension: 0.3, pointRadius: 3, borderWidth: 2, spanGaps: false
+          },
+          {
+            label: 'Ideal',
+            data: idealData,
+            borderColor: '#E0E0E0',
+            borderDash: [6, 4], pointRadius: 0, borderWidth: 2, fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 9 }, maxRotation: 0 } },
+          y: { beginAtZero: true, title: { display: true, text: 'SP', font: { size: 10 } }, grid: { color: '#f0f0f0' }, ticks: { font: { size: 9 } } }
+        }
+      }
+    });
+    teamBurndownCharts.push(chart);
+  });
 }
 
 // Render sprint view on load (it's the default tab)
