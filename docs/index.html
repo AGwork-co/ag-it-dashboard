@@ -287,7 +287,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, March 16, 2026 at 4:40 PM</span>
+    <span>Last updated: Monday, March 16, 2026 at 4:52 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
   </div>
 </div>
@@ -4113,7 +4113,7 @@ function renderCharts() {
 
   const statusCounts = {};
   projects.forEach(p => p.epics.forEach(e => { statusCounts[e.state] = (statusCounts[e.state] || 0) + 1; }));
-  const statusColors = { "Active": "#34D399", "In Progress": "#60A5FA", "New": "#94A3B8", "Committed": "#FBBF24", "Closed": "#A78BFA", "Resolved": "#22D3EE", "Done": "#10B981", "To Do": "#818CF8", "Removed": "#F87171" };
+  const statusColors = { "Active": "#FB923C", "In Progress": "#60A5FA", "New": "#94A3B8", "Committed": "#FBBF24", "Closed": "#A78BFA", "Resolved": "#22D3EE", "Done": "#10B981", "To Do": "#818CF8", "Removed": "#F87171" };
   new Chart(document.getElementById('chartEpicStatus'), {
     type: 'doughnut',
     data: {
