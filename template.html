@@ -269,7 +269,7 @@ function renderCharts() {
 
   const statusCounts = {};
   projects.forEach(p => p.epics.forEach(e => { statusCounts[e.state] = (statusCounts[e.state] || 0) + 1; }));
-  const statusColors = { "Active": "#4CAF50", "In Progress": "#2196F3", "New": "#9E9E9E", "Committed": "#FF9800", "Closed": "#795548", "Resolved": "#00BCD4" };
+  const statusColors = { "Active": "#4CAF50", "In Progress": "#2196F3", "New": "#78909C", "Committed": "#FF9800", "Closed": "#795548", "Resolved": "#00BCD4", "Done": "#1B5E20", "To Do": "#5C6BC0", "Removed": "#E53935" };
   new Chart(document.getElementById('chartEpicStatus'), {
     type: 'doughnut',
     data: {
@@ -373,7 +373,7 @@ function showDetail(idx) {
 
   const epicRowsHtml = p.epics.map(e =>
     `<tr><td>${e.id}</td><td><strong>${e.title}</strong></td><td><span style="color:${
-      e.state === 'Active' ? '#4CAF50' : e.state === 'In Progress' ? '#2196F3' : e.state === 'Closed' ? '#795548' : '#9E9E9E'
+      statusColors[e.state] || '#607D8B'
     };font-weight:600">${e.state}</span></td><td>${e.features}</td><td>${e.stories}</td></tr>`
   ).join('');
 
