@@ -172,6 +172,7 @@
     background: var(--card); border-radius: 10px; overflow: hidden;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06); border: 1px solid var(--border);
     cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+    display: flex; flex-direction: column;
   }
   .sprint-proj-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
   .sprint-proj-card .spc-header {
@@ -179,7 +180,7 @@
     border-bottom: 1px solid var(--border);
   }
   .sprint-proj-card .spc-header h4 { font-size: 14px; font-weight: 600; color: var(--primary); }
-  .sprint-proj-card .spc-body { padding: 14px 18px; }
+  .sprint-proj-card .spc-body { padding: 14px 18px; margin-top: auto; }
   .sprint-proj-card .spc-stats { display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
   .sprint-proj-card .spc-stat { text-align: center; min-width: 55px; }
   .sprint-proj-card .spc-stat .num { font-size: 18px; font-weight: 700; color: var(--primary); }
@@ -245,7 +246,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, March 16, 2026 at 12:20 PM</span>
+    <span>Last updated: Monday, March 16, 2026 at 12:33 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
   </div>
 </div>
@@ -4482,8 +4483,73 @@ function showSprintDetail(idx) {
   }
 }
 
+/** Equalize card section heights per row so headers, goals, and stats align */
+function alignSprintCards() {
+  const grid = document.getElementById('sprintProjectCards');
+  if (!grid) return;
+  const cards = [...grid.querySelectorAll('.sprint-proj-card')];
+  if (!cards.length) return;
+
+  // Reset heights first
+  cards.forEach(c => {
+    const header = c.querySelector('.spc-header');
+    const goals = c.querySelector('.sprint-goals');
+    if (header) header.style.minHeight = '';
+    if (goals) goals.style.minHeight = '';
+  });
+
+  // Determine how many columns per row from the grid layout
+  const firstTop = cards[0].getBoundingClientRect().top;
+  let cols = 0;
+  for (const c of cards) {
+    if (Math.abs(c.getBoundingClientRect().top - firstTop) < 5) cols++;
+    else break;
+  }
+  if (cols < 2) return; // single column, no alignment needed
+
+  // Process each row
+  for (let r = 0; r < cards.length; r += cols) {
+    const row = cards.slice(r, r + cols);
+
+    // Equalize header heights
+    let maxHeader = 0;
+    row.forEach(c => {
+      const h = c.querySelector('.spc-header');
+      if (h) maxHeader = Math.max(maxHeader, h.scrollHeight);
+    });
+    row.forEach(c => {
+      const h = c.querySelector('.spc-header');
+      if (h) h.style.minHeight = maxHeader + 'px';
+    });
+
+    // Equalize goals section heights
+    let maxGoals = 0;
+    row.forEach(c => {
+      const g = c.querySelector('.sprint-goals');
+      if (g) maxGoals = Math.max(maxGoals, g.scrollHeight);
+    });
+    if (maxGoals > 0) {
+      row.forEach(c => {
+        let g = c.querySelector('.sprint-goals');
+        if (!g) {
+          // Insert an empty spacer if this card has no goals but others in the row do
+          g = document.createElement('div');
+          g.className = 'sprint-goals';
+          const body = c.querySelector('.spc-body');
+          c.insertBefore(g, body);
+        }
+        g.style.minHeight = maxGoals + 'px';
+      });
+    }
+  }
+}
+
 // Render sprint view on load (it's the default tab)
 renderSprintView();
+// Align card sections after render
+requestAnimationFrame(() => alignSprintCards());
+// Re-align on resize (column count may change)
+window.addEventListener('resize', () => { clearTimeout(window._alignTimer); window._alignTimer = setTimeout(alignSprintCards, 200); });
 </script>
 </body>
 </html>
