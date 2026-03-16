@@ -154,7 +154,7 @@ async function fetchProjectData(config) {
   const estimated = stories.filter(s => s.fields['Microsoft.VSTS.Scheduling.StoryPoints'] != null);
   const totalSP = stories.reduce((sum, s) => sum + (s.fields['Microsoft.VSTS.Scheduling.StoryPoints'] || 0), 0);
   const incompleteSP = stories
-    .filter(s => s.fields['System.State'] !== 'Closed' && s.fields['System.State'] !== 'Resolved')
+    .filter(s => !['Closed', 'Resolved', 'Done', 'Removed'].includes(s.fields['System.State']))
     .reduce((sum, s) => sum + (s.fields['Microsoft.VSTS.Scheduling.StoryPoints'] || 0), 0);
 
   // 6. Sprint distribution (group by iteration)
@@ -174,7 +174,7 @@ async function fetchProjectData(config) {
   const states = epicSummaries.map(e => e.state);
   let phase = 'New';
   if (states.includes('Active') || states.includes('In Progress')) phase = 'Active';
-  if (states.every(s => s === 'Closed' || s === 'Resolved')) phase = 'Completed';
+  if (states.every(s => ['Closed', 'Resolved', 'Done'].includes(s))) phase = 'Completed';
 
   return {
     priority: config.priority,
