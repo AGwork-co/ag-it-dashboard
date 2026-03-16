@@ -1,0 +1,13 @@
+{
+  "name": "ag-it-dashboard",
+  "version": "1.0.0",
+  "description": "AG IT Project Portfolio Dashboard — live from Azure DevOps",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && open docs/index.html"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}
