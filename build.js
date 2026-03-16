@@ -124,68 +124,74 @@ function stripHtml(html) {
 
 /** Generate a concise 2-3 sentence sprint goals summary from story titles and descriptions */
 function generateSprintGoals(sprintStories) {
-  if (!sprintStories.length) return '';
+  if (!sprintStories.length) return [];
 
-  // Collect meaningful content from each story
-  const themes = [];
-  for (const story of sprintStories) {
-    const title = (story.title || '').trim();
-    const desc = stripHtml(story.description || '');
-    if (title) themes.push(title);
-    // Extract key phrases from descriptions (first meaningful clause)
-    if (desc && desc.length > 15) {
-      const clause = desc.split(/[.!?\n;]/).filter(s => s.trim().length > 15)[0];
-      if (clause) themes.push(clause.trim());
-    }
+  const stopWords = new Set(['the','a','an','as','is','are','was','were','be','been','to','of','in','for','on','with','at','by','from','and','or','not','this','that','it','we','i','can','will','should','must','have','has','do','does','so','if','but','all','new','get','set','add','update','create','make','use','using','need','needs','able','also','when','then','into','each','per','via','may','our','any','both','more','work','item','items','user','users','page','data','system','feature','ensure','allow','based','within','between','support','provide','include','includes','story','stories','task','tasks']);
+
+  // Extract keywords from each story title
+  function titleKeywords(title) {
+    return title.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/).filter(w => w.length > 2 && !stopWords.has(w));
   }
 
-  // Extract common keywords to identify themes (ignore stop words)
-  const stopWords = new Set(['the','a','an','as','is','are','was','were','be','been','to','of','in','for','on','with','at','by','from','and','or','not','this','that','it','we','i','can','will','should','must','have','has','do','does','so','if','but','all','new','get','set','add','update','create','make']);
+  // Build keyword frequency across all stories
   const wordFreq = {};
-  themes.forEach(t => {
-    t.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/).forEach(w => {
-      if (w.length > 2 && !stopWords.has(w)) wordFreq[w] = (wordFreq[w] || 0) + 1;
-    });
-  });
-  const topKeywords = Object.entries(wordFreq)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8)
-    .map(([w]) => w);
-
-  // Group story titles into thematic clusters based on shared keywords
-  const clusters = {};
   for (const story of sprintStories) {
-    const title = (story.title || '').toLowerCase();
-    const matchedKey = topKeywords.find(k => title.includes(k)) || 'general';
-    if (!clusters[matchedKey]) clusters[matchedKey] = [];
-    clusters[matchedKey].push(story.title || '');
-  }
-
-  // Build a concise summary from the clusters
-  const clusterSummaries = [];
-  for (const [key, titles] of Object.entries(clusters)) {
-    if (titles.length === 1) {
-      clusterSummaries.push(titles[0]);
-    } else {
-      // Summarize: "N stories focused on [key area]: [first title] and related work"
-      clusterSummaries.push(`${titles[0]}${titles.length > 1 ? ` and ${titles.length - 1} related ${titles.length - 1 === 1 ? 'story' : 'stories'}` : ''}`);
+    const words = titleKeywords(story.title || '');
+    const seen = new Set();
+    for (const w of words) {
+      if (!seen.has(w)) { wordFreq[w] = (wordFreq[w] || 0) + 1; seen.add(w); }
     }
   }
 
-  // Compose 2-3 sentence summary
-  const total = sprintStories.length;
-  const sp = sprintStories.reduce((s, st) => s + (st.storyPoints || 0), 0);
+  // Cluster stories by their best shared keyword
+  const assigned = new Set();
+  const clusters = [];
 
-  let summary = `This sprint covers ${total} ${total === 1 ? 'story' : 'stories'} (${sp} SP) focused on: `;
-  summary += clusterSummaries.slice(0, 4).join('; ');
-  summary += '.';
+  // Sort keywords by frequency (descending) to form clusters around popular themes
+  const sortedKeywords = Object.entries(wordFreq)
+    .filter(([, count]) => count >= 2)
+    .sort((a, b) => b[1] - a[1]);
 
-  // Keep it under ~300 chars
-  if (summary.length > 300) {
-    summary = summary.slice(0, 297) + '...';
+  for (const [keyword] of sortedKeywords) {
+    const members = sprintStories.filter((s, i) => !assigned.has(i) && titleKeywords(s.title || '').includes(keyword));
+    if (members.length < 2) continue;
+    const indices = members.map(m => sprintStories.indexOf(m));
+    indices.forEach(i => assigned.add(i));
+    clusters.push({ keyword, stories: members });
   }
 
-  return summary;
+  // Remaining unclustered stories become individual bullets
+  const remaining = sprintStories.filter((_, i) => !assigned.has(i));
+
+  // Build bullet points
+  const bullets = [];
+
+  for (const cluster of clusters) {
+    const n = cluster.stories.length;
+    // Find a descriptive label from the cluster — capitalize the keyword
+    const label = cluster.keyword.charAt(0).toUpperCase() + cluster.keyword.slice(1);
+    // Get a brief sense of variety from titles
+    const uniqueTitles = [...new Set(cluster.stories.map(s => (s.title || '').trim()))];
+    if (n === 2) {
+      bullets.push(`${uniqueTitles[0]} and ${uniqueTitles[1].toLowerCase()}`);
+    } else {
+      // Summarize the cluster concisely
+      const shortTitle = uniqueTitles[0].length > 60 ? uniqueTitles[0].slice(0, 57) + '...' : uniqueTitles[0];
+      bullets.push(`${label}-related: ${shortTitle} (+${n - 1} more)`);
+    }
+  }
+
+  // Add remaining individual stories (cap at a few to keep it short)
+  for (const story of remaining.slice(0, 4)) {
+    const title = (story.title || '').trim();
+    bullets.push(title.length > 80 ? title.slice(0, 77) + '...' : title);
+  }
+  if (remaining.length > 4) {
+    bullets.push(`+${remaining.length - 4} additional items`);
+  }
+
+  // Cap total bullets to keep goals concise
+  return bullets.slice(0, 6);
 }
 
 /** Build burndown data from story completion dates within a sprint */

@@ -220,7 +220,8 @@
     background: #F8FAFC;
   }
   .sprint-goals h5 { font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-  .sprint-goals p { font-size: 12px; color: var(--text); line-height: 1.5; margin: 0; }
+  .sprint-goals ul { font-size: 12px; color: var(--text); line-height: 1.6; margin: 0; padding-left: 18px; }
+  .sprint-goals li { margin-bottom: 2px; }
 
   /* Print styles */
   @media print {
@@ -564,10 +565,10 @@ function renderSprintView() {
     const pct = sp.totalSP > 0 ? Math.round((sp.completedSP / sp.totalSP) * 100) : 0;
     const isOffSchedule = offScheduleProjects.includes(p);
 
-    // Sprint goals summary
-    const goalsText = sp.sprintGoals || '';
-    const goalsHtml = goalsText
-      ? `<div class="sprint-goals"><h5>Sprint Goals</h5><p>${goalsText.replace(/</g,'&lt;')}</p></div>`
+    // Sprint goals summary (array of bullet points)
+    const goalsList = sp.sprintGoals || [];
+    const goalsHtml = goalsList.length
+      ? `<div class="sprint-goals"><h5>Sprint Goals</h5><ul>${goalsList.map(g => `<li>${g.replace(/</g,'&lt;')}</li>`).join('')}</ul></div>`
       : '';
 
     return `<div class="sprint-proj-card" onclick="showSprintDetail(${i})">
