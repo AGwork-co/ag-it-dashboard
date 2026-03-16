@@ -204,6 +204,23 @@
   .state-pill.active { background: #E3F2FD; color: #1565C0; }
   .state-pill.new { background: #ECEFF1; color: #546E7A; }
 
+  /* Sprint header */
+  .sprint-header {
+    margin-bottom: 24px; padding: 20px 24px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 10px; color: white;
+  }
+  .sprint-header h2 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .sprint-header .sprint-dates { font-size: 14px; opacity: 0.85; }
+
+  /* Sprint goals */
+  .sprint-goals {
+    padding: 10px 18px; border-bottom: 1px solid var(--border);
+    background: #F8FAFC;
+  }
+  .sprint-goals h5 { font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .sprint-goals p { font-size: 12px; color: var(--text); line-height: 1.5; margin: 0; }
+
   /* Print styles */
   @media print {
     .nav-bar { display: none; }
@@ -228,7 +245,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, March 16, 2026 at 11:22 AM</span>
+    <span>Last updated: Monday, March 16, 2026 at 12:06 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
   </div>
 </div>
@@ -240,6 +257,7 @@
 
 <!-- =============== SPRINT TRACKING VIEW =============== -->
 <div class="main view-panel" id="viewSprint">
+  <div class="sprint-header" id="sprintHeader"></div>
   <div class="kpi-row" id="sprintKpiRow"></div>
   <div class="charts-row">
     <div class="chart-card" style="grid-column: 1 / -1"><h3>Sprint Burndown — All Projects</h3><canvas id="chartSprintBurndown"></canvas></div>
@@ -780,6 +798,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27562"
         }
       ],
+      "sprintGoals": "na-blackbox-sf finalize — Testing Blackbox &quot;processing&quot; & validating against NA in QA\nSF to NA: Account Services Testing Session\nReview MIA data structures — Review the current MIA data structure (legacy SQL Server database), including both MIA Old (Candidates) and MIA New (Missionaries), to facilitate in d\nAs an Org Admin, I want to test my connector configuration before deploying so I know it will work — &#128218; Related Docs API Contract — POST /instances/test endpoint Acceptance Criteria Test Connection button validates credentials before deployment\nAs an Org Admin, I want to see connector monitoring after deployment so I know if syncing is working — &#128218; Related Docs Database Schema — connector_sync_history, metrics tables API Contract — GET /instances/:id/history, /metrics endpoints Acceptan\nAs a Platform Admin, I want to assign roles to users so I can control what they can access — Acceptance Criteria User management page (Platform Admin only) List all users in tenant with current role Edit user button opens role selector: Platfo\nAs a developer, I want role-based UI rendering so users only see features they have access to — Acceptance Criteria UI components check user role before rendering Observer role: hides all action buttons (Add Connector, Write SQL, Edit Schema) Dat\nAs a developer, I want API authorization middleware so backend enforces role permissions — Acceptance Criteria Every API endpoint checks user role + permissions 403 Forbidden if user lacks permission (not 401 Unauthorized) Permission checks:\nAs a Platform Admin, I want audit logs so I can track who did what in the system — Acceptance Criteria Audit log page (Platform Admin only) Logs all actions: user login, role change, connector created, schema edited, job deployed Eac\nAs an Org Admin, I want to invite users to my organization so my team can access Mission Control — Acceptance Criteria Invite User button on user management page Enter email + select role (Org Admin, Data Owner, Observer) Sends invitation email with\nAs an Org Admin, I want to upload files directly to create data connectors so I can ingest CSV and JSON data without a database — Acceptance Criteria File Upload UI Drag-and-drop zone: Drop files here or click to browse Supported formats: CSV, JSON, Parquet, Excel (XLSX) File siz\nAs a Platform Admin, I want to support both Kafka Connect and Apache Camel connectors so I have access to 300+ pre-built integrations — &#128218; Related Docs Database Schema — connector_types table, plugin_class field Acceptance Criteria Support Kafka Connect connectors (Debezium, Con\nIdentify/refine tables | CDC On\nDebezium Connector Configuration — This is to connect to MIA tables and get data snapshot into Debezium in Local Docker instance\nFlink Enrichment and Tranformation for MIA to Salesforce — Top level story for all tasks related to the transformation and enrichment of MIA CDC data into a ready state for Salesforce\nFlink: Prototype Flink SQL with NA Notes\nInitialize pnpm monorepo with packages/web and packages/api — As a developer, I need a monorepo scaffold so the team has a consistent starting point matching Mission Control conventions\nScaffold React/TypeScript/Vite/Tailwind frontend (packages/web) — As a developer, I need a working React app scaffold with Tailwind and shadcn/ui so the team can start building UI components immediately\nScaffold Fastify API with TypeScript and health check endpoint — As a developer, I need a running Fastify API skeleton so the team can start adding routes immediately\nDocker Compose local dev environment (Postgres, Kafka, Kafka Connect) — As a developer, I need a one-command local environment so I can develop and test the full data pipeline locally without external dependencies\nAzure Pipeline for CI (lint, typecheck, test, build) — As a team, we need CI on every PR so code quality is enforced before merge\nView and manage roles in Mission Control — As an admin, I can create and manage roles in Mission Control so I can bundle privileges into meaningful access levels for different staff types\nDesign PostgreSQL schema, indexes, and migration strategy for Salesforce.Composite.Account at 1.5M records — As a platform engineer, I need a well-designed PostgreSQL schema with appropriate indexes for the accounts datastore so that launcher search queries r\nInitialize .NET solution and project structure for MIA Sync microservice — Description As a developer, I need to scaffold the\nConfigure Kafka consumer to connect to Salesforce.Composite.Account topic — Description As a developer, I need to configure a Kafka consumer that connects to the Salesforce\nExtract shared models into common NuGet package for Kafka consumers — Description As a developer, I need the Salesforce composite account models and shared utilities extracted into a common NuGet package so that both the\nConfigure Salesforce objects and fields for MIA integration — Setup and prototype all Salesforce custom objects, record types, custom fields, external IDs, validation rules, and security for the MIA integration\nImplement AG 360 launcher mockup UI (search, create, duplicate, detail views) — As a developer, I need to implement the interactive launcher UI from the AG 360 design mockup so we have a working prototype of the search → create → \nPostgreSQL Flex Server Terraform module + docker-compose local dev — Add Terraform module for Azure PostgreSQL Flexible Server and docker-compose\nPrisma ORM + PostgreSQL schema + seed data (tenants, agents, channels) — Add Prisma ORM to the backend, define schema for tenants/agents/channels/events, create seed data, swap mock-data routes to real Prisma queries\nAs a platform operator, I want to enable/disable the Notes topology via env var so I can control NARNotes processing without redeployment — Add NOTES_TOPOLOGY_ENABLED feature flag (default: true) to gate the TaskTopologyBuilder in na-transformer-sf\nAs an operator, I want to see connector status and Flink job status on the home dashboard — Add two new OpenMetadata-style summary tiles to the home dashboard: (1) Active Connectors tile showing connector health and sync counts, (2) Flink Job\nAs a data engineer, I want a Flink SQL editor to write, validate, and submit Flink SQL jobs — Ververica-style Flink SQL editor page at /flink/sql-editor\nAs an operator, I want to view per-connector data lineage to understand data flow from source to sink — Per-connector lineage graph page at /lineage\nAs an operator, I want a standalone Data Catalog to browse and search Data Products and Data Sources with RBAC filtering\nchore: standardize ag-mission-control on absolute @/ path aliases (frontend + backend) with lint enforcement — Both frontend and backend use relative imports (\nRefactor connector catalog from frontend static data to backend API — Currently, the connector catalog is hardcoded in frontend/mission-control-app/src/data/connectors",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -1051,6 +1070,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/27285"
         }
       ],
+      "sprintGoals": "ShipperHQ/Fascor Configuration — Not syncing to Dynamics GP (See related story) Can't import the order because all the shipping methods were different Adjusted shipping methods Additi\nSyncOrdersToGP not working — We entered order #1413 on Business Central with Account Number 10104333\nMake sure we have active sync between Dynamics GP and BigCommerce — It seems the last sync may have been months ago since several SKUs have been added since the summer that are not in BigCommerce's database\nAddresses: No validation on Address, City, State, Zip — Implement Smarty\nSync Orders from BC to GP Error — I tried using the dashboard for Staging to sync orders back to GP\nCity not required field during checkout — When checking out, you can leave the city and state of the shipping address blank, and you can still proceed through the checkout process\nProduction: 500 errors in the checkout — This is an issue we found in production\nMissing Field error in Payment — This is an issue in production\nSprint Goal(s) — Successful Sync of Products & Orders Place a US based order for a physical product all the way through to dynamicsGP + fascor Place a US based order f",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -1400,6 +1420,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/27401"
         }
       ],
+      "sprintGoals": "Ignite Parenting: Pages: Blog\nDiscipleship: Resources Page — Hi Darrin, We have decided that the new resource page will be divided up into these 4 sections: Theme 7 Dimensions Articles Enrichment Videos For the \nIgnite Parenting: Pages: Free Resources — Good morning, We’re looking to make a few improvements to the Ignite Parenting website to help parents more easily find content and resources, and we’\nIgnite Parenting: Base Layout / Menu / CSS\nIgnite Parenting: Spanish Translations\nIgnite Parenting: Import: Articles - English\nIgnite Parenting: Import: Articles - Spanish\nDiscipleship: Directors Page — Hi Darrin, We have decided that the new resource page will be divided up into these 4 sections: Theme 7 Dimensions Articles Enrichment Videos For the \nDiscipleship: Base Layout / Menu / CSS\nDiscipleship: Pages: 7 Dimensions\nDiscipleship: Pages: Virtual Learning Community\nDiscipleship: Contact Form",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -1762,6 +1783,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/27119"
         }
       ],
+      "sprintGoals": "BEP for Churches: App Stack — For BEP for Churches Typescript Vite React Router RTK + Listeners + Query Flowbite Pro Thread here: https://gcag-bep\nBEP for Churches: CI/CD — Create CI/CD pipelines to build/deploy BEP for Churches to Firebase Hosting\nv2.4.2 - Fixes\nSession Expired: Alert — Detect when a User's token is expired\nv3.1.0 fixes",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -2187,6 +2209,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/27500"
         }
       ],
+      "sprintGoals": "Art Gallery: MUI Grid — Add a menu item named &quot;Art Gallery&quot; after Evaluating and before Reports Add a new permission named &quot;modify:art-gallery&quot; Assign thi\nArt Gallery Report — Under the Art Gallery menu group, add an item named &quot;Report&quot; Display a MUI grid with columns for Participant ID, First Name, Last Name, Cate\nCelebration Service: Dashboard Setup / Cards — Add a menu item named &quot;Celebration Service&quot;\nresults.faf.ag.org — Update firewall rules: internal - agweb9 - 192\nRaygun: Skip logging errors on localhost — Don't send errors from localhost to Raygun\nParticipant Info: Search — Current prototype exists at: https://dev\nParticipant Info: Event Selection — After search is complete\nParticipant: Detail Page — Once an event is chosen on the previous page\nGroups/Leaders: Sort Participant Column — Allow users to sort the &quot;Participants&quot; column on the Groups & Leaders MUI grids:\nSetup Google Analytics\nChurch Confirmation Email Download (without sending) — Modify the Church Confirmation button so that it has two options: Email - same as current button click functionality Download - generates PDF and init\nPresentations: Delete presentations — On the Presentations page, add the ability to delete all scheduled presentations\nScoring: Swap order of time/rule violation options — On the scoring form, swap the order of Time Violation & Rule Violation so that Rule Violation shows up first and Time Violation second\nParticipant Summary: Add Church Name, Church City & Church State — Add the Church Name - Church City, Church State underneath the email\nNot Scored Report — Rename the existing &quot;Scheduled Not Scored&quot; Report to &quot;Not Scored&quot; It currently includes presentations that were scheduled but not \nScoring: Display Participant ID — On the scoring form, display the Participant ID in the following locations: In the screenshot below, you could just put the participant ID in parenthe\nScoring: Individual Category Name formatting — Format individual names as LastName, FirstName in the following locations\nScoring: Search by Participant ID — In the scoring drawer, in the search field\nReports: Award of Merit: Export all group member names — Modify the Final Round Results (Merit Awards) report so that there is an additional option to display all group members",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -2337,6 +2360,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/Chi%20Alpha/_workitems/edit/27470"
         }
       ],
+      "sprintGoals": "Document comprehensive inventory of all systems supporting Chi Alpha operations — Overview As a project stakeholder in the Chi Alpha affiliate ministry transition, I need a comprehensive inventory of all IT systems, applications, an",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -2748,6 +2772,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/27509"
         }
       ],
+      "sprintGoals": "(CyberSource Account Updater) Write any account updater changes to AG Giving audit log — @Dorland, Steve - Can you review this to see if it's ready for Production\nDecommission Legacy AG Giving\nAG Giving: Display AGTG Report Data — Create a screen similar to below\nUpgrade Funds API .NetCore — Upgrade the following apps to\nUpgrade AG Payments API .NetCore — Upgrade the following apps to\nUpgrade AG Webrepo API .NetCore — Upgrade the following apps to\nUpdate DC217_PPRBatchHarvestListingBatchDateBatchID to handle more than two months of date — This report needs to be updated so users can hit data between two, five months\nSPIKE: Investigate Unified Checkout (Dorland)\nCoins for Kids/Master's Toolbox Reports — Good afternoon\nCartSessionGuid undefined",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -2925,6 +2950,7 @@ const projects = [
       "remainingSP": 0,
       "storyCount": 0,
       "stories": [],
+      "sprintGoals": "",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -3184,6 +3210,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Apps/_workitems/edit/27346"
         }
       ],
+      "sprintGoals": "Change wording for AGMD.org forgot password screen — Dear SDS Missions Team, Since missionaries haven’t had agmd\nUI: Enrollments — Generate the Enrollment file Potential Enrollment Pull Filter to what is needed\nUI: Payments — Generate the payement Potnential Payment Pull Filter to what is needed\nUI: History — Show all sessions, either enrollments or payments, with drilldown and all steps taken and link to detail\nFeature Request: Selectable Security Training — Good morning, For the AGWM Event Registration system, is it possible to make the different Security Training sections something they can choose instea\nQuarterly tax transfers from missy accounts  — As discussed with Phil Farrand, we need a ticket to have a method set up to transfer tax payments from missionaries’ (05)s to a central account (I hav",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -3404,6 +3431,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/27408"
         }
       ],
+      "sprintGoals": "Form: Create a Travel Approval Form\nNew Screen in Financial Reporting [Itineration Administration] — Source Code: C:\\Users\\dyarbrough\\source\\repos\\ag-agwm-financial-reporting-applcaition PI Jan 2026 (After meeting with department Top portion of the sc\nUpdate Financial Reporting API to get data off of Tupelo — Steps needed: Get a connection to DB-FM-Prod\nCreate Buttons — Add Missionary to Itineration Create Archive Remove Account (from Access document or remove from itineration) Clarify intention with product stakehold",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -3610,6 +3638,7 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/AG%20Missions%20Common/_workitems/edit/26262"
         }
       ],
+      "sprintGoals": "CORS list Update — Need to be using this: https://apiv2",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -3897,6 +3926,7 @@ const projects = [
       "remainingSP": 0,
       "storyCount": 0,
       "stories": [],
+      "sprintGoals": "",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -4177,7 +4207,8 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
 const DONE_STATES = ['Closed', 'Resolved', 'Done', 'Removed'];
 
 function renderSprintView() {
-  const sprintProjects = projects.filter(p => p.currentSprint);
+  // Only include projects that have stories assigned to the current sprint
+  const sprintProjects = projects.filter(p => p.currentSprint && p.currentSprint.storyCount > 0);
   const allSprintStories = sprintProjects.flatMap(p => p.currentSprint.stories || []);
   const totalSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.totalSP, 0);
   const completedSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.completedSP, 0);
@@ -4185,38 +4216,51 @@ function renderSprintView() {
   const totalCapacityHrs = sprintProjects.reduce((s, p) => s + (p.currentSprint.capacity?.hoursPerDay || 0), 0);
   const totalMembers = new Set(sprintProjects.flatMap(p => (p.currentSprint.capacity?.members || []).map(m => m.name))).size;
 
-  // Sprint name (use first project's sprint name as representative)
+  // Sprint name and dates (use first project's sprint as representative)
   const sprintName = sprintProjects.length > 0 ? sprintProjects[0].currentSprint.name : 'No Active Sprint';
   const sprintStart = sprintProjects[0]?.currentSprint.startDate;
   const sprintEnd = sprintProjects[0]?.currentSprint.endDate;
   const dateRange = sprintStart && sprintEnd
-    ? `${new Date(sprintStart).toLocaleDateString('en-US', {month:'short',day:'numeric'})} — ${new Date(sprintEnd).toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})}`
+    ? `${new Date(sprintStart).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric'})} — ${new Date(sprintEnd).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric', year:'numeric'})}`
     : '';
 
-  // KPIs
+  // Sprint header
+  document.getElementById('sprintHeader').innerHTML = `
+    <h2>${sprintName}</h2>
+    <div class="sprint-dates">${dateRange}</div>
+  `;
+
+  // KPIs (no sprint name card — that's now the header)
   document.getElementById('sprintKpiRow').innerHTML = [
-    { value: sprintName, label: dateRange || 'Current Sprint', isText: true },
     { value: allSprintStories.length, label: 'Sprint Stories' },
     { value: totalSprintSP, label: 'Total SP' },
     { value: completedSprintSP, label: 'Completed SP' },
     { value: remainingSprintSP, label: 'Remaining SP' },
     { value: totalMembers || '—', label: 'Team Members' },
     { value: totalCapacityHrs ? totalCapacityHrs + 'h' : '—', label: 'Capacity/Day' },
-  ].map(k => `<div class="kpi-card"><div class="value" style="${k.isText ? 'font-size:20px' : ''}">${k.value}</div><div class="label">${k.label}</div></div>`).join('');
+  ].map(k => `<div class="kpi-card"><div class="value">${k.value}</div><div class="label">${k.label}</div></div>`).join('');
 
   // Cross-project burndown chart
   renderSprintBurndown(sprintProjects);
 
-  // Project cards
+  // Project cards — only projects with sprint work
   const grid = document.getElementById('sprintProjectCards');
   grid.innerHTML = sprintProjects.map((p, i) => {
     const sp = p.currentSprint;
     const pct = sp.totalSP > 0 ? Math.round((sp.completedSP / sp.totalSP) * 100) : 0;
+
+    // Sprint goals: show as bullet points (newline-delimited from build)
+    const goalsLines = (sp.sprintGoals || '').split('\n').filter(g => g.trim());
+    const goalsHtml = goalsLines.length > 0
+      ? `<div class="sprint-goals"><h5>Sprint Goals</h5><p>${goalsLines.map(g => '&#8226; ' + g.replace(/</g,'&lt;')).join('<br>')}</p></div>`
+      : '';
+
     return `<div class="sprint-proj-card" onclick="showSprintDetail(${i})">
       <div class="spc-header">
         <h4>${p.shortName}</h4>
         <span style="font-size:11px;color:var(--text-muted)">${sp.name}</span>
       </div>
+      ${goalsHtml}
       <div class="spc-body">
         <div class="spc-stats">
           <div class="spc-stat"><span class="num">${sp.storyCount}</span><span class="lbl">Stories</span></div>
@@ -4231,7 +4275,7 @@ function renderSprintView() {
   }).join('');
 
   if (sprintProjects.length === 0) {
-    grid.innerHTML = '<div class="chart-card" style="text-align:center;padding:40px;grid-column:1/-1"><p style="color:var(--text-muted)">No active sprint found for any project.</p></div>';
+    grid.innerHTML = '<div class="chart-card" style="text-align:center;padding:40px;grid-column:1/-1"><p style="color:var(--text-muted)">No projects with stories assigned to the current sprint.</p></div>';
   }
 }
 
@@ -4319,7 +4363,7 @@ function renderSprintBurndown(sprintProjects) {
 
 let sprintDetailChart = null;
 function showSprintDetail(idx) {
-  const sprintProjects = projects.filter(p => p.currentSprint);
+  const sprintProjects = projects.filter(p => p.currentSprint && p.currentSprint.storyCount > 0);
   const p = sprintProjects[idx];
   if (!p) return;
   const sp = p.currentSprint;
