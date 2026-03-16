@@ -685,7 +685,9 @@ function showSprintDetail(idx) {
 
   const stateClass = (state) => DONE_STATES.includes(state) ? 'done' : (state === 'Active' || state === 'In Progress' || state === 'Committed') ? 'active' : 'new';
 
-  const storyRows = (sp.stories || []).map(s =>
+  const stateOrder = { 'Done': 0, 'Closed': 0, 'Resolved': 1, 'Committed': 2, 'Active': 3, 'In Progress': 3, 'New': 4, 'To Do': 5, 'Removed': 6 };
+  const sortedStories = [...(sp.stories || [])].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
+  const storyRows = sortedStories.map(s =>
     `<tr>
       <td><a href="${s.url}" target="_blank">${s.id}</a></td>
       <td>${s.title}</td>
