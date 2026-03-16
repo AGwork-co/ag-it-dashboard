@@ -212,15 +212,15 @@
     padding-bottom: 8px; border-bottom: 2px solid var(--primary);
   }
   .team-member-cards {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    columns: 2; column-gap: 12px;
   }
   @media (max-width: 900px) {
-    .team-member-cards { grid-template-columns: 1fr; }
+    .team-member-cards { columns: 1; }
   }
   .team-member-card {
     background: white; border-radius: 8px; border: 1px solid var(--border);
     box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: hidden;
-    align-self: start;
+    break-inside: avoid; margin-bottom: 12px;
   }
   .tmc-header {
     padding: 12px 18px; background: var(--primary); color: white;
@@ -284,7 +284,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, March 16, 2026 at 4:19 PM</span>
+    <span>Last updated: Monday, March 16, 2026 at 4:25 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
   </div>
 </div>
