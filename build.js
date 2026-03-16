@@ -124,7 +124,7 @@ function stripHtml(html) {
 
 /** Generate a concise 2-3 sentence sprint goals summary from story titles and descriptions */
 function generateSprintGoals(sprintStories) {
-  if (!sprintStories.length) return [];
+  if (!sprintStories.length) return '';
 
   const stopWords = new Set(['the','a','an','as','is','are','was','were','be','been','to','of','in','for','on','with','at','by','from','and','or','not','this','that','it','we','i','can','will','should','must','have','has','do','does','so','if','but','all','new','get','set','add','update','create','make','use','using','need','needs','able','also','when','then','into','each','per','via','may','our','any','both','more','work','item','items','user','users','page','data','system','feature','ensure','allow','based','within','between','support','provide','include','includes','story','stories','task','tasks']);
 
@@ -146,8 +146,6 @@ function generateSprintGoals(sprintStories) {
   // Cluster stories by their best shared keyword
   const assigned = new Set();
   const clusters = [];
-
-  // Sort keywords by frequency (descending) to form clusters around popular themes
   const sortedKeywords = Object.entries(wordFreq)
     .filter(([, count]) => count >= 2)
     .sort((a, b) => b[1] - a[1]);
@@ -155,43 +153,61 @@ function generateSprintGoals(sprintStories) {
   for (const [keyword] of sortedKeywords) {
     const members = sprintStories.filter((s, i) => !assigned.has(i) && titleKeywords(s.title || '').includes(keyword));
     if (members.length < 2) continue;
-    const indices = members.map(m => sprintStories.indexOf(m));
-    indices.forEach(i => assigned.add(i));
+    members.forEach(m => assigned.add(sprintStories.indexOf(m)));
     clusters.push({ keyword, stories: members });
   }
-
-  // Remaining unclustered stories become individual bullets
   const remaining = sprintStories.filter((_, i) => !assigned.has(i));
 
-  // Build bullet points
-  const bullets = [];
-
+  // Build natural-language theme phrases
+  const phrases = [];
   for (const cluster of clusters) {
-    const n = cluster.stories.length;
-    // Find a descriptive label from the cluster — capitalize the keyword
     const label = cluster.keyword.charAt(0).toUpperCase() + cluster.keyword.slice(1);
-    // Get a brief sense of variety from titles
-    const uniqueTitles = [...new Set(cluster.stories.map(s => (s.title || '').trim()))];
-    if (n === 2) {
-      bullets.push(`${uniqueTitles[0]} and ${uniqueTitles[1].toLowerCase()}`);
+    const n = cluster.stories.length;
+    // Try to find a second keyword that co-occurs to make a richer label
+    const coWords = {};
+    cluster.stories.forEach(s => {
+      titleKeywords(s.title || '').filter(w => w !== cluster.keyword).forEach(w => {
+        coWords[w] = (coWords[w] || 0) + 1;
+      });
+    });
+    const coTop = Object.entries(coWords).sort((a, b) => b[1] - a[1])[0];
+    const modifier = coTop && coTop[1] >= 2 ? ` ${coTop[0]}` : '';
+    phrases.push(`${label.toLowerCase()}${modifier} enhancements (${n} stories)`);
+  }
+
+  // Summarize remaining stories concisely
+  if (remaining.length > 0) {
+    if (remaining.length <= 2) {
+      remaining.forEach(s => {
+        const t = (s.title || '').trim();
+        phrases.push(t.length > 70 ? t.slice(0, 67) + '...' : t.toLowerCase());
+      });
     } else {
-      // Summarize the cluster concisely
-      const shortTitle = uniqueTitles[0].length > 60 ? uniqueTitles[0].slice(0, 57) + '...' : uniqueTitles[0];
-      bullets.push(`${label}-related: ${shortTitle} (+${n - 1} more)`);
+      // Pick top 2 remaining titles and note the rest
+      const titles = remaining.slice(0, 2).map(s => {
+        const t = (s.title || '').trim();
+        return t.length > 50 ? t.slice(0, 47) + '...' : t.toLowerCase();
+      });
+      phrases.push(`${titles.join(', ')}, and ${remaining.length - 2} other items`);
     }
   }
 
-  // Add remaining individual stories (cap at a few to keep it short)
-  for (const story of remaining.slice(0, 4)) {
-    const title = (story.title || '').trim();
-    bullets.push(title.length > 80 ? title.slice(0, 77) + '...' : title);
+  // Compose a flowing summary — join themes as a readable sentence
+  if (phrases.length === 0) return '';
+  let summary = 'Delivering ' + phrases[0];
+  if (phrases.length === 2) {
+    summary += ', along with ' + phrases[1];
+  } else if (phrases.length > 2) {
+    summary += ', ' + phrases.slice(1, -1).join(', ') + ', and ' + phrases[phrases.length - 1];
   }
-  if (remaining.length > 4) {
-    bullets.push(`+${remaining.length - 4} additional items`);
+  summary += '.';
+
+  // Cap length for scannability
+  if (summary.length > 350) {
+    summary = summary.slice(0, 347) + '...';
   }
 
-  // Cap total bullets to keep goals concise
-  return bullets.slice(0, 6);
+  return summary;
 }
 
 /** Build burndown data from story completion dates within a sprint */
