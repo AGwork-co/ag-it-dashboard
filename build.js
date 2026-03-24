@@ -509,7 +509,7 @@ function generateHTML(projectsData, buildTime) {
   const html = template
     .replace('/*__PROJECT_DATA__*/', JSON.stringify(projectsData, null, 2))
     .replace('__BUILD_TIME__', buildTime)
-;
+    .replace('__REFRESH_WORKER_URL__', process.env.REFRESH_WORKER_URL || '');
 
   return html;
 }

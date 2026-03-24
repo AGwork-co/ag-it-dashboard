@@ -51,6 +51,7 @@
   .refresh-btn:hover { background: rgba(255,255,255,0.25); }
   .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
   .refresh-btn svg { width: 12px; height: 12px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
   .header .live-dot {
     width: 8px; height: 8px; background: #4CAF50; border-radius: 50%;
     animation: pulse 2s infinite;
@@ -562,8 +563,35 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
 // ============================================================
 const DONE_STATES = ['Closed', 'Resolved', 'Done', 'Removed'];
 
-function triggerRefresh() {
-  window.open('https://github.com/AGwork-co/ag-it-dashboard/actions/workflows/deploy.yml', '_blank');
+async function triggerRefresh() {
+  const btn = document.getElementById('refreshBtn');
+  const WORKER_URL = '__REFRESH_WORKER_URL__';
+  if (!WORKER_URL || WORKER_URL === '__REFRESH_WORKER_URL__') {
+    alert('Refresh worker not yet configured.');
+    return;
+  }
+
+  btn.disabled = true;
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 1s linear infinite"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Triggering...';
+
+  try {
+    const res = await fetch(WORKER_URL, { method: 'POST' });
+    const data = await res.json();
+    if (data.ok) {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Building — reload in ~2 min';
+      btn.style.background = 'rgba(76,175,80,0.3)';
+      setTimeout(() => { btn.innerHTML = originalHTML; btn.style.background = ''; btn.disabled = false; }, 10000);
+    } else {
+      btn.innerHTML = originalHTML;
+      btn.disabled = false;
+      alert('Refresh failed. Check the Worker configuration.');
+    }
+  } catch {
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    alert('Could not reach the refresh service. Check your connection.');
+  }
 }
 
 function renderSprintView() {

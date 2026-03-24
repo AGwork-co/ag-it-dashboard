@@ -33,6 +33,7 @@ jobs:
         env:
           AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
           AZURE_DEVOPS_ORG_URL: ${{ secrets.AZURE_DEVOPS_ORG_URL }}
+          REFRESH_WORKER_URL: ${{ secrets.REFRESH_WORKER_URL }}
         run: npm run build
 
       - name: Commit and push updated dashboard
