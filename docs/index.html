@@ -42,6 +42,15 @@
     padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;
     letter-spacing: 0.3px;
   }
+  .refresh-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35);
+    color: white; padding: 3px 12px; border-radius: 12px; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.3px; cursor: pointer; transition: background 0.2s;
+  }
+  .refresh-btn:hover { background: rgba(255,255,255,0.25); }
+  .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .refresh-btn svg { width: 12px; height: 12px; }
   .header .live-dot {
     width: 8px; height: 8px; background: #4CAF50; border-radius: 50%;
     animation: pulse 2s infinite;
@@ -287,8 +296,12 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, March 23, 2026 at 4:33 PM</span>
+    <span>Last updated: Tuesday, March 24, 2026 at 8:55 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
+    <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      Refresh Data
+    </button>
   </div>
 </div>
 
@@ -395,7 +408,7 @@ const projects = [
       "estimated": 129,
       "unestimated": 176,
       "totalSP": 367.5,
-      "incompleteSP": 91.25,
+      "incompleteSP": 90,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 52,
@@ -423,8 +436,8 @@ const projects = [
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
       "totalSP": 128.5,
-      "completedSP": 83.25,
-      "remainingSP": 45.25,
+      "completedSP": 84.5,
+      "remainingSP": 44,
       "storyCount": 53,
       "stories": [
         {
@@ -760,12 +773,12 @@ const projects = [
         {
           "id": 27381,
           "title": "Extract shared models into common NuGet package for Kafka consumers",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 1.25,
-          "completedSP": 0,
-          "remainingSP": 1.25,
+          "completedSP": 1.25,
+          "remainingSP": 0,
           "assignedTo": "Lamar, Brion",
-          "completedDate": null,
+          "completedDate": "2026-03-24T02:59:17.497Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27381"
         },
         {
@@ -996,7 +1009,7 @@ const projects = [
           "completedSP": 1,
           "remainingSP": 0,
           "assignedTo": "Lamar, Brion",
-          "completedDate": "2026-03-20T02:43:23.96Z",
+          "completedDate": "2026-03-23T21:51:08.11Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27667"
         },
         {
@@ -1049,11 +1062,15 @@ const projects = [
           },
           {
             "date": "2026-03-20",
-            "remaining": 51.75
+            "remaining": 52.75
           },
           {
             "date": "2026-03-23",
             "remaining": 46.75
+          },
+          {
+            "date": "2026-03-24",
+            "remaining": 45.5
           }
         ],
         "ideal": [
@@ -1345,6 +1362,10 @@ const projects = [
           },
           {
             "date": "2026-03-23",
+            "remaining": 11
+          },
+          {
+            "date": "2026-03-24",
             "remaining": 11
           }
         ],
@@ -1727,6 +1748,10 @@ const projects = [
           {
             "date": "2026-03-23",
             "remaining": 17
+          },
+          {
+            "date": "2026-03-24",
+            "remaining": 17
           }
         ],
         "ideal": [
@@ -2068,6 +2093,10 @@ const projects = [
           {
             "date": "2026-03-23",
             "remaining": 5
+          },
+          {
+            "date": "2026-03-24",
+            "remaining": 5
           }
         ],
         "ideal": [
@@ -2380,7 +2409,7 @@ const projects = [
           "completedSP": 1,
           "remainingSP": 0,
           "assignedTo": "Keltner, Scott",
-          "completedDate": "2026-03-13T02:49:37.013Z",
+          "completedDate": "2026-03-23T21:56:29.393Z",
           "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/27013"
         },
         {
@@ -2512,30 +2541,34 @@ const projects = [
           },
           {
             "date": "2026-03-13",
-            "remaining": 29.5
+            "remaining": 30.5
           },
           {
             "date": "2026-03-16",
-            "remaining": 29.5
+            "remaining": 30.5
           },
           {
             "date": "2026-03-17",
-            "remaining": 29.25
+            "remaining": 30.25
           },
           {
             "date": "2026-03-18",
-            "remaining": 29.25
+            "remaining": 30.25
           },
           {
             "date": "2026-03-19",
-            "remaining": 29.25
+            "remaining": 30.25
           },
           {
             "date": "2026-03-20",
-            "remaining": 29.25
+            "remaining": 30.25
           },
           {
             "date": "2026-03-23",
+            "remaining": 29.25
+          },
+          {
+            "date": "2026-03-24",
             "remaining": 29.25
           }
         ],
@@ -2707,6 +2740,10 @@ const projects = [
           },
           {
             "date": "2026-03-23",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-24",
             "remaining": 0.5
           }
         ],
@@ -3139,6 +3176,10 @@ const projects = [
           },
           {
             "date": "2026-03-23",
+            "remaining": 13.25
+          },
+          {
+            "date": "2026-03-24",
             "remaining": 13.25
           }
         ],
@@ -3598,6 +3639,10 @@ const projects = [
           {
             "date": "2026-03-23",
             "remaining": 17.5
+          },
+          {
+            "date": "2026-03-24",
+            "remaining": 17.5
           }
         ],
         "ideal": [
@@ -3839,6 +3884,10 @@ const projects = [
           {
             "date": "2026-03-23",
             "remaining": 16
+          },
+          {
+            "date": "2026-03-24",
+            "remaining": 16
           }
         ],
         "ideal": [
@@ -4065,6 +4114,10 @@ const projects = [
           },
           {
             "date": "2026-03-23",
+            "remaining": 0.25
+          },
+          {
+            "date": "2026-03-24",
             "remaining": 0.25
           }
         ],
@@ -4374,6 +4427,10 @@ const projects = [
           {
             "date": "2026-03-23",
             "remaining": 0
+          },
+          {
+            "date": "2026-03-24",
+            "remaining": 0
           }
         ],
         "ideal": [
@@ -4630,6 +4687,10 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
 // SPRINT TRACKING
 // ============================================================
 const DONE_STATES = ['Closed', 'Resolved', 'Done', 'Removed'];
+
+function triggerRefresh() {
+  window.open('https://github.com/AGwork-co/ag-it-dashboard/actions/workflows/deploy.yml', '_blank');
+}
 
 function renderSprintView() {
   // Only include projects that have stories assigned to the current sprint
