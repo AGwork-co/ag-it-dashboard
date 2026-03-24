@@ -625,7 +625,7 @@ function renderSprintView() {
   const sprintStart = sprintProjects[0]?.currentSprint.startDate;
   const sprintEnd = sprintProjects[0]?.currentSprint.endDate;
   const dateRange = sprintStart && sprintEnd
-    ? `${new Date(sprintStart).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric'})} — ${new Date(sprintEnd).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric', year:'numeric'})}`
+    ? `${new Date(sprintStart + 'T12:00:00').toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric'})} — ${new Date(sprintEnd + 'T12:00:00').toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric', year:'numeric'})}`
     : '';
 
   // Sprint header
@@ -1011,8 +1011,8 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
   // Pre-compute burndown data per person for lazy chart rendering
   window._teamBurndownData = {};
   if (sprintStart && sprintEnd) {
-    const start = new Date(sprintStart);
-    const end = new Date(sprintEnd);
+    const start = new Date(sprintStart + 'T12:00:00');
+    const end = new Date(sprintEnd + 'T12:00:00');
     const today = new Date(); today.setHours(0,0,0,0);
     const cutoff = end < today ? end : today;
     const numDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
