@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Tuesday, March 24, 2026 at 9:44 AM</span>
+    <span>Last updated: Tuesday, March 24, 2026 at 9:48 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -4731,6 +4731,9 @@ async function triggerRefresh() {
   }
 }
 
+// Parse date strings from Azure DevOps safely (strips time component to avoid UTC→local shift)
+const parseSprintDate = s => new Date(s.split('T')[0] + 'T12:00:00');
+
 function renderSprintView() {
   // Only include projects that have stories assigned to the current sprint
   const allSprintProjects = projects.filter(p => p.currentSprint && p.currentSprint.storyCount > 0);
@@ -4762,7 +4765,7 @@ function renderSprintView() {
   const sprintStart = sprintProjects[0]?.currentSprint.startDate;
   const sprintEnd = sprintProjects[0]?.currentSprint.endDate;
   const dateRange = sprintStart && sprintEnd
-    ? `${new Date(sprintStart + 'T12:00:00').toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric'})} — ${new Date(sprintEnd + 'T12:00:00').toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric', year:'numeric'})}`
+    ? `${parseSprintDate(sprintStart).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric'})} — ${parseSprintDate(sprintEnd).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric', year:'numeric'})}`
     : '';
 
   // Sprint header
@@ -5148,8 +5151,8 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
   // Pre-compute burndown data per person for lazy chart rendering
   window._teamBurndownData = {};
   if (sprintStart && sprintEnd) {
-    const start = new Date(sprintStart + 'T12:00:00');
-    const end = new Date(sprintEnd + 'T12:00:00');
+    const start = parseSprintDate(sprintStart);
+    const end = parseSprintDate(sprintEnd);
     const today = new Date(); today.setHours(0,0,0,0);
     const cutoff = end < today ? end : today;
     const numDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
