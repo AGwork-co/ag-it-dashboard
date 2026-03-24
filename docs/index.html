@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Tuesday, March 24, 2026 at 10:30 AM</span>
+    <span>Last updated: Tuesday, March 24, 2026 at 12:15 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -1031,7 +1031,7 @@ const projects = [
           "storyPoints": 0.5,
           "completedSP": 0,
           "remainingSP": 0.5,
-          "assignedTo": "Hassbaum, Ralph",
+          "assignedTo": "Furr, Darren M",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27720"
         }
@@ -5122,11 +5122,40 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
   const section = document.getElementById('teamSprintSection');
   if (!section) return;
 
-  // Collect all stories across on-schedule projects
+  // Collect all stories across projects
   const allStories = sprintProjects.flatMap(p =>
     (p.currentSprint.stories || []).map(s => ({ ...s, projectName: p.shortName }))
   );
   if (allStories.length === 0) { section.innerHTML = ''; return; }
+
+  // Calculate working days in sprint (Mon-Fri only)
+  let sprintWorkingDays = 0;
+  if (sprintStart && sprintEnd) {
+    const s = parseSprintDate(sprintStart), e = parseSprintDate(sprintEnd);
+    for (let d = new Date(s); d <= e; d.setDate(d.getDate() + 1)) {
+      if (d.getDay() !== 0 && d.getDay() !== 6) sprintWorkingDays++;
+    }
+  }
+  const capacityFactor = 0.80; // 80% planning rule
+
+  // Collect and deduplicate days-off per person across all projects
+  const personDaysOff = {};
+  sprintProjects.forEach(p => {
+    const members = p.currentSprint?.capacity?.members || [];
+    members.forEach(m => {
+      if (!personDaysOff[m.name]) personDaysOff[m.name] = new Set();
+      (m.daysOffRanges || []).forEach(range => {
+        // Expand date range to individual dates and add to set for dedup
+        const rs = new Date(range.start + 'T12:00:00');
+        const re = range.end ? new Date(range.end + 'T12:00:00') : rs;
+        for (let d = new Date(rs); d <= re; d.setDate(d.getDate() + 1)) {
+          if (d.getDay() !== 0 && d.getDay() !== 6) {
+            personDaysOff[m.name].add(d.toISOString().split('T')[0]);
+          }
+        }
+      });
+    });
+  });
 
   // Group by assignee
   const byPerson = {};
@@ -5134,6 +5163,14 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     const name = s.assignedTo || 'Unassigned';
     if (!byPerson[name]) byPerson[name] = [];
     byPerson[name].push(s);
+  });
+
+  // Calculate capacity per person: (workingDays * 80%) - daysOff
+  const personCapacity = {};
+  Object.keys(byPerson).forEach(name => {
+    const daysOff = personDaysOff[name] ? personDaysOff[name].size : 0;
+    const available = Math.max(0, Math.round((sprintWorkingDays * capacityFactor - daysOff) * 100) / 100);
+    personCapacity[name] = { available, daysOff, totalWorkingDays: sprintWorkingDays };
   });
 
   // Sort people: by total SP descending
@@ -5156,7 +5193,10 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
     const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
     const doneSP = stories.filter(st => DONE_STATES.includes(st.state)).reduce((s, st) => s + (st.storyPoints || 0), 0);
-    const pct = totalSP > 0 ? Math.round((doneSP / totalSP) * 100) : 0;
+    const cap = personCapacity[name] || { available: 0 };
+    const capSP = cap.available;
+    const utilPct = capSP > 0 ? Math.round((totalSP / capSP) * 100) : 0;
+    const utilColor = utilPct > 100 ? '#F87171' : utilPct >= 80 ? '#FBBF24' : '#34D399';
 
     const rows = sorted.map(s =>
       `<tr>
@@ -5171,7 +5211,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     html += `<div class="team-member-card" id="tmCard_${idx}">
       <div class="tmc-header" onclick="toggleTeamCard(${idx})">
         <h4>${name}</h4>
-        <span class="tmc-stats">${stories.length} stories &bull; ${doneSP}/${totalSP} SP (${pct}%)</span>
+        <span class="tmc-stats">${totalSP} sp / ${capSP} sp capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span></span>
       </div>
       <div class="tmc-detail">
         <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
@@ -5204,6 +5244,11 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
 
     people.forEach(([name, stories], idx) => {
       const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
+      const cap = personCapacity[name] || { available: 0 };
+      const capSP = cap.available;
+      // Use capacity as the burndown starting point (the "ideal" line)
+      const burndownStart = Math.max(totalSP, capSP);
+
       const completedByDate = {};
       stories.forEach(st => {
         if (st.completedDate && st.storyPoints) {
@@ -5218,14 +5263,15 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
         const d = new Date(dateStr + 'T12:00:00');
         if (d <= cutoff) actualData.push(Math.max(0, remaining));
       });
+      // Capacity ideal line: starts at capacity SP, burns down linearly to 0
       const idealData = workingDays.map((_, i) =>
-        Math.max(0, totalSP - (totalSP / (workingDays.length - 1)) * i)
+        Math.max(0, capSP - (capSP / (workingDays.length - 1)) * i)
       );
       const idealLabels = workingDays.map(dateStr => {
         const d = new Date(dateStr + 'T12:00:00');
         return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       });
-      window._teamBurndownData[idx] = { actualData, idealData, idealLabels };
+      window._teamBurndownData[idx] = { actualData, idealData, idealLabels, capSP, totalSP };
     });
   }
 }
@@ -5249,23 +5295,23 @@ function toggleTeamCard(idx) {
             labels: data.idealLabels,
             datasets: [
               {
-                label: 'Actual',
+                label: 'Actual Remaining',
                 data: data.actualData,
                 borderColor: '#60A5FA',
                 backgroundColor: 'rgba(96,165,250,0.15)',
                 fill: true, tension: 0.3, pointRadius: 3, borderWidth: 2, spanGaps: false
               },
               {
-                label: 'Ideal',
+                label: 'Capacity',
                 data: data.idealData,
-                borderColor: '#475569',
+                borderColor: '#34D399',
                 borderDash: [6, 4], pointRadius: 0, borderWidth: 2, fill: false
               }
             ]
           },
           options: {
             responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
+            plugins: { legend: { display: true, labels: { font: { size: 10 }, color: '#94A3B8', boxWidth: 12, padding: 10 } } },
             scales: {
               x: { grid: { display: false }, ticks: { font: { size: 9 }, maxRotation: 0 } },
               y: { beginAtZero: true, title: { display: true, text: 'SP', font: { size: 10 } }, grid: { color: '#334155' }, ticks: { font: { size: 9 } } }
