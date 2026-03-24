@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Tuesday, March 24, 2026 at 9:22 AM</span>
+    <span>Last updated: Tuesday, March 24, 2026 at 9:25 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -4822,8 +4822,8 @@ function renderSprintView() {
     grid.innerHTML = '<div class="chart-card" style="text-align:center;padding:40px;grid-column:1/-1"><p style="color:var(--text-muted)">No projects with stories assigned to the current sprint.</p></div>';
   }
 
-  // Render per-person team view at the bottom
-  renderTeamSprintView(sprintProjects, sprintStart, sprintEnd);
+  // Render per-person team view at the bottom — include all projects with sprint work
+  renderTeamSprintView([...sprintProjects, ...offScheduleProjects], sprintStart, sprintEnd);
 }
 
 function renderSprintBurndown(sprintProjects) {
