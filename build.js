@@ -29,6 +29,15 @@ if (!PAT) {
 
 const AUTH_HEADER = 'Basic ' + Buffer.from(':' + PAT).toString('base64');
 
+// ── Display name overrides (maps malformed ADO names → proper names) ────────
+const DISPLAY_NAME_MAP = {
+  'pawlik.gregor gmail.com': 'Greg Pawlik',
+};
+function normalizeName(name) {
+  if (!name) return 'Unassigned';
+  return DISPLAY_NAME_MAP[name] || name;
+}
+
 // ── Project definitions (maps DevOps project names to dashboard config) ─────
 const PROJECT_CONFIGS = [
   { priority: 1,  devopsProject: 'CRM',                   shortName: 'CRM',             displayName: 'CRM (Salesforce)' },
@@ -400,7 +409,7 @@ async function fetchProjectData(config) {
           storyPoints: sp,
           completedSP: isDone ? sp : 0,
           remainingSP: isDone ? 0 : sp,
-          assignedTo: assignedTo ? (assignedTo.displayName || assignedTo) : 'Unassigned',
+          assignedTo: normalizeName(assignedTo ? (assignedTo.displayName || assignedTo) : 'Unassigned'),
           completedDate: null, // will be populated below
           url: `${ORG_URL}/${encodeURIComponent(project)}/_workitems/edit/${s.id}`
         };
@@ -439,7 +448,7 @@ async function fetchProjectData(config) {
       try {
         const capacities = await getIterationCapacity(project, iteration.id);
         capacities.forEach(c => {
-          const name = c.teamMember?.displayName || 'Unknown';
+          const name = normalizeName(c.teamMember?.displayName || 'Unknown');
           const dailyHours = (c.activities || []).reduce((sum, a) => sum + (a.capacityPerDay || 0), 0);
           const daysOff = (c.daysOff || []).length;
           members.push({ name, dailyHours, daysOff });
