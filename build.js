@@ -508,7 +508,8 @@ function generateHTML(projectsData, buildTime) {
   // Inject live data
   const html = template
     .replace('/*__PROJECT_DATA__*/', JSON.stringify(projectsData, null, 2))
-    .replace('__BUILD_TIME__', buildTime);
+    .replace('__BUILD_TIME__', buildTime)
+    .replace('__GH_TRIGGER_TOKEN__', process.env.GH_TRIGGER_TOKEN || '');
 
   return html;
 }
