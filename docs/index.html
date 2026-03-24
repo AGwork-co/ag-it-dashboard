@@ -51,6 +51,7 @@
   .refresh-btn:hover { background: rgba(255,255,255,0.25); }
   .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
   .refresh-btn svg { width: 12px; height: 12px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
   .header .live-dot {
     width: 8px; height: 8px; background: #4CAF50; border-radius: 50%;
     animation: pulse 2s infinite;
@@ -296,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Tuesday, March 24, 2026 at 8:56 AM</span>
+    <span>Last updated: Tuesday, March 24, 2026 at 8:58 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -405,10 +406,10 @@ const projects = [
     ],
     "estimation": {
       "total": 306,
-      "estimated": 129,
-      "unestimated": 177,
-      "totalSP": 367.5,
-      "incompleteSP": 90,
+      "estimated": 130,
+      "unestimated": 176,
+      "totalSP": 368,
+      "incompleteSP": 90.5,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 52,
@@ -426,7 +427,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q1 2026 - Sprint 6": 128.5,
+        "Q1 2026 - Sprint 6": 129,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42
       }
@@ -435,9 +436,9 @@ const projects = [
       "name": "Q1 2026 - Sprint 6",
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
-      "totalSP": 128.5,
+      "totalSP": 129,
       "completedSP": 84.5,
-      "remainingSP": 44,
+      "remainingSP": 44.5,
       "storyCount": 54,
       "stories": [
         {
@@ -1026,11 +1027,11 @@ const projects = [
         {
           "id": 27720,
           "title": "Build Release Pipeline for flink-task-topology",
-          "state": "New",
-          "storyPoints": 0,
+          "state": "Committed",
+          "storyPoints": 0.5,
           "completedSP": 0,
-          "remainingSP": 0,
-          "assignedTo": "Unassigned",
+          "remainingSP": 0.5,
+          "assignedTo": "Hassbaum, Ralph",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27720"
         }
@@ -1041,105 +1042,105 @@ const projects = [
         "members": []
       },
       "burndown": {
-        "totalSP": 128.5,
+        "totalSP": 129,
         "points": [
           {
             "date": "2026-03-11",
-            "remaining": 121.25
+            "remaining": 121.75
           },
           {
             "date": "2026-03-12",
-            "remaining": 114.5
+            "remaining": 115
           },
           {
             "date": "2026-03-13",
-            "remaining": 113.5
+            "remaining": 114
           },
           {
             "date": "2026-03-16",
-            "remaining": 112.5
+            "remaining": 113
           },
           {
             "date": "2026-03-17",
-            "remaining": 109
+            "remaining": 109.5
           },
           {
             "date": "2026-03-18",
-            "remaining": 105.25
+            "remaining": 105.75
           },
           {
             "date": "2026-03-19",
-            "remaining": 71.5
+            "remaining": 72
           },
           {
             "date": "2026-03-20",
-            "remaining": 52.75
+            "remaining": 53.25
           },
           {
             "date": "2026-03-23",
-            "remaining": 46.75
+            "remaining": 47.25
           },
           {
             "date": "2026-03-24",
-            "remaining": 45.5
+            "remaining": 46
           }
         ],
         "ideal": [
           {
             "date": "2026-03-11",
-            "remaining": 128.5
+            "remaining": 129
           },
           {
             "date": "2026-03-12",
-            "remaining": 119.32142857142857
+            "remaining": 119.78571428571429
           },
           {
             "date": "2026-03-13",
-            "remaining": 110.14285714285714
+            "remaining": 110.57142857142857
           },
           {
             "date": "2026-03-16",
-            "remaining": 100.96428571428572
+            "remaining": 101.35714285714286
           },
           {
             "date": "2026-03-17",
-            "remaining": 91.78571428571428
+            "remaining": 92.14285714285714
           },
           {
             "date": "2026-03-18",
-            "remaining": 82.60714285714286
+            "remaining": 82.92857142857143
           },
           {
             "date": "2026-03-19",
-            "remaining": 73.42857142857143
+            "remaining": 73.71428571428572
           },
           {
             "date": "2026-03-20",
-            "remaining": 64.25
+            "remaining": 64.5
           },
           {
             "date": "2026-03-23",
-            "remaining": 55.07142857142857
+            "remaining": 55.28571428571429
           },
           {
             "date": "2026-03-24",
-            "remaining": 45.89285714285714
+            "remaining": 46.071428571428584
           },
           {
             "date": "2026-03-25",
-            "remaining": 36.71428571428571
+            "remaining": 36.85714285714286
           },
           {
             "date": "2026-03-26",
-            "remaining": 27.535714285714278
+            "remaining": 27.642857142857153
           },
           {
             "date": "2026-03-27",
-            "remaining": 18.35714285714286
+            "remaining": 18.428571428571445
           },
           {
             "date": "2026-03-30",
-            "remaining": 9.17857142857143
+            "remaining": 9.214285714285722
           },
           {
             "date": "2026-03-31",
@@ -4699,8 +4700,35 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
 // ============================================================
 const DONE_STATES = ['Closed', 'Resolved', 'Done', 'Removed'];
 
-function triggerRefresh() {
-  window.open('https://github.com/AGwork-co/ag-it-dashboard/actions/workflows/deploy.yml', '_blank');
+async function triggerRefresh() {
+  const btn = document.getElementById('refreshBtn');
+  const WORKER_URL = '';
+  if (!WORKER_URL || WORKER_URL === '__REFRESH_WORKER_URL__') {
+    alert('Refresh worker not yet configured.');
+    return;
+  }
+
+  btn.disabled = true;
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 1s linear infinite"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Triggering...';
+
+  try {
+    const res = await fetch(WORKER_URL, { method: 'POST' });
+    const data = await res.json();
+    if (data.ok) {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Building — reload in ~2 min';
+      btn.style.background = 'rgba(76,175,80,0.3)';
+      setTimeout(() => { btn.innerHTML = originalHTML; btn.style.background = ''; btn.disabled = false; }, 10000);
+    } else {
+      btn.innerHTML = originalHTML;
+      btn.disabled = false;
+      alert('Refresh failed. Check the Worker configuration.');
+    }
+  } catch {
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    alert('Could not reach the refresh service. Check your connection.');
+  }
 }
 
 function renderSprintView() {
