@@ -442,7 +442,7 @@ async function fetchProjectData(config) {
       const sprintCompletedSP = sprintStoryDetails.reduce((s, st) => s + st.completedSP, 0);
       const sprintRemainingSP = sprintTotalSP - sprintCompletedSP;
 
-      // Get team capacity
+      // Get team capacity with days-off date ranges for cross-project dedup
       let capacityHoursPerDay = 0;
       let members = [];
       try {
@@ -450,8 +450,12 @@ async function fetchProjectData(config) {
         capacities.forEach(c => {
           const name = normalizeName(c.teamMember?.displayName || 'Unknown');
           const dailyHours = (c.activities || []).reduce((sum, a) => sum + (a.capacityPerDay || 0), 0);
-          const daysOff = (c.daysOff || []).length;
-          members.push({ name, dailyHours, daysOff });
+          // Collect actual date ranges for days off (for dedup across projects)
+          const daysOffRanges = (c.daysOff || []).map(d => ({
+            start: d.start ? d.start.split('T')[0] : null,
+            end: d.end ? d.end.split('T')[0] : null
+          })).filter(d => d.start);
+          members.push({ name, dailyHours, daysOffRanges });
           capacityHoursPerDay += dailyHours;
         });
       } catch (e) {
