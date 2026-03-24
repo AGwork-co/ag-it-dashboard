@@ -685,8 +685,8 @@ function renderSprintView() {
     grid.innerHTML = '<div class="chart-card" style="text-align:center;padding:40px;grid-column:1/-1"><p style="color:var(--text-muted)">No projects with stories assigned to the current sprint.</p></div>';
   }
 
-  // Render per-person team view at the bottom
-  renderTeamSprintView(sprintProjects, sprintStart, sprintEnd);
+  // Render per-person team view at the bottom — include all projects with sprint work
+  renderTeamSprintView([...sprintProjects, ...offScheduleProjects], sprintStart, sprintEnd);
 }
 
 function renderSprintBurndown(sprintProjects) {
