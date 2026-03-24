@@ -51,8 +51,6 @@
   .refresh-btn:hover { background: rgba(255,255,255,0.25); }
   .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
   .refresh-btn svg { width: 12px; height: 12px; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .refresh-btn.spinning svg { animation: spin 1s linear infinite; }
   .header .live-dot {
     width: 8px; height: 8px; background: #4CAF50; border-radius: 50%;
     animation: pulse 2s infinite;
@@ -564,40 +562,8 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
 // ============================================================
 const DONE_STATES = ['Closed', 'Resolved', 'Done', 'Removed'];
 
-async function triggerRefresh() {
-  const btn = document.getElementById('refreshBtn');
-  const token = '__GH_TRIGGER_TOKEN__';
-  if (!token) { alert('Refresh token not configured.'); return; }
-
-  btn.disabled = true;
-  btn.classList.add('spinning');
-
-  try {
-    const res = await fetch('https://api.github.com/repos/AGwork-co/ag-it-dashboard/actions/workflows/deploy.yml/dispatches', {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ref: 'main' })
-    });
-
-    if (res.status === 204) {
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Build triggered — reload in ~2 min';
-      btn.style.background = 'rgba(76,175,80,0.3)';
-      btn.classList.remove('spinning');
-      setTimeout(() => {
-        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Refresh Data';
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 8000);
-    } else {
-      btn.disabled = false;
-      btn.classList.remove('spinning');
-      alert(`Trigger failed (${res.status}). Check the GH_TRIGGER_TOKEN secret.`);
-    }
-  } catch (e) {
-    btn.disabled = false;
-    btn.classList.remove('spinning');
-    alert('Network error — check your connection.');
-  }
+function triggerRefresh() {
+  window.open('https://github.com/AGwork-co/ag-it-dashboard/actions/workflows/deploy.yml', '_blank');
 }
 
 function renderSprintView() {

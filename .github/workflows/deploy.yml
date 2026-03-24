@@ -33,7 +33,6 @@ jobs:
         env:
           AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
           AZURE_DEVOPS_ORG_URL: ${{ secrets.AZURE_DEVOPS_ORG_URL }}
-          GH_TRIGGER_TOKEN: ${{ secrets.GH_TRIGGER_TOKEN }}
         run: npm run build
 
       - name: Commit and push updated dashboard
