@@ -591,13 +591,27 @@ async function fetchProjectData(config) {
           taskIds.forEach(tid => {
             const hist = taskHistory[tid] || [];
             const t = taskMap[tid];
-            const initial = t ? (t.fields['Microsoft.VSTS.Scheduling.RemainingWork'] || 0) : 0;
+            const currentRemaining = t ? (t.fields['Microsoft.VSTS.Scheduling.RemainingWork'] || 0) : 0;
+            // Determine the original remaining work (before any changes during sprint)
+            // Walk history backwards from the first sprint-day change to find original value
+            // The first history entry's old value is the original, or if no history use current
+            let originalRemaining = currentRemaining;
+            if (hist.length > 0) {
+              // History tracks newValue changes. To find what it was BEFORE the first change,
+              // we need the old value. Since we only store newValue, reconstruct:
+              // If there's history, the value before first change = first entry represents a SET,
+              // so the original is what it was set to initially (often the same as first entry for new tasks)
+              // Best approximation: use the MAX remaining seen in history (the original estimate)
+              const allVals = hist.map(h => h.remaining);
+              allVals.push(currentRemaining);
+              originalRemaining = Math.max(...allVals);
+            }
             // Build sorted changes
             const changes = {};
             hist.forEach(h => {
               changes[h.date] = h.remaining; // last change on that date wins
             });
-            taskTimelines[tid] = { initial, changes, current: initial };
+            taskTimelines[tid] = { initial: originalRemaining, changes, current: originalRemaining };
           });
 
           // Walk through each working day and compute total remaining
