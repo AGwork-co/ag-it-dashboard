@@ -40,8 +40,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/
+          # Save our freshly built file
+          cp docs/index.html /tmp/dashboard.html
+          # Reset to whatever remote has (no conflicts possible)
+          git fetch origin main
+          git reset --hard origin/main
+          # Put our built file back and commit
+          cp /tmp/dashboard.html docs/index.html
+          git add docs/index.html
           git diff --staged --quiet || git commit -m "Dashboard updated"
-          git checkout -- .
-          git pull --rebase origin main
           git push
