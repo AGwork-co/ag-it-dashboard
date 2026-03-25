@@ -1015,21 +1015,24 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
   people.forEach(([name, stories], idx) => {
     const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
     const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
-    const doneSP = stories.filter(st => DONE_STATES.includes(st.state)).reduce((s, st) => s + (st.storyPoints || 0), 0);
+    const remainingWork = stories.reduce((s, st) => s + (st.taskRemainingWork != null ? st.taskRemainingWork : st.remainingSP), 0);
+    const completedWork = Math.round((totalSP - remainingWork) * 100) / 100;
     const cap = personCapacity[name] || { available: 0 };
     const capSP = cap.available;
     const utilPct = capSP > 0 ? Math.round((totalSP / capSP) * 100) : 0;
     const utilColor = utilPct > 100 ? '#F87171' : utilPct >= 80 ? '#FBBF24' : '#34D399';
 
-    const rows = sorted.map(s =>
-      `<tr>
+    const rows = sorted.map(s => {
+      const origSP = s.storyPoints || 0;
+      const remSP = s.taskRemainingWork != null ? s.taskRemainingWork : s.remainingSP;
+      return `<tr>
         <td><a href="${s.url}" target="_blank">${s.id}</a></td>
         <td>${s.projectName}</td>
         <td>${s.title}</td>
         <td><span class="state-pill ${stateClass(s.state)}">${s.state}</span></td>
-        <td style="text-align:center">${s.storyPoints || 0}</td>
-      </tr>`
-    ).join('');
+        <td style="text-align:center">${origSP} / ${remSP}</td>
+      </tr>`;
+    }).join('');
 
     html += `<div class="team-member-card" id="tmCard_${idx}">
       <div class="tmc-header" onclick="toggleTeamCard(${idx})">
@@ -1040,7 +1043,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
         <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
         <div class="tmc-stories">
           <table>
-            <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th>SP</th></tr></thead>
+            <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th>Est / Rem</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
@@ -1067,11 +1070,13 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
 
     people.forEach(([name, stories], idx) => {
       const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
+      // Current remaining from child tasks (live snapshot)
+      const currentRemaining = stories.reduce((s, st) => s + (st.taskRemainingWork != null ? st.taskRemainingWork : st.remainingSP), 0);
       const cap = personCapacity[name] || { available: 0 };
       const capSP = cap.available;
-      // Use capacity as the burndown starting point (the "ideal" line)
-      const burndownStart = Math.max(totalSP, capSP);
 
+      // Build burndown using task-level remaining work
+      // Historical: track story completions by date; today uses live task remaining
       const completedByDate = {};
       stories.forEach(st => {
         if (st.completedDate && st.storyPoints) {
@@ -1079,12 +1084,20 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
           completedByDate[d] = (completedByDate[d] || 0) + st.storyPoints;
         }
       });
+      const todayStr = new Date().toISOString().split('T')[0];
       let remaining = totalSP;
       const actualData = [];
       workingDays.forEach(dateStr => {
         remaining -= (completedByDate[dateStr] || 0);
         const d = new Date(dateStr + 'T12:00:00');
-        if (d <= cutoff) actualData.push(Math.max(0, remaining));
+        if (d <= cutoff) {
+          // On the last data point (today), use live task remaining instead of story-level calc
+          if (dateStr === todayStr) {
+            actualData.push(Math.max(0, Math.round(currentRemaining * 100) / 100));
+          } else {
+            actualData.push(Math.max(0, remaining));
+          }
+        }
       });
       // Capacity ideal line: starts at capacity SP, burns down linearly to 0
       const idealData = workingDays.map((_, i) =>

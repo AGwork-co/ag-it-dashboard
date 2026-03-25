@@ -114,6 +114,56 @@ async function getIterationCapacity(project, iterationId) {
   return [];
 }
 
+/** Get child task IDs for a set of work items via relations */
+async function getChildTaskIds(parentIds) {
+  if (!parentIds.length) return {};
+  const parentToChildren = {};
+  // Fetch parents with relations expanded
+  for (let i = 0; i < parentIds.length; i += 200) {
+    const batch = parentIds.slice(i, i + 200);
+    const url = `${ORG_URL}/_apis/wit/workitems?ids=${batch.join(',')}&$expand=relations&api-version=${API_VERSION}`;
+    const data = await adoFetch(url);
+    if (data && data.value) {
+      data.value.forEach(wi => {
+        const children = (wi.relations || [])
+          .filter(r => r.rel === 'System.LinkTypes.Hierarchy-Forward') // child link
+          .map(r => parseInt(r.url.split('/').pop()))
+          .filter(id => !isNaN(id));
+        if (children.length) parentToChildren[wi.id] = children;
+      });
+    }
+  }
+  return parentToChildren;
+}
+
+/** Fetch Remaining Work and Completed Work for child tasks */
+async function getChildTaskWork(parentIds) {
+  const parentToChildren = await getChildTaskIds(parentIds);
+  const allChildIds = [...new Set(Object.values(parentToChildren).flat())];
+  if (!allChildIds.length) return {};
+
+  const taskFields = ['System.Id', 'System.State', 'Microsoft.VSTS.Scheduling.RemainingWork', 'Microsoft.VSTS.Scheduling.CompletedWork'];
+  const taskDetails = await getWorkItemDetails(allChildIds, taskFields);
+
+  const taskMap = {};
+  taskDetails.forEach(t => { taskMap[t.id] = t; });
+
+  // Sum remaining/completed per parent story
+  const result = {};
+  for (const [parentId, childIds] of Object.entries(parentToChildren)) {
+    let remaining = 0, completed = 0;
+    childIds.forEach(cid => {
+      const t = taskMap[cid];
+      if (t) {
+        remaining += t.fields['Microsoft.VSTS.Scheduling.RemainingWork'] || 0;
+        completed += t.fields['Microsoft.VSTS.Scheduling.CompletedWork'] || 0;
+      }
+    });
+    result[parentId] = { remaining, completed };
+  }
+  return result;
+}
+
 /** Get work item updates (revision history) for burndown calculation */
 async function getWorkItemUpdates(workItemId) {
   const url = `${ORG_URL}/_apis/wit/workitems/${workItemId}/updates?api-version=${API_VERSION}`;
@@ -437,6 +487,28 @@ async function fetchProjectData(config) {
           // Skip if we can't get updates for this item
         }
       }
+
+      // Fetch child task Remaining/Completed Work for each story
+      const storyIds = sprintStoryDetails.map(s => s.id);
+      let childTaskWork = {};
+      try {
+        childTaskWork = await getChildTaskWork(storyIds);
+      } catch (e) {
+        console.warn(`   ⚠ Could not fetch child task work: ${e.message}`);
+      }
+
+      // Attach task-level remaining/completed to each story
+      sprintStoryDetails.forEach(s => {
+        const taskWork = childTaskWork[s.id];
+        if (taskWork) {
+          s.taskRemainingWork = Math.round(taskWork.remaining * 100) / 100;
+          s.taskCompletedWork = Math.round(taskWork.completed * 100) / 100;
+        } else {
+          // Fallback: use story-level SP if no child tasks
+          s.taskRemainingWork = s.remainingSP;
+          s.taskCompletedWork = s.completedSP;
+        }
+      });
 
       const sprintTotalSP = sprintStoryDetails.reduce((s, st) => s + st.storyPoints, 0);
       const sprintCompletedSP = sprintStoryDetails.reduce((s, st) => s + st.completedSP, 0);
