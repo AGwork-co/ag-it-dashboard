@@ -1059,7 +1059,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
   if (sprintStart && sprintEnd) {
     const start = parseSprintDate(sprintStart);
     const end = parseSprintDate(sprintEnd);
-    const today = new Date(); today.setHours(0,0,0,0);
+    const today = new Date(); today.setHours(23,59,59,999);
     const cutoff = end < today ? end : today;
     const numDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
     const workingDays = [];
