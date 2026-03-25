@@ -136,31 +136,71 @@ async function getChildTaskIds(parentIds) {
   return parentToChildren;
 }
 
-/** Fetch Remaining Work and Completed Work for child tasks */
+/** Fetch Remaining Work, Completed Work, and daily remaining history for child tasks */
 async function getChildTaskWork(parentIds) {
   const parentToChildren = await getChildTaskIds(parentIds);
   const allChildIds = [...new Set(Object.values(parentToChildren).flat())];
   if (!allChildIds.length) return {};
 
-  const taskFields = ['System.Id', 'System.State', 'Microsoft.VSTS.Scheduling.RemainingWork', 'Microsoft.VSTS.Scheduling.CompletedWork'];
+  const taskFields = ['System.Id', 'System.State', 'Microsoft.VSTS.Scheduling.RemainingWork', 'Microsoft.VSTS.Scheduling.CompletedWork', 'System.AssignedTo'];
   const taskDetails = await getWorkItemDetails(allChildIds, taskFields);
 
   const taskMap = {};
   taskDetails.forEach(t => { taskMap[t.id] = t; });
 
-  // Sum remaining/completed per parent story
+  // Fetch revision history for each child task to build daily remaining work timeline
+  // Key: taskId -> [{ date, remaining }]
+  const taskHistory = {};
+  for (const taskId of allChildIds) {
+    try {
+      const updates = await getWorkItemUpdates(taskId);
+      const history = [];
+      updates.forEach(u => {
+        const remField = u.fields?.['Microsoft.VSTS.Scheduling.RemainingWork'];
+        if (remField && remField.newValue !== undefined) {
+          const changed = u.fields?.['System.ChangedDate']?.newValue;
+          const revised = u.revisedDate;
+          const dateStr = (changed || revised || '').split('T')[0];
+          if (dateStr) {
+            history.push({ date: dateStr, remaining: remField.newValue || 0 });
+          }
+        }
+      });
+      taskHistory[taskId] = history;
+    } catch (e) {
+      // Skip if we can't get history
+    }
+  }
+
+  // Sum remaining/completed per parent story, plus daily history
   const result = {};
   for (const [parentId, childIds] of Object.entries(parentToChildren)) {
     let remaining = 0, completed = 0;
+    const assignees = new Set();
     childIds.forEach(cid => {
       const t = taskMap[cid];
       if (t) {
         remaining += t.fields['Microsoft.VSTS.Scheduling.RemainingWork'] || 0;
         completed += t.fields['Microsoft.VSTS.Scheduling.CompletedWork'] || 0;
+        const assignee = t.fields['System.AssignedTo'];
+        if (assignee) assignees.add(typeof assignee === 'object' ? assignee.displayName : assignee);
       }
     });
-    result[parentId] = { remaining, completed };
+    // Aggregate daily remaining across all child tasks for this story
+    // For each date that any child task changed, compute the total remaining at end of that date
+    const dailyChanges = {};
+    childIds.forEach(cid => {
+      (taskHistory[cid] || []).forEach(h => {
+        if (!dailyChanges[h.date]) dailyChanges[h.date] = [];
+        dailyChanges[h.date].push({ taskId: cid, remaining: h.remaining });
+      });
+    });
+    result[parentId] = { remaining, completed, dailyChanges, childIds };
   }
+  // Attach taskMap for per-person aggregation in template
+  result._taskMap = taskMap;
+  result._taskHistory = taskHistory;
+  result._parentToChildren = parentToChildren;
   return result;
 }
 
@@ -498,6 +538,10 @@ async function fetchProjectData(config) {
       }
 
       // Attach task-level remaining/completed to each story
+      const taskMap = childTaskWork._taskMap || {};
+      const taskHistory = childTaskWork._taskHistory || {};
+      const parentToChildren = childTaskWork._parentToChildren || {};
+
       sprintStoryDetails.forEach(s => {
         const taskWork = childTaskWork[s.id];
         if (taskWork) {
@@ -509,6 +553,71 @@ async function fetchProjectData(config) {
           s.taskCompletedWork = s.completedSP;
         }
       });
+
+      // Build per-person daily task remaining history for burndown charts
+      // For each person, track the total remaining work from their assigned tasks over time
+      const personTaskBurndown = {};
+      if (startDate && endDate) {
+        const sDate = new Date(startDate.split('T')[0] + 'T12:00:00');
+        const eDate = new Date(endDate.split('T')[0] + 'T12:00:00');
+        // Collect all child task IDs and their assigned person
+        const taskToPerson = {};
+        const taskInitialRemaining = {};
+        Object.entries(parentToChildren).forEach(([pid, childIds]) => {
+          const story = sprintStoryDetails.find(s => s.id === parseInt(pid));
+          childIds.forEach(cid => {
+            const t = taskMap[cid];
+            if (t) {
+              const assignee = t.fields['System.AssignedTo'];
+              const person = normalizeName(assignee ? (typeof assignee === 'object' ? assignee.displayName : assignee) : (story ? story.assignedTo : 'Unassigned'));
+              taskToPerson[cid] = person;
+              // Find initial remaining from first revision or original estimate
+              const hist = taskHistory[cid] || [];
+              taskInitialRemaining[cid] = hist.length > 0 ? hist[0].remaining : (t.fields['Microsoft.VSTS.Scheduling.RemainingWork'] || 0);
+            }
+          });
+        });
+
+        // For each person, compute remaining work snapshot at end of each working day
+        const personTasks = {};
+        Object.entries(taskToPerson).forEach(([tid, person]) => {
+          if (!personTasks[person]) personTasks[person] = [];
+          personTasks[person].push(parseInt(tid));
+        });
+
+        Object.entries(personTasks).forEach(([person, taskIds]) => {
+          // For each task, build a timeline: date -> remaining at end of that date
+          const taskTimelines = {};
+          taskIds.forEach(tid => {
+            const hist = taskHistory[tid] || [];
+            const t = taskMap[tid];
+            const initial = t ? (t.fields['Microsoft.VSTS.Scheduling.RemainingWork'] || 0) : 0;
+            // Build sorted changes
+            const changes = {};
+            hist.forEach(h => {
+              changes[h.date] = h.remaining; // last change on that date wins
+            });
+            taskTimelines[tid] = { initial, changes, current: initial };
+          });
+
+          // Walk through each working day and compute total remaining
+          const dailyRemaining = {};
+          for (let d = new Date(sDate); d <= eDate; d.setDate(d.getDate() + 1)) {
+            if (d.getDay() === 0 || d.getDay() === 6) continue;
+            const ds = d.toISOString().split('T')[0];
+            let total = 0;
+            taskIds.forEach(tid => {
+              const tl = taskTimelines[tid];
+              if (tl.changes[ds] !== undefined) {
+                tl.current = tl.changes[ds];
+              }
+              total += tl.current;
+            });
+            dailyRemaining[ds] = Math.round(total * 100) / 100;
+          }
+          personTaskBurndown[person] = dailyRemaining;
+        });
+      }
 
       const sprintTotalSP = sprintStoryDetails.reduce((s, st) => s + st.storyPoints, 0);
       const sprintCompletedSP = sprintStoryDetails.reduce((s, st) => s + st.completedSP, 0);
@@ -557,7 +666,8 @@ async function fetchProjectData(config) {
         stories: storiesForOutput,
         sprintGoals,
         capacity: { hoursPerDay: capacityHoursPerDay, members },
-        burndown
+        burndown,
+        personTaskBurndown
       };
 
       console.log(`   🏃 Sprint "${sprintName}": ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)`);
