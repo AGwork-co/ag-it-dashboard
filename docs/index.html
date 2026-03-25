@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, March 25, 2026 at 2:57 PM</span>
+    <span>Last updated: Wednesday, March 25, 2026 at 3:19 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -405,14 +405,14 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 308,
+      "total": 309,
       "estimated": 138,
-      "unestimated": 170,
+      "unestimated": 171,
       "totalSP": 382.5,
-      "incompleteSP": 87.5,
+      "incompleteSP": 86.5,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 60,
+        "CRM": 52,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -427,7 +427,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q1 2026 - Sprint 6": 135.5,
+        "Q1 2026 - Sprint 6": 143.5,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42
       }
@@ -436,10 +436,10 @@ const projects = [
       "name": "Q1 2026 - Sprint 6",
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
-      "totalSP": 135.5,
-      "completedSP": 102,
-      "remainingSP": 33.5,
-      "storyCount": 56,
+      "totalSP": 143.5,
+      "completedSP": 103,
+      "remainingSP": 40.5,
+      "storyCount": 58,
       "stories": [
         {
           "id": 23670,
@@ -624,6 +624,19 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
+          "id": 26965,
+          "title": "Agent deployment wizard — UI + API",
+          "state": "Ready for Review",
+          "storyPoints": 8,
+          "completedSP": 0,
+          "remainingSP": 8,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/26965",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
           "id": 27039,
           "title": "Flink: Prototype Flink SQL with NA Notes",
           "state": "Committed",
@@ -743,14 +756,14 @@ const projects = [
         {
           "id": 27188,
           "title": "Write sync status tracking to accounts table",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Roach, Joseph",
-          "completedDate": null,
+          "completedDate": "2026-03-25T19:57:14.48Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27188",
-          "taskRemainingWork": 1,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -1168,117 +1181,130 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27741",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 27765,
+          "title": "Establish folder-per-component pattern with react-testing-library render tests",
+          "state": "New",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27765",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering want admin enhancements, mia salesforce enhancements, connector enhancements, kafka connect enhancements, postgresql schema enhancements, frontend enhancements, build pipeline enhancements, global enhancements, dlq producer enhancements, and na-blackbox-sf finalize, sf to na: account services testing session, and 11 other items.",
+      "sprintGoals": "Delivering want admin enhancements, mia salesforce enhancements, connector enhancements, kafka connect enhancements, postgresql schema enhancements, api enhancements, frontend enhancements, build pipeline enhancements, global enhancements, dlq producer enhancements, and na-blackbox-sf finalize, sf to na: account services testing session, and 11 ...",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 135.5,
+        "totalSP": 143.5,
         "points": [
           {
             "date": "2026-03-11",
-            "remaining": 133.25
+            "remaining": 141.25
           },
           {
             "date": "2026-03-12",
-            "remaining": 126.5
+            "remaining": 134.5
           },
           {
             "date": "2026-03-13",
-            "remaining": 126.5
+            "remaining": 134.5
           },
           {
             "date": "2026-03-16",
-            "remaining": 126.5
+            "remaining": 134.5
           },
           {
             "date": "2026-03-17",
-            "remaining": 124
+            "remaining": 132
           },
           {
             "date": "2026-03-18",
-            "remaining": 122
+            "remaining": 130
           },
           {
             "date": "2026-03-19",
-            "remaining": 89.5
+            "remaining": 97.5
           },
           {
             "date": "2026-03-20",
-            "remaining": 70.75
+            "remaining": 78.75
           },
           {
             "date": "2026-03-23",
-            "remaining": 64.75
+            "remaining": 72.75
           },
           {
             "date": "2026-03-24",
-            "remaining": 34
+            "remaining": 42
           },
           {
             "date": "2026-03-25",
-            "remaining": 33.5
+            "remaining": 40.5
           }
         ],
         "ideal": [
           {
             "date": "2026-03-11",
-            "remaining": 135.5
+            "remaining": 143.5
           },
           {
             "date": "2026-03-12",
-            "remaining": 125.82142857142857
+            "remaining": 133.25
           },
           {
             "date": "2026-03-13",
-            "remaining": 116.14285714285714
+            "remaining": 123
           },
           {
             "date": "2026-03-16",
-            "remaining": 106.46428571428572
+            "remaining": 112.75
           },
           {
             "date": "2026-03-17",
-            "remaining": 96.78571428571428
+            "remaining": 102.5
           },
           {
             "date": "2026-03-18",
-            "remaining": 87.10714285714286
+            "remaining": 92.25
           },
           {
             "date": "2026-03-19",
-            "remaining": 77.42857142857143
+            "remaining": 82
           },
           {
             "date": "2026-03-20",
-            "remaining": 67.75
+            "remaining": 71.75
           },
           {
             "date": "2026-03-23",
-            "remaining": 58.07142857142857
+            "remaining": 61.5
           },
           {
             "date": "2026-03-24",
-            "remaining": 48.39285714285714
+            "remaining": 51.25
           },
           {
             "date": "2026-03-25",
-            "remaining": 38.71428571428571
+            "remaining": 41
           },
           {
             "date": "2026-03-26",
-            "remaining": 29.035714285714278
+            "remaining": 30.75
           },
           {
             "date": "2026-03-27",
-            "remaining": 19.35714285714286
+            "remaining": 20.5
           },
           {
             "date": "2026-03-30",
-            "remaining": 9.67857142857143
+            "remaining": 10.25
           },
           {
             "date": "2026-03-31",
@@ -1322,15 +1348,15 @@ const projects = [
           "2026-03-31": 13.5
         },
         "Furr, Darren M": {
-          "2026-03-11": 4,
-          "2026-03-12": 4,
-          "2026-03-13": 12,
-          "2026-03-16": 12,
-          "2026-03-17": 12,
-          "2026-03-18": 12,
-          "2026-03-19": 13,
-          "2026-03-20": 9,
-          "2026-03-23": 9,
+          "2026-03-11": 19.5,
+          "2026-03-12": 19.5,
+          "2026-03-13": 15.5,
+          "2026-03-16": 15.5,
+          "2026-03-17": 15.5,
+          "2026-03-18": 15.5,
+          "2026-03-19": 13.5,
+          "2026-03-20": 9.5,
+          "2026-03-23": 9.5,
           "2026-03-24": 4,
           "2026-03-25": 4,
           "2026-03-26": 4,
@@ -1356,32 +1382,32 @@ const projects = [
           "2026-03-31": 0
         },
         "Roach, Joseph": {
-          "2026-03-11": 7.25,
-          "2026-03-12": 2.5,
-          "2026-03-13": 2.5,
-          "2026-03-16": 2.5,
-          "2026-03-17": 2.5,
-          "2026-03-18": 2.5,
-          "2026-03-19": 7.75,
-          "2026-03-20": 6,
+          "2026-03-11": 17.2,
+          "2026-03-12": 12.45,
+          "2026-03-13": 12.45,
+          "2026-03-16": 12.45,
+          "2026-03-17": 12.45,
+          "2026-03-18": 12.45,
+          "2026-03-19": 7.95,
+          "2026-03-20": 6.2,
           "2026-03-23": 4.7,
           "2026-03-24": 1,
-          "2026-03-25": 1,
-          "2026-03-26": 1,
-          "2026-03-27": 1,
-          "2026-03-30": 1,
-          "2026-03-31": 1
+          "2026-03-25": 0,
+          "2026-03-26": 0,
+          "2026-03-27": 0,
+          "2026-03-30": 0,
+          "2026-03-31": 0
         },
         "Lamar, Brion": {
-          "2026-03-11": 4.75,
-          "2026-03-12": 3.75,
-          "2026-03-13": 3.75,
-          "2026-03-16": 4.75,
-          "2026-03-17": 10.75,
-          "2026-03-18": 2.75,
-          "2026-03-19": 2.75,
-          "2026-03-20": 2.75,
-          "2026-03-23": 2.75,
+          "2026-03-11": 36.75,
+          "2026-03-12": 35.75,
+          "2026-03-13": 35.75,
+          "2026-03-16": 33.75,
+          "2026-03-17": 30.75,
+          "2026-03-18": 22.75,
+          "2026-03-19": 12.75,
+          "2026-03-20": 4.75,
+          "2026-03-23": 4.75,
           "2026-03-24": 3.5,
           "2026-03-25": 2.5,
           "2026-03-26": 2.5,
@@ -2161,15 +2187,15 @@ const projects = [
       },
       "personTaskBurndown": {
         "Amsler, Richard": {
-          "2026-03-11": 6,
-          "2026-03-12": 6,
-          "2026-03-13": 6,
-          "2026-03-16": 6,
-          "2026-03-17": 6,
-          "2026-03-18": 4,
-          "2026-03-19": 4,
-          "2026-03-20": 4,
-          "2026-03-23": 4,
+          "2026-03-11": 8.5,
+          "2026-03-12": 8.5,
+          "2026-03-13": 8.5,
+          "2026-03-16": 8.5,
+          "2026-03-17": 8.5,
+          "2026-03-18": 6.5,
+          "2026-03-19": 6.5,
+          "2026-03-20": 6.5,
+          "2026-03-23": 6.5,
           "2026-03-24": 1,
           "2026-03-25": 1,
           "2026-03-26": 1,
@@ -2990,7 +3016,7 @@ const projects = [
           "assignedTo": "Hiebsch, Adin",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/27500",
-          "taskRemainingWork": 3,
+          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         },
         {
@@ -3151,32 +3177,15 @@ const projects = [
       },
       "personTaskBurndown": {
         "Keltner, Scott": {
-          "2026-03-11": 2,
-          "2026-03-12": 2,
-          "2026-03-13": 2,
-          "2026-03-16": 3,
-          "2026-03-17": 4,
-          "2026-03-18": 4,
-          "2026-03-19": 3,
-          "2026-03-20": 3,
-          "2026-03-23": 3,
-          "2026-03-24": 2,
-          "2026-03-25": 2,
-          "2026-03-26": 2,
-          "2026-03-27": 2,
-          "2026-03-30": 2,
-          "2026-03-31": 2
-        },
-        "Butler, Justin": {
-          "2026-03-11": 2.25,
-          "2026-03-12": 2.25,
-          "2026-03-13": 2.25,
-          "2026-03-16": 2.25,
-          "2026-03-17": 2.25,
-          "2026-03-18": 2.25,
-          "2026-03-19": 2.25,
-          "2026-03-20": 2.25,
-          "2026-03-23": 2.25,
+          "2026-03-11": 9.5,
+          "2026-03-12": 7.5,
+          "2026-03-13": 6.5,
+          "2026-03-16": 5.5,
+          "2026-03-17": 4.5,
+          "2026-03-18": 4.5,
+          "2026-03-19": 3.5,
+          "2026-03-20": 3.5,
+          "2026-03-23": 3.5,
           "2026-03-24": 2.25,
           "2026-03-25": 2.25,
           "2026-03-26": 2.25,
@@ -3184,22 +3193,39 @@ const projects = [
           "2026-03-30": 2.25,
           "2026-03-31": 2.25
         },
+        "Butler, Justin": {
+          "2026-03-11": 3.25,
+          "2026-03-12": 3.25,
+          "2026-03-13": 3.25,
+          "2026-03-16": 3.25,
+          "2026-03-17": 3.25,
+          "2026-03-18": 3.25,
+          "2026-03-19": 3.25,
+          "2026-03-20": 3.25,
+          "2026-03-23": 3.25,
+          "2026-03-24": 3.25,
+          "2026-03-25": 3.25,
+          "2026-03-26": 3.25,
+          "2026-03-27": 3.25,
+          "2026-03-30": 3.25,
+          "2026-03-31": 3.25
+        },
         "Hiebsch, Adin": {
-          "2026-03-11": 6.5,
-          "2026-03-12": 7.5,
-          "2026-03-13": 7.5,
-          "2026-03-16": 7.5,
-          "2026-03-17": 7.5,
+          "2026-03-11": 9.75,
+          "2026-03-12": 7.75,
+          "2026-03-13": 7.75,
+          "2026-03-16": 7.75,
+          "2026-03-17": 7.75,
           "2026-03-18": 7.25,
           "2026-03-19": 7.25,
           "2026-03-20": 7.25,
           "2026-03-23": 7.25,
           "2026-03-24": 6.25,
-          "2026-03-25": 6.25,
-          "2026-03-26": 6.25,
-          "2026-03-27": 6.25,
-          "2026-03-30": 6.25,
-          "2026-03-31": 6.25
+          "2026-03-25": 4.25,
+          "2026-03-26": 4.25,
+          "2026-03-27": 4.25,
+          "2026-03-30": 4.25,
+          "2026-03-31": 4.25
         },
         "Rivas, Fernando": {
           "2026-03-11": 3,
@@ -3898,21 +3924,21 @@ const projects = [
       },
       "personTaskBurndown": {
         "Dorland, Steve": {
-          "2026-03-11": 4.75,
-          "2026-03-12": 4.75,
-          "2026-03-13": 4.75,
-          "2026-03-16": 4.75,
-          "2026-03-17": 4.75,
-          "2026-03-18": 4.75,
-          "2026-03-19": 4.75,
-          "2026-03-20": 4.75,
-          "2026-03-23": 4.75,
-          "2026-03-24": 4.75,
-          "2026-03-25": 4.75,
-          "2026-03-26": 4.75,
-          "2026-03-27": 4.75,
-          "2026-03-30": 4.75,
-          "2026-03-31": 4.75
+          "2026-03-11": 10.25,
+          "2026-03-12": 10,
+          "2026-03-13": 10,
+          "2026-03-16": 10,
+          "2026-03-17": 10,
+          "2026-03-18": 10,
+          "2026-03-19": 10,
+          "2026-03-20": 10,
+          "2026-03-23": 10,
+          "2026-03-24": 10,
+          "2026-03-25": 10,
+          "2026-03-26": 10,
+          "2026-03-27": 10,
+          "2026-03-30": 10,
+          "2026-03-31": 10
         },
         "Butler, Justin": {
           "2026-03-11": 0.25,
@@ -4413,10 +4439,10 @@ const projects = [
       },
       "personTaskBurndown": {
         "Roach, Joseph": {
-          "2026-03-11": 0,
-          "2026-03-12": 0,
-          "2026-03-13": 0,
-          "2026-03-16": 0,
+          "2026-03-11": 1,
+          "2026-03-12": 1,
+          "2026-03-13": 1,
+          "2026-03-16": 1,
           "2026-03-17": 0,
           "2026-03-18": 0,
           "2026-03-19": 0,
