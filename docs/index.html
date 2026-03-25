@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, March 25, 2026 at 9:17 AM</span>
+    <span>Last updated: Wednesday, March 25, 2026 at 11:52 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -409,10 +409,10 @@ const projects = [
       "estimated": 137,
       "unestimated": 171,
       "totalSP": 374.5,
-      "incompleteSP": 79,
+      "incompleteSP": 79.5,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 52.5,
+        "CRM": 52,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -427,7 +427,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q1 2026 - Sprint 6": 135,
+        "Q1 2026 - Sprint 6": 135.5,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42
       }
@@ -436,10 +436,10 @@ const projects = [
       "name": "Q1 2026 - Sprint 6",
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
-      "totalSP": 135,
-      "completedSP": 102.5,
-      "remainingSP": 32.5,
-      "storyCount": 55,
+      "totalSP": 135.5,
+      "completedSP": 102,
+      "remainingSP": 33.5,
+      "storyCount": 56,
       "stories": [
         {
           "id": 23670,
@@ -1146,14 +1146,27 @@ const projects = [
         {
           "id": 27731,
           "title": "Extract DLQ producer to shared library and refactor blackbox-na to use shared IDlqProducer",
-          "state": "Done",
+          "state": "Committed",
           "storyPoints": 1,
-          "completedSP": 1,
-          "remainingSP": 0,
+          "completedSP": 0,
+          "remainingSP": 1,
           "assignedTo": "Lamar, Brion",
-          "completedDate": "2026-03-25T13:54:11.01Z",
+          "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27731",
           "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27741,
+          "title": "Provision Azure PostgreSQL Flexible Server via Terraform module",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-03-25T16:12:19.35Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27741",
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         }
       ],
@@ -1163,109 +1176,109 @@ const projects = [
         "members": []
       },
       "burndown": {
-        "totalSP": 135,
+        "totalSP": 135.5,
         "points": [
           {
             "date": "2026-03-11",
-            "remaining": 132.75
+            "remaining": 133.25
           },
           {
             "date": "2026-03-12",
-            "remaining": 126
+            "remaining": 126.5
           },
           {
             "date": "2026-03-13",
-            "remaining": 126
+            "remaining": 126.5
           },
           {
             "date": "2026-03-16",
-            "remaining": 126
+            "remaining": 126.5
           },
           {
             "date": "2026-03-17",
-            "remaining": 123.5
+            "remaining": 124
           },
           {
             "date": "2026-03-18",
-            "remaining": 121.5
+            "remaining": 122
           },
           {
             "date": "2026-03-19",
-            "remaining": 89
+            "remaining": 89.5
           },
           {
             "date": "2026-03-20",
-            "remaining": 70.25
+            "remaining": 70.75
           },
           {
             "date": "2026-03-23",
-            "remaining": 64.25
+            "remaining": 64.75
           },
           {
             "date": "2026-03-24",
-            "remaining": 33.5
+            "remaining": 34
           },
           {
             "date": "2026-03-25",
-            "remaining": 32.5
+            "remaining": 33.5
           }
         ],
         "ideal": [
           {
             "date": "2026-03-11",
-            "remaining": 135
+            "remaining": 135.5
           },
           {
             "date": "2026-03-12",
-            "remaining": 125.35714285714286
+            "remaining": 125.82142857142857
           },
           {
             "date": "2026-03-13",
-            "remaining": 115.71428571428572
+            "remaining": 116.14285714285714
           },
           {
             "date": "2026-03-16",
-            "remaining": 106.07142857142857
+            "remaining": 106.46428571428572
           },
           {
             "date": "2026-03-17",
-            "remaining": 96.42857142857143
+            "remaining": 96.78571428571428
           },
           {
             "date": "2026-03-18",
-            "remaining": 86.78571428571429
+            "remaining": 87.10714285714286
           },
           {
             "date": "2026-03-19",
-            "remaining": 77.14285714285714
+            "remaining": 77.42857142857143
           },
           {
             "date": "2026-03-20",
-            "remaining": 67.5
+            "remaining": 67.75
           },
           {
             "date": "2026-03-23",
-            "remaining": 57.85714285714286
+            "remaining": 58.07142857142857
           },
           {
             "date": "2026-03-24",
-            "remaining": 48.21428571428572
+            "remaining": 48.39285714285714
           },
           {
             "date": "2026-03-25",
-            "remaining": 38.571428571428584
+            "remaining": 38.71428571428571
           },
           {
             "date": "2026-03-26",
-            "remaining": 28.92857142857143
+            "remaining": 29.035714285714278
           },
           {
             "date": "2026-03-27",
-            "remaining": 19.285714285714292
+            "remaining": 19.35714285714286
           },
           {
             "date": "2026-03-30",
-            "remaining": 9.642857142857153
+            "remaining": 9.67857142857143
           },
           {
             "date": "2026-03-31",
@@ -4592,7 +4605,7 @@ const projects = [
           "assignedTo": "Yarbrough, Darren",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/25793",
-          "taskRemainingWork": 2.5,
+          "taskRemainingWork": 2,
           "taskCompletedWork": 0
         },
         {
@@ -4737,11 +4750,11 @@ const projects = [
           "2026-03-20": 10,
           "2026-03-23": 8,
           "2026-03-24": 6.5,
-          "2026-03-25": 6.5,
-          "2026-03-26": 6.5,
-          "2026-03-27": 6.5,
-          "2026-03-30": 6.5,
-          "2026-03-31": 6.5
+          "2026-03-25": 6,
+          "2026-03-26": 6,
+          "2026-03-27": 6,
+          "2026-03-30": 6,
+          "2026-03-31": 6
         }
       }
     }
@@ -5985,7 +5998,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
         <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
         <div class="tmc-stories">
           <table>
-            <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th>Est / Rem</th></tr></thead>
+            <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th style="white-space:nowrap">Est / Rem</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
