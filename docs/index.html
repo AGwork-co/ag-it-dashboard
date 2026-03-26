@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, March 26, 2026 at 9:24 AM</span>
+    <span>Last updated: Thursday, March 26, 2026 at 12:59 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -409,10 +409,10 @@ const projects = [
       "estimated": 139,
       "unestimated": 171,
       "totalSP": 383,
-      "incompleteSP": 84,
+      "incompleteSP": 82.5,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 47.5,
+        "CRM": 46.5,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -427,7 +427,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q1 2026 - Sprint 6": 148.5,
+        "Q1 2026 - Sprint 6": 149.5,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42
       }
@@ -436,10 +436,10 @@ const projects = [
       "name": "Q1 2026 - Sprint 6",
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
-      "totalSP": 148.5,
-      "completedSP": 104.5,
-      "remainingSP": 44,
-      "storyCount": 61,
+      "totalSP": 149.5,
+      "completedSP": 106,
+      "remainingSP": 43.5,
+      "storyCount": 62,
       "stories": [
         {
           "id": 23670,
@@ -860,14 +860,27 @@ const projects = [
         {
           "id": 27379,
           "title": "Set up Docker Compose local development environment for MIA Sync",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 1.5,
+          "completedSP": 1.5,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-03-26T15:37:16.26Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27379",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27380,
+          "title": "Configure Azure Pipeline for CI (build, test, lint) for MIA Sync",
+          "state": "Ready for Review",
+          "storyPoints": 1,
           "completedSP": 0,
-          "remainingSP": 1.5,
+          "remainingSP": 1,
           "assignedTo": "Lamar, Brion",
           "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27379",
-          "taskRemainingWork": 1.5,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27380",
+          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         },
         {
@@ -1235,119 +1248,119 @@ const projects = [
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering want admin enhancements, mia salesforce enhancements, connector enhancements, kafka postgres enhancements, postgresql schema enhancements, api enhancements, frontend enhancements, build pipeline enhancements, producer dlq enhancements, global enhancements, and na-blackbox-sf finalize, sf to na: account services testing session, and 12...",
+      "sprintGoals": "Delivering want admin enhancements, mia sync enhancements, connector enhancements, kafka postgres enhancements, postgresql schema enhancements, api enhancements, build pipeline enhancements, frontend enhancements, producer dlq enhancements, global enhancements, and na-blackbox-sf finalize, sf to na: account services testing session, and 12 other...",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 148.5,
+        "totalSP": 149.5,
         "points": [
           {
             "date": "2026-03-11",
-            "remaining": 146.25
+            "remaining": 147.25
           },
           {
             "date": "2026-03-12",
-            "remaining": 139.5
+            "remaining": 140.5
           },
           {
             "date": "2026-03-13",
-            "remaining": 139.5
+            "remaining": 140.5
           },
           {
             "date": "2026-03-16",
-            "remaining": 139.5
+            "remaining": 140.5
           },
           {
             "date": "2026-03-17",
-            "remaining": 137
+            "remaining": 138
           },
           {
             "date": "2026-03-18",
-            "remaining": 135
+            "remaining": 136
           },
           {
             "date": "2026-03-19",
-            "remaining": 107.5
+            "remaining": 108.5
           },
           {
             "date": "2026-03-20",
-            "remaining": 96.75
+            "remaining": 97.75
           },
           {
             "date": "2026-03-23",
-            "remaining": 90.75
+            "remaining": 91.75
           },
           {
             "date": "2026-03-24",
-            "remaining": 61.5
+            "remaining": 62.5
           },
           {
             "date": "2026-03-25",
-            "remaining": 44
+            "remaining": 45
           },
           {
             "date": "2026-03-26",
-            "remaining": 44
+            "remaining": 43.5
           }
         ],
         "ideal": [
           {
             "date": "2026-03-11",
-            "remaining": 148.5
+            "remaining": 149.5
           },
           {
             "date": "2026-03-12",
-            "remaining": 137.89285714285714
+            "remaining": 138.82142857142858
           },
           {
             "date": "2026-03-13",
-            "remaining": 127.28571428571428
+            "remaining": 128.14285714285714
           },
           {
             "date": "2026-03-16",
-            "remaining": 116.67857142857143
+            "remaining": 117.46428571428572
           },
           {
             "date": "2026-03-17",
-            "remaining": 106.07142857142857
+            "remaining": 106.78571428571428
           },
           {
             "date": "2026-03-18",
-            "remaining": 95.46428571428571
+            "remaining": 96.10714285714286
           },
           {
             "date": "2026-03-19",
-            "remaining": 84.85714285714286
+            "remaining": 85.42857142857143
           },
           {
             "date": "2026-03-20",
-            "remaining": 74.25
+            "remaining": 74.75
           },
           {
             "date": "2026-03-23",
-            "remaining": 63.64285714285714
+            "remaining": 64.07142857142857
           },
           {
             "date": "2026-03-24",
-            "remaining": 53.03571428571428
+            "remaining": 53.39285714285714
           },
           {
             "date": "2026-03-25",
-            "remaining": 42.428571428571416
+            "remaining": 42.71428571428571
           },
           {
             "date": "2026-03-26",
-            "remaining": 31.82142857142857
+            "remaining": 32.03571428571428
           },
           {
             "date": "2026-03-27",
-            "remaining": 21.214285714285708
+            "remaining": 21.35714285714286
           },
           {
             "date": "2026-03-30",
-            "remaining": 10.607142857142861
+            "remaining": 10.678571428571416
           },
           {
             "date": "2026-03-31",
@@ -1425,21 +1438,21 @@ const projects = [
           "2026-03-31": 0
         },
         "Lamar, Brion": {
-          "2026-03-11": 38.25,
-          "2026-03-12": 37.25,
-          "2026-03-13": 37.25,
-          "2026-03-16": 35.25,
-          "2026-03-17": 32.25,
-          "2026-03-18": 24.25,
-          "2026-03-19": 14.25,
-          "2026-03-20": 6.25,
-          "2026-03-23": 6.25,
-          "2026-03-24": 5,
-          "2026-03-25": 3,
-          "2026-03-26": 3,
-          "2026-03-27": 3,
-          "2026-03-30": 3,
-          "2026-03-31": 3
+          "2026-03-11": 39.25,
+          "2026-03-12": 38.25,
+          "2026-03-13": 38.25,
+          "2026-03-16": 36.25,
+          "2026-03-17": 33.25,
+          "2026-03-18": 25.25,
+          "2026-03-19": 15.25,
+          "2026-03-20": 7.25,
+          "2026-03-23": 7.25,
+          "2026-03-24": 6,
+          "2026-03-25": 4,
+          "2026-03-26": 2.5,
+          "2026-03-27": 2.5,
+          "2026-03-30": 2.5,
+          "2026-03-31": 2.5
         }
       }
     }
@@ -1575,7 +1588,7 @@ const projects = [
           "assignedTo": "Keltner, Scott",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/26336",
-          "taskRemainingWork": 2,
+          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         },
         {
@@ -1794,10 +1807,10 @@ const projects = [
           "2026-03-23": 3,
           "2026-03-24": 3,
           "2026-03-25": 3,
-          "2026-03-26": 3,
-          "2026-03-27": 3,
-          "2026-03-30": 3,
-          "2026-03-31": 3
+          "2026-03-26": 2,
+          "2026-03-27": 2,
+          "2026-03-30": 2,
+          "2026-03-31": 2
         }
       }
     }
@@ -1835,7 +1848,7 @@ const projects = [
         "title": "CMS - v2026.Q1 - WordPress Migrations (Customer Requested)",
         "state": "Active",
         "features": 11,
-        "stories": 74
+        "stories": 76
       },
       {
         "id": 22333,
@@ -1888,11 +1901,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 298,
+      "total": 300,
       "estimated": 214,
-      "unestimated": 84,
+      "unestimated": 86,
       "totalSP": 298,
-      "incompleteSP": 53.75,
+      "incompleteSP": 50.75,
       "sprintSP": {
         "Q2 2025 - Sprint 3": 17.5,
         "Q2 2025 - Sprint 1": 12,
@@ -1925,21 +1938,21 @@ const projects = [
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
       "totalSP": 20,
-      "completedSP": 7.5,
-      "remainingSP": 12.5,
+      "completedSP": 10.5,
+      "remainingSP": 9.5,
       "storyCount": 13,
       "stories": [
         {
           "id": 21818,
           "title": "Ignite Parenting: Pages: Blog",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
           "assignedTo": "Hull, Darrin",
-          "completedDate": null,
+          "completedDate": "2026-03-26T15:29:48.94Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/21818",
-          "taskRemainingWork": 2,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -1958,14 +1971,14 @@ const projects = [
         {
           "id": 25714,
           "title": "Ignite Parenting: Pages: Free Resources",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Hull, Darrin",
-          "completedDate": null,
+          "completedDate": "2026-03-26T17:38:16.29Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/25714",
-          "taskRemainingWork": 0.5,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -1976,7 +1989,7 @@ const projects = [
           "completedSP": 1,
           "remainingSP": 0,
           "assignedTo": "Hull, Darrin",
-          "completedDate": "2026-03-11T15:04:35.05Z",
+          "completedDate": "2026-03-26T15:26:27.533Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/25782",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -2023,7 +2036,7 @@ const projects = [
         {
           "id": 26653,
           "title": "Discipleship: Directors Page",
-          "state": "Committed",
+          "state": "Ready for Review",
           "storyPoints": 1,
           "completedSP": 0,
           "remainingSP": 1,
@@ -2041,7 +2054,7 @@ const projects = [
           "completedSP": 2,
           "remainingSP": 0,
           "assignedTo": "Amsler, Richard",
-          "completedDate": "2026-03-24T17:43:42.287Z",
+          "completedDate": "2026-03-26T15:26:30.91Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/26655",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -2054,7 +2067,7 @@ const projects = [
           "completedSP": 2,
           "remainingSP": 0,
           "assignedTo": "Amsler, Richard",
-          "completedDate": "2026-03-24T17:44:03.643Z",
+          "completedDate": "2026-03-26T15:26:27.533Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/26661",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -2067,7 +2080,7 @@ const projects = [
           "completedSP": 0.5,
           "remainingSP": 0,
           "assignedTo": "Amsler, Richard",
-          "completedDate": "2026-03-24T20:33:26.02Z",
+          "completedDate": "2026-03-26T15:26:27.533Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/26663",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -2075,7 +2088,7 @@ const projects = [
         {
           "id": 27401,
           "title": "Discipleship: Contact Form",
-          "state": "Committed",
+          "state": "Ready for Review",
           "storyPoints": 1,
           "completedSP": 0,
           "remainingSP": 1,
@@ -2109,51 +2122,51 @@ const projects = [
         "points": [
           {
             "date": "2026-03-11",
-            "remaining": 19
+            "remaining": 20
           },
           {
             "date": "2026-03-12",
-            "remaining": 19
+            "remaining": 20
           },
           {
             "date": "2026-03-13",
-            "remaining": 19
+            "remaining": 20
           },
           {
             "date": "2026-03-16",
-            "remaining": 19
+            "remaining": 20
           },
           {
             "date": "2026-03-17",
-            "remaining": 17
+            "remaining": 18
           },
           {
             "date": "2026-03-18",
-            "remaining": 17
+            "remaining": 18
           },
           {
             "date": "2026-03-19",
-            "remaining": 17
+            "remaining": 18
           },
           {
             "date": "2026-03-20",
-            "remaining": 17
+            "remaining": 18
           },
           {
             "date": "2026-03-23",
-            "remaining": 17
+            "remaining": 18
           },
           {
             "date": "2026-03-24",
-            "remaining": 12.5
+            "remaining": 18
           },
           {
             "date": "2026-03-25",
-            "remaining": 12.5
+            "remaining": 18
           },
           {
             "date": "2026-03-26",
-            "remaining": 12.5
+            "remaining": 9.5
           }
         ],
         "ideal": [
@@ -2249,10 +2262,10 @@ const projects = [
           "2026-03-23": 8,
           "2026-03-24": 8,
           "2026-03-25": 8,
-          "2026-03-26": 8,
-          "2026-03-27": 8,
-          "2026-03-30": 8,
-          "2026-03-31": 8
+          "2026-03-26": 5.5,
+          "2026-03-27": 5.5,
+          "2026-03-30": 5.5,
+          "2026-03-31": 5.5
         }
       }
     }
@@ -2726,7 +2739,7 @@ const projects = [
         "title": "Fine Arts - v2026.06.01 (Nationals)",
         "state": "New",
         "features": 19,
-        "stories": 74
+        "stories": 73
       },
       {
         "id": 23982,
@@ -2746,8 +2759,8 @@ const projects = [
         "id": 26725,
         "title": "Fine Arts - v2026.03.31",
         "state": "Active",
-        "features": 11,
-        "stories": 39
+        "features": 12,
+        "stories": 41
       },
       {
         "id": 26726,
@@ -2758,10 +2771,10 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 328,
-      "estimated": 246,
+      "total": 329,
+      "estimated": 247,
       "unestimated": 82,
-      "totalSP": 444.75,
+      "totalSP": 445,
       "incompleteSP": 153.5,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 13,
@@ -2773,7 +2786,7 @@ const projects = [
         "Q1 2026 - Sprint 2": 27,
         "Q4 2025 - Sprint 3": 11.5,
         "Q2 2025 - Sprint 4": 20.25,
-        "Q1 2026 - Sprint 6": 30.5,
+        "Q1 2026 - Sprint 6": 30.75,
         "Q2 2025 - Sprint 5": 6,
         "Q3 2025 - Sprint 6": 8,
         "Q2 2025 - Sprint 6": 8,
@@ -2792,10 +2805,10 @@ const projects = [
       "name": "Q1 2026 - Sprint 6",
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
-      "totalSP": 30.5,
-      "completedSP": 3,
+      "totalSP": 30.75,
+      "completedSP": 3.25,
       "remainingSP": 27.5,
-      "storyCount": 23,
+      "storyCount": 24,
       "stories": [
         {
           "id": 5543,
@@ -3095,59 +3108,72 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/27674",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 27785,
+          "title": "Brushfire Sync Timeout",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-03-26T17:35:10.81Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/27785",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0.25
         }
       ],
-      "sprintGoals": "Delivering participant church enhancements, scoring enhancements, art gallery enhancements, setup enhancements, group names enhancements, and rbac: handle permission denied failures in ui, results.faf.ag.org, and 6 other items.",
+      "sprintGoals": "Delivering participant church enhancements, scoring enhancements, art gallery enhancements, setup enhancements, group names enhancements, and rbac: handle permission denied failures in ui, results.faf.ag.org, and 7 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 30.5,
+        "totalSP": 30.75,
         "points": [
           {
             "date": "2026-03-11",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-12",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-13",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-16",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-17",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-18",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-19",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-20",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-23",
-            "remaining": 29.5
+            "remaining": 29.75
           },
           {
             "date": "2026-03-24",
-            "remaining": 27.5
+            "remaining": 27.75
           },
           {
             "date": "2026-03-25",
-            "remaining": 27.5
+            "remaining": 27.75
           },
           {
             "date": "2026-03-26",
@@ -3157,63 +3183,63 @@ const projects = [
         "ideal": [
           {
             "date": "2026-03-11",
-            "remaining": 30.5
+            "remaining": 30.75
           },
           {
             "date": "2026-03-12",
-            "remaining": 28.321428571428573
+            "remaining": 28.553571428571427
           },
           {
             "date": "2026-03-13",
-            "remaining": 26.142857142857142
+            "remaining": 26.357142857142858
           },
           {
             "date": "2026-03-16",
-            "remaining": 23.964285714285715
+            "remaining": 24.160714285714285
           },
           {
             "date": "2026-03-17",
-            "remaining": 21.785714285714285
+            "remaining": 21.964285714285715
           },
           {
             "date": "2026-03-18",
-            "remaining": 19.607142857142858
+            "remaining": 19.767857142857142
           },
           {
             "date": "2026-03-19",
-            "remaining": 17.42857142857143
+            "remaining": 17.57142857142857
           },
           {
             "date": "2026-03-20",
-            "remaining": 15.250000000000002
+            "remaining": 15.374999999999998
           },
           {
             "date": "2026-03-23",
-            "remaining": 13.071428571428573
+            "remaining": 13.178571428571427
           },
           {
             "date": "2026-03-24",
-            "remaining": 10.892857142857146
+            "remaining": 10.982142857142854
           },
           {
             "date": "2026-03-25",
-            "remaining": 8.714285714285715
+            "remaining": 8.785714285714285
           },
           {
             "date": "2026-03-26",
-            "remaining": 6.535714285714288
+            "remaining": 6.589285714285712
           },
           {
             "date": "2026-03-27",
-            "remaining": 4.357142857142861
+            "remaining": 4.392857142857139
           },
           {
             "date": "2026-03-30",
-            "remaining": 2.1785714285714306
+            "remaining": 2.1964285714285694
           },
           {
             "date": "2026-03-31",
-            "remaining": 3.552713678800501e-15
+            "remaining": 0
           }
         ]
       },
@@ -4269,7 +4295,7 @@ const projects = [
       "estimated": 25,
       "unestimated": 13,
       "totalSP": 51.5,
-      "incompleteSP": 23,
+      "incompleteSP": 22.5,
       "sprintSP": {
         "Q3 2025 - Sprint 3": 1,
         "Q1 2026 - Sprint 5": 2,
@@ -4288,8 +4314,8 @@ const projects = [
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
       "totalSP": 18.5,
-      "completedSP": 1,
-      "remainingSP": 17.5,
+      "completedSP": 1.5,
+      "remainingSP": 17,
       "storyCount": 6,
       "stories": [
         {
@@ -4347,12 +4373,12 @@ const projects = [
         {
           "id": 26995,
           "title": "Feature Request: Selectable Security Training",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 0.5,
-          "completedSP": 0,
-          "remainingSP": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
           "assignedTo": "Georgiades, George",
-          "completedDate": null,
+          "completedDate": "2026-03-26T16:53:15.03Z",
           "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Apps/_workitems/edit/26995",
           "taskRemainingWork": 0.5,
           "taskCompletedWork": 0
@@ -4425,7 +4451,7 @@ const projects = [
           },
           {
             "date": "2026-03-26",
-            "remaining": 17.5
+            "remaining": 17
           }
         ],
         "ideal": [
