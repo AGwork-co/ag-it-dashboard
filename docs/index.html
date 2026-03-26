@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, March 25, 2026 at 4:48 PM</span>
+    <span>Last updated: Thursday, March 26, 2026 at 9:24 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -405,14 +405,14 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 309,
+      "total": 310,
       "estimated": 139,
-      "unestimated": 170,
+      "unestimated": 171,
       "totalSP": 383,
-      "incompleteSP": 86.5,
+      "incompleteSP": 84,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 52,
+        "CRM": 47.5,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -427,7 +427,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q1 2026 - Sprint 6": 144,
+        "Q1 2026 - Sprint 6": 148.5,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42
       }
@@ -436,10 +436,10 @@ const projects = [
       "name": "Q1 2026 - Sprint 6",
       "startDate": "2026-03-11T00:00:00Z",
       "endDate": "2026-03-31T00:00:00Z",
-      "totalSP": 144,
-      "completedSP": 103.5,
-      "remainingSP": 40.5,
-      "storyCount": 58,
+      "totalSP": 148.5,
+      "completedSP": 104.5,
+      "remainingSP": 44,
+      "storyCount": 61,
       "stories": [
         {
           "id": 23670,
@@ -754,6 +754,19 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
+          "id": 27187,
+          "title": "Implement write-back producer: Postgres changes to Kafka topic",
+          "state": "New",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27187",
+          "taskRemainingWork": 3,
+          "taskCompletedWork": 0
+        },
+        {
           "id": 27188,
           "title": "Write sync status tracking to accounts table",
           "state": "Done",
@@ -842,6 +855,19 @@ const projects = [
           "completedDate": "2026-03-24T18:46:47.103Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27378",
           "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27379,
+          "title": "Set up Docker Compose local development environment for MIA Sync",
+          "state": "Ready for Review",
+          "storyPoints": 1.5,
+          "completedSP": 0,
+          "remainingSP": 1.5,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27379",
+          "taskRemainingWork": 1.5,
           "taskCompletedWork": 0
         },
         {
@@ -1159,14 +1185,14 @@ const projects = [
         {
           "id": 27731,
           "title": "Extract DLQ producer to shared library and refactor blackbox-na to use shared IDlqProducer",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Lamar, Brion",
-          "completedDate": null,
+          "completedDate": "2026-03-25T21:54:18.74Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27731",
-          "taskRemainingWork": 1,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -1194,117 +1220,134 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27765",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0.5
+        },
+        {
+          "id": 27769,
+          "title": "Agent Operations Dashboard — Health, Sessions & Token Usage",
+          "state": "New",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27769",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering want admin enhancements, mia salesforce enhancements, connector enhancements, kafka connect enhancements, postgresql schema enhancements, api enhancements, frontend enhancements, build pipeline enhancements, global enhancements, dlq producer enhancements, and na-blackbox-sf finalize, sf to na: account services testing session, and 11 ...",
+      "sprintGoals": "Delivering want admin enhancements, mia salesforce enhancements, connector enhancements, kafka postgres enhancements, postgresql schema enhancements, api enhancements, frontend enhancements, build pipeline enhancements, producer dlq enhancements, global enhancements, and na-blackbox-sf finalize, sf to na: account services testing session, and 12...",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 144,
+        "totalSP": 148.5,
         "points": [
           {
             "date": "2026-03-11",
-            "remaining": 141.75
+            "remaining": 146.25
           },
           {
             "date": "2026-03-12",
-            "remaining": 135
+            "remaining": 139.5
           },
           {
             "date": "2026-03-13",
-            "remaining": 135
+            "remaining": 139.5
           },
           {
             "date": "2026-03-16",
-            "remaining": 135
+            "remaining": 139.5
           },
           {
             "date": "2026-03-17",
-            "remaining": 132.5
+            "remaining": 137
           },
           {
             "date": "2026-03-18",
-            "remaining": 130.5
+            "remaining": 135
           },
           {
             "date": "2026-03-19",
-            "remaining": 103
+            "remaining": 107.5
           },
           {
             "date": "2026-03-20",
-            "remaining": 92.25
+            "remaining": 96.75
           },
           {
             "date": "2026-03-23",
-            "remaining": 86.25
+            "remaining": 90.75
           },
           {
             "date": "2026-03-24",
-            "remaining": 57
+            "remaining": 61.5
           },
           {
             "date": "2026-03-25",
-            "remaining": 40.5
+            "remaining": 44
+          },
+          {
+            "date": "2026-03-26",
+            "remaining": 44
           }
         ],
         "ideal": [
           {
             "date": "2026-03-11",
-            "remaining": 144
+            "remaining": 148.5
           },
           {
             "date": "2026-03-12",
-            "remaining": 133.71428571428572
+            "remaining": 137.89285714285714
           },
           {
             "date": "2026-03-13",
-            "remaining": 123.42857142857143
+            "remaining": 127.28571428571428
           },
           {
             "date": "2026-03-16",
-            "remaining": 113.14285714285714
+            "remaining": 116.67857142857143
           },
           {
             "date": "2026-03-17",
-            "remaining": 102.85714285714286
+            "remaining": 106.07142857142857
           },
           {
             "date": "2026-03-18",
-            "remaining": 92.57142857142857
+            "remaining": 95.46428571428571
           },
           {
             "date": "2026-03-19",
-            "remaining": 82.28571428571428
+            "remaining": 84.85714285714286
           },
           {
             "date": "2026-03-20",
-            "remaining": 72
+            "remaining": 74.25
           },
           {
             "date": "2026-03-23",
-            "remaining": 61.71428571428571
+            "remaining": 63.64285714285714
           },
           {
             "date": "2026-03-24",
-            "remaining": 51.428571428571416
+            "remaining": 53.03571428571428
           },
           {
             "date": "2026-03-25",
-            "remaining": 41.14285714285714
+            "remaining": 42.428571428571416
           },
           {
             "date": "2026-03-26",
-            "remaining": 30.857142857142847
+            "remaining": 31.82142857142857
           },
           {
             "date": "2026-03-27",
-            "remaining": 20.571428571428555
+            "remaining": 21.214285714285708
           },
           {
             "date": "2026-03-30",
-            "remaining": 10.285714285714278
+            "remaining": 10.607142857142861
           },
           {
             "date": "2026-03-31",
@@ -1382,21 +1425,21 @@ const projects = [
           "2026-03-31": 0
         },
         "Lamar, Brion": {
-          "2026-03-11": 36.75,
-          "2026-03-12": 35.75,
-          "2026-03-13": 35.75,
-          "2026-03-16": 33.75,
-          "2026-03-17": 30.75,
-          "2026-03-18": 22.75,
-          "2026-03-19": 12.75,
-          "2026-03-20": 4.75,
-          "2026-03-23": 4.75,
-          "2026-03-24": 3.5,
-          "2026-03-25": 2.5,
-          "2026-03-26": 2.5,
-          "2026-03-27": 2.5,
-          "2026-03-30": 2.5,
-          "2026-03-31": 2.5
+          "2026-03-11": 38.25,
+          "2026-03-12": 37.25,
+          "2026-03-13": 37.25,
+          "2026-03-16": 35.25,
+          "2026-03-17": 32.25,
+          "2026-03-18": 24.25,
+          "2026-03-19": 14.25,
+          "2026-03-20": 6.25,
+          "2026-03-23": 6.25,
+          "2026-03-24": 5,
+          "2026-03-25": 3,
+          "2026-03-26": 3,
+          "2026-03-27": 3,
+          "2026-03-30": 3,
+          "2026-03-31": 3
         }
       }
     }
@@ -1651,6 +1694,10 @@ const projects = [
           },
           {
             "date": "2026-03-25",
+            "remaining": 11
+          },
+          {
+            "date": "2026-03-26",
             "remaining": 11
           }
         ],
@@ -2103,6 +2150,10 @@ const projects = [
           {
             "date": "2026-03-25",
             "remaining": 12.5
+          },
+          {
+            "date": "2026-03-26",
+            "remaining": 12.5
           }
         ],
         "ideal": [
@@ -2513,6 +2564,10 @@ const projects = [
           },
           {
             "date": "2026-03-25",
+            "remaining": 5
+          },
+          {
+            "date": "2026-03-26",
             "remaining": 5
           }
         ],
@@ -3093,6 +3148,10 @@ const projects = [
           {
             "date": "2026-03-25",
             "remaining": 27.5
+          },
+          {
+            "date": "2026-03-26",
+            "remaining": 27.5
           }
         ],
         "ideal": [
@@ -3343,6 +3402,10 @@ const projects = [
           },
           {
             "date": "2026-03-25",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-26",
             "remaining": 0.5
           }
         ],
@@ -3839,6 +3902,10 @@ const projects = [
           },
           {
             "date": "2026-03-25",
+            "remaining": 13.25
+          },
+          {
+            "date": "2026-03-26",
             "remaining": 13.25
           }
         ],
@@ -4355,6 +4422,10 @@ const projects = [
           {
             "date": "2026-03-25",
             "remaining": 17.5
+          },
+          {
+            "date": "2026-03-26",
+            "remaining": 17.5
           }
         ],
         "ideal": [
@@ -4682,6 +4753,10 @@ const projects = [
           {
             "date": "2026-03-25",
             "remaining": 16
+          },
+          {
+            "date": "2026-03-26",
+            "remaining": 16
           }
         ],
         "ideal": [
@@ -4937,6 +5012,10 @@ const projects = [
           },
           {
             "date": "2026-03-25",
+            "remaining": 0.25
+          },
+          {
+            "date": "2026-03-26",
             "remaining": 0.25
           }
         ],
