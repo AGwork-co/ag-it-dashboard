@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, April 2, 2026 at 9:20 AM</span>
+    <span>Last updated: Thursday, April 2, 2026 at 12:48 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -380,7 +380,7 @@ const projects = [
         "title": "Phase 2: MIA",
         "state": "Active",
         "features": 5,
-        "stories": 35
+        "stories": 36
       },
       {
         "id": 26793,
@@ -406,13 +406,13 @@ const projects = [
     ],
     "estimation": {
       "total": 315,
-      "estimated": 141,
-      "unestimated": 174,
-      "totalSP": 387,
-      "incompleteSP": 76.5,
+      "estimated": 142,
+      "unestimated": 173,
+      "totalSP": 387.3,
+      "incompleteSP": 76.8,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 45.5,
+        "CRM": 38,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -427,25 +427,181 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q1 2026 - Sprint 6": 150.5,
+        "Q2 2026 - Sprint 1": 41.3,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42,
-        "Q2 2026 - Sprint 1": 4
+        "Q1 2026 - Sprint 6": 121
       }
     },
     "currentSprint": {
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 4,
+      "totalSP": 41.3,
       "completedSP": 0,
-      "remainingSP": 4,
-      "storyCount": 2,
+      "remainingSP": 41.3,
+      "storyCount": 15,
       "stories": [
+        {
+          "id": 23670,
+          "title": "na-blackbox-sf finalize",
+          "state": "Committed",
+          "storyPoints": 8,
+          "completedSP": 0,
+          "remainingSP": 8,
+          "assignedTo": "Georgiades, George",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/23670",
+          "taskRemainingWork": 3,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 26634,
+          "title": "Review MIA data structures",
+          "state": "Committed",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/26634",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 26919,
+          "title": "Flink Enrichment and Tranformation for MIA to Salesforce",
+          "state": "Committed",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/26919",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27039,
+          "title": "Flink: Prototype Flink SQL with NA Notes",
+          "state": "Committed",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27039",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27187,
+          "title": "Implement write-back producer: Postgres changes to Kafka topic",
+          "state": "Committed",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27187",
+          "taskRemainingWork": 3,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27234,
+          "title": "Propagate permission changes via Kafka to downstream consumers",
+          "state": "Committed",
+          "storyPoints": 1.5,
+          "completedSP": 0,
+          "remainingSP": 1.5,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27234",
+          "taskRemainingWork": 1.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27382,
+          "title": "Implement MIA/NA record filtering logic on the Salesforce composite topic",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27382",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27385,
+          "title": "Implement Account entity sync (Salesforce Account to MIA account tables)",
+          "state": "Committed",
+          "storyPoints": 1.5,
+          "completedSP": 0,
+          "remainingSP": 1.5,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27385",
+          "taskRemainingWork": 1.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27386,
+          "title": "Implement Contact entity sync (Salesforce Contact to MIA contact tables)",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27386",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27387,
+          "title": "Implement Address entity sync (Salesforce Address → MIA address tables)",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27387",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27389,
+          "title": "Create Helm chart and configure AKS deployment for MIA Sync service",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27389",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27440,
+          "title": "Configure Salesforce objects and fields for MIA integration",
+          "state": "Committed",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27440",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
         {
           "id": 27842,
           "title": "FundView Transformer Enhancements",
-          "state": "Approved",
+          "state": "Committed",
           "storyPoints": 3,
           "completedSP": 0,
           "remainingSP": 3,
@@ -456,9 +612,22 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
+          "id": 27941,
+          "title": "Auth layer quality cleanup (post-27203)",
+          "state": "Committed",
+          "storyPoints": 0.3,
+          "completedSP": 0,
+          "remainingSP": 0.3,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27941",
+          "taskRemainingWork": 0.1,
+          "taskCompletedWork": 0
+        },
+        {
           "id": 27944,
           "title": "Bulk Loader - Add logging to DLQ for Errors",
-          "state": "Approved",
+          "state": "Committed",
           "storyPoints": 1,
           "completedSP": 0,
           "remainingSP": 1,
@@ -469,59 +638,59 @@ const projects = [
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering fundview transformer enhancements, along with bulk loader - add logging to dlq for errors.",
+      "sprintGoals": "Delivering mia salesforce enhancements, implement topic enhancements, and na-blackbox-sf finalize, flink: prototype flink sql with na notes, and 4 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 4,
+        "totalSP": 41.3,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 4
+            "remaining": 41.3
           },
           {
             "date": "2026-04-02",
-            "remaining": 4
+            "remaining": 41.3
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 4
+            "remaining": 41.3
           },
           {
             "date": "2026-04-02",
-            "remaining": 3.5555555555555554
+            "remaining": 36.71111111111111
           },
           {
             "date": "2026-04-03",
-            "remaining": 3.111111111111111
+            "remaining": 32.12222222222222
           },
           {
             "date": "2026-04-06",
-            "remaining": 2.666666666666667
+            "remaining": 27.53333333333333
           },
           {
             "date": "2026-04-07",
-            "remaining": 2.2222222222222223
+            "remaining": 22.944444444444443
           },
           {
             "date": "2026-04-08",
-            "remaining": 1.7777777777777777
+            "remaining": 18.355555555555554
           },
           {
             "date": "2026-04-09",
-            "remaining": 1.3333333333333335
+            "remaining": 13.766666666666666
           },
           {
             "date": "2026-04-10",
-            "remaining": 0.8888888888888893
+            "remaining": 9.177777777777777
           },
           {
             "date": "2026-04-13",
-            "remaining": 0.44444444444444464
+            "remaining": 4.588888888888889
           },
           {
             "date": "2026-04-14",
@@ -530,17 +699,65 @@ const projects = [
         ]
       },
       "personTaskBurndown": {
+        "Georgiades, George": {
+          "2026-04-01": 14,
+          "2026-04-02": 11,
+          "2026-04-03": 11,
+          "2026-04-06": 11,
+          "2026-04-07": 11,
+          "2026-04-08": 11,
+          "2026-04-09": 11,
+          "2026-04-10": 11,
+          "2026-04-13": 11,
+          "2026-04-14": 11
+        },
         "Hassbaum, Ralph": {
-          "2026-04-01": 7.85,
-          "2026-04-02": 7,
-          "2026-04-03": 7,
-          "2026-04-06": 7,
-          "2026-04-07": 7,
-          "2026-04-08": 7,
-          "2026-04-09": 7,
-          "2026-04-10": 7,
-          "2026-04-13": 7,
-          "2026-04-14": 7
+          "2026-04-01": 29.6,
+          "2026-04-02": 22.75,
+          "2026-04-03": 22.75,
+          "2026-04-06": 22.75,
+          "2026-04-07": 22.75,
+          "2026-04-08": 22.75,
+          "2026-04-09": 22.75,
+          "2026-04-10": 22.75,
+          "2026-04-13": 22.75,
+          "2026-04-14": 22.75
+        },
+        "Furr, Darren M": {
+          "2026-04-01": 0,
+          "2026-04-02": 0,
+          "2026-04-03": 0,
+          "2026-04-06": 0,
+          "2026-04-07": 0,
+          "2026-04-08": 0,
+          "2026-04-09": 0,
+          "2026-04-10": 0,
+          "2026-04-13": 0,
+          "2026-04-14": 0
+        },
+        "Roach, Joseph": {
+          "2026-04-01": 4.6,
+          "2026-04-02": 4.6,
+          "2026-04-03": 4.6,
+          "2026-04-06": 4.6,
+          "2026-04-07": 4.6,
+          "2026-04-08": 4.6,
+          "2026-04-09": 4.6,
+          "2026-04-10": 4.6,
+          "2026-04-13": 4.6,
+          "2026-04-14": 4.6
+        },
+        "Lamar, Brion": {
+          "2026-04-01": 6.5,
+          "2026-04-02": 6.5,
+          "2026-04-03": 6.5,
+          "2026-04-06": 6.5,
+          "2026-04-07": 6.5,
+          "2026-04-08": 6.5,
+          "2026-04-09": 6.5,
+          "2026-04-10": 6.5,
+          "2026-04-13": 6.5,
+          "2026-04-14": 6.5
         }
       }
     }
@@ -2401,9 +2618,10 @@ const projects = [
         "Q3 2025 - Sprint 6": 0.5,
         "Q4 2025 - Sprint 1": 7,
         "Q4 2025 - Sprint 6": 8,
-        "Q4 2025 - Sprint 5": 2,
+        "Q4 2025 - Sprint 5": 1,
         "Q4 2025 - Sprint 4": 3,
-        "Q1 2026 - Sprint 6": 18.5,
+        "Q2 2026 - Sprint 1": 18,
+        "Q1 2026 - Sprint 6": 1.5,
         "Q4 2025 - Sprint 3": 5.5
       }
     },
@@ -2411,64 +2629,130 @@ const projects = [
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 0,
+      "totalSP": 18,
       "completedSP": 0,
-      "remainingSP": 0,
-      "storyCount": 0,
-      "stories": [],
-      "sprintGoals": "",
+      "remainingSP": 18,
+      "storyCount": 5,
+      "stories": [
+        {
+          "id": 22488,
+          "title": "Generate companion QA Sheet",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Farrand, Phil",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Apps/_workitems/edit/22488",
+          "taskRemainingWork": 0.2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 25987,
+          "title": "UI: Enrollments",
+          "state": "Approved",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Campbell, Jack H",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Apps/_workitems/edit/25987",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 25988,
+          "title": "UI: Payments",
+          "state": "Approved",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Campbell, Jack H",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Apps/_workitems/edit/25988",
+          "taskRemainingWork": 1.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 25989,
+          "title": "UI: History",
+          "state": "Approved",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Campbell, Jack H",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Apps/_workitems/edit/25989",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27346,
+          "title": "Quarterly tax transfers from missy accounts ",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Farrand, Phil",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Apps/_workitems/edit/27346",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering generate companion qa sheet, ui: enrollments, and 3 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 0,
+        "totalSP": 18,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 0
+            "remaining": 18
           },
           {
             "date": "2026-04-02",
-            "remaining": 0
+            "remaining": 18
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 0
+            "remaining": 18
           },
           {
             "date": "2026-04-02",
-            "remaining": 0
+            "remaining": 16
           },
           {
             "date": "2026-04-03",
-            "remaining": 0
+            "remaining": 14
           },
           {
             "date": "2026-04-06",
-            "remaining": 0
+            "remaining": 12
           },
           {
             "date": "2026-04-07",
-            "remaining": 0
+            "remaining": 10
           },
           {
             "date": "2026-04-08",
-            "remaining": 0
+            "remaining": 8
           },
           {
             "date": "2026-04-09",
-            "remaining": 0
+            "remaining": 6
           },
           {
             "date": "2026-04-10",
-            "remaining": 0
+            "remaining": 4
           },
           {
             "date": "2026-04-13",
-            "remaining": 0
+            "remaining": 2
           },
           {
             "date": "2026-04-14",
@@ -2476,7 +2760,32 @@ const projects = [
           }
         ]
       },
-      "personTaskBurndown": {}
+      "personTaskBurndown": {
+        "Farrand, Phil": {
+          "2026-04-01": 4.2,
+          "2026-04-02": 2.7,
+          "2026-04-03": 2.7,
+          "2026-04-06": 2.7,
+          "2026-04-07": 2.7,
+          "2026-04-08": 2.7,
+          "2026-04-09": 2.7,
+          "2026-04-10": 2.7,
+          "2026-04-13": 2.7,
+          "2026-04-14": 2.7
+        },
+        "Campbell, Jack H": {
+          "2026-04-01": 17,
+          "2026-04-02": 17,
+          "2026-04-03": 17,
+          "2026-04-06": 17,
+          "2026-04-07": 17,
+          "2026-04-08": 17,
+          "2026-04-09": 17,
+          "2026-04-10": 17,
+          "2026-04-13": 17,
+          "2026-04-14": 17
+        }
+      }
     }
   },
   {
