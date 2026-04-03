@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Friday, April 3, 2026 at 10:57 AM</span>
+    <span>Last updated: Friday, April 3, 2026 at 11:01 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -1443,37 +1443,25 @@ const projects = [
         "Q4 2025 - Sprint 4": 7.5,
         "Q1 2026 - Sprint 4": 7,
         "Q1 2025 - Sprint 5": 1,
-        "Q1 2026 - Sprint 6": 16,
+        "Q2 2026 - Sprint 1": 13,
         "Q4 2025 - Sprint 5": 6,
-        "Q1 2026 - Sprint 1": 3
+        "Q1 2026 - Sprint 1": 3,
+        "Q1 2026 - Sprint 6": 3
       }
     },
     "currentSprint": {
-      "name": "Q1 2026 - Sprint 6",
-      "startDate": "2026-03-11T00:00:00Z",
-      "endDate": "2026-03-31T00:00:00Z",
-      "totalSP": 16,
-      "completedSP": 3,
+      "name": "Q2 2026 - Sprint 1",
+      "startDate": "2026-04-01T00:00:00Z",
+      "endDate": "2026-04-21T00:00:00Z",
+      "totalSP": 13,
+      "completedSP": 0,
       "remainingSP": 13,
-      "storyCount": 4,
+      "storyCount": 2,
       "stories": [
-        {
-          "id": 20293,
-          "title": "Form: Create a Travel Approval Form",
-          "state": "Approved",
-          "storyPoints": 0,
-          "completedSP": 0,
-          "remainingSP": 0,
-          "assignedTo": "Oursbourn, Chris",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/20293",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
         {
           "id": 22476,
           "title": "New Screen in Financial Reporting [Itineration Administration]",
-          "state": "Committed",
+          "state": "Approved",
           "storyPoints": 8,
           "completedSP": 0,
           "remainingSP": 8,
@@ -1486,7 +1474,7 @@ const projects = [
         {
           "id": 25793,
           "title": "Update Financial Reporting API to get data off of Tupelo",
-          "state": "Committed",
+          "state": "Approved",
           "storyPoints": 5,
           "completedSP": 0,
           "remainingSP": 5,
@@ -1495,170 +1483,109 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/25793",
           "taskRemainingWork": 2,
           "taskCompletedWork": 0
-        },
-        {
-          "id": 27408,
-          "title": "Create Buttons",
-          "state": "Done",
-          "storyPoints": 3,
-          "completedSP": 3,
-          "remainingSP": 0,
-          "assignedTo": "Yarbrough, Darren",
-          "completedDate": "2026-03-26T20:54:18.26Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/27408",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering financial reporting enhancements, form: create a travel approval form, and create buttons.",
+      "sprintGoals": "Delivering financial reporting enhancements.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 16,
+        "totalSP": 13,
         "points": [
           {
-            "date": "2026-03-11",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-12",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-13",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-16",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-17",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-18",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-19",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-20",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-23",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-24",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-25",
-            "remaining": 16
-          },
-          {
-            "date": "2026-03-26",
+            "date": "2026-04-01",
             "remaining": 13
           },
           {
-            "date": "2026-03-27",
+            "date": "2026-04-02",
             "remaining": 13
           },
           {
-            "date": "2026-03-30",
-            "remaining": 13
-          },
-          {
-            "date": "2026-03-31",
+            "date": "2026-04-03",
             "remaining": 13
           }
         ],
         "ideal": [
           {
-            "date": "2026-03-11",
-            "remaining": 16
+            "date": "2026-04-01",
+            "remaining": 13
           },
           {
-            "date": "2026-03-12",
-            "remaining": 14.857142857142858
+            "date": "2026-04-02",
+            "remaining": 12.071428571428571
           },
           {
-            "date": "2026-03-13",
-            "remaining": 13.714285714285715
+            "date": "2026-04-03",
+            "remaining": 11.142857142857142
           },
           {
-            "date": "2026-03-16",
-            "remaining": 12.571428571428571
+            "date": "2026-04-06",
+            "remaining": 10.214285714285715
           },
           {
-            "date": "2026-03-17",
-            "remaining": 11.428571428571429
+            "date": "2026-04-07",
+            "remaining": 9.285714285714285
           },
           {
-            "date": "2026-03-18",
-            "remaining": 10.285714285714286
+            "date": "2026-04-08",
+            "remaining": 8.357142857142858
           },
           {
-            "date": "2026-03-19",
-            "remaining": 9.142857142857142
+            "date": "2026-04-09",
+            "remaining": 7.428571428571429
           },
           {
-            "date": "2026-03-20",
-            "remaining": 8
+            "date": "2026-04-10",
+            "remaining": 6.5
           },
           {
-            "date": "2026-03-23",
-            "remaining": 6.857142857142858
+            "date": "2026-04-13",
+            "remaining": 5.571428571428571
           },
           {
-            "date": "2026-03-24",
-            "remaining": 5.714285714285715
+            "date": "2026-04-14",
+            "remaining": 4.642857142857142
           },
           {
-            "date": "2026-03-25",
-            "remaining": 4.571428571428573
+            "date": "2026-04-15",
+            "remaining": 3.7142857142857135
           },
           {
-            "date": "2026-03-26",
-            "remaining": 3.428571428571429
+            "date": "2026-04-16",
+            "remaining": 2.7857142857142847
           },
           {
-            "date": "2026-03-27",
-            "remaining": 2.2857142857142865
+            "date": "2026-04-17",
+            "remaining": 1.8571428571428577
           },
           {
-            "date": "2026-03-30",
-            "remaining": 1.1428571428571441
+            "date": "2026-04-20",
+            "remaining": 0.9285714285714288
           },
           {
-            "date": "2026-03-31",
+            "date": "2026-04-21",
             "remaining": 0
           }
         ]
       },
       "personTaskBurndown": {
         "Yarbrough, Darren": {
-          "2026-03-11": 10,
-          "2026-03-12": 10,
-          "2026-03-13": 10,
-          "2026-03-16": 10,
-          "2026-03-17": 10,
-          "2026-03-18": 10,
-          "2026-03-19": 10,
-          "2026-03-20": 10,
-          "2026-03-23": 8,
-          "2026-03-24": 6.5,
-          "2026-03-25": 5.5,
-          "2026-03-26": 4.5,
-          "2026-03-27": 4.5,
-          "2026-03-30": 4.5,
-          "2026-03-31": 4.5
+          "2026-04-01": 15,
+          "2026-04-02": 15,
+          "2026-04-03": 15,
+          "2026-04-06": 15,
+          "2026-04-07": 15,
+          "2026-04-08": 15,
+          "2026-04-09": 15,
+          "2026-04-10": 15,
+          "2026-04-13": 15,
+          "2026-04-14": 15,
+          "2026-04-15": 15,
+          "2026-04-16": 15,
+          "2026-04-17": 15,
+          "2026-04-20": 15,
+          "2026-04-21": 15
         }
       }
     }
