@@ -38,21 +38,45 @@ function normalizeName(name) {
   return DISPLAY_NAME_MAP[name] || name;
 }
 
-// ── Project definitions (maps DevOps project names to dashboard config) ─────
-const PROJECT_CONFIGS = [
-  { priority: 1,  devopsProject: 'CRM',                   shortName: 'CRM',             displayName: 'CRM (Salesforce)' },
-  { priority: 2,  devopsProject: 'GPH',                   shortName: 'GPH',             displayName: 'GPH (Gospel Publishing House)' },
-  { priority: 3,  devopsProject: 'CMS vNext',             shortName: 'CMS',             displayName: 'CMS vNext' },
-  { priority: 4,  devopsProject: 'Bible Engagement Project', shortName: 'BEP',          displayName: 'Bible Engagement Project' },
-  { priority: 5,  devopsProject: 'Fine Arts',             shortName: 'Fine Arts',        displayName: 'Fine Arts' },
-  { priority: 6,  devopsProject: 'Chi Alpha',             shortName: 'Chi Alpha',        displayName: 'Chi Alpha' },
-  { priority: 7,  devopsProject: 'AG.Giving',             shortName: 'AG.Giving',        displayName: 'AG.Giving' },
-  { priority: 8,  devopsProject: 'AGWM Mobilization',     shortName: 'Mobilization',     displayName: 'AGWM Mobilization' },
-  { priority: 9,  devopsProject: 'AGWM Apps',             shortName: 'AGWM Apps',        displayName: 'AGWM Apps' },
-  { priority: 10, devopsProject: 'AGWM Financial Reporting', shortName: 'Financial',     displayName: 'AGWM Financial Reporting' },
-  { priority: 11, devopsProject: 'AG Missions Common',    shortName: 'Missions Common',  displayName: 'AG Missions Common' },
-  { priority: 12, devopsProject: 'Infrastructure',        shortName: 'Infra',            displayName: 'Infrastructure' },
-];
+// ── Project display name overrides (DevOps name → friendly names) ───────────
+const PROJECT_DISPLAY_NAMES = {
+  'CRM': { shortName: 'CRM', displayName: 'CRM (Salesforce)' },
+  'GPH': { shortName: 'GPH', displayName: 'GPH (Gospel Publishing House)' },
+  'CMS vNext': { shortName: 'CMS', displayName: 'CMS vNext' },
+  'Bible Engagement Project': { shortName: 'BEP', displayName: 'Bible Engagement Project' },
+  'AGWM Mobilization': { shortName: 'Mobilization', displayName: 'AGWM Mobilization' },
+  'AGWM Financial Reporting': { shortName: 'Financial', displayName: 'AGWM Financial Reporting' },
+  'AG Missions Common': { shortName: 'Missions Common', displayName: 'AG Missions Common' },
+  'Infrastructure': { shortName: 'Infra', displayName: 'Infrastructure' },
+  'Business Software Support': { shortName: 'Biz Support', displayName: 'Business Software Support' },
+  'Document Management': { shortName: 'Doc Mgmt', displayName: 'Document Management' },
+  'Missions Support': { shortName: 'Missions Support', displayName: 'Missions Support' },
+  'Missions Portal': { shortName: 'Missions Portal', displayName: 'Missions Portal' },
+  'Systems Development': { shortName: 'Sys Dev', displayName: 'Systems Development' },
+};
+
+/** Fetch all projects from the Azure DevOps org and build PROJECT_CONFIGS dynamically */
+async function fetchProjectConfigs() {
+  const url = `${ORG_URL}/_apis/projects?$top=200&api-version=${API_VERSION}`;
+  const data = await adoFetch(url);
+  if (!data || !data.value) {
+    console.error('ERROR: Could not fetch projects from Azure DevOps');
+    process.exit(1);
+  }
+  const projects = data.value
+    .filter(p => p.state === 'wellFormed')
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  return projects.map((p, i) => {
+    const override = PROJECT_DISPLAY_NAMES[p.name];
+    return {
+      priority: i + 1,
+      devopsProject: p.name,
+      shortName: override?.shortName || p.name,
+      displayName: override?.displayName || p.name,
+    };
+  });
+}
 
 // ── Azure DevOps API helpers ────────────────────────────────────────────────
 
@@ -728,6 +752,9 @@ function generateHTML(projectsData, buildTime) {
 async function main() {
   console.log('🚀 AG IT Dashboard — Build starting...');
   console.log(`   Org: ${ORG_URL}`);
+
+  // Dynamically fetch all projects from the Azure DevOps org
+  const PROJECT_CONFIGS = await fetchProjectConfigs();
   console.log(`   Projects: ${PROJECT_CONFIGS.length}\n`);
 
   const projectsData = [];
