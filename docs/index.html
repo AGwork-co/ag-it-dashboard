@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, April 9, 2026 at 9:53 AM</span>
+    <span>Last updated: Thursday, April 9, 2026 at 12:57 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -2785,14 +2785,14 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 321,
-      "estimated": 165,
-      "unestimated": 156,
-      "totalSP": 417.55,
-      "incompleteSP": 83.25,
+      "total": 323,
+      "estimated": 166,
+      "unestimated": 157,
+      "totalSP": 417.8,
+      "incompleteSP": 81,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 62.5,
+        "CRM": 58,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -2807,7 +2807,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 1": 52.05,
+        "Q2 2026 - Sprint 1": 56.8,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42,
         "Q1 2026 - Sprint 6": 116
@@ -2817,10 +2817,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 52.05,
-      "completedSP": 23.8,
-      "remainingSP": 28.249999999999996,
-      "storyCount": 28,
+      "totalSP": 56.8,
+      "completedSP": 26.3,
+      "remainingSP": 30.499999999999996,
+      "storyCount": 31,
       "stories": [
         {
           "id": 23670,
@@ -2963,6 +2963,32 @@ const projects = [
           "completedDate": "2026-04-08T21:43:31.42Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27219",
           "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27222,
+          "title": "State 6 — Record Detail View with address cards and inline edit button",
+          "state": "Done",
+          "storyPoints": 2.5,
+          "completedSP": 2.5,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-04-09T16:00:34.57Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27222",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27223,
+          "title": "State 6a — Edit or Add Address form with address type, seasonal dates, and flags",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27223",
+          "taskRemainingWork": 2,
           "taskCompletedWork": 0
         },
         {
@@ -3170,7 +3196,7 @@ const projects = [
           "assignedTo": "Lamar, Brion",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28127",
-          "taskRemainingWork": 0,
+          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         },
         {
@@ -3185,81 +3211,94 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28132",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 28170,
+          "title": "Bulk Loader - Fix Commit Issue on Topic",
+          "state": "Committed",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28170",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering mia salesforce enhancements, implement enhancements, state filter enhancements, sql flink enhancements, and na-blackbox-sf finalize, Propagate permission changes via Kafka to downs..., and 7 other items.",
+      "sprintGoals": "Delivering mia salesforce enhancements, implement enhancements, state address enhancements, sql flink enhancements, bulk loader enhancements, and na-blackbox-sf finalize, Propagate permission changes via Kafka to downs..., and 6 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 52.05,
+        "totalSP": 56.8,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 52.05
+            "remaining": 56.8
           },
           {
             "date": "2026-04-02",
-            "remaining": 51.75
+            "remaining": 56.5
           },
           {
             "date": "2026-04-03",
-            "remaining": 50.75
+            "remaining": 55.5
           },
           {
             "date": "2026-04-06",
-            "remaining": 44.75
+            "remaining": 49.5
           },
           {
             "date": "2026-04-07",
-            "remaining": 43.5
+            "remaining": 48.25
           },
           {
             "date": "2026-04-08",
-            "remaining": 28.25
+            "remaining": 33
           },
           {
             "date": "2026-04-09",
-            "remaining": 28.25
+            "remaining": 30.5
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 52.05
+            "remaining": 56.8
           },
           {
             "date": "2026-04-02",
-            "remaining": 46.266666666666666
+            "remaining": 50.48888888888889
           },
           {
             "date": "2026-04-03",
-            "remaining": 40.483333333333334
+            "remaining": 44.17777777777778
           },
           {
             "date": "2026-04-06",
-            "remaining": 34.699999999999996
+            "remaining": 37.86666666666666
           },
           {
             "date": "2026-04-07",
-            "remaining": 28.916666666666664
+            "remaining": 31.555555555555554
           },
           {
             "date": "2026-04-08",
-            "remaining": 23.133333333333333
+            "remaining": 25.244444444444444
           },
           {
             "date": "2026-04-09",
-            "remaining": 17.349999999999994
+            "remaining": 18.93333333333333
           },
           {
             "date": "2026-04-10",
-            "remaining": 11.566666666666663
+            "remaining": 12.62222222222222
           },
           {
             "date": "2026-04-13",
-            "remaining": 5.783333333333331
+            "remaining": 6.31111111111111
           },
           {
             "date": "2026-04-14",
@@ -3281,16 +3320,16 @@ const projects = [
           "2026-04-14": 10.5
         },
         "Hassbaum, Ralph": {
-          "2026-04-01": 29.95,
-          "2026-04-02": 20.1,
-          "2026-04-03": 19.1,
-          "2026-04-06": 19.1,
-          "2026-04-07": 15.35,
-          "2026-04-08": 14.5,
-          "2026-04-09": 14.5,
-          "2026-04-10": 14.5,
-          "2026-04-13": 14.5,
-          "2026-04-14": 14.5
+          "2026-04-01": 30.2,
+          "2026-04-02": 20.35,
+          "2026-04-03": 19.35,
+          "2026-04-06": 19.35,
+          "2026-04-07": 15.6,
+          "2026-04-08": 14.75,
+          "2026-04-09": 14.75,
+          "2026-04-10": 14.75,
+          "2026-04-13": 14.75,
+          "2026-04-14": 14.75
         },
         "Furr, Darren M": {
           "2026-04-01": 1,
@@ -3305,28 +3344,28 @@ const projects = [
           "2026-04-14": 1
         },
         "Roach, Joseph": {
-          "2026-04-01": 11.55,
-          "2026-04-02": 11.45,
-          "2026-04-03": 11.45,
-          "2026-04-06": 6.95,
-          "2026-04-07": 6.95,
-          "2026-04-08": 2.25,
-          "2026-04-09": 2.25,
-          "2026-04-10": 2.25,
-          "2026-04-13": 2.25,
-          "2026-04-14": 2.25
+          "2026-04-01": 16.05,
+          "2026-04-02": 15.95,
+          "2026-04-03": 15.95,
+          "2026-04-06": 11.45,
+          "2026-04-07": 11.45,
+          "2026-04-08": 6.75,
+          "2026-04-09": 4.25,
+          "2026-04-10": 4.25,
+          "2026-04-13": 4.25,
+          "2026-04-14": 4.25
         },
         "Lamar, Brion": {
-          "2026-04-01": 6.5,
-          "2026-04-02": 6.5,
-          "2026-04-03": 5.5,
-          "2026-04-06": 3.25,
-          "2026-04-07": 2.25,
-          "2026-04-08": 2,
-          "2026-04-09": 0.25,
-          "2026-04-10": 0.25,
-          "2026-04-13": 0.25,
-          "2026-04-14": 0.25
+          "2026-04-01": 7.5,
+          "2026-04-02": 7.5,
+          "2026-04-03": 6.5,
+          "2026-04-06": 4.25,
+          "2026-04-07": 3.25,
+          "2026-04-08": 3,
+          "2026-04-09": 1.25,
+          "2026-04-10": 1.25,
+          "2026-04-13": 1.25,
+          "2026-04-14": 1.25
         }
       }
     }
@@ -8167,11 +8206,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 38,
-      "estimated": 27,
+      "total": 39,
+      "estimated": 28,
       "unestimated": 11,
-      "totalSP": 33.25,
-      "incompleteSP": 7,
+      "totalSP": 34.25,
+      "incompleteSP": 8,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 1,
         "Q3 2025 - Sprint 6": 3,
@@ -8187,91 +8226,106 @@ const projects = [
         "Q4 2025 - Sprint 5": 0.5,
         "Q1 2026 - Sprint 2": 1,
         "Q1 2026 - Sprint 4": 1,
-        "Q1 2026 - Sprint 6": 1
+        "Q1 2026 - Sprint 6": 1,
+        "Q2 2026 - Sprint 1": 1
       }
     },
     "currentSprint": {
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 0,
+      "totalSP": 1,
       "completedSP": 0,
-      "remainingSP": 0,
-      "storyCount": 0,
-      "stories": [],
-      "sprintGoals": "",
+      "remainingSP": 1,
+      "storyCount": 1,
+      "stories": [
+        {
+          "id": 28167,
+          "title": "USMIA - HM - Script Stored Procedures for Source Control",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/USMIA/_workitems/edit/28167",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering usmia - hm - script stored procedures for source control.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 0,
+        "totalSP": 1,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 0
+            "remaining": 1
           },
           {
             "date": "2026-04-02",
-            "remaining": 0
+            "remaining": 1
           },
           {
             "date": "2026-04-03",
-            "remaining": 0
+            "remaining": 1
           },
           {
             "date": "2026-04-06",
-            "remaining": 0
+            "remaining": 1
           },
           {
             "date": "2026-04-07",
-            "remaining": 0
+            "remaining": 1
           },
           {
             "date": "2026-04-08",
-            "remaining": 0
+            "remaining": 1
           },
           {
             "date": "2026-04-09",
-            "remaining": 0
+            "remaining": 1
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 0
+            "remaining": 1
           },
           {
             "date": "2026-04-02",
-            "remaining": 0
+            "remaining": 0.8888888888888888
           },
           {
             "date": "2026-04-03",
-            "remaining": 0
+            "remaining": 0.7777777777777778
           },
           {
             "date": "2026-04-06",
-            "remaining": 0
+            "remaining": 0.6666666666666667
           },
           {
             "date": "2026-04-07",
-            "remaining": 0
+            "remaining": 0.5555555555555556
           },
           {
             "date": "2026-04-08",
-            "remaining": 0
+            "remaining": 0.4444444444444444
           },
           {
             "date": "2026-04-09",
-            "remaining": 0
+            "remaining": 0.33333333333333337
           },
           {
             "date": "2026-04-10",
-            "remaining": 0
+            "remaining": 0.22222222222222232
           },
           {
             "date": "2026-04-13",
-            "remaining": 0
+            "remaining": 0.11111111111111116
           },
           {
             "date": "2026-04-14",
