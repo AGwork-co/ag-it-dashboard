@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Friday, April 10, 2026 at 9:22 AM</span>
+    <span>Last updated: Friday, April 10, 2026 at 12:45 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -2817,11 +2817,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 326,
-      "estimated": 167,
+      "total": 327,
+      "estimated": 168,
       "unestimated": 159,
-      "totalSP": 418.05,
-      "incompleteSP": 79.75,
+      "totalSP": 418.3,
+      "incompleteSP": 80,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 59.5,
@@ -2839,7 +2839,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 1": 55.55,
+        "Q2 2026 - Sprint 1": 55.8,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42,
         "Q1 2026 - Sprint 6": 116
@@ -2849,10 +2849,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 55.55,
+      "totalSP": 55.8,
       "completedSP": 27.8,
-      "remainingSP": 27.749999999999996,
-      "storyCount": 31,
+      "remainingSP": 27.999999999999996,
+      "storyCount": 32,
       "stories": [
         {
           "id": 23670,
@@ -3256,85 +3256,98 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28184",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 28195,
+          "title": "IAC - Cron Job Config for Bulk Upserts for Accounts, Addresses, and Contacts",
+          "state": "Committed",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28195",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering mia salesforce enhancements, implement enhancements, state address enhancements, sql flink enhancements, bulk loader enhancements, and na-blackbox-sf finalize, Refactor connector catalog from frontend static..., and 6 other items.",
+      "sprintGoals": "Delivering mia salesforce enhancements, implement enhancements, state address enhancements, bulk loader enhancements, sql flink enhancements, and na-blackbox-sf finalize, Refactor connector catalog from frontend static..., and 6 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 55.55,
+        "totalSP": 55.8,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 55.55
+            "remaining": 55.8
           },
           {
             "date": "2026-04-02",
-            "remaining": 55.25
+            "remaining": 55.5
           },
           {
             "date": "2026-04-03",
-            "remaining": 54.25
+            "remaining": 54.5
           },
           {
             "date": "2026-04-06",
-            "remaining": 48.25
+            "remaining": 48.5
           },
           {
             "date": "2026-04-07",
-            "remaining": 47
+            "remaining": 47.25
           },
           {
             "date": "2026-04-08",
-            "remaining": 41.75
+            "remaining": 42
           },
           {
             "date": "2026-04-09",
-            "remaining": 34
+            "remaining": 34.25
           },
           {
             "date": "2026-04-10",
-            "remaining": 27.75
+            "remaining": 28
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 55.55
+            "remaining": 55.8
           },
           {
             "date": "2026-04-02",
-            "remaining": 49.37777777777777
+            "remaining": 49.599999999999994
           },
           {
             "date": "2026-04-03",
-            "remaining": 43.205555555555556
+            "remaining": 43.4
           },
           {
             "date": "2026-04-06",
-            "remaining": 37.03333333333333
+            "remaining": 37.2
           },
           {
             "date": "2026-04-07",
-            "remaining": 30.86111111111111
+            "remaining": 31
           },
           {
             "date": "2026-04-08",
-            "remaining": 24.68888888888889
+            "remaining": 24.8
           },
           {
             "date": "2026-04-09",
-            "remaining": 18.516666666666666
+            "remaining": 18.6
           },
           {
             "date": "2026-04-10",
-            "remaining": 12.344444444444449
+            "remaining": 12.400000000000006
           },
           {
             "date": "2026-04-13",
-            "remaining": 6.172222222222224
+            "remaining": 6.200000000000003
           },
           {
             "date": "2026-04-14",
@@ -3356,16 +3369,16 @@ const projects = [
           "2026-04-14": 10.5
         },
         "Hassbaum, Ralph": {
-          "2026-04-01": 30.45,
-          "2026-04-02": 20.6,
-          "2026-04-03": 19.6,
-          "2026-04-06": 19.6,
-          "2026-04-07": 15.85,
-          "2026-04-08": 15,
-          "2026-04-09": 14.75,
-          "2026-04-10": 14.5,
-          "2026-04-13": 14.5,
-          "2026-04-14": 14.5
+          "2026-04-01": 30.7,
+          "2026-04-02": 20.85,
+          "2026-04-03": 19.85,
+          "2026-04-06": 19.85,
+          "2026-04-07": 16.1,
+          "2026-04-08": 15.25,
+          "2026-04-09": 15,
+          "2026-04-10": 14.75,
+          "2026-04-13": 14.75,
+          "2026-04-14": 14.75
         },
         "Furr, Darren M": {
           "2026-04-01": 1,
@@ -4137,7 +4150,7 @@ const projects = [
       "estimated": 146,
       "unestimated": 182,
       "totalSP": 207,
-      "incompleteSP": 13.75,
+      "incompleteSP": 13.25,
       "sprintSP": {
         "FPHC": 47.25,
         "Q2 2025 - Sprint 4": 10,
@@ -4168,21 +4181,21 @@ const projects = [
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
       "totalSP": 8.75,
-      "completedSP": 2.25,
-      "remainingSP": 6.5,
+      "completedSP": 2.75,
+      "remainingSP": 6,
       "storyCount": 9,
       "stories": [
         {
           "id": 19168,
           "title": "Ensure Google Analytics Configured & Working",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 0.5,
-          "completedSP": 0,
-          "remainingSP": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
           "assignedTo": "Medina, Joel",
-          "completedDate": null,
+          "completedDate": "2026-04-10T15:18:16.663Z",
           "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/19168",
-          "taskRemainingWork": 0.5,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -4328,7 +4341,7 @@ const projects = [
           },
           {
             "date": "2026-04-10",
-            "remaining": 6.5
+            "remaining": 6
           }
         ],
         "ideal": [
@@ -4383,9 +4396,9 @@ const projects = [
           "2026-04-07": 6.75,
           "2026-04-08": 5.75,
           "2026-04-09": 5.75,
-          "2026-04-10": 5.75,
-          "2026-04-13": 5.75,
-          "2026-04-14": 5.75
+          "2026-04-10": 5.25,
+          "2026-04-13": 5.25,
+          "2026-04-14": 5.25
         },
         "Butler, Justin": {
           "2026-04-01": 3,
