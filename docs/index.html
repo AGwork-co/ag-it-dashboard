@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, April 9, 2026 at 4:43 PM</span>
+    <span>Last updated: Friday, April 10, 2026 at 9:16 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -440,6 +440,10 @@ const projects = [
           },
           {
             "date": "2026-04-09",
+            "remaining": 0
+          },
+          {
+            "date": "2026-04-10",
             "remaining": 0
           }
         ],
@@ -651,6 +655,10 @@ const projects = [
           {
             "date": "2026-04-09",
             "remaining": 0
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 0
           }
         ],
         "ideal": [
@@ -717,7 +725,7 @@ const projects = [
         "id": 27687,
         "title": "Gloo Transition",
         "state": "New",
-        "features": 2,
+        "features": 3,
         "stories": 106
       }
     ],
@@ -790,6 +798,10 @@ const projects = [
           },
           {
             "date": "2026-04-09",
+            "remaining": 1
+          },
+          {
+            "date": "2026-04-10",
             "remaining": 1
           }
         ],
@@ -1138,6 +1150,10 @@ const projects = [
           {
             "date": "2026-04-09",
             "remaining": 4
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 4
           }
         ],
         "ideal": [
@@ -1400,6 +1416,10 @@ const projects = [
           {
             "date": "2026-04-09",
             "remaining": 18
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 18
           }
         ],
         "ideal": [
@@ -1621,6 +1641,10 @@ const projects = [
           },
           {
             "date": "2026-04-09",
+            "remaining": 13
+          },
+          {
+            "date": "2026-04-10",
             "remaining": 13
           }
         ],
@@ -2132,6 +2156,10 @@ const projects = [
           {
             "date": "2026-04-09",
             "remaining": 0
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 0
           }
         ],
         "ideal": [
@@ -2642,6 +2670,10 @@ const projects = [
           {
             "date": "2026-04-09",
             "remaining": 9
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 9
           }
         ],
         "ideal": [
@@ -2785,14 +2817,14 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 324,
-      "estimated": 166,
-      "unestimated": 158,
-      "totalSP": 417.8,
+      "total": 326,
+      "estimated": 167,
+      "unestimated": 159,
+      "totalSP": 418.05,
       "incompleteSP": 79.75,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 58,
+        "CRM": 59.5,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -2807,7 +2839,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 1": 56.8,
+        "Q2 2026 - Sprint 1": 55.55,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42,
         "Q1 2026 - Sprint 6": 116
@@ -2817,9 +2849,9 @@ const projects = [
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 56.8,
-      "completedSP": 27.55,
-      "remainingSP": 29.249999999999996,
+      "totalSP": 55.55,
+      "completedSP": 27.8,
+      "remainingSP": 27.749999999999996,
       "storyCount": 31,
       "stories": [
         {
@@ -2869,7 +2901,7 @@ const projects = [
           "completedSP": 5,
           "remainingSP": 0,
           "assignedTo": "Hassbaum, Ralph",
-          "completedDate": "2026-04-08T22:47:33.95Z",
+          "completedDate": "2026-04-10T13:47:13.267Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27039",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -2992,19 +3024,6 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
-          "id": 27234,
-          "title": "Propagate permission changes via Kafka to downstream consumers",
-          "state": "New",
-          "storyPoints": 1.5,
-          "completedSP": 0,
-          "remainingSP": 1.5,
-          "assignedTo": "Roach, Joseph",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27234",
-          "taskRemainingWork": 1.5,
-          "taskCompletedWork": 0
-        },
-        {
           "id": 27382,
           "title": "Implement MIA/NA record filtering logic on the Salesforce composite topic",
           "state": "Done",
@@ -3051,7 +3070,7 @@ const projects = [
           "completedSP": 1,
           "remainingSP": 0,
           "assignedTo": "Lamar, Brion",
-          "completedDate": "2026-04-08T16:50:38.86Z",
+          "completedDate": "2026-04-09T21:48:23.837Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27387",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -3116,7 +3135,7 @@ const projects = [
           "completedSP": 3,
           "remainingSP": 0,
           "assignedTo": "Hassbaum, Ralph",
-          "completedDate": "2026-04-08T19:09:42.603Z",
+          "completedDate": "2026-04-09T21:48:23.76Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27842",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -3142,7 +3161,7 @@ const projects = [
           "completedSP": 1,
           "remainingSP": 0,
           "assignedTo": "Hassbaum, Ralph",
-          "completedDate": "2026-04-08T22:47:16.15Z",
+          "completedDate": "2026-04-10T13:47:12.843Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27944",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -3224,81 +3243,98 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28170",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 28184,
+          "title": "SF Composite Account Job - Fix Last Run Timestamp Issue",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-04-10T13:49:27.46Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28184",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering mia salesforce enhancements, implement enhancements, state address enhancements, sql flink enhancements, bulk loader enhancements, and na-blackbox-sf finalize, Propagate permission changes via Kafka to downs..., and 6 other items.",
+      "sprintGoals": "Delivering mia salesforce enhancements, implement enhancements, state address enhancements, sql flink enhancements, bulk loader enhancements, and na-blackbox-sf finalize, Refactor connector catalog from frontend static..., and 6 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 56.8,
+        "totalSP": 55.55,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 56.8
+            "remaining": 55.55
           },
           {
             "date": "2026-04-02",
-            "remaining": 56.5
+            "remaining": 55.25
           },
           {
             "date": "2026-04-03",
-            "remaining": 55.5
+            "remaining": 54.25
           },
           {
             "date": "2026-04-06",
-            "remaining": 49.5
-          },
-          {
-            "date": "2026-04-07",
             "remaining": 48.25
           },
           {
+            "date": "2026-04-07",
+            "remaining": 47
+          },
+          {
             "date": "2026-04-08",
-            "remaining": 33
+            "remaining": 41.75
           },
           {
             "date": "2026-04-09",
-            "remaining": 29.25
+            "remaining": 34
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 27.75
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 56.8
+            "remaining": 55.55
           },
           {
             "date": "2026-04-02",
-            "remaining": 50.48888888888889
+            "remaining": 49.37777777777777
           },
           {
             "date": "2026-04-03",
-            "remaining": 44.17777777777778
+            "remaining": 43.205555555555556
           },
           {
             "date": "2026-04-06",
-            "remaining": 37.86666666666666
+            "remaining": 37.03333333333333
           },
           {
             "date": "2026-04-07",
-            "remaining": 31.555555555555554
+            "remaining": 30.86111111111111
           },
           {
             "date": "2026-04-08",
-            "remaining": 25.244444444444444
+            "remaining": 24.68888888888889
           },
           {
             "date": "2026-04-09",
-            "remaining": 18.93333333333333
+            "remaining": 18.516666666666666
           },
           {
             "date": "2026-04-10",
-            "remaining": 12.62222222222222
+            "remaining": 12.344444444444449
           },
           {
             "date": "2026-04-13",
-            "remaining": 6.31111111111111
+            "remaining": 6.172222222222224
           },
           {
             "date": "2026-04-14",
@@ -3320,13 +3356,13 @@ const projects = [
           "2026-04-14": 10.5
         },
         "Hassbaum, Ralph": {
-          "2026-04-01": 30.2,
-          "2026-04-02": 20.35,
-          "2026-04-03": 19.35,
-          "2026-04-06": 19.35,
-          "2026-04-07": 15.6,
-          "2026-04-08": 14.75,
-          "2026-04-09": 14.5,
+          "2026-04-01": 30.45,
+          "2026-04-02": 20.6,
+          "2026-04-03": 19.6,
+          "2026-04-06": 19.6,
+          "2026-04-07": 15.85,
+          "2026-04-08": 15,
+          "2026-04-09": 14.75,
           "2026-04-10": 14.5,
           "2026-04-13": 14.5,
           "2026-04-14": 14.5
@@ -3344,16 +3380,16 @@ const projects = [
           "2026-04-14": 1
         },
         "Roach, Joseph": {
-          "2026-04-01": 16.05,
-          "2026-04-02": 15.95,
-          "2026-04-03": 15.95,
-          "2026-04-06": 11.45,
-          "2026-04-07": 11.45,
-          "2026-04-08": 6.75,
-          "2026-04-09": 4.25,
-          "2026-04-10": 4.25,
-          "2026-04-13": 4.25,
-          "2026-04-14": 4.25
+          "2026-04-01": 14.55,
+          "2026-04-02": 14.45,
+          "2026-04-03": 14.45,
+          "2026-04-06": 9.95,
+          "2026-04-07": 9.95,
+          "2026-04-08": 5.25,
+          "2026-04-09": 2.75,
+          "2026-04-10": 2.75,
+          "2026-04-13": 2.75,
+          "2026-04-14": 2.75
         },
         "Lamar, Brion": {
           "2026-04-01": 7.5,
@@ -3746,16 +3782,16 @@ const projects = [
         "id": 26726,
         "title": "Fine Arts - v2026.04.28",
         "state": "New",
-        "features": 7,
-        "stories": 12
+        "features": 8,
+        "stories": 13
       }
     ],
     "estimation": {
-      "total": 335,
-      "estimated": 254,
+      "total": 336,
+      "estimated": 255,
       "unestimated": 81,
-      "totalSP": 448.5,
-      "incompleteSP": 154,
+      "totalSP": 449,
+      "incompleteSP": 154.5,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 13,
         "Fine Arts": 138.25,
@@ -3779,17 +3815,17 @@ const projects = [
         "Q1 2026 - Sprint 5": 12.75,
         "Q1 2026 - Sprint 4": 11.5,
         "Q4 2025 - Sprint 5": 20.25,
-        "Q2 2026 - Sprint 1": 11.75
+        "Q2 2026 - Sprint 1": 12.25
       }
     },
     "currentSprint": {
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 11.75,
+      "totalSP": 12.25,
       "completedSP": 2.25,
-      "remainingSP": 9.5,
-      "storyCount": 9,
+      "remainingSP": 10,
+      "storyCount": 10,
       "stories": [
         {
           "id": 23125,
@@ -3907,81 +3943,98 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28144",
           "taskRemainingWork": 0.5,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 28188,
+          "title": "Participant Summary: Add scheduled times",
+          "state": "Approved",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28188",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering ability enhancements, sync enhancements, and celebration service: dashboard setup / cards, decommission: results.faf.ag.org, and 3 other items.",
+      "sprintGoals": "Delivering ability enhancements, scheduled enhancements, sync enhancements, and celebration service: dashboard setup / cards, decommission: results.faf.ag.org, and 2 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 11.75,
+        "totalSP": 12.25,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 11.75
+            "remaining": 12.25
           },
           {
             "date": "2026-04-02",
-            "remaining": 11.75
+            "remaining": 12.25
           },
           {
             "date": "2026-04-03",
-            "remaining": 11.75
+            "remaining": 12.25
           },
           {
             "date": "2026-04-06",
-            "remaining": 10.5
+            "remaining": 11
           },
           {
             "date": "2026-04-07",
-            "remaining": 9.5
+            "remaining": 10
           },
           {
             "date": "2026-04-08",
-            "remaining": 9.5
+            "remaining": 10
           },
           {
             "date": "2026-04-09",
-            "remaining": 9.5
+            "remaining": 10
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 10
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 11.75
+            "remaining": 12.25
           },
           {
             "date": "2026-04-02",
-            "remaining": 10.444444444444445
+            "remaining": 10.88888888888889
           },
           {
             "date": "2026-04-03",
-            "remaining": 9.13888888888889
+            "remaining": 9.527777777777779
           },
           {
             "date": "2026-04-06",
-            "remaining": 7.833333333333333
+            "remaining": 8.166666666666666
           },
           {
             "date": "2026-04-07",
-            "remaining": 6.527777777777778
+            "remaining": 6.805555555555555
           },
           {
             "date": "2026-04-08",
-            "remaining": 5.222222222222222
+            "remaining": 5.444444444444445
           },
           {
             "date": "2026-04-09",
-            "remaining": 3.916666666666666
+            "remaining": 4.083333333333332
           },
           {
             "date": "2026-04-10",
-            "remaining": 2.6111111111111107
+            "remaining": 2.7222222222222214
           },
           {
             "date": "2026-04-13",
-            "remaining": 1.3055555555555554
+            "remaining": 1.3611111111111107
           },
           {
             "date": "2026-04-14",
@@ -4003,16 +4056,16 @@ const projects = [
           "2026-04-14": 3.25
         },
         "Hiebsch, Adin": {
-          "2026-04-01": 8.5,
-          "2026-04-02": 7.5,
-          "2026-04-03": 7.5,
-          "2026-04-06": 7.5,
-          "2026-04-07": 7.5,
-          "2026-04-08": 5.5,
-          "2026-04-09": 5.5,
-          "2026-04-10": 5.5,
-          "2026-04-13": 5.5,
-          "2026-04-14": 5.5
+          "2026-04-01": 9,
+          "2026-04-02": 8,
+          "2026-04-03": 8,
+          "2026-04-06": 8,
+          "2026-04-07": 8,
+          "2026-04-08": 6,
+          "2026-04-09": 6,
+          "2026-04-10": 6,
+          "2026-04-13": 6,
+          "2026-04-14": 6
         },
         "Keltner, Scott": {
           "2026-04-01": 1,
@@ -4084,7 +4137,7 @@ const projects = [
       "estimated": 146,
       "unestimated": 182,
       "totalSP": 207,
-      "incompleteSP": 15,
+      "incompleteSP": 13.75,
       "sprintSP": {
         "FPHC": 47.25,
         "Q2 2025 - Sprint 4": 10,
@@ -4115,8 +4168,8 @@ const projects = [
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
       "totalSP": 8.75,
-      "completedSP": 1,
-      "remainingSP": 7.75,
+      "completedSP": 2.25,
+      "remainingSP": 6.5,
       "storyCount": 9,
       "stories": [
         {
@@ -4200,12 +4253,12 @@ const projects = [
         {
           "id": 26986,
           "title": "Upgrade to Node v24",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Medina, Joel",
-          "completedDate": null,
+          "completedDate": "2026-04-10T13:38:22.733Z",
           "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/26986",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -4213,7 +4266,7 @@ const projects = [
         {
           "id": 27306,
           "title": "Block user login for unapproved applications",
-          "state": "Committed",
+          "state": "Ready for Review",
           "storyPoints": 1,
           "completedSP": 0,
           "remainingSP": 1,
@@ -4226,12 +4279,12 @@ const projects = [
         {
           "id": 27312,
           "title": "Hide A/V collection for now",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 0.25,
-          "completedSP": 0,
-          "remainingSP": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
           "assignedTo": "Medina, Joel",
-          "completedDate": null,
+          "completedDate": "2026-04-10T13:28:52.973Z",
           "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/27312",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -4272,6 +4325,10 @@ const projects = [
           {
             "date": "2026-04-09",
             "remaining": 7.75
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 6.5
           }
         ],
         "ideal": [
@@ -4821,6 +4878,10 @@ const projects = [
           },
           {
             "date": "2026-04-09",
+            "remaining": 19
+          },
+          {
+            "date": "2026-04-10",
             "remaining": 19
           }
         ],
@@ -8206,9 +8267,9 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 39,
+      "total": 42,
       "estimated": 28,
-      "unestimated": 11,
+      "unestimated": 14,
       "totalSP": 34.25,
       "incompleteSP": 7,
       "sprintSP": {
@@ -8287,6 +8348,10 @@ const projects = [
           },
           {
             "date": "2026-04-09",
+            "remaining": 0
+          },
+          {
+            "date": "2026-04-10",
             "remaining": 0
           }
         ],
