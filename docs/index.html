@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, April 13, 2026 at 9:45 AM</span>
+    <span>Last updated: Monday, April 13, 2026 at 12:57 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -742,21 +742,21 @@ const projects = [
       "estimated": 18,
       "unestimated": 93,
       "totalSP": 28.25,
-      "incompleteSP": 24.75,
+      "incompleteSP": 23.75,
       "sprintSP": {
-        "AG Shared": 24.25,
+        "AG Shared": 15,
         "Q3 2025 - Sprint 3": 3,
-        "Q2 2026 - Sprint 1": 1
+        "Q2 2026 - Sprint 1": 10.25
       }
     },
     "currentSprint": {
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 1,
-      "completedSP": 0,
-      "remainingSP": 1,
-      "storyCount": 1,
+      "totalSP": 10.25,
+      "completedSP": 1,
+      "remainingSP": 9.25,
+      "storyCount": 8,
       "stories": [
         {
           "id": 27690,
@@ -770,89 +770,180 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/27690",
           "taskRemainingWork": 1,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 28106,
+          "title": "Step 1: Migrate CreateStatementInvoiceTelerik project to Git",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-04-13T15:32:27.377Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28106",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 1
+        },
+        {
+          "id": 28107,
+          "title": "Step 3: Aged Receivable Report: API Integration",
+          "state": "Approved",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28107",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28108,
+          "title": "Step 2: Integrate SQL: Clear OpenItmOdoo table",
+          "state": "Approved",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Medina, Joel",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28108",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28109,
+          "title": "Step 4: Extract Python Functionality to .net app",
+          "state": "Approved",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28109",
+          "taskRemainingWork": 3,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28125,
+          "title": "Step 5: Integrate SQL ODOO_AR_Statement_Accounts_missing_add_SP_OdooLoadAccountsInopenarOdo o_Tupelo SQL Script",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Medina, Joel",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28125",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28126,
+          "title": "Step 6: Integrate OdooLoadAccountsInOpenArOdoo SQL stored proc",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Medina, Joel",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28126",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28128,
+          "title": "Step 7: Integrate OdooStatementsByWeek stored procedure",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Medina, Joel",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28128",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering daily date card update.",
+      "sprintGoals": "Delivering step integrate enhancements, along with daily date card update.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 1,
+        "totalSP": 10.25,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-02",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-03",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-06",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-07",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-08",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-09",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-10",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-13",
-            "remaining": 1
+            "remaining": 9.25
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 1
+            "remaining": 10.25
           },
           {
             "date": "2026-04-02",
-            "remaining": 0.8888888888888888
+            "remaining": 9.11111111111111
           },
           {
             "date": "2026-04-03",
-            "remaining": 0.7777777777777778
+            "remaining": 7.972222222222222
           },
           {
             "date": "2026-04-06",
-            "remaining": 0.6666666666666667
+            "remaining": 6.833333333333334
           },
           {
             "date": "2026-04-07",
-            "remaining": 0.5555555555555556
+            "remaining": 5.694444444444445
           },
           {
             "date": "2026-04-08",
-            "remaining": 0.4444444444444444
+            "remaining": 4.555555555555555
           },
           {
             "date": "2026-04-09",
-            "remaining": 0.33333333333333337
+            "remaining": 3.416666666666667
           },
           {
             "date": "2026-04-10",
-            "remaining": 0.22222222222222232
+            "remaining": 2.2777777777777786
           },
           {
             "date": "2026-04-13",
-            "remaining": 0.11111111111111116
+            "remaining": 1.1388888888888893
           },
           {
             "date": "2026-04-14",
@@ -860,7 +951,32 @@ const projects = [
           }
         ]
       },
-      "personTaskBurndown": {}
+      "personTaskBurndown": {
+        "Medina, Joel": {
+          "2026-04-01": 3.25,
+          "2026-04-02": 3.25,
+          "2026-04-03": 3.25,
+          "2026-04-06": 3.25,
+          "2026-04-07": 3.25,
+          "2026-04-08": 3.25,
+          "2026-04-09": 3.25,
+          "2026-04-10": 3.25,
+          "2026-04-13": 3.25,
+          "2026-04-14": 3.25
+        },
+        "Hiebsch, Adin": {
+          "2026-04-01": 5,
+          "2026-04-02": 5,
+          "2026-04-03": 5,
+          "2026-04-06": 5,
+          "2026-04-07": 5,
+          "2026-04-08": 5,
+          "2026-04-09": 5,
+          "2026-04-10": 5,
+          "2026-04-13": 5,
+          "2026-04-14": 5
+        }
+      }
     }
   },
   {
@@ -2831,7 +2947,7 @@ const projects = [
         "title": "AG 360 Portal",
         "state": "Active",
         "features": 9,
-        "stories": 76
+        "stories": 77
       },
       {
         "id": 27351,
@@ -2849,14 +2965,14 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 336,
-      "estimated": 177,
+      "total": 337,
+      "estimated": 178,
       "unestimated": 159,
-      "totalSP": 439.3,
-      "incompleteSP": 95.75,
+      "totalSP": 440.3,
+      "incompleteSP": 93.75,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 59.5,
+        "CRM": 75.5,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -2871,7 +2987,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 1": 76.8,
+        "Q2 2026 - Sprint 1": 61.8,
         "Q1 2026 - Sprint 2": 4.5,
         "Q1 2026 - Sprint 5": 42,
         "Q1 2026 - Sprint 6": 116
@@ -2881,10 +2997,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 76.8,
-      "completedSP": 33.05,
-      "remainingSP": 43.75,
-      "storyCount": 43,
+      "totalSP": 61.8,
+      "completedSP": 36.05,
+      "remainingSP": 25.75,
+      "storyCount": 37,
       "stories": [
         {
           "id": 23670,
@@ -3110,14 +3226,14 @@ const projects = [
         {
           "id": 27389,
           "title": "Create Helm chart and configure AKS deployment for MIA Sync service",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
           "assignedTo": "Lamar, Brion",
-          "completedDate": null,
+          "completedDate": "2026-04-13T15:13:30.54Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27389",
-          "taskRemainingWork": 0.25,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -3240,14 +3356,14 @@ const projects = [
         {
           "id": 28127,
           "title": "MIA Sync deployment readiness and documentation",
-          "state": "New",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Lamar, Brion",
-          "completedDate": null,
+          "completedDate": "2026-04-13T15:55:44.543Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28127",
-          "taskRemainingWork": 1,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -3331,7 +3447,7 @@ const projects = [
         {
           "id": 28200,
           "title": "Complete Missionary Entity Field Expansion (MISSIONARIES_SRC, Spouses, Children)",
-          "state": "New",
+          "state": "Ready for Review",
           "storyPoints": 3,
           "completedSP": 0,
           "remainingSP": 3,
@@ -3355,178 +3471,100 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
-          "id": 28202,
-          "title": "Implement CITIZENSHIPS Entity Sync",
-          "state": "New",
+          "id": 28245,
+          "title": "chore: remove mock data from routes, seed DB with real SF-format records",
+          "state": "Ready for Review",
           "storyPoints": 1,
           "completedSP": 0,
           "remainingSP": 1,
-          "assignedTo": "Lamar, Brion",
+          "assignedTo": "Roach, Joseph",
           "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28202",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 28203,
-          "title": "Implement Candidate Pipeline Core Entity Sync (MIA Old Path)",
-          "state": "New",
-          "storyPoints": 3,
-          "completedSP": 0,
-          "remainingSP": 3,
-          "assignedTo": "Lamar, Brion",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28203",
-          "taskRemainingWork": 3,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 28204,
-          "title": "Implement Missionary Assignments, Ministries, and Positions Sync",
-          "state": "New",
-          "storyPoints": 3,
-          "completedSP": 0,
-          "remainingSP": 3,
-          "assignedTo": "Lamar, Brion",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28204",
-          "taskRemainingWork": 3,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 28205,
-          "title": "Implement Person Detail Tables Sync (Education, Languages, Skills)",
-          "state": "New",
-          "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
-          "assignedTo": "Lamar, Brion",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28205",
-          "taskRemainingWork": 2,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 28206,
-          "title": "Implement Candidate Detail Tables and MK Children Tables Sync",
-          "state": "New",
-          "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
-          "assignedTo": "Lamar, Brion",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28206",
-          "taskRemainingWork": 2,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 28207,
-          "title": "Implement Missionary Tracking and Lifecycle Operations Sync",
-          "state": "New",
-          "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
-          "assignedTo": "Lamar, Brion",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28207",
-          "taskRemainingWork": 2,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 28208,
-          "title": "Implement Data Validation Layer (Enum, FK, and Business Rule Enforcement)",
-          "state": "New",
-          "storyPoints": 3,
-          "completedSP": 0,
-          "remainingSP": 3,
-          "assignedTo": "Lamar, Brion",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28208",
-          "taskRemainingWork": 3,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28245",
+          "taskRemainingWork": 0.1,
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering implement sync enhancements, sync deployment enhancements, mia salesforce enhancements, state address enhancements, bulk loader enhancements, sql flink enhancements, connector enhancements, complete enhancements, and na-blackbox-sf finalize, Agent Operations Dashboard — Health, Sessions &..., and 5 other items.",
+      "sprintGoals": "Delivering implement salesforce enhancements, mia salesforce enhancements, state address enhancements, bulk loader enhancements, sql flink enhancements, connector enhancements, complete enhancements, and na-blackbox-sf finalize, Agent Operations Dashboard — Health, Sessions &..., and 6 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 76.8,
+        "totalSP": 61.8,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 76.8
+            "remaining": 61.8
           },
           {
             "date": "2026-04-02",
-            "remaining": 76.5
+            "remaining": 61.5
           },
           {
             "date": "2026-04-03",
-            "remaining": 75.5
+            "remaining": 60.5
           },
           {
             "date": "2026-04-06",
-            "remaining": 69.5
+            "remaining": 54.5
           },
           {
             "date": "2026-04-07",
-            "remaining": 68.25
+            "remaining": 53.25
           },
           {
             "date": "2026-04-08",
-            "remaining": 63
+            "remaining": 48
           },
           {
             "date": "2026-04-09",
-            "remaining": 55.25
+            "remaining": 40.25
           },
           {
             "date": "2026-04-10",
-            "remaining": 47
+            "remaining": 32
           },
           {
             "date": "2026-04-13",
-            "remaining": 43.75
+            "remaining": 25.75
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 76.8
+            "remaining": 61.8
           },
           {
             "date": "2026-04-02",
-            "remaining": 68.26666666666667
+            "remaining": 54.93333333333333
           },
           {
             "date": "2026-04-03",
-            "remaining": 59.733333333333334
+            "remaining": 48.06666666666666
           },
           {
             "date": "2026-04-06",
-            "remaining": 51.199999999999996
+            "remaining": 41.2
           },
           {
             "date": "2026-04-07",
-            "remaining": 42.666666666666664
+            "remaining": 34.33333333333333
           },
           {
             "date": "2026-04-08",
-            "remaining": 34.13333333333333
+            "remaining": 27.46666666666667
           },
           {
             "date": "2026-04-09",
-            "remaining": 25.599999999999994
+            "remaining": 20.6
           },
           {
             "date": "2026-04-10",
-            "remaining": 17.066666666666663
+            "remaining": 13.733333333333334
           },
           {
             "date": "2026-04-13",
-            "remaining": 8.533333333333331
+            "remaining": 6.866666666666667
           },
           {
             "date": "2026-04-14",
@@ -3572,28 +3610,28 @@ const projects = [
           "2026-04-14": 1
         },
         "Roach, Joseph": {
-          "2026-04-01": 14.55,
-          "2026-04-02": 14.45,
-          "2026-04-03": 14.45,
-          "2026-04-06": 9.95,
-          "2026-04-07": 9.95,
-          "2026-04-08": 5.25,
-          "2026-04-09": 2.75,
-          "2026-04-10": 0.75,
-          "2026-04-13": 0.75,
-          "2026-04-14": 0.75
+          "2026-04-01": 14.65,
+          "2026-04-02": 14.55,
+          "2026-04-03": 14.55,
+          "2026-04-06": 10.05,
+          "2026-04-07": 10.05,
+          "2026-04-08": 5.35,
+          "2026-04-09": 2.85,
+          "2026-04-10": 0.85,
+          "2026-04-13": 0.85,
+          "2026-04-14": 0.85
         },
         "Lamar, Brion": {
-          "2026-04-01": 28.5,
-          "2026-04-02": 28.5,
-          "2026-04-03": 27.5,
-          "2026-04-06": 25.25,
-          "2026-04-07": 24.25,
-          "2026-04-08": 24,
-          "2026-04-09": 22.25,
-          "2026-04-10": 22.25,
-          "2026-04-13": 22.25,
-          "2026-04-14": 22.25
+          "2026-04-01": 12.5,
+          "2026-04-02": 12.5,
+          "2026-04-03": 11.5,
+          "2026-04-06": 9.25,
+          "2026-04-07": 8.25,
+          "2026-04-08": 8,
+          "2026-04-09": 6.25,
+          "2026-04-10": 6.25,
+          "2026-04-13": 5,
+          "2026-04-14": 5
         },
         "Unassigned": {
           "2026-04-01": 0,
@@ -4344,7 +4382,7 @@ const projects = [
       "total": 328,
       "estimated": 146,
       "unestimated": 182,
-      "totalSP": 207,
+      "totalSP": 208,
       "incompleteSP": 13.25,
       "sprintSP": {
         "FPHC": 47.25,
@@ -4357,7 +4395,7 @@ const projects = [
         "Q1 2026 - Sprint 5": 1.25,
         "Q3 2025 - Sprint 3": 13.5,
         "Q2 2025 - Sprint 5": 15.25,
-        "Q2 2026 - Sprint 1": 8.75,
+        "Q2 2026 - Sprint 1": 3.75,
         "Q2 2025 - Sprint 6": 2.25,
         "Q3 2025 - Sprint 1": 2,
         "Q3 2025 - Sprint 6": 9.5,
@@ -4368,17 +4406,18 @@ const projects = [
         "Q4 2025 - Sprint 2": 4.5,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 6": 2.5,
-        "Q1 2026 - Sprint 2": 1.25
+        "Q1 2026 - Sprint 2": 1.25,
+        "Q2 2026 - Sprint 2": 6
       }
     },
     "currentSprint": {
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 8.75,
-      "completedSP": 2.75,
-      "remainingSP": 6,
-      "storyCount": 9,
+      "totalSP": 3.75,
+      "completedSP": 3.75,
+      "remainingSP": 0,
+      "storyCount": 5,
       "stories": [
         {
           "id": 19168,
@@ -4391,58 +4430,6 @@ const projects = [
           "completedDate": "2026-04-10T15:18:16.663Z",
           "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/19168",
           "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 26971,
-          "title": "Final QA Test",
-          "state": "Committed",
-          "storyPoints": 0.5,
-          "completedSP": 0,
-          "remainingSP": 0.5,
-          "assignedTo": "Butler, Justin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/26971",
-          "taskRemainingWork": 0.5,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 26972,
-          "title": "Final QA Test",
-          "state": "Committed",
-          "storyPoints": 0.5,
-          "completedSP": 0,
-          "remainingSP": 0.5,
-          "assignedTo": "Medina, Joel",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/26972",
-          "taskRemainingWork": 0.5,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 26976,
-          "title": "Containerize Frontend, Backend, and Functions",
-          "state": "Committed",
-          "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
-          "assignedTo": "Butler, Justin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/26976",
-          "taskRemainingWork": 2,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 26980,
-          "title": "Resync Photos, PDFs, A/V assets to Blob Storage",
-          "state": "Committed",
-          "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
-          "assignedTo": "Medina, Joel",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/26980",
-          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         },
         {
@@ -4474,12 +4461,12 @@ const projects = [
         {
           "id": 27306,
           "title": "Block user login for unapproved applications",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Medina, Joel",
-          "completedDate": null,
+          "completedDate": "2026-04-13T16:09:28.867Z",
           "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/27306",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -4498,87 +4485,87 @@ const projects = [
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering final test enhancements, upgrade enhancements, and ensure google analytics configured & working, containerize frontend, backend, and functions, and 3 other items.",
+      "sprintGoals": "Delivering upgrade enhancements, along with ensure google analytics configured & working, block user login for unapproved applications, and 1 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 8.75,
+        "totalSP": 3.75,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 8.75
+            "remaining": 3.75
           },
           {
             "date": "2026-04-02",
-            "remaining": 8.75
+            "remaining": 3.75
           },
           {
             "date": "2026-04-03",
-            "remaining": 8.75
+            "remaining": 3.75
           },
           {
             "date": "2026-04-06",
-            "remaining": 8.75
+            "remaining": 3.75
           },
           {
             "date": "2026-04-07",
-            "remaining": 7.75
+            "remaining": 2.75
           },
           {
             "date": "2026-04-08",
-            "remaining": 7.75
+            "remaining": 2.75
           },
           {
             "date": "2026-04-09",
-            "remaining": 7.75
+            "remaining": 2.75
           },
           {
             "date": "2026-04-10",
-            "remaining": 6
+            "remaining": 1
           },
           {
             "date": "2026-04-13",
-            "remaining": 6
+            "remaining": 0
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 8.75
+            "remaining": 3.75
           },
           {
             "date": "2026-04-02",
-            "remaining": 7.777777777777778
+            "remaining": 3.3333333333333335
           },
           {
             "date": "2026-04-03",
-            "remaining": 6.805555555555555
+            "remaining": 2.9166666666666665
           },
           {
             "date": "2026-04-06",
-            "remaining": 5.833333333333334
+            "remaining": 2.5
           },
           {
             "date": "2026-04-07",
-            "remaining": 4.861111111111111
+            "remaining": 2.083333333333333
           },
           {
             "date": "2026-04-08",
-            "remaining": 3.8888888888888893
+            "remaining": 1.6666666666666665
           },
           {
             "date": "2026-04-09",
-            "remaining": 2.916666666666667
+            "remaining": 1.25
           },
           {
             "date": "2026-04-10",
-            "remaining": 1.9444444444444446
+            "remaining": 0.833333333333333
           },
           {
             "date": "2026-04-13",
-            "remaining": 0.9722222222222223
+            "remaining": 0.4166666666666665
           },
           {
             "date": "2026-04-14",
@@ -4588,28 +4575,16 @@ const projects = [
       },
       "personTaskBurndown": {
         "Medina, Joel": {
-          "2026-04-01": 7.75,
-          "2026-04-02": 7.75,
-          "2026-04-03": 7.75,
-          "2026-04-06": 7.75,
-          "2026-04-07": 6.75,
-          "2026-04-08": 5.75,
-          "2026-04-09": 5.75,
-          "2026-04-10": 5.25,
-          "2026-04-13": 5.25,
-          "2026-04-14": 5.25
-        },
-        "Butler, Justin": {
-          "2026-04-01": 3,
-          "2026-04-02": 3,
-          "2026-04-03": 3,
-          "2026-04-06": 3,
-          "2026-04-07": 3,
-          "2026-04-08": 3,
-          "2026-04-09": 3,
-          "2026-04-10": 3,
-          "2026-04-13": 3,
-          "2026-04-14": 3
+          "2026-04-01": 3.75,
+          "2026-04-02": 3.75,
+          "2026-04-03": 3.75,
+          "2026-04-06": 3.75,
+          "2026-04-07": 2.75,
+          "2026-04-08": 1.75,
+          "2026-04-09": 1.75,
+          "2026-04-10": 1.25,
+          "2026-04-13": 1.25,
+          "2026-04-14": 1.25
         }
       }
     }
@@ -4833,8 +4808,8 @@ const projects = [
       "total": 123,
       "estimated": 95,
       "unestimated": 28,
-      "totalSP": 153.75,
-      "incompleteSP": 124.75,
+      "totalSP": 155.75,
+      "incompleteSP": 126.75,
       "sprintSP": {
         "Q2 2025 - Sprint 5": 4,
         "Q2 2025 - Sprint 3": 4,
@@ -4848,16 +4823,16 @@ const projects = [
         "Q3 2025 - Sprint 6": 1,
         "Q3 2025 - Sprint 2": 2,
         "Q4 2025 - Sprint 5": 1,
-        "Q2 2026 - Sprint 1": 21
+        "Q2 2026 - Sprint 1": 23
       }
     },
     "currentSprint": {
       "name": "Q2 2026 - Sprint 1",
       "startDate": "2026-04-01T00:00:00Z",
       "endDate": "2026-04-14T00:00:00Z",
-      "totalSP": 21,
+      "totalSP": 23,
       "completedSP": 2,
-      "remainingSP": 19,
+      "remainingSP": 21,
       "storyCount": 15,
       "stories": [
         {
@@ -4942,9 +4917,9 @@ const projects = [
           "id": 26355,
           "title": "Clearing the search field",
           "state": "Approved",
-          "storyPoints": 1,
+          "storyPoints": 3,
           "completedSP": 0,
-          "remainingSP": 1,
+          "remainingSP": 3,
           "assignedTo": "Keltner, Scott",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/26355",
@@ -5062,81 +5037,81 @@ const projects = [
         "members": []
       },
       "burndown": {
-        "totalSP": 21,
+        "totalSP": 23,
         "points": [
           {
             "date": "2026-04-01",
-            "remaining": 21
+            "remaining": 23
           },
           {
             "date": "2026-04-02",
-            "remaining": 19
+            "remaining": 21
           },
           {
             "date": "2026-04-03",
-            "remaining": 19
+            "remaining": 21
           },
           {
             "date": "2026-04-06",
-            "remaining": 19
+            "remaining": 21
           },
           {
             "date": "2026-04-07",
-            "remaining": 19
+            "remaining": 21
           },
           {
             "date": "2026-04-08",
-            "remaining": 19
+            "remaining": 21
           },
           {
             "date": "2026-04-09",
-            "remaining": 19
+            "remaining": 21
           },
           {
             "date": "2026-04-10",
-            "remaining": 19
+            "remaining": 21
           },
           {
             "date": "2026-04-13",
-            "remaining": 19
+            "remaining": 21
           }
         ],
         "ideal": [
           {
             "date": "2026-04-01",
-            "remaining": 21
+            "remaining": 23
           },
           {
             "date": "2026-04-02",
-            "remaining": 18.666666666666668
+            "remaining": 20.444444444444443
           },
           {
             "date": "2026-04-03",
-            "remaining": 16.333333333333332
+            "remaining": 17.88888888888889
           },
           {
             "date": "2026-04-06",
-            "remaining": 14
+            "remaining": 15.333333333333334
           },
           {
             "date": "2026-04-07",
-            "remaining": 11.666666666666666
+            "remaining": 12.777777777777779
           },
           {
             "date": "2026-04-08",
-            "remaining": 9.333333333333332
+            "remaining": 10.222222222222223
           },
           {
             "date": "2026-04-09",
-            "remaining": 7
+            "remaining": 7.666666666666668
           },
           {
             "date": "2026-04-10",
-            "remaining": 4.666666666666664
+            "remaining": 5.111111111111114
           },
           {
             "date": "2026-04-13",
-            "remaining": 2.333333333333332
+            "remaining": 2.555555555555557
           },
           {
             "date": "2026-04-14",
