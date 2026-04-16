@@ -297,7 +297,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, April 15, 2026 at 4:49 PM</span>
+    <span>Last updated: Thursday, April 16, 2026 at 9:52 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -625,6 +625,10 @@ const projects = [
           {
             "date": "2026-04-15",
             "remaining": 0
+          },
+          {
+            "date": "2026-04-16",
+            "remaining": 0
           }
         ],
         "ideal": [
@@ -819,6 +823,10 @@ const projects = [
         "points": [
           {
             "date": "2026-04-15",
+            "remaining": 10
+          },
+          {
+            "date": "2026-04-16",
             "remaining": 10
           }
         ],
@@ -1454,6 +1462,10 @@ const projects = [
           {
             "date": "2026-04-15",
             "remaining": 18
+          },
+          {
+            "date": "2026-04-16",
+            "remaining": 18
           }
         ],
         "ideal": [
@@ -1624,6 +1636,10 @@ const projects = [
         "points": [
           {
             "date": "2026-04-15",
+            "remaining": 0
+          },
+          {
+            "date": "2026-04-16",
             "remaining": 0
           }
         ],
@@ -1977,9 +1993,9 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 558,
+      "total": 559,
       "estimated": 323,
-      "unestimated": 235,
+      "unestimated": 236,
       "totalSP": 660.25,
       "incompleteSP": 71,
       "sprintSP": {
@@ -2071,9 +2087,23 @@ const projects = [
       "totalSP": 0,
       "completedSP": 0,
       "remainingSP": 0,
-      "storyCount": 0,
-      "stories": [],
-      "sprintGoals": "",
+      "storyCount": 1,
+      "stories": [
+        {
+          "id": 28442,
+          "title": "v3.2.0 fixes",
+          "state": "New",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/28442",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering v3.2.0 fixes.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -2083,6 +2113,10 @@ const projects = [
         "points": [
           {
             "date": "2026-04-15",
+            "remaining": 0
+          },
+          {
+            "date": "2026-04-16",
             "remaining": 0
           }
         ],
@@ -2129,7 +2163,20 @@ const projects = [
           }
         ]
       },
-      "personTaskBurndown": {}
+      "personTaskBurndown": {
+        "Greg Pawlik": {
+          "2026-04-15": 0,
+          "2026-04-16": 0,
+          "2026-04-17": 0,
+          "2026-04-20": 0,
+          "2026-04-21": 0,
+          "2026-04-22": 0,
+          "2026-04-23": 0,
+          "2026-04-24": 0,
+          "2026-04-27": 0,
+          "2026-04-28": 0
+        }
+      }
     }
   },
   {
@@ -2623,6 +2670,10 @@ const projects = [
           {
             "date": "2026-04-15",
             "remaining": 17
+          },
+          {
+            "date": "2026-04-16",
+            "remaining": 17
           }
         ],
         "ideal": [
@@ -2779,7 +2830,7 @@ const projects = [
       "estimated": 200,
       "unestimated": 164,
       "totalSP": 470.3,
-      "incompleteSP": 101.25,
+      "incompleteSP": 99.75,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 61.75,
@@ -2809,8 +2860,8 @@ const projects = [
       "startDate": "2026-04-15T00:00:00Z",
       "endDate": "2026-04-28T00:00:00Z",
       "totalSP": 47,
-      "completedSP": 0,
-      "remainingSP": 47,
+      "completedSP": 1.5,
+      "remainingSP": 45.5,
       "storyCount": 26,
       "stories": [
         {
@@ -2842,12 +2893,12 @@ const projects = [
         {
           "id": 27189,
           "title": "Implement GET /accounts endpoint with search and filter",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 0,
           "completedSP": 0,
           "remainingSP": 0,
           "assignedTo": "Roach, Joseph",
-          "completedDate": null,
+          "completedDate": "2026-04-16T13:54:21.627Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/27189",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
@@ -3063,14 +3114,14 @@ const projects = [
         {
           "id": 28349,
           "title": "MIA Sync: Filter configuration & lifecycle population",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 1.5,
-          "completedSP": 0,
-          "remainingSP": 1.5,
+          "completedSP": 1.5,
+          "remainingSP": 0,
           "assignedTo": "Lamar, Brion",
-          "completedDate": null,
+          "completedDate": "2026-04-16T03:03:30.137Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28349",
-          "taskRemainingWork": 1.5,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -3088,7 +3139,7 @@ const projects = [
         },
         {
           "id": 28358,
-          "title": "MIA Transformer — Project Scaffolding",
+          "title": "1.1 - MIA Transformer Project Scaffolding",
           "state": "Committed",
           "storyPoints": 3,
           "completedSP": 0,
@@ -3096,7 +3147,7 @@ const projects = [
           "assignedTo": "Hassbaum, Ralph",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28358",
-          "taskRemainingWork": 3,
+          "taskRemainingWork": 2,
           "taskCompletedWork": 0
         },
         {
@@ -3163,6 +3214,10 @@ const projects = [
           {
             "date": "2026-04-15",
             "remaining": 47
+          },
+          {
+            "date": "2026-04-16",
+            "remaining": 45.5
           }
         ],
         "ideal": [
@@ -3223,27 +3278,27 @@ const projects = [
         },
         "Hassbaum, Ralph": {
           "2026-04-15": 16,
-          "2026-04-16": 16,
-          "2026-04-17": 16,
-          "2026-04-20": 16,
-          "2026-04-21": 16,
-          "2026-04-22": 16,
-          "2026-04-23": 16,
-          "2026-04-24": 16,
-          "2026-04-27": 16,
-          "2026-04-28": 16
+          "2026-04-16": 15,
+          "2026-04-17": 15,
+          "2026-04-20": 15,
+          "2026-04-21": 15,
+          "2026-04-22": 15,
+          "2026-04-23": 15,
+          "2026-04-24": 15,
+          "2026-04-27": 15,
+          "2026-04-28": 15
         },
         "Lamar, Brion": {
           "2026-04-15": 16.5,
-          "2026-04-16": 16.5,
-          "2026-04-17": 16.5,
-          "2026-04-20": 16.5,
-          "2026-04-21": 16.5,
-          "2026-04-22": 16.5,
-          "2026-04-23": 16.5,
-          "2026-04-24": 16.5,
-          "2026-04-27": 16.5,
-          "2026-04-28": 16.5
+          "2026-04-16": 15,
+          "2026-04-17": 15,
+          "2026-04-20": 15,
+          "2026-04-21": 15,
+          "2026-04-22": 15,
+          "2026-04-23": 15,
+          "2026-04-24": 15,
+          "2026-04-27": 15,
+          "2026-04-28": 15
         },
         "Unassigned": {
           "2026-04-15": 56.5,
@@ -3836,6 +3891,10 @@ const projects = [
           {
             "date": "2026-04-15",
             "remaining": 16
+          },
+          {
+            "date": "2026-04-16",
+            "remaining": 16
           }
         ],
         "ideal": [
@@ -4038,6 +4097,10 @@ const projects = [
         "points": [
           {
             "date": "2026-04-15",
+            "remaining": 2
+          },
+          {
+            "date": "2026-04-16",
             "remaining": 2
           }
         ],
@@ -4526,6 +4589,10 @@ const projects = [
         "points": [
           {
             "date": "2026-04-15",
+            "remaining": 17.5
+          },
+          {
+            "date": "2026-04-16",
             "remaining": 17.5
           }
         ],
