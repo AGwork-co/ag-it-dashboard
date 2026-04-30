@@ -526,8 +526,9 @@ async function fetchProjectData(config) {
   if (states.includes('Active') || states.includes('In Progress')) phase = 'Active';
   if (states.every(s => ['Closed', 'Resolved', 'Done'].includes(s))) phase = 'Completed';
 
-  // 8. Sprint data — current sprint plus all iterations starting on/after 2026-01-01
-  const HISTORY_CUTOFF = '2026-01-01';
+  // 8. Sprint data — current sprint plus all iterations starting on/after the cutoff.
+  // Cutoff backed up to 2025-12-15 so Q1 2026 - Sprint 1 (which starts in late 2025) is included.
+  const HISTORY_CUTOFF = '2025-12-15';
   let currentSprint = null;
   const allSprints = [];
   try {
