@@ -621,7 +621,8 @@ const parseSprintDate = s => new Date(s.split('T')[0] + 'T12:00:00');
 // Selected sprint slot (start date). Null means default to current sprint.
 let selectedSprintStart = null;
 
-/** Aggregate all sprint slots across projects, sorted newest-first. */
+/** Aggregate all sprint slots across projects, sorted newest-first.
+ * A slot is "current" only if today's date falls within its [start, end] range. */
 function getSprintSlots() {
   const slotMap = {};
   projects.forEach(p => {
@@ -632,14 +633,17 @@ function getSprintSlots() {
       }
       slotMap[s.startDate].names[s.name] = (slotMap[s.startDate].names[s.name] || 0) + 1;
       if (s.storyCount > 0) slotMap[s.startDate].hasStories = true;
-      if (s.isCurrent) slotMap[s.startDate].isCurrent = true;
     });
   });
+  const today = new Date().toISOString().split('T')[0];
   return Object.values(slotMap)
     .filter(slot => slot.hasStories)
     .map(slot => {
       const name = Object.entries(slot.names).sort((a, b) => b[1] - a[1])[0]?.[0] || 'Sprint';
-      return { start: slot.start, end: slot.end, name, isCurrent: !!slot.isCurrent };
+      const startDay = (slot.start || '').split('T')[0];
+      const endDay = (slot.end || '').split('T')[0];
+      const isCurrent = startDay && endDay && startDay <= today && today <= endDay;
+      return { start: slot.start, end: slot.end, name, isCurrent };
     })
     .sort((a, b) => b.start.localeCompare(a.start));
 }
