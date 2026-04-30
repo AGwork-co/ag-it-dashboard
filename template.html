@@ -1157,20 +1157,22 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
       const capSP = cap.available;
 
       // Per-person SP burndown: for each working day, remaining SP = total SP
-      // minus SP of stories completed on or before that day. Works for both
-      // current and historical sprints since story-level completedDate is in
-      // every cached sprint record.
-      const actualData = [];
-      workingDays.forEach(dateStr => {
-        const d = new Date(dateStr + 'T12:00:00');
-        if (d <= cutoff) {
-          const completedSPByDay = stories.reduce((sum, s) => {
-            if (!s.completedDate) return sum;
-            const completedDay = s.completedDate.split('T')[0];
-            return completedDay <= dateStr ? sum + (s.storyPoints || 0) : sum;
-          }, 0);
-          actualData.push(Math.max(0, totalSP - completedSPByDay));
-        }
+      // minus SP of stories completed on or before that day. The final visible
+      // point also subtracts any done story missing a completedDate, so the
+      // line ends at the live sum of non-done SP.
+      const visibleDays = workingDays.filter(d => new Date(d + 'T12:00:00') <= cutoff);
+      const lastVisibleDay = visibleDays[visibleDays.length - 1];
+      const actualData = visibleDays.map(dateStr => {
+        const completedSPByDay = stories.reduce((sum, s) => {
+          const isDone = DONE_STATES.includes(s.state);
+          if (!isDone) return sum;
+          const completedDay = s.completedDate ? s.completedDate.split('T')[0] : null;
+          if (completedDay && completedDay <= dateStr) return sum + (s.storyPoints || 0);
+          // Done story missing completedDate → attribute to the last visible day
+          if (!completedDay && dateStr === lastVisibleDay) return sum + (s.storyPoints || 0);
+          return sum;
+        }, 0);
+        return Math.max(0, totalSP - completedSPByDay);
       });
       // Capacity ideal line: starts at capacity SP, burns down linearly to 0
       const idealData = workingDays.map((_, i) =>
