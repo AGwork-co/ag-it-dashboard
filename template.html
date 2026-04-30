@@ -672,13 +672,28 @@ function renderSprintView() {
   const totalSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.totalSP, 0);
   const completedSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.completedSP, 0);
   const remainingSprintSP = totalSprintSP - completedSprintSP;
-  const totalCapacityHrs = sprintProjects.reduce((s, p) => s + (p.currentSprint.capacity?.hoursPerDay || 0), 0);
   // Team Members = unique developers assigned to user stories in the selected sprint
-  const totalMembers = new Set(
+  const memberNames = new Set(
     allSprintStories
       .map(s => s.assignedTo)
       .filter(a => a && a !== 'Unassigned')
-  ).size;
+  );
+  const totalMembers = memberNames.size;
+
+  // Capacity/Day = average daily hours per assigned developer.
+  // Build a unique-member -> dailyHours map across projects (taking max if a person
+  // appears on multiple projects). Members without ADO capacity records default to 8h.
+  const memberHours = {};
+  sprintProjects.forEach(p => {
+    (p.currentSprint.capacity?.members || []).forEach(m => {
+      if (!memberNames.has(m.name)) return;
+      memberHours[m.name] = Math.max(memberHours[m.name] || 0, m.dailyHours || 0);
+    });
+  });
+  let totalCapacityHrs = 0;
+  memberNames.forEach(name => {
+    totalCapacityHrs += memberHours[name] || 8;
+  });
 
   const sprintStart = selectedSlot?.start || sprintProjects[0]?.currentSprint.startDate;
   const sprintEnd = selectedSlot?.end || sprintProjects[0]?.currentSprint.endDate;
