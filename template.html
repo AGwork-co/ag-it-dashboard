@@ -706,7 +706,7 @@ function renderSprintView() {
     { value: completedSprintSP, label: 'Completed SP' },
     { value: remainingSprintSP, label: 'Remaining SP' },
     { value: totalMembers || '—', label: 'Team Members' },
-    { value: totalCapacityHrs ? totalCapacityHrs + 'h' : '—', label: 'Capacity/Day' },
+    { value: (totalCapacityHrs && totalMembers) ? (totalCapacityHrs / totalMembers).toFixed(1) + 'h' : '—', label: 'Capacity/Day' },
   ].map(k => `<div class="kpi-card"><div class="value">${k.value}</div><div class="label">${k.label}</div></div>`).join('');
 
   renderSprintBurndown(sprintProjects);
