@@ -680,26 +680,26 @@ function renderSprintView() {
   );
   const totalMembers = memberNames.size;
 
-  // Capacity/Day = average daily hours per assigned developer.
-  // Build a unique-member -> dailyHours map across projects (taking max if a person
-  // appears on multiple projects). Members without ADO capacity records default to 8h.
-  const memberHours = {};
-  sprintProjects.forEach(p => {
-    (p.currentSprint.capacity?.members || []).forEach(m => {
-      if (!memberNames.has(m.name)) return;
-      memberHours[m.name] = Math.max(memberHours[m.name] || 0, m.dailyHours || 0);
-    });
-  });
-  let totalCapacityHrs = 0;
-  memberNames.forEach(name => {
-    totalCapacityHrs += memberHours[name] || 8;
-  });
+  // Capacity/Day (SP) = whole-team's average daily story-point throughput for
+  // the selected sprint = total sprint SP / working days (Mon–Fri) in the sprint.
 
   const sprintStart = selectedSlot?.start || sprintProjects[0]?.currentSprint.startDate;
   const sprintEnd = selectedSlot?.end || sprintProjects[0]?.currentSprint.endDate;
   const dateRange = sprintStart && sprintEnd
     ? `${parseSprintDate(sprintStart).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric'})} — ${parseSprintDate(sprintEnd).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric', year:'numeric'})}`
     : '';
+
+  // Count working days (Mon–Fri) in the sprint, inclusive of both endpoints
+  let workingDays = 0;
+  if (sprintStart && sprintEnd) {
+    const sd = parseSprintDate(sprintStart);
+    const ed = parseSprintDate(sprintEnd);
+    for (let d = new Date(sd); d <= ed; d.setDate(d.getDate() + 1)) {
+      const dow = d.getDay();
+      if (dow !== 0 && dow !== 6) workingDays++;
+    }
+  }
+  const dailySpCapacity = workingDays > 0 ? totalSprintSP / workingDays : 0;
 
   // Sprint header with dropdown
   const optionsHtml = slots.map(slot => {
@@ -722,7 +722,7 @@ function renderSprintView() {
     { value: completedSprintSP, label: 'Completed SP' },
     { value: remainingSprintSP, label: 'Remaining SP' },
     { value: totalMembers || '—', label: 'Team Members' },
-    { value: (totalCapacityHrs && totalMembers) ? (totalCapacityHrs / totalMembers).toFixed(1) + 'h' : '—', label: 'Capacity/Day' },
+    { value: dailySpCapacity > 0 ? dailySpCapacity.toFixed(1) + ' SP' : '—', label: 'Capacity/Day' },
   ].map(k => `<div class="kpi-card"><div class="value">${k.value}</div><div class="label">${k.label}</div></div>`).join('');
 
   renderSprintBurndown(sprintProjects);
