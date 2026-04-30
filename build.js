@@ -130,6 +130,14 @@ async function getCurrentIteration(project) {
   return null;
 }
 
+/** Get all iterations for a project's default team */
+async function getAllIterations(project) {
+  const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations?api-version=${API_VERSION}`;
+  const data = await adoFetch(url);
+  if (data && data.value) return data.value;
+  return [];
+}
+
 /** Get team capacity for a specific iteration */
 async function getIterationCapacity(project, iterationId) {
   const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations/${iterationId}/capacities?api-version=${API_VERSION}`;
@@ -491,11 +499,25 @@ async function fetchProjectData(config) {
   if (states.includes('Active') || states.includes('In Progress')) phase = 'Active';
   if (states.every(s => ['Closed', 'Resolved', 'Done'].includes(s))) phase = 'Completed';
 
-  // 8. Current sprint data
+  // 8. Sprint data — current sprint plus all iterations starting on/after 2026-01-01
+  const HISTORY_CUTOFF = '2026-01-01';
   let currentSprint = null;
+  const allSprints = [];
   try {
-    const iteration = await getCurrentIteration(project);
-    if (iteration) {
+    const iterations = await getAllIterations(project);
+    const currentIter = await getCurrentIteration(project);
+    const currentIterId = currentIter?.id;
+
+    // Filter to iterations starting on/after the cutoff, sorted oldest -> newest
+    const relevantIterations = iterations
+      .filter(it => {
+        const sd = it.attributes?.startDate;
+        return sd && sd >= HISTORY_CUTOFF;
+      })
+      .sort((a, b) => (a.attributes.startDate || '').localeCompare(b.attributes.startDate || ''));
+
+    for (const iteration of relevantIterations) {
+      const isCurrent = iteration.id === currentIterId;
       const iterPath = iteration.path || '';
       const sprintName = iteration.name || 'Unknown Sprint';
       const startDate = iteration.attributes?.startDate || null;
@@ -552,13 +574,15 @@ async function fetchProjectData(config) {
         }
       }
 
-      // Fetch child task Remaining/Completed Work for each story
+      // Fetch child task Remaining/Completed Work for each story (current sprint only)
       const storyIds = sprintStoryDetails.map(s => s.id);
       let childTaskWork = {};
-      try {
-        childTaskWork = await getChildTaskWork(storyIds);
-      } catch (e) {
-        console.warn(`   ⚠ Could not fetch child task work: ${e.message}`);
+      if (isCurrent) {
+        try {
+          childTaskWork = await getChildTaskWork(storyIds);
+        } catch (e) {
+          console.warn(`   ⚠ Could not fetch child task work: ${e.message}`);
+        }
       }
 
       // Attach task-level remaining/completed to each story
@@ -578,10 +602,9 @@ async function fetchProjectData(config) {
         }
       });
 
-      // Build per-person daily task remaining history for burndown charts
-      // For each person, track the total remaining work from their assigned tasks over time
+      // Build per-person daily task remaining history for burndown charts (current sprint only)
       const personTaskBurndown = {};
-      if (startDate && endDate) {
+      if (isCurrent && startDate && endDate) {
         const sDate = new Date(startDate.split('T')[0] + 'T12:00:00');
         const eDate = new Date(endDate.split('T')[0] + 'T12:00:00');
         // Collect all child task IDs and their assigned person
@@ -693,7 +716,7 @@ async function fetchProjectData(config) {
         return rest;
       });
 
-      currentSprint = {
+      const sprintRecord = {
         name: sprintName,
         startDate,
         endDate,
@@ -705,10 +728,13 @@ async function fetchProjectData(config) {
         sprintGoals,
         capacity: { hoursPerDay: capacityHoursPerDay, members },
         burndown,
-        personTaskBurndown
+        personTaskBurndown,
+        isCurrent
       };
+      allSprints.push(sprintRecord);
+      if (isCurrent) currentSprint = sprintRecord;
 
-      console.log(`   🏃 Sprint "${sprintName}": ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)`);
+      console.log(`   🏃 Sprint "${sprintName}"${isCurrent ? ' (current)' : ''}: ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)`);
     }
   } catch (e) {
     console.warn(`   ⚠ Could not fetch sprint data for ${project}: ${e.message}`);
@@ -729,7 +755,8 @@ async function fetchProjectData(config) {
       incompleteSP: Math.round(incompleteSP * 100) / 100,
       sprintSP
     },
-    currentSprint
+    currentSprint,
+    allSprints
   };
 }
 

@@ -264,6 +264,27 @@
   }
   .sprint-header h2 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
   .sprint-header .sprint-dates { font-size: 14px; opacity: 0.85; }
+  .sprint-header .sprint-title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .sprint-select {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white; font-size: 22px; font-weight: 700;
+    padding: 4px 32px 4px 10px; border-radius: 6px;
+    cursor: pointer; appearance: none; -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: background-color 0.2s;
+  }
+  .sprint-select:hover { background-color: rgba(255,255,255,0.2); }
+  .sprint-select:focus { outline: 2px solid var(--primary-light); outline-offset: 2px; }
+  .sprint-select option { background: var(--bg-elevated); color: var(--text); font-size: 14px; font-weight: 500; }
+  .sprint-current-tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.4px;
+    padding: 3px 10px; border-radius: 12px;
+    background: rgba(76,175,80,0.25); border: 1px solid rgba(76,175,80,0.5);
+    text-transform: uppercase;
+  }
 
   /* Sprint goals */
   .sprint-goals {
@@ -597,24 +618,50 @@ async function triggerRefresh() {
 // Parse date strings from Azure DevOps safely (strips time component to avoid UTC→local shift)
 const parseSprintDate = s => new Date(s.split('T')[0] + 'T12:00:00');
 
-function renderSprintView() {
-  // Only include projects that have stories assigned to the current sprint
-  const allSprintProjects = projects.filter(p => p.currentSprint && p.currentSprint.storyCount > 0);
+// Selected sprint slot (start date). Null means default to current sprint.
+let selectedSprintStart = null;
 
-  // Determine the primary sprint by most common start date
-  const startCounts = {};
-  allSprintProjects.forEach(p => {
-    const sd = p.currentSprint.startDate;
-    if (sd) startCounts[sd] = (startCounts[sd] || 0) + 1;
+/** Aggregate all sprint slots across projects, sorted newest-first. */
+function getSprintSlots() {
+  const slotMap = {};
+  projects.forEach(p => {
+    (p.allSprints || []).forEach(s => {
+      if (!s.startDate) return;
+      if (!slotMap[s.startDate]) {
+        slotMap[s.startDate] = { start: s.startDate, end: s.endDate, names: {}, hasStories: false };
+      }
+      slotMap[s.startDate].names[s.name] = (slotMap[s.startDate].names[s.name] || 0) + 1;
+      if (s.storyCount > 0) slotMap[s.startDate].hasStories = true;
+      if (s.isCurrent) slotMap[s.startDate].isCurrent = true;
+    });
   });
-  const primaryStart = Object.entries(startCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+  return Object.values(slotMap)
+    .filter(slot => slot.hasStories)
+    .map(slot => {
+      const name = Object.entries(slot.names).sort((a, b) => b[1] - a[1])[0]?.[0] || 'Sprint';
+      return { start: slot.start, end: slot.end, name, isCurrent: !!slot.isCurrent };
+    })
+    .sort((a, b) => b.start.localeCompare(a.start));
+}
 
-  // For the main burndown and header, only use projects on the primary sprint schedule
-  const sprintProjects = primaryStart
-    ? allSprintProjects.filter(p => p.currentSprint.startDate === primaryStart)
-    : allSprintProjects;
-  // Off-schedule projects still show in the cards list but excluded from cross-project burndown
-  const offScheduleProjects = allSprintProjects.filter(p => !sprintProjects.includes(p));
+function renderSprintView() {
+  const slots = getSprintSlots();
+
+  // Default selection: the slot containing the current sprint, else the newest slot
+  if (!selectedSprintStart) {
+    const currentSlot = slots.find(s => s.isCurrent);
+    selectedSprintStart = currentSlot?.start || slots[0]?.start || null;
+  }
+
+  const selectedSlot = slots.find(s => s.start === selectedSprintStart) || slots[0];
+
+  // For each project, find the sprint matching the selected start date.
+  // Wrap into { ...p, currentSprint: matchingSprint } so existing helpers work unchanged.
+  const sprintProjects = [];
+  projects.forEach(p => {
+    const match = (p.allSprints || []).find(s => s.startDate === selectedSprintStart && s.storyCount > 0);
+    if (match) sprintProjects.push({ ...p, currentSprint: match });
+  });
 
   const allSprintStories = sprintProjects.flatMap(p => p.currentSprint.stories || []);
   const totalSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.totalSP, 0);
@@ -623,21 +670,27 @@ function renderSprintView() {
   const totalCapacityHrs = sprintProjects.reduce((s, p) => s + (p.currentSprint.capacity?.hoursPerDay || 0), 0);
   const totalMembers = new Set(sprintProjects.flatMap(p => (p.currentSprint.capacity?.members || []).map(m => m.name))).size;
 
-  // Sprint name and dates from the primary sprint
-  const sprintName = sprintProjects.length > 0 ? sprintProjects[0].currentSprint.name : 'No Active Sprint';
-  const sprintStart = sprintProjects[0]?.currentSprint.startDate;
-  const sprintEnd = sprintProjects[0]?.currentSprint.endDate;
+  const sprintStart = selectedSlot?.start || sprintProjects[0]?.currentSprint.startDate;
+  const sprintEnd = selectedSlot?.end || sprintProjects[0]?.currentSprint.endDate;
   const dateRange = sprintStart && sprintEnd
     ? `${parseSprintDate(sprintStart).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric'})} — ${parseSprintDate(sprintEnd).toLocaleDateString('en-US', {weekday:'short', month:'long', day:'numeric', year:'numeric'})}`
     : '';
 
-  // Sprint header
+  // Sprint header with dropdown
+  const optionsHtml = slots.map(slot => {
+    const sel = slot.start === selectedSprintStart ? ' selected' : '';
+    const tag = slot.isCurrent ? ' (Current)' : '';
+    return `<option value="${slot.start}"${sel}>${slot.name}${tag}</option>`;
+  }).join('');
+  const isViewingCurrent = selectedSlot?.isCurrent;
   document.getElementById('sprintHeader').innerHTML = `
-    <h2>${sprintName}</h2>
+    <div class="sprint-title-row">
+      <select class="sprint-select" id="sprintSelect" onchange="onSprintChange(this.value)">${optionsHtml}</select>
+      ${isViewingCurrent ? '<span class="sprint-current-tag">Current</span>' : ''}
+    </div>
     <div class="sprint-dates">${dateRange}</div>
   `;
 
-  // KPIs (no sprint name card — that's now the header)
   document.getElementById('sprintKpiRow').innerHTML = [
     { value: allSprintStories.length, label: 'Sprint Stories' },
     { value: totalSprintSP, label: 'Total SP' },
@@ -647,19 +700,14 @@ function renderSprintView() {
     { value: totalCapacityHrs ? totalCapacityHrs + 'h' : '—', label: 'Capacity/Day' },
   ].map(k => `<div class="kpi-card"><div class="value">${k.value}</div><div class="label">${k.label}</div></div>`).join('');
 
-  // Cross-project burndown chart
   renderSprintBurndown(sprintProjects);
 
-  // Project cards — all projects with sprint work (including off-schedule)
-  // Store the combined list globally for drill-down index mapping
-  window._sprintCardProjects = [...sprintProjects, ...offScheduleProjects];
+  window._sprintCardProjects = sprintProjects;
   const grid = document.getElementById('sprintProjectCards');
-  grid.innerHTML = window._sprintCardProjects.map((p, i) => {
+  grid.innerHTML = sprintProjects.map((p, i) => {
     const sp = p.currentSprint;
     const pct = sp.totalSP > 0 ? Math.round((sp.completedSP / sp.totalSP) * 100) : 0;
-    const isOffSchedule = offScheduleProjects.includes(p);
 
-    // Sprint goals summary
     const goalsText = sp.sprintGoals || '';
     const goalsHtml = goalsText
       ? `<div class="sprint-goals"><h5>Sprint Goals</h5><p>${goalsText.replace(/</g,'&lt;')}</p></div>`
@@ -668,7 +716,7 @@ function renderSprintView() {
     return `<div class="sprint-proj-card" onclick="showSprintDetail(${i})">
       <div class="spc-header">
         <h4>${p.shortName}</h4>
-        <span style="font-size:11px;color:${isOffSchedule ? 'var(--warn)' : 'var(--text-muted)'}">${sp.name}${isOffSchedule ? ' (different schedule)' : ''}</span>
+        <span style="font-size:11px;color:var(--text-muted)">${sp.name}</span>
       </div>
       ${goalsHtml}
       <div class="spc-body">
@@ -684,12 +732,19 @@ function renderSprintView() {
     </div>`;
   }).join('');
 
-  if (window._sprintCardProjects.length === 0) {
-    grid.innerHTML = '<div class="chart-card" style="text-align:center;padding:40px;grid-column:1/-1"><p style="color:var(--text-muted)">No projects with stories assigned to the current sprint.</p></div>';
+  if (sprintProjects.length === 0) {
+    grid.innerHTML = '<div class="chart-card" style="text-align:center;padding:40px;grid-column:1/-1"><p style="color:var(--text-muted)">No projects with stories assigned to this sprint.</p></div>';
   }
 
-  // Render per-person team view at the bottom — include all projects with sprint work
-  renderTeamSprintView([...sprintProjects, ...offScheduleProjects], sprintStart, sprintEnd);
+  renderTeamSprintView(sprintProjects, sprintStart, sprintEnd);
+}
+
+function onSprintChange(newStart) {
+  selectedSprintStart = newStart;
+  // Hide any open detail panel before re-rendering
+  const dp = document.getElementById('sprintDetailPanel');
+  if (dp) dp.style.display = 'none';
+  renderSprintView();
 }
 
 function renderSprintBurndown(sprintProjects) {
