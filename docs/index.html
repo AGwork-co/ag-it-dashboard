@@ -319,7 +319,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, April 30, 2026 at 3:03 PM</span>
+    <span>Last updated: Thursday, April 30, 2026 at 3:08 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -11561,7 +11561,7 @@ const projects = [
       "estimated": 236,
       "unestimated": 194,
       "totalSP": 514.55,
-      "incompleteSP": 101,
+      "incompleteSP": 100,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 71,
@@ -11593,8 +11593,8 @@ const projects = [
       "startDate": "2026-04-29T00:00:00Z",
       "endDate": "2026-05-12T00:00:00Z",
       "totalSP": 35.5,
-      "completedSP": 0,
-      "remainingSP": 35.5,
+      "completedSP": 1,
+      "remainingSP": 34.5,
       "storyCount": 17,
       "stories": [
         {
@@ -11678,12 +11678,12 @@ const projects = [
         {
           "id": 28496,
           "title": "Serve CRM reference-data option lists from a backend endpoint",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Roach, Joseph",
-          "completedDate": null,
+          "completedDate": "2026-04-30T20:06:36.213Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28496",
           "taskRemainingWork": 1,
           "taskCompletedWork": 0
@@ -11833,7 +11833,7 @@ const projects = [
           },
           {
             "date": "2026-04-30",
-            "remaining": 35.5
+            "remaining": 34.5
           }
         ],
         "ideal": [
@@ -14921,8 +14921,8 @@ const projects = [
         "startDate": "2026-04-29T00:00:00Z",
         "endDate": "2026-05-12T00:00:00Z",
         "totalSP": 35.5,
-        "completedSP": 0,
-        "remainingSP": 35.5,
+        "completedSP": 1,
+        "remainingSP": 34.5,
         "storyCount": 17,
         "stories": [
           {
@@ -15006,12 +15006,12 @@ const projects = [
           {
             "id": 28496,
             "title": "Serve CRM reference-data option lists from a backend endpoint",
-            "state": "Committed",
+            "state": "Done",
             "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
             "assignedTo": "Roach, Joseph",
-            "completedDate": null,
+            "completedDate": "2026-04-30T20:06:36.213Z",
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28496",
             "taskRemainingWork": 1,
             "taskCompletedWork": 0
@@ -15161,7 +15161,7 @@ const projects = [
             },
             {
               "date": "2026-04-30",
-              "remaining": 35.5
+              "remaining": 34.5
             }
           ],
           "ideal": [
@@ -29747,36 +29747,25 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
       if (d.getDay() !== 0 && d.getDay() !== 6) workingDays.push(d.toISOString().split('T')[0]);
     }
 
-    // Merge personTaskBurndown data across all projects for each person
-    const mergedPersonBurndown = {};
-    sprintProjects.forEach(p => {
-      const ptb = p.currentSprint?.personTaskBurndown || {};
-      Object.entries(ptb).forEach(([person, dailyMap]) => {
-        if (!mergedPersonBurndown[person]) mergedPersonBurndown[person] = {};
-        Object.entries(dailyMap).forEach(([date, rem]) => {
-          mergedPersonBurndown[person][date] = (mergedPersonBurndown[person][date] || 0) + rem;
-        });
-      });
-    });
-
     people.forEach(([name, stories], idx) => {
       const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
       const cap = personCapacity[name] || { available: 0 };
       const capSP = cap.available;
 
-      // Use pre-computed daily task remaining from build.js
-      const personDaily = mergedPersonBurndown[name] || {};
+      // Per-person SP burndown: for each working day, remaining SP = total SP
+      // minus SP of stories completed on or before that day. Works for both
+      // current and historical sprints since story-level completedDate is in
+      // every cached sprint record.
       const actualData = [];
       workingDays.forEach(dateStr => {
         const d = new Date(dateStr + 'T12:00:00');
         if (d <= cutoff) {
-          if (personDaily[dateStr] !== undefined) {
-            actualData.push(Math.max(0, personDaily[dateStr]));
-          } else {
-            // No task data for this date — use last known value or total SP
-            const lastVal = actualData.length > 0 ? actualData[actualData.length - 1] : totalSP;
-            actualData.push(lastVal);
-          }
+          const completedSPByDay = stories.reduce((sum, s) => {
+            if (!s.completedDate) return sum;
+            const completedDay = s.completedDate.split('T')[0];
+            return completedDay <= dateStr ? sum + (s.storyPoints || 0) : sum;
+          }, 0);
+          actualData.push(Math.max(0, totalSP - completedSPByDay));
         }
       });
       // Capacity ideal line: starts at capacity SP, burns down linearly to 0
