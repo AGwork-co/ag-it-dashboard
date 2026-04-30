@@ -43,13 +43,22 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Save our freshly built file
+          # Save our freshly built file and sprint cache
           cp docs/index.html /tmp/dashboard.html
+          if [ -f cache/sprint-history.json ]; then
+            mkdir -p /tmp/cache
+            cp cache/sprint-history.json /tmp/cache/sprint-history.json
+          fi
           # Reset to whatever remote has (no conflicts possible)
           git fetch origin main
           git reset --hard origin/main
-          # Put our built file back and commit
+          # Put our built files back and commit
           cp /tmp/dashboard.html docs/index.html
+          if [ -f /tmp/cache/sprint-history.json ]; then
+            mkdir -p cache
+            cp /tmp/cache/sprint-history.json cache/sprint-history.json
+            git add cache/sprint-history.json
+          fi
           git add docs/index.html
           git diff --staged --quiet || git commit -m "Dashboard updated"
           git push

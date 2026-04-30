@@ -29,6 +29,33 @@ if (!PAT) {
 
 const AUTH_HEADER = 'Basic ' + Buffer.from(':' + PAT).toString('base64');
 
+// ── Sprint history cache ────────────────────────────────────────────────────
+// Closed sprints are immutable, so we cache them on disk and only re-fetch
+// when the iteration end date is today or in the future.
+const SPRINT_CACHE_PATH = path.join(__dirname, 'cache', 'sprint-history.json');
+const SPRINT_CACHE_VERSION = 1;
+const sprintCache = (() => {
+  try {
+    const raw = JSON.parse(fs.readFileSync(SPRINT_CACHE_PATH, 'utf8'));
+    if (raw.version === SPRINT_CACHE_VERSION) return raw.entries || {};
+  } catch (e) {
+    // Cache missing or unreadable — start fresh
+  }
+  return {};
+})();
+const sprintCacheKey = (project, iterationId) => `${project}::${iterationId}`;
+function saveSprintCache() {
+  try {
+    fs.mkdirSync(path.dirname(SPRINT_CACHE_PATH), { recursive: true });
+    fs.writeFileSync(
+      SPRINT_CACHE_PATH,
+      JSON.stringify({ version: SPRINT_CACHE_VERSION, entries: sprintCache }, null, 2)
+    );
+  } catch (e) {
+    console.warn(`   ⚠ Could not write sprint cache: ${e.message}`);
+  }
+}
+
 // ── Display name overrides (maps malformed ADO names → proper names) ────────
 const DISPLAY_NAME_MAP = {
   'pawlik.gregor gmail.com': 'Greg Pawlik',
@@ -516,12 +543,25 @@ async function fetchProjectData(config) {
       })
       .sort((a, b) => (a.attributes.startDate || '').localeCompare(b.attributes.startDate || ''));
 
+    const today = new Date().toISOString().split('T')[0];
+
     for (const iteration of relevantIterations) {
       const isCurrent = iteration.id === currentIterId;
       const iterPath = iteration.path || '';
       const sprintName = iteration.name || 'Unknown Sprint';
       const startDate = iteration.attributes?.startDate || null;
       const endDate = iteration.attributes?.finishDate || null;
+
+      // Cache hit: sprint has ended (endDate strictly before today) and not the current iteration
+      const endDay = (endDate || '').split('T')[0];
+      const isClosed = endDay && endDay < today && !isCurrent;
+      const cacheKey = sprintCacheKey(project, iteration.id);
+      if (isClosed && sprintCache[cacheKey]) {
+        const cached = { ...sprintCache[cacheKey], isCurrent: false };
+        allSprints.push(cached);
+        console.log(`   📦 Sprint "${sprintName}" (cached): ${cached.storyCount} stories, ${cached.totalSP} SP`);
+        continue;
+      }
 
       // Get stories in this sprint
       const sprintStories = stories.filter(s => {
@@ -734,6 +774,11 @@ async function fetchProjectData(config) {
       allSprints.push(sprintRecord);
       if (isCurrent) currentSprint = sprintRecord;
 
+      // Cache the sprint if it has closed
+      if (isClosed) {
+        sprintCache[cacheKey] = { ...sprintRecord, isCurrent: false };
+      }
+
       console.log(`   🏃 Sprint "${sprintName}"${isCurrent ? ' (current)' : ''}: ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)`);
     }
   } catch (e) {
@@ -819,6 +864,9 @@ async function main() {
   const outDir = path.join(__dirname, 'docs');
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
+
+  // Persist the sprint history cache so the next build can skip closed sprints
+  saveSprintCache();
 
   console.log(`\n✨ Dashboard built → docs/index.html`);
   console.log(`   Build time: ${buildTime}`);
