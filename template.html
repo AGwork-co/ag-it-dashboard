@@ -1156,20 +1156,25 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
       const cap = personCapacity[name] || { available: 0 };
       const capSP = cap.available;
 
-      // Per-person SP burndown: for each working day, remaining SP = total SP
-      // minus SP of stories completed on or before that day. The final visible
-      // point also subtracts any done story missing a completedDate, so the
-      // line ends at the live sum of non-done SP.
+      // Per-person burndown: historical points use state-based completion
+      // (story moved to Done on/before the day). The final visible point uses
+      // the task-level remaining shown in the row table — so the chart line
+      // ends at exactly the sum users see in the "Rem" column, including
+      // partial progress on stories still in Active state.
       const visibleDays = workingDays.filter(d => new Date(d + 'T12:00:00') <= cutoff);
       const lastVisibleDay = visibleDays[visibleDays.length - 1];
+      const liveRemaining = stories.reduce((sum, s) => {
+        if (DONE_STATES.includes(s.state)) return sum;
+        const rem = s.taskRemainingWork != null ? s.taskRemainingWork : (s.remainingSP || 0);
+        return sum + rem;
+      }, 0);
       const actualData = visibleDays.map(dateStr => {
+        if (dateStr === lastVisibleDay) return Math.max(0, liveRemaining);
         const completedSPByDay = stories.reduce((sum, s) => {
           const isDone = DONE_STATES.includes(s.state);
           if (!isDone) return sum;
           const completedDay = s.completedDate ? s.completedDate.split('T')[0] : null;
           if (completedDay && completedDay <= dateStr) return sum + (s.storyPoints || 0);
-          // Done story missing completedDate → attribute to the last visible day
-          if (!completedDay && dateStr === lastVisibleDay) return sum + (s.storyPoints || 0);
           return sum;
         }, 0);
         return Math.max(0, totalSP - completedSPByDay);
