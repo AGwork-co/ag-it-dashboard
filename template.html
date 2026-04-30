@@ -672,7 +672,12 @@ function renderSprintView() {
   const completedSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.completedSP, 0);
   const remainingSprintSP = totalSprintSP - completedSprintSP;
   const totalCapacityHrs = sprintProjects.reduce((s, p) => s + (p.currentSprint.capacity?.hoursPerDay || 0), 0);
-  const totalMembers = new Set(sprintProjects.flatMap(p => (p.currentSprint.capacity?.members || []).map(m => m.name))).size;
+  // Team Members = unique developers assigned to user stories in the selected sprint
+  const totalMembers = new Set(
+    allSprintStories
+      .map(s => s.assignedTo)
+      .filter(a => a && a !== 'Unassigned')
+  ).size;
 
   const sprintStart = selectedSlot?.start || sprintProjects[0]?.currentSprint.startDate;
   const sprintEnd = selectedSlot?.end || sprintProjects[0]?.currentSprint.endDate;
