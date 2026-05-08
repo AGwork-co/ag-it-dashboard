@@ -1164,10 +1164,6 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     });
 
     people.forEach(([name, stories], idx) => {
-      const cap = personCapacity[name] || { available: 0 };
-      // Capacity in HOURS = available working days × 8h
-      const capHrs = (cap.available || 0) * 8;
-
       // Daily Actual line: hours of task work remaining at end of each visible
       // working day, sourced from the per-task revision history captured in
       // build.js (personTaskBurndown). Carries forward the last known value
@@ -1185,15 +1181,20 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
         }
         return Math.max(0, lastKnown);
       });
-      // Capacity ideal line in hours: starts at capHrs, burns down linearly
+      // Ideal burndown line: linear decrease from this person's starting
+      // committed work to 0 across the sprint's working days. Uses the
+      // earliest recorded daily value (or the current task-remaining sum if
+      // no history exists) as the starting point so it matches Actual on day 1.
+      const sortedDates = Object.keys(personDaily).sort();
+      const startingHrs = sortedDates.length > 0 ? personDaily[sortedDates[0]] : initialHrs;
       const idealData = workingDays.map((_, i) =>
-        Math.max(0, capHrs - (capHrs / (workingDays.length - 1)) * i)
+        workingDays.length > 1 ? Math.max(0, startingHrs - (startingHrs / (workingDays.length - 1)) * i) : startingHrs
       );
       const idealLabels = workingDays.map(dateStr => {
         const d = new Date(dateStr + 'T12:00:00');
         return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       });
-      window._teamBurndownData[idx] = { actualData, idealData, idealLabels, capHrs };
+      window._teamBurndownData[idx] = { actualData, idealData, idealLabels, startingHrs };
     });
   }
 }
@@ -1224,7 +1225,7 @@ function toggleTeamCard(idx) {
                 fill: true, tension: 0.3, pointRadius: 3, borderWidth: 2, spanGaps: false
               },
               {
-                label: 'Capacity',
+                label: 'Ideal Burndown',
                 data: data.idealData,
                 borderColor: '#34D399',
                 borderDash: [6, 4], pointRadius: 0, borderWidth: 2, fill: false
