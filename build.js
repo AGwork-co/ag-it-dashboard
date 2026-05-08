@@ -33,7 +33,7 @@ const AUTH_HEADER = 'Basic ' + Buffer.from(':' + PAT).toString('base64');
 // Closed sprints are immutable, so we cache them on disk and only re-fetch
 // when the iteration end date is today or in the future.
 const SPRINT_CACHE_PATH = path.join(__dirname, 'cache', 'sprint-history.json');
-const SPRINT_CACHE_VERSION = 1;
+const SPRINT_CACHE_VERSION = 2;
 const sprintCache = (() => {
   try {
     const raw = JSON.parse(fs.readFileSync(SPRINT_CACHE_PATH, 'utf8'));
@@ -615,15 +615,14 @@ async function fetchProjectData(config) {
         }
       }
 
-      // Fetch child task Remaining/Completed Work for each story (current sprint only)
+      // Fetch child task Remaining/Completed Work + revision history for each story.
+      // Closed sprints are cached, so this expensive fetch only happens once per sprint.
       const storyIds = sprintStoryDetails.map(s => s.id);
       let childTaskWork = {};
-      if (isCurrent) {
-        try {
-          childTaskWork = await getChildTaskWork(storyIds);
-        } catch (e) {
-          console.warn(`   ⚠ Could not fetch child task work: ${e.message}`);
-        }
+      try {
+        childTaskWork = await getChildTaskWork(storyIds);
+      } catch (e) {
+        console.warn(`   ⚠ Could not fetch child task work: ${e.message}`);
       }
 
       // Attach task-level remaining/completed to each story
@@ -643,9 +642,9 @@ async function fetchProjectData(config) {
         }
       });
 
-      // Build per-person daily task remaining history for burndown charts (current sprint only)
+      // Build per-person daily task remaining history for burndown charts (every sprint).
       const personTaskBurndown = {};
-      if (isCurrent && startDate && endDate) {
+      if (startDate && endDate) {
         const sDate = new Date(startDate.split('T')[0] + 'T12:00:00');
         const eDate = new Date(endDate.split('T')[0] + 'T12:00:00');
         // Collect all child task IDs and their assigned person

@@ -1099,10 +1099,10 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
     const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
     const remainingWork = stories.reduce((s, st) => s + (st.taskRemainingWork != null ? st.taskRemainingWork : st.remainingSP), 0);
-    const completedWork = Math.round((totalSP - remainingWork) * 100) / 100;
     const cap = personCapacity[name] || { available: 0 };
-    const capSP = cap.available;
-    const utilPct = capSP > 0 ? Math.round((totalSP / capSP) * 100) : 0;
+    // Capacity in hours = available days × 8h/day
+    const capHrs = (cap.available || 0) * 8;
+    const utilPct = capHrs > 0 ? Math.round((remainingWork / capHrs) * 100) : 0;
     const utilColor = utilPct > 100 ? '#F87171' : utilPct >= 80 ? '#FBBF24' : '#34D399';
 
     const rows = sorted.map(s => {
@@ -1120,7 +1120,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     html += `<div class="team-member-card" id="tmCard_${idx}">
       <div class="tmc-header" onclick="toggleTeamCard(${idx})">
         <h4>${name}</h4>
-        <span class="tmc-stats">${totalSP} sp / ${capSP} sp capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span></span>
+        <span class="tmc-stats">${totalSP} sp · ${remainingWork.toFixed(1)}h remaining / ${capHrs}h capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span></span>
       </div>
       <div class="tmc-detail">
         <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
@@ -1151,43 +1151,49 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
       if (d.getDay() !== 0 && d.getDay() !== 6) workingDays.push(d.toISOString().split('T')[0]);
     }
 
-    people.forEach(([name, stories], idx) => {
-      const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
-      const cap = personCapacity[name] || { available: 0 };
-      const capSP = cap.available;
-
-      // Per-person burndown: historical points use state-based completion
-      // (story moved to Done on/before the day). The final visible point uses
-      // the task-level remaining shown in the row table — so the chart line
-      // ends at exactly the sum users see in the "Rem" column, including
-      // partial progress on stories still in Active state.
-      const visibleDays = workingDays.filter(d => new Date(d + 'T12:00:00') <= cutoff);
-      const lastVisibleDay = visibleDays[visibleDays.length - 1];
-      const liveRemaining = stories.reduce((sum, s) => {
-        if (DONE_STATES.includes(s.state)) return sum;
-        const rem = s.taskRemainingWork != null ? s.taskRemainingWork : (s.remainingSP || 0);
-        return sum + rem;
-      }, 0);
-      const actualData = visibleDays.map(dateStr => {
-        if (dateStr === lastVisibleDay) return Math.max(0, liveRemaining);
-        const completedSPByDay = stories.reduce((sum, s) => {
-          const isDone = DONE_STATES.includes(s.state);
-          if (!isDone) return sum;
-          const completedDay = s.completedDate ? s.completedDate.split('T')[0] : null;
-          if (completedDay && completedDay <= dateStr) return sum + (s.storyPoints || 0);
-          return sum;
-        }, 0);
-        return Math.max(0, totalSP - completedSPByDay);
+    // Merge personTaskBurndown across projects: person -> { date -> hours }
+    const mergedPersonBurndown = {};
+    sprintProjects.forEach(p => {
+      const ptb = p.currentSprint?.personTaskBurndown || {};
+      Object.entries(ptb).forEach(([person, dailyMap]) => {
+        if (!mergedPersonBurndown[person]) mergedPersonBurndown[person] = {};
+        Object.entries(dailyMap).forEach(([date, hrs]) => {
+          mergedPersonBurndown[person][date] = (mergedPersonBurndown[person][date] || 0) + hrs;
+        });
       });
-      // Capacity ideal line: starts at capacity SP, burns down linearly to 0
+    });
+
+    people.forEach(([name, stories], idx) => {
+      const cap = personCapacity[name] || { available: 0 };
+      // Capacity in HOURS = available working days × 8h
+      const capHrs = (cap.available || 0) * 8;
+
+      // Daily Actual line: hours of task work remaining at end of each visible
+      // working day, sourced from the per-task revision history captured in
+      // build.js (personTaskBurndown). Carries forward the last known value
+      // when a day has no recorded change.
+      const visibleDays = workingDays.filter(d => new Date(d + 'T12:00:00') <= cutoff);
+      const personDaily = mergedPersonBurndown[name] || {};
+      const initialHrs = stories.reduce((sum, s) => sum + (s.taskRemainingWork != null ? s.taskRemainingWork : (s.remainingSP || 0)), 0);
+      let lastKnown = null;
+      const actualData = visibleDays.map(dateStr => {
+        if (personDaily[dateStr] !== undefined) {
+          lastKnown = personDaily[dateStr];
+        } else if (lastKnown === null) {
+          // Before any recorded change — assume the original task estimate
+          lastKnown = initialHrs;
+        }
+        return Math.max(0, lastKnown);
+      });
+      // Capacity ideal line in hours: starts at capHrs, burns down linearly
       const idealData = workingDays.map((_, i) =>
-        Math.max(0, capSP - (capSP / (workingDays.length - 1)) * i)
+        Math.max(0, capHrs - (capHrs / (workingDays.length - 1)) * i)
       );
       const idealLabels = workingDays.map(dateStr => {
         const d = new Date(dateStr + 'T12:00:00');
         return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       });
-      window._teamBurndownData[idx] = { actualData, idealData, idealLabels, capSP, totalSP };
+      window._teamBurndownData[idx] = { actualData, idealData, idealLabels, capHrs };
     });
   }
 }
@@ -1230,7 +1236,7 @@ function toggleTeamCard(idx) {
             plugins: { legend: { display: true, labels: { font: { size: 10 }, color: '#94A3B8', boxWidth: 12, padding: 10 } } },
             scales: {
               x: { grid: { display: false }, ticks: { font: { size: 9 }, maxRotation: 0 } },
-              y: { beginAtZero: true, title: { display: true, text: 'SP', font: { size: 10 } }, grid: { color: '#334155' }, ticks: { font: { size: 9 } } }
+              y: { beginAtZero: true, title: { display: true, text: 'Hours Remaining', font: { size: 10 } }, grid: { color: '#334155' }, ticks: { font: { size: 9 } } }
             }
           }
         });
