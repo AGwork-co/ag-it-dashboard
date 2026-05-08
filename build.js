@@ -56,6 +56,33 @@ function saveSprintCache() {
   }
 }
 
+// ── Daily per-person burndown cache ─────────────────────────────────────────
+// Once a working day is past, its per-person remaining-hours data point is
+// frozen here. The current sprint's daily data accumulates across builds and
+// is never recomputed for past days, only extended with today's value.
+const DAILY_BURNDOWN_CACHE_PATH = path.join(__dirname, 'cache', 'daily-burndown.json');
+const DAILY_BURNDOWN_CACHE_VERSION = 1;
+const dailyBurndownCache = (() => {
+  try {
+    const raw = JSON.parse(fs.readFileSync(DAILY_BURNDOWN_CACHE_PATH, 'utf8'));
+    if (raw.version === DAILY_BURNDOWN_CACHE_VERSION) return raw.entries || {};
+  } catch (e) {
+    // Cache missing or unreadable — start fresh
+  }
+  return {};
+})();
+function saveDailyBurndownCache() {
+  try {
+    fs.mkdirSync(path.dirname(DAILY_BURNDOWN_CACHE_PATH), { recursive: true });
+    fs.writeFileSync(
+      DAILY_BURNDOWN_CACHE_PATH,
+      JSON.stringify({ version: DAILY_BURNDOWN_CACHE_VERSION, entries: dailyBurndownCache }, null, 2)
+    );
+  } catch (e) {
+    console.warn(`   ⚠ Could not write daily burndown cache: ${e.message}`);
+  }
+}
+
 // ── Display name overrides (maps malformed ADO names → proper names) ────────
 const DISPLAY_NAME_MAP = {
   'pawlik.gregor gmail.com': 'Greg Pawlik',
@@ -720,6 +747,27 @@ async function fetchProjectData(config) {
         });
       }
 
+      // Freeze past-day burndown points: prefer previously-cached values for
+      // any working day strictly before today, and write today's freshly-
+      // computed values for past days back to the cache for next time.
+      const dailyKey = sprintCacheKey(project, iteration.id);
+      const cachedDaily = dailyBurndownCache[dailyKey] || {};
+      Object.entries(personTaskBurndown).forEach(([person, dailyMap]) => {
+        if (!cachedDaily[person]) cachedDaily[person] = {};
+        Object.entries(dailyMap).forEach(([date, hrs]) => {
+          if (date < today) {
+            if (cachedDaily[person][date] !== undefined) {
+              // Past day already archived — use the frozen value
+              personTaskBurndown[person][date] = cachedDaily[person][date];
+            } else {
+              // First observation of this past day — archive it
+              cachedDaily[person][date] = hrs;
+            }
+          }
+        });
+      });
+      dailyBurndownCache[dailyKey] = cachedDaily;
+
       const sprintTotalSP = sprintStoryDetails.reduce((s, st) => s + st.storyPoints, 0);
       const sprintCompletedSP = sprintStoryDetails.reduce((s, st) => s + st.completedSP, 0);
       const sprintRemainingSP = sprintTotalSP - sprintCompletedSP;
@@ -865,8 +913,9 @@ async function main() {
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
 
-  // Persist the sprint history cache so the next build can skip closed sprints
+  // Persist caches so the next build can reuse archived data
   saveSprintCache();
+  saveDailyBurndownCache();
 
   console.log(`\n✨ Dashboard built → docs/index.html`);
   console.log(`   Build time: ${buildTime}`);
