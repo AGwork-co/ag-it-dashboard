@@ -319,7 +319,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, May 11, 2026 at 10:22 AM</span>
+    <span>Last updated: Monday, May 11, 2026 at 10:55 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -18733,11 +18733,11 @@ const projects = [
       "total": 339,
       "estimated": 273,
       "unestimated": 66,
-      "totalSP": 460.75,
-      "incompleteSP": 136.25,
+      "totalSP": 459.5,
+      "incompleteSP": 135,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 13,
-        "Fine Arts": 146.5,
+        "Fine Arts": 143,
         "Q3 2025 - Sprint 5": 9.5,
         "Q1 2026 - Sprint 1": 8.25,
         "Q4 2025 - Sprint 4": 17.5,
@@ -18759,7 +18759,7 @@ const projects = [
         "Q1 2026 - Sprint 4": 11.5,
         "Q4 2025 - Sprint 5": 20.25,
         "Q2 2026 - Sprint 2": 9.5,
-        "Q2 2026 - Sprint 3": 16,
+        "Q2 2026 - Sprint 3": 18.25,
         "Q2 2026 - Sprint 1": 2.25
       }
     },
@@ -18767,10 +18767,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 3",
       "startDate": "2026-04-29T00:00:00Z",
       "endDate": "2026-05-12T00:00:00Z",
-      "totalSP": 16,
+      "totalSP": 18.25,
       "completedSP": 4.5,
-      "remainingSP": 11.5,
-      "storyCount": 11,
+      "remainingSP": 13.75,
+      "storyCount": 16,
       "stories": [
         {
           "id": 26783,
@@ -18851,6 +18851,19 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
+          "id": 28632,
+          "title": "Add task reminder to check Potential Schedule Conflicts report before running the schedule",
+          "state": "Approved",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28632",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
           "id": 28633,
           "title": "Separate the date and time column into two distinct columns",
           "state": "Approved",
@@ -18864,6 +18877,19 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
+          "id": 28636,
+          "title": "Add group name to the Merit Report for Groups",
+          "state": "Approved",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28636",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
           "id": 28640,
           "title": "Allow decimal scores scoring fields",
           "state": "Done",
@@ -18874,6 +18900,45 @@ const projects = [
           "completedDate": "2026-05-11T14:18:31.937Z",
           "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28640",
           "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28641,
+          "title": "Empty Group Scheduling Check - flag groups with zero members before scheduling",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28641",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28642,
+          "title": "Manual Scheduling Slot Issue - ensure removed time slots are released and reusable",
+          "state": "Approved",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28642",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28644,
+          "title": "Fix Spoken Word category default timing from 4 minutes to 3 minutes",
+          "state": "Approved",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28644",
+          "taskRemainingWork": 0.25,
           "taskCompletedWork": 0
         },
         {
@@ -18916,87 +18981,87 @@ const projects = [
           "taskCompletedWork": 1
         }
       ],
-      "sprintGoals": "Delivering participant info enhancements, presentations enhancements, email enhancements, and evaluator rbac, Separate the date and time column into two dist..., and 2 other items.",
+      "sprintGoals": "Delivering participant info enhancements, presentations enhancements, check schedule enhancements, time enhancements, email enhancements, and evaluator rbac, add group name to the merit report for groups, and 3 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 16,
+        "totalSP": 18.25,
         "points": [
           {
             "date": "2026-04-29",
-            "remaining": 16
+            "remaining": 18.25
           },
           {
             "date": "2026-04-30",
-            "remaining": 16
+            "remaining": 18.25
           },
           {
             "date": "2026-05-01",
-            "remaining": 16
+            "remaining": 18.25
           },
           {
             "date": "2026-05-04",
-            "remaining": 13.5
+            "remaining": 15.75
           },
           {
             "date": "2026-05-05",
-            "remaining": 13.5
+            "remaining": 15.75
           },
           {
             "date": "2026-05-06",
-            "remaining": 12.5
+            "remaining": 14.75
           },
           {
             "date": "2026-05-07",
-            "remaining": 12.5
+            "remaining": 14.75
           },
           {
             "date": "2026-05-08",
-            "remaining": 12.5
+            "remaining": 14.75
           },
           {
             "date": "2026-05-11",
-            "remaining": 11.5
+            "remaining": 13.75
           }
         ],
         "ideal": [
           {
             "date": "2026-04-29",
-            "remaining": 16
+            "remaining": 18.25
           },
           {
             "date": "2026-04-30",
-            "remaining": 14.222222222222221
+            "remaining": 16.22222222222222
           },
           {
             "date": "2026-05-01",
-            "remaining": 12.444444444444445
+            "remaining": 14.194444444444445
           },
           {
             "date": "2026-05-04",
-            "remaining": 10.666666666666668
+            "remaining": 12.166666666666668
           },
           {
             "date": "2026-05-05",
-            "remaining": 8.88888888888889
+            "remaining": 10.13888888888889
           },
           {
             "date": "2026-05-06",
-            "remaining": 7.111111111111111
+            "remaining": 8.11111111111111
           },
           {
             "date": "2026-05-07",
-            "remaining": 5.333333333333334
+            "remaining": 6.083333333333334
           },
           {
             "date": "2026-05-08",
-            "remaining": 3.555555555555557
+            "remaining": 4.055555555555557
           },
           {
             "date": "2026-05-11",
-            "remaining": 1.7777777777777786
+            "remaining": 2.0277777777777786
           },
           {
             "date": "2026-05-12",
@@ -19026,8 +19091,8 @@ const projects = [
           "2026-05-06": 3.5,
           "2026-05-07": 3.5,
           "2026-05-08": 3.5,
-          "2026-05-11": 2,
-          "2026-05-12": 2
+          "2026-05-11": 4.25,
+          "2026-05-12": 4.25
         },
         "Butler, Justin": {
           "2026-04-29": 1,
@@ -21654,10 +21719,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 3",
         "startDate": "2026-04-29T00:00:00Z",
         "endDate": "2026-05-12T00:00:00Z",
-        "totalSP": 16,
+        "totalSP": 18.25,
         "completedSP": 4.5,
-        "remainingSP": 11.5,
-        "storyCount": 11,
+        "remainingSP": 13.75,
+        "storyCount": 16,
         "stories": [
           {
             "id": 26783,
@@ -21738,6 +21803,19 @@ const projects = [
             "taskCompletedWork": 0
           },
           {
+            "id": 28632,
+            "title": "Add task reminder to check Potential Schedule Conflicts report before running the schedule",
+            "state": "Approved",
+            "storyPoints": 0.25,
+            "completedSP": 0,
+            "remainingSP": 0.25,
+            "assignedTo": "Hiebsch, Adin",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28632",
+            "taskRemainingWork": 0.25,
+            "taskCompletedWork": 0
+          },
+          {
             "id": 28633,
             "title": "Separate the date and time column into two distinct columns",
             "state": "Approved",
@@ -21751,6 +21829,19 @@ const projects = [
             "taskCompletedWork": 0
           },
           {
+            "id": 28636,
+            "title": "Add group name to the Merit Report for Groups",
+            "state": "Approved",
+            "storyPoints": 0.25,
+            "completedSP": 0,
+            "remainingSP": 0.25,
+            "assignedTo": "Hiebsch, Adin",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28636",
+            "taskRemainingWork": 0.25,
+            "taskCompletedWork": 0
+          },
+          {
             "id": 28640,
             "title": "Allow decimal scores scoring fields",
             "state": "Done",
@@ -21761,6 +21852,45 @@ const projects = [
             "completedDate": "2026-05-11T14:18:31.937Z",
             "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28640",
             "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 28641,
+            "title": "Empty Group Scheduling Check - flag groups with zero members before scheduling",
+            "state": "Approved",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hiebsch, Adin",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28641",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 28642,
+            "title": "Manual Scheduling Slot Issue - ensure removed time slots are released and reusable",
+            "state": "Approved",
+            "storyPoints": 0.5,
+            "completedSP": 0,
+            "remainingSP": 0.5,
+            "assignedTo": "Hiebsch, Adin",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28642",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 28644,
+            "title": "Fix Spoken Word category default timing from 4 minutes to 3 minutes",
+            "state": "Approved",
+            "storyPoints": 0.25,
+            "completedSP": 0,
+            "remainingSP": 0.25,
+            "assignedTo": "Hiebsch, Adin",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/28644",
+            "taskRemainingWork": 0.25,
             "taskCompletedWork": 0
           },
           {
@@ -21803,87 +21933,87 @@ const projects = [
             "taskCompletedWork": 1
           }
         ],
-        "sprintGoals": "Delivering participant info enhancements, presentations enhancements, email enhancements, and evaluator rbac, Separate the date and time column into two dist..., and 2 other items.",
+        "sprintGoals": "Delivering participant info enhancements, presentations enhancements, check schedule enhancements, time enhancements, email enhancements, and evaluator rbac, add group name to the merit report for groups, and 3 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 16,
+          "totalSP": 18.25,
           "points": [
             {
               "date": "2026-04-29",
-              "remaining": 16
+              "remaining": 18.25
             },
             {
               "date": "2026-04-30",
-              "remaining": 16
+              "remaining": 18.25
             },
             {
               "date": "2026-05-01",
-              "remaining": 16
+              "remaining": 18.25
             },
             {
               "date": "2026-05-04",
-              "remaining": 13.5
+              "remaining": 15.75
             },
             {
               "date": "2026-05-05",
-              "remaining": 13.5
+              "remaining": 15.75
             },
             {
               "date": "2026-05-06",
-              "remaining": 12.5
+              "remaining": 14.75
             },
             {
               "date": "2026-05-07",
-              "remaining": 12.5
+              "remaining": 14.75
             },
             {
               "date": "2026-05-08",
-              "remaining": 12.5
+              "remaining": 14.75
             },
             {
               "date": "2026-05-11",
-              "remaining": 11.5
+              "remaining": 13.75
             }
           ],
           "ideal": [
             {
               "date": "2026-04-29",
-              "remaining": 16
+              "remaining": 18.25
             },
             {
               "date": "2026-04-30",
-              "remaining": 14.222222222222221
+              "remaining": 16.22222222222222
             },
             {
               "date": "2026-05-01",
-              "remaining": 12.444444444444445
+              "remaining": 14.194444444444445
             },
             {
               "date": "2026-05-04",
-              "remaining": 10.666666666666668
+              "remaining": 12.166666666666668
             },
             {
               "date": "2026-05-05",
-              "remaining": 8.88888888888889
+              "remaining": 10.13888888888889
             },
             {
               "date": "2026-05-06",
-              "remaining": 7.111111111111111
+              "remaining": 8.11111111111111
             },
             {
               "date": "2026-05-07",
-              "remaining": 5.333333333333334
+              "remaining": 6.083333333333334
             },
             {
               "date": "2026-05-08",
-              "remaining": 3.555555555555557
+              "remaining": 4.055555555555557
             },
             {
               "date": "2026-05-11",
-              "remaining": 1.7777777777777786
+              "remaining": 2.0277777777777786
             },
             {
               "date": "2026-05-12",
@@ -21913,8 +22043,8 @@ const projects = [
             "2026-05-06": 3.5,
             "2026-05-07": 3.5,
             "2026-05-08": 3.5,
-            "2026-05-11": 2,
-            "2026-05-12": 2
+            "2026-05-11": 4.25,
+            "2026-05-12": 4.25
           },
           "Butler, Justin": {
             "2026-04-29": 1,
