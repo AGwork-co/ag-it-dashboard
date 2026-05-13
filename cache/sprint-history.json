@@ -22165,6 +22165,421 @@
       },
       "personTaskBurndown": {},
       "isCurrent": false
+    },
+    "AG Shared::64f0df90-59ef-406a-9e0a-d55623172bbe": {
+      "name": "Q2 2026 - Sprint 3",
+      "startDate": "2026-04-29T00:00:00Z",
+      "endDate": "2026-05-12T00:00:00Z",
+      "totalSP": 10.25,
+      "completedSP": 10.25,
+      "remainingSP": 0,
+      "storyCount": 9,
+      "stories": [
+        {
+          "id": 27690,
+          "title": "Daily Date Card Update",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Farrand, Phil",
+          "completedDate": "2026-05-13T14:31:43.667Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/27690",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28109,
+          "title": "Step 4: Extract Python Functionality to .net app",
+          "state": "Done",
+          "storyPoints": 3,
+          "completedSP": 3,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-04-29T13:28:18.367Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28109",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28435,
+          "title": "Connection String Updates",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": "2026-05-13T13:38:26.723Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28435",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28802,
+          "title": "Odoo Statements: e2e Testing",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-05-13T13:38:46.25Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28802",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28803,
+          "title": "Odoo Statements: e2e Testing",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": "2026-05-11T17:08:08.897Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28803",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28804,
+          "title": "Odoo Statements: e2e Testing",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-05-13T13:38:46.25Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28804",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28828,
+          "title": "AGWM Contact Form(s)",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Farrand, Phil",
+          "completedDate": "2026-05-13T14:08:25.043Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28828",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28835,
+          "title": "GPH Royalties: Migrate source to Git",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-05-12T13:40:47.18Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28835",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28841,
+          "title": "GPH Royalties: Setup QA database",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-05-12T13:43:06.343Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28841",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering odoo statements enhancements, gph royalties enhancements, and daily date card update, step 4: extract python functionality to .net app, and 2 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 10.25,
+        "points": [
+          {
+            "date": "2026-04-29",
+            "remaining": 7.25
+          },
+          {
+            "date": "2026-04-30",
+            "remaining": 7.25
+          },
+          {
+            "date": "2026-05-01",
+            "remaining": 7.25
+          },
+          {
+            "date": "2026-05-04",
+            "remaining": 7.25
+          },
+          {
+            "date": "2026-05-05",
+            "remaining": 7.25
+          },
+          {
+            "date": "2026-05-06",
+            "remaining": 7.25
+          },
+          {
+            "date": "2026-05-07",
+            "remaining": 7.25
+          },
+          {
+            "date": "2026-05-08",
+            "remaining": 7.25
+          },
+          {
+            "date": "2026-05-11",
+            "remaining": 5.25
+          },
+          {
+            "date": "2026-05-12",
+            "remaining": 4.75
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-04-29",
+            "remaining": 10.25
+          },
+          {
+            "date": "2026-04-30",
+            "remaining": 9.11111111111111
+          },
+          {
+            "date": "2026-05-01",
+            "remaining": 7.972222222222222
+          },
+          {
+            "date": "2026-05-04",
+            "remaining": 6.833333333333334
+          },
+          {
+            "date": "2026-05-05",
+            "remaining": 5.694444444444445
+          },
+          {
+            "date": "2026-05-06",
+            "remaining": 4.555555555555555
+          },
+          {
+            "date": "2026-05-07",
+            "remaining": 3.416666666666667
+          },
+          {
+            "date": "2026-05-08",
+            "remaining": 2.2777777777777786
+          },
+          {
+            "date": "2026-05-11",
+            "remaining": 1.1388888888888893
+          },
+          {
+            "date": "2026-05-12",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Farrand, Phil": {
+          "2026-04-29": 1,
+          "2026-04-30": 1,
+          "2026-05-01": 1,
+          "2026-05-04": 1,
+          "2026-05-05": 1,
+          "2026-05-06": 1,
+          "2026-05-07": 1,
+          "2026-05-08": 1,
+          "2026-05-11": 1,
+          "2026-05-12": 1
+        },
+        "Medina, Joel": {
+          "2026-04-29": 4,
+          "2026-04-30": 4,
+          "2026-05-01": 4,
+          "2026-05-04": 4,
+          "2026-05-05": 3.25,
+          "2026-05-06": 3.25,
+          "2026-05-07": 3.25,
+          "2026-05-08": 2.5,
+          "2026-05-11": 2,
+          "2026-05-12": 2
+        },
+        "Hiebsch, Adin": {
+          "2026-04-29": 2.25,
+          "2026-04-30": 2.25,
+          "2026-05-01": 2.25,
+          "2026-05-04": 2.25,
+          "2026-05-05": 1.25,
+          "2026-05-06": 1.25,
+          "2026-05-07": 1.25,
+          "2026-05-08": 0.25,
+          "2026-05-11": 0,
+          "2026-05-12": 0
+        },
+        "Butler, Justin": {
+          "2026-04-29": 1,
+          "2026-04-30": 1,
+          "2026-05-01": 1,
+          "2026-05-04": 1,
+          "2026-05-05": 1,
+          "2026-05-06": 1,
+          "2026-05-07": 1,
+          "2026-05-08": 1,
+          "2026-05-11": 1,
+          "2026-05-12": 0.5
+        }
+      },
+      "isCurrent": false
+    },
+    "FPHC::5c3844dd-148e-4d35-8043-a49f43788b04": {
+      "name": "Q2 2026 - Sprint 3",
+      "startDate": "2026-04-29T00:00:00Z",
+      "endDate": "2026-05-12T00:00:00Z",
+      "totalSP": 1.25,
+      "completedSP": 1.25,
+      "remainingSP": 0,
+      "storyCount": 2,
+      "stories": [
+        {
+          "id": 28602,
+          "title": "Change Photocopy Pricing",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-05-04T17:55:33.113Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/28602",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0.25
+        },
+        {
+          "id": 28858,
+          "title": "Adjust Not Registered Guard",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-05-13T16:50:53.12Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/28858",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering change photocopy pricing, along with adjust not registered guard.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 1.25,
+        "points": [
+          {
+            "date": "2026-04-29",
+            "remaining": 1.25
+          },
+          {
+            "date": "2026-04-30",
+            "remaining": 1.25
+          },
+          {
+            "date": "2026-05-01",
+            "remaining": 1.25
+          },
+          {
+            "date": "2026-05-04",
+            "remaining": 1
+          },
+          {
+            "date": "2026-05-05",
+            "remaining": 1
+          },
+          {
+            "date": "2026-05-06",
+            "remaining": 1
+          },
+          {
+            "date": "2026-05-07",
+            "remaining": 1
+          },
+          {
+            "date": "2026-05-08",
+            "remaining": 1
+          },
+          {
+            "date": "2026-05-11",
+            "remaining": 1
+          },
+          {
+            "date": "2026-05-12",
+            "remaining": 1
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-04-29",
+            "remaining": 1.25
+          },
+          {
+            "date": "2026-04-30",
+            "remaining": 1.1111111111111112
+          },
+          {
+            "date": "2026-05-01",
+            "remaining": 0.9722222222222222
+          },
+          {
+            "date": "2026-05-04",
+            "remaining": 0.8333333333333333
+          },
+          {
+            "date": "2026-05-05",
+            "remaining": 0.6944444444444444
+          },
+          {
+            "date": "2026-05-06",
+            "remaining": 0.5555555555555556
+          },
+          {
+            "date": "2026-05-07",
+            "remaining": 0.41666666666666663
+          },
+          {
+            "date": "2026-05-08",
+            "remaining": 0.2777777777777777
+          },
+          {
+            "date": "2026-05-11",
+            "remaining": 0.13888888888888884
+          },
+          {
+            "date": "2026-05-12",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Medina, Joel": {
+          "2026-04-29": 2,
+          "2026-04-30": 3,
+          "2026-05-01": 2,
+          "2026-05-04": 2,
+          "2026-05-05": 2,
+          "2026-05-06": 2,
+          "2026-05-07": 2,
+          "2026-05-08": 2,
+          "2026-05-11": 2,
+          "2026-05-12": 1
+        }
+      },
+      "isCurrent": false
     }
   }
 }
