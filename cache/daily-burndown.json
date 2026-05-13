@@ -738,7 +738,9 @@
         "2026-05-12": 5
       }
     },
-    "Bible Engagement Project::9d7d5cc6-3c50-4a58-834e-4952f9814b61": {},
+    "Bible Engagement Project::9d7d5cc6-3c50-4a58-834e-4952f9814b61": {
+      "Greg Pawlik": {}
+    },
     "Bible Engagement Project::6b9d14f6-3ff3-44bd-8226-4d45de704508": {},
     "Bible Engagement Project::07da7f11-ded7-460e-9537-7547a0bb8b49": {},
     "Chi Alpha::3c2f6fbe-b3a2-40d8-bbb9-c0dc61751ca3": {
@@ -1985,9 +1987,12 @@
     },
     "GPH::c9643489-7ae1-4f49-8f47-6c52fe53f9f0": {
       "Butler, Justin": {},
-      "Keltner, Scott": {}
+      "Keltner, Scott": {},
+      "dkobozev gloo.us": {}
     },
-    "GPH::d4b12f62-c7ca-453a-a265-3aaff3a83d32": {},
+    "GPH::d4b12f62-c7ca-453a-a265-3aaff3a83d32": {
+      "Butler, Justin": {}
+    },
     "GPH::198c4d50-9d4f-4b4a-b82b-8265d38bb10c": {},
     "Infrastructure::66eb5231-071b-4fe5-aca7-1b895db93a5a": {
       "Yarbrough, Darren": {
@@ -2252,6 +2257,13 @@
     "USMIA::c135ff0a-7b1d-4ecb-b7b7-31fb56513fc0": {},
     "AGWM Financial Reporting::0f8149ab-3e5c-45d4-81ce-cdc4a2728f0a": {
       "Georgiades, George": {}
+    },
+    "AGWM Apps::db9fa998-6233-42d6-84ea-e46d40deb0b5": {
+      "Campbell, Jack H": {},
+      "Farrand, Phil": {}
+    },
+    "CMS vNext::2f4d6360-e815-40da-893c-623b275d8bc8": {
+      "Hull, Darrin": {}
     }
   }
 }
