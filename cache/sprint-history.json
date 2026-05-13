@@ -21866,6 +21866,201 @@
         }
       },
       "isCurrent": false
+    },
+    "AGWM Financial Reporting::1a07a5f9-0fb5-496c-827c-8d5e18d9c466": {
+      "name": "Q2 2026 - Sprint 3",
+      "startDate": "2026-04-29T00:00:00Z",
+      "endDate": "2026-05-12T00:00:00Z",
+      "totalSP": 17,
+      "completedSP": 17,
+      "remainingSP": 0,
+      "storyCount": 5,
+      "stories": [
+        {
+          "id": 22474,
+          "title": "Service Counts pull from K2 for Personal Data",
+          "state": "Done",
+          "storyPoints": 3,
+          "completedSP": 3,
+          "remainingSP": 0,
+          "assignedTo": "Georgiades, George",
+          "completedDate": "2026-05-11T20:11:04.713Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/22474",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 22476,
+          "title": "New Screen in Financial Reporting [Itineration Administration]",
+          "state": "Done",
+          "storyPoints": 8,
+          "completedSP": 8,
+          "remainingSP": 0,
+          "assignedTo": "Georgiades, George",
+          "completedDate": "2026-05-12T19:36:46.557Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/22476",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 25793,
+          "title": "Update Financial Reporting API to get data off of Tupelo",
+          "state": "Done",
+          "storyPoints": 5,
+          "completedSP": 5,
+          "remainingSP": 0,
+          "assignedTo": "Georgiades, George",
+          "completedDate": "2026-05-11T16:37:52.87Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/25793",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28782,
+          "title": "Review current state of the project and take the handoff",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Georgiades, George",
+          "completedDate": "2026-05-11T19:41:58.13Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/28782",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29514,
+          "title": "Convert Inline SQL to Procs",
+          "state": "Removed",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Georgiades, George",
+          "completedDate": "2026-05-11T19:25:44.397Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/29514",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering financial reporting enhancements, along with service counts pull from k2 for personal data, Review current state of the project and take th..., and 1 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 17,
+        "points": [
+          {
+            "date": "2026-04-29",
+            "remaining": 17
+          },
+          {
+            "date": "2026-04-30",
+            "remaining": 17
+          },
+          {
+            "date": "2026-05-01",
+            "remaining": 17
+          },
+          {
+            "date": "2026-05-04",
+            "remaining": 17
+          },
+          {
+            "date": "2026-05-05",
+            "remaining": 17
+          },
+          {
+            "date": "2026-05-06",
+            "remaining": 17
+          },
+          {
+            "date": "2026-05-07",
+            "remaining": 17
+          },
+          {
+            "date": "2026-05-08",
+            "remaining": 17
+          },
+          {
+            "date": "2026-05-11",
+            "remaining": 8
+          },
+          {
+            "date": "2026-05-12",
+            "remaining": 0
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-04-29",
+            "remaining": 17
+          },
+          {
+            "date": "2026-04-30",
+            "remaining": 15.11111111111111
+          },
+          {
+            "date": "2026-05-01",
+            "remaining": 13.222222222222221
+          },
+          {
+            "date": "2026-05-04",
+            "remaining": 11.333333333333334
+          },
+          {
+            "date": "2026-05-05",
+            "remaining": 9.444444444444445
+          },
+          {
+            "date": "2026-05-06",
+            "remaining": 7.555555555555555
+          },
+          {
+            "date": "2026-05-07",
+            "remaining": 5.666666666666668
+          },
+          {
+            "date": "2026-05-08",
+            "remaining": 3.7777777777777786
+          },
+          {
+            "date": "2026-05-11",
+            "remaining": 1.8888888888888893
+          },
+          {
+            "date": "2026-05-12",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Yarbrough, Darren": {
+          "2026-04-29": 15,
+          "2026-04-30": 15,
+          "2026-05-01": 15,
+          "2026-05-04": 15,
+          "2026-05-05": 15,
+          "2026-05-06": 15,
+          "2026-05-07": 15,
+          "2026-05-08": 15,
+          "2026-05-11": 15,
+          "2026-05-12": 15
+        },
+        "Georgiades, George": {
+          "2026-04-29": 9.5,
+          "2026-04-30": 9.5,
+          "2026-05-01": 4.25,
+          "2026-05-04": 4.25,
+          "2026-05-05": 2.25,
+          "2026-05-06": 1.5,
+          "2026-05-07": 1.5,
+          "2026-05-08": 1.5,
+          "2026-05-11": 0.5,
+          "2026-05-12": 1
+        }
+      },
+      "isCurrent": false
     }
   }
 }
