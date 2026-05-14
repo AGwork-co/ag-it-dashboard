@@ -319,7 +319,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, May 13, 2026 at 5:08 PM</span>
+    <span>Last updated: Thursday, May 14, 2026 at 7:41 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -684,7 +684,7 @@ const projects = [
         "title": "General Work",
         "state": "New",
         "features": 3,
-        "stories": 8
+        "stories": 9
       },
       {
         "id": 23771,
@@ -709,9 +709,9 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 124,
+      "total": 125,
       "estimated": 52,
-      "unestimated": 72,
+      "unestimated": 73,
       "totalSP": 114.25,
       "incompleteSP": 15.25,
       "sprintSP": {
@@ -2132,22 +2132,22 @@ const projects = [
       "totalSP": 45,
       "incompleteSP": 18,
       "sprintSP": {
-        "AG Shared": 16.5,
+        "AG Shared": 14,
         "Q3 2025 - Sprint 3": 3,
         "Q2 2026 - Sprint 3": 10.25,
         "Q2 2026 - Sprint 1": 1,
         "Q2 2026 - Sprint 2": 10.25,
-        "Q2 2026 - Sprint 4": 4
+        "Q2 2026 - Sprint 4": 6.5
       }
     },
     "currentSprint": {
       "name": "Q2 2026 - Sprint 4",
       "startDate": "2026-05-13T00:00:00Z",
       "endDate": "2026-05-26T00:00:00Z",
-      "totalSP": 4,
+      "totalSP": 6.5,
       "completedSP": 0,
-      "remainingSP": 4,
-      "storyCount": 3,
+      "remainingSP": 6.5,
+      "storyCount": 5,
       "stories": [
         {
           "id": 28838,
@@ -2187,57 +2187,87 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/29523",
           "taskRemainingWork": 1,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 29709,
+          "title": "Content on PDFs not matching",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/29709",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29711,
+          "title": "Small settings fixes / naming fixes",
+          "state": "Committed",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/29711",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering gph royalties enhancements, along with Contributor Services: CRUD for BatchTypeCreditSideLedgerStringAccou....",
+      "sprintGoals": "Delivering gph royalties enhancements, along with Contributor Services: CRUD for BatchTypeCreditS..., content on pdfs not matching, and 1 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 4,
+        "totalSP": 6.5,
         "points": [
           {
             "date": "2026-05-13",
-            "remaining": 4
+            "remaining": 6.5
+          },
+          {
+            "date": "2026-05-14",
+            "remaining": 6.5
           }
         ],
         "ideal": [
           {
             "date": "2026-05-13",
-            "remaining": 4
+            "remaining": 6.5
           },
           {
             "date": "2026-05-14",
-            "remaining": 3.5555555555555554
+            "remaining": 5.777777777777778
           },
           {
             "date": "2026-05-15",
-            "remaining": 3.111111111111111
+            "remaining": 5.055555555555555
           },
           {
             "date": "2026-05-18",
-            "remaining": 2.666666666666667
+            "remaining": 4.333333333333334
           },
           {
             "date": "2026-05-19",
-            "remaining": 2.2222222222222223
+            "remaining": 3.611111111111111
           },
           {
             "date": "2026-05-20",
-            "remaining": 1.7777777777777777
+            "remaining": 2.888888888888889
           },
           {
             "date": "2026-05-21",
-            "remaining": 1.3333333333333335
+            "remaining": 2.166666666666667
           },
           {
             "date": "2026-05-22",
-            "remaining": 0.8888888888888893
+            "remaining": 1.4444444444444446
           },
           {
             "date": "2026-05-25",
-            "remaining": 0.44444444444444464
+            "remaining": 0.7222222222222223
           },
           {
             "date": "2026-05-26",
@@ -2257,6 +2287,18 @@ const projects = [
           "2026-05-22": 3,
           "2026-05-25": 3,
           "2026-05-26": 3
+        },
+        "Hiebsch, Adin": {
+          "2026-05-13": 2.5,
+          "2026-05-14": 2.5,
+          "2026-05-15": 2.5,
+          "2026-05-18": 2.5,
+          "2026-05-19": 2.5,
+          "2026-05-20": 2.5,
+          "2026-05-21": 2.5,
+          "2026-05-22": 2.5,
+          "2026-05-25": 2.5,
+          "2026-05-26": 2.5
         }
       },
       "isCurrent": true
@@ -2655,10 +2697,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 4",
         "startDate": "2026-05-13T00:00:00Z",
         "endDate": "2026-05-26T00:00:00Z",
-        "totalSP": 4,
+        "totalSP": 6.5,
         "completedSP": 0,
-        "remainingSP": 4,
-        "storyCount": 3,
+        "remainingSP": 6.5,
+        "storyCount": 5,
         "stories": [
           {
             "id": 28838,
@@ -2698,57 +2740,87 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/29523",
             "taskRemainingWork": 1,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 29709,
+            "title": "Content on PDFs not matching",
+            "state": "Committed",
+            "storyPoints": 2,
+            "completedSP": 0,
+            "remainingSP": 2,
+            "assignedTo": "Hiebsch, Adin",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/29709",
+            "taskRemainingWork": 2,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 29711,
+            "title": "Small settings fixes / naming fixes",
+            "state": "Committed",
+            "storyPoints": 0.5,
+            "completedSP": 0,
+            "remainingSP": 0.5,
+            "assignedTo": "Hiebsch, Adin",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/29711",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering gph royalties enhancements, along with Contributor Services: CRUD for BatchTypeCreditSideLedgerStringAccou....",
+        "sprintGoals": "Delivering gph royalties enhancements, along with Contributor Services: CRUD for BatchTypeCreditS..., content on pdfs not matching, and 1 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 4,
+          "totalSP": 6.5,
           "points": [
             {
               "date": "2026-05-13",
-              "remaining": 4
+              "remaining": 6.5
+            },
+            {
+              "date": "2026-05-14",
+              "remaining": 6.5
             }
           ],
           "ideal": [
             {
               "date": "2026-05-13",
-              "remaining": 4
+              "remaining": 6.5
             },
             {
               "date": "2026-05-14",
-              "remaining": 3.5555555555555554
+              "remaining": 5.777777777777778
             },
             {
               "date": "2026-05-15",
-              "remaining": 3.111111111111111
+              "remaining": 5.055555555555555
             },
             {
               "date": "2026-05-18",
-              "remaining": 2.666666666666667
+              "remaining": 4.333333333333334
             },
             {
               "date": "2026-05-19",
-              "remaining": 2.2222222222222223
+              "remaining": 3.611111111111111
             },
             {
               "date": "2026-05-20",
-              "remaining": 1.7777777777777777
+              "remaining": 2.888888888888889
             },
             {
               "date": "2026-05-21",
-              "remaining": 1.3333333333333335
+              "remaining": 2.166666666666667
             },
             {
               "date": "2026-05-22",
-              "remaining": 0.8888888888888893
+              "remaining": 1.4444444444444446
             },
             {
               "date": "2026-05-25",
-              "remaining": 0.44444444444444464
+              "remaining": 0.7222222222222223
             },
             {
               "date": "2026-05-26",
@@ -2768,6 +2840,18 @@ const projects = [
             "2026-05-22": 3,
             "2026-05-25": 3,
             "2026-05-26": 3
+          },
+          "Hiebsch, Adin": {
+            "2026-05-13": 2.5,
+            "2026-05-14": 2.5,
+            "2026-05-15": 2.5,
+            "2026-05-18": 2.5,
+            "2026-05-19": 2.5,
+            "2026-05-20": 2.5,
+            "2026-05-21": 2.5,
+            "2026-05-22": 2.5,
+            "2026-05-25": 2.5,
+            "2026-05-26": 2.5
           }
         },
         "isCurrent": true
@@ -4667,6 +4751,10 @@ const projects = [
           {
             "date": "2026-05-13",
             "remaining": 10
+          },
+          {
+            "date": "2026-05-14",
+            "remaining": 10
           }
         ],
         "ideal": [
@@ -5943,6 +6031,10 @@ const projects = [
             {
               "date": "2026-05-13",
               "remaining": 10
+            },
+            {
+              "date": "2026-05-14",
+              "remaining": 10
             }
           ],
           "ideal": [
@@ -6156,6 +6248,10 @@ const projects = [
         "points": [
           {
             "date": "2026-05-13",
+            "remaining": 5
+          },
+          {
+            "date": "2026-05-14",
             "remaining": 5
           }
         ],
@@ -7637,6 +7733,10 @@ const projects = [
             {
               "date": "2026-05-13",
               "remaining": 5
+            },
+            {
+              "date": "2026-05-14",
+              "remaining": 5
             }
           ],
           "ideal": [
@@ -8247,6 +8347,10 @@ const projects = [
         "points": [
           {
             "date": "2026-05-13",
+            "remaining": 8
+          },
+          {
+            "date": "2026-05-14",
             "remaining": 8
           }
         ],
@@ -9709,6 +9813,10 @@ const projects = [
             {
               "date": "2026-05-13",
               "remaining": 8
+            },
+            {
+              "date": "2026-05-14",
+              "remaining": 8
             }
           ],
           "ideal": [
@@ -10538,6 +10646,10 @@ const projects = [
         "points": [
           {
             "date": "2026-05-13",
+            "remaining": 7.5
+          },
+          {
+            "date": "2026-05-14",
             "remaining": 7.5
           }
         ],
@@ -12714,6 +12826,10 @@ const projects = [
             {
               "date": "2026-05-13",
               "remaining": 7.5
+            },
+            {
+              "date": "2026-05-14",
+              "remaining": 7.5
             }
           ],
           "ideal": [
@@ -13348,6 +13464,10 @@ const projects = [
         "points": [
           {
             "date": "2026-05-13",
+            "remaining": 31
+          },
+          {
+            "date": "2026-05-14",
             "remaining": 31
           }
         ],
@@ -18197,6 +18317,10 @@ const projects = [
             {
               "date": "2026-05-13",
               "remaining": 31
+            },
+            {
+              "date": "2026-05-14",
+              "remaining": 31
             }
           ],
           "ideal": [
@@ -18662,8 +18786,8 @@ const projects = [
         "id": 16046,
         "title": "Fine Arts - vNext",
         "state": "New",
-        "features": 21,
-        "stories": 39
+        "features": 23,
+        "stories": 63
       },
       {
         "id": 19693,
@@ -18697,8 +18821,8 @@ const projects = [
         "id": 23882,
         "title": "Fine Arts - v2026.06.30 (Nationals)",
         "state": "Active",
-        "features": 13,
-        "stories": 71
+        "features": 12,
+        "stories": 45
       },
       {
         "id": 23982,
@@ -18730,14 +18854,14 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 342,
-      "estimated": 276,
+      "total": 340,
+      "estimated": 274,
       "unestimated": 66,
-      "totalSP": 462.5,
-      "incompleteSP": 129.25,
+      "totalSP": 460.5,
+      "incompleteSP": 125.25,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 13,
-        "Fine Arts": 141,
+        "Fine Arts": 139,
         "Q3 2025 - Sprint 5": 9.5,
         "Q1 2026 - Sprint 1": 8.25,
         "Q4 2025 - Sprint 4": 17.5,
@@ -18875,6 +18999,10 @@ const projects = [
         "points": [
           {
             "date": "2026-05-13",
+            "remaining": 11
+          },
+          {
+            "date": "2026-05-14",
             "remaining": 11
           }
         ],
@@ -22017,6 +22145,10 @@ const projects = [
             {
               "date": "2026-05-13",
               "remaining": 11
+            },
+            {
+              "date": "2026-05-14",
+              "remaining": 11
             }
           ],
           "ideal": [
@@ -22222,6 +22354,10 @@ const projects = [
         "points": [
           {
             "date": "2026-05-13",
+            "remaining": 2
+          },
+          {
+            "date": "2026-05-14",
             "remaining": 2
           }
         ],
@@ -23751,6 +23887,10 @@ const projects = [
             {
               "date": "2026-05-13",
               "remaining": 2
+            },
+            {
+              "date": "2026-05-14",
+              "remaining": 2
             }
           ],
           "ideal": [
@@ -24161,6 +24301,10 @@ const projects = [
         "points": [
           {
             "date": "2026-05-13",
+            "remaining": 23
+          },
+          {
+            "date": "2026-05-14",
             "remaining": 23
           }
         ],
@@ -25620,6 +25764,10 @@ const projects = [
           "points": [
             {
               "date": "2026-05-13",
+              "remaining": 23
+            },
+            {
+              "date": "2026-05-14",
               "remaining": 23
             }
           ],
