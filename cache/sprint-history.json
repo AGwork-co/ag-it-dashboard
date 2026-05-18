@@ -22580,6 +22580,163 @@
         }
       },
       "isCurrent": false
+    },
+    "AG.Giving::cac33b42-7bae-4e00-ae57-e3ee64eb4692": {
+      "name": "Q2 2026 - Sprint 1",
+      "startDate": "2026-04-01T00:00:00Z",
+      "endDate": "2026-04-14T00:00:00Z",
+      "totalSP": 4,
+      "completedSP": 0,
+      "remainingSP": 4,
+      "storyCount": 3,
+      "stories": [
+        {
+          "id": 19896,
+          "title": "Angular Upgrade v19 => v20",
+          "state": "Ready for Review",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Butler, Justin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/19896",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 22340,
+          "title": "Angular Upgrade - PR Reviews / Testing / Deployments (Butler)",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Butler, Justin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/22340",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 25304,
+          "title": "Deploy SourceMaps to Raygun via CI/CD Pipeline",
+          "state": "Approved",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Butler, Justin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/25304",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering angular upgrade enhancements, along with deploy sourcemaps to raygun via ci/cd pipeline.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 4,
+        "points": [
+          {
+            "date": "2026-04-01",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-02",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-03",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-06",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-07",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-08",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-09",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-13",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-14",
+            "remaining": 4
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-04-01",
+            "remaining": 4
+          },
+          {
+            "date": "2026-04-02",
+            "remaining": 3.5555555555555554
+          },
+          {
+            "date": "2026-04-03",
+            "remaining": 3.111111111111111
+          },
+          {
+            "date": "2026-04-06",
+            "remaining": 2.666666666666667
+          },
+          {
+            "date": "2026-04-07",
+            "remaining": 2.2222222222222223
+          },
+          {
+            "date": "2026-04-08",
+            "remaining": 1.7777777777777777
+          },
+          {
+            "date": "2026-04-09",
+            "remaining": 1.3333333333333335
+          },
+          {
+            "date": "2026-04-10",
+            "remaining": 0.8888888888888893
+          },
+          {
+            "date": "2026-04-13",
+            "remaining": 0.44444444444444464
+          },
+          {
+            "date": "2026-04-14",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Butler, Justin": {
+          "2026-04-01": 6,
+          "2026-04-02": 6,
+          "2026-04-03": 6,
+          "2026-04-06": 6,
+          "2026-04-07": 6,
+          "2026-04-08": 6,
+          "2026-04-09": 6,
+          "2026-04-10": 6,
+          "2026-04-13": 6,
+          "2026-04-14": 6
+        }
+      },
+      "isCurrent": false
     }
   }
 }
