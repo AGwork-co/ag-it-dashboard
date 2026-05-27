@@ -319,7 +319,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, May 27, 2026 at 9:08 AM</span>
+    <span>Last updated: Wednesday, May 27, 2026 at 9:12 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -34561,10 +34561,17 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
     const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
     const remainingWork = stories.reduce((s, st) => s + (st.taskRemainingWork != null ? st.taskRemainingWork : st.remainingSP), 0);
+    // Committed work = total task hours assigned (remaining + completed)
+    const committedWork = stories.reduce((s, st) => {
+      const rem = st.taskRemainingWork != null ? st.taskRemainingWork : (st.remainingSP || 0);
+      const done = st.taskCompletedWork != null ? st.taskCompletedWork : (st.completedSP || 0);
+      return s + rem + done;
+    }, 0);
     const cap = personCapacity[name] || { available: 0 };
     // Capacity in hours = available days × 8h/day
     const capHrs = (cap.available || 0) * 8;
-    const utilPct = capHrs > 0 ? Math.round((remainingWork / capHrs) * 100) : 0;
+    // Utilization = how loaded the person is = committed work / capacity
+    const utilPct = capHrs > 0 ? Math.round((committedWork / capHrs) * 100) : 0;
     const utilColor = utilPct > 100 ? '#F87171' : utilPct >= 80 ? '#FBBF24' : '#34D399';
 
     const rows = sorted.map(s => {
