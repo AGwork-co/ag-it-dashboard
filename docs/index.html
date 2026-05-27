@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, May 27, 2026 at 2:22 PM</span>
+    <span>Last updated: Wednesday, May 27, 2026 at 3:22 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -2172,26 +2172,26 @@ const projects = [
       "total": 366,
       "estimated": 36,
       "unestimated": 330,
-      "totalSP": 49.5,
-      "incompleteSP": 19.5,
+      "totalSP": 50,
+      "incompleteSP": 20,
       "sprintSP": {
         "AG Shared": 15,
         "Q3 2025 - Sprint 3": 3,
-        "Q2 2026 - Sprint 5": 4,
+        "Q2 2026 - Sprint 5": 7.5,
         "Q2 2026 - Sprint 1": 1,
         "Q2 2026 - Sprint 2": 10.25,
         "Q2 2026 - Sprint 3": 9.25,
-        "Q2 2026 - Sprint 4": 7
+        "Q2 2026 - Sprint 4": 4
       }
     },
     "currentSprint": {
       "name": "Q2 2026 - Sprint 5",
       "startDate": "2026-05-27T00:00:00Z",
       "endDate": "2026-06-09T00:00:00Z",
-      "totalSP": 4,
+      "totalSP": 7.5,
       "completedSP": 0,
-      "remainingSP": 4,
-      "storyCount": 4,
+      "remainingSP": 7.5,
+      "storyCount": 6,
       "stories": [
         {
           "id": 27690,
@@ -2222,6 +2222,34 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
+          "id": 28838,
+          "title": "GPH Royalties: Incorporate Dynamics GP data in console app",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Medina, Joel",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28838",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28840,
+          "title": "GPH Royalties: Email stakeholders",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Medina, Joel",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28840",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
           "id": 29711,
           "title": "Small settings fixes / naming fixes",
           "type": "User Story",
@@ -2240,65 +2268,65 @@ const projects = [
           "title": "Setup CI/CD Pipelines",
           "type": "User Story",
           "state": "Committed",
-          "storyPoints": 0.5,
+          "storyPoints": 1,
           "completedSP": 0,
-          "remainingSP": 0.5,
+          "remainingSP": 1,
           "assignedTo": "Butler, Justin",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/30041",
-          "taskRemainingWork": 0.5,
+          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering daily date card update, contributor services: special monthly process, and 2 other items.",
+      "sprintGoals": "Delivering gph royalties enhancements, along with daily date card update, contributor services: special monthly process, and 2 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 4,
+        "totalSP": 7.5,
         "points": [
           {
             "date": "2026-05-27",
-            "remaining": 4
+            "remaining": 7.5
           }
         ],
         "ideal": [
           {
             "date": "2026-05-27",
-            "remaining": 4
+            "remaining": 7.5
           },
           {
             "date": "2026-05-28",
-            "remaining": 3.5555555555555554
+            "remaining": 6.666666666666667
           },
           {
             "date": "2026-05-29",
-            "remaining": 3.111111111111111
+            "remaining": 5.833333333333333
           },
           {
             "date": "2026-06-01",
-            "remaining": 2.666666666666667
+            "remaining": 5
           },
           {
             "date": "2026-06-02",
-            "remaining": 2.2222222222222223
+            "remaining": 4.166666666666666
           },
           {
             "date": "2026-06-03",
-            "remaining": 1.7777777777777777
+            "remaining": 3.333333333333333
           },
           {
             "date": "2026-06-04",
-            "remaining": 1.3333333333333335
+            "remaining": 2.5
           },
           {
             "date": "2026-06-05",
-            "remaining": 0.8888888888888893
+            "remaining": 1.666666666666666
           },
           {
             "date": "2026-06-08",
-            "remaining": 0.44444444444444464
+            "remaining": 0.833333333333333
           },
           {
             "date": "2026-06-09",
@@ -2319,6 +2347,18 @@ const projects = [
           "2026-06-08": 4,
           "2026-06-09": 4
         },
+        "Medina, Joel": {
+          "2026-05-27": 0.25,
+          "2026-05-28": 0.25,
+          "2026-05-29": 0.25,
+          "2026-06-01": 0.25,
+          "2026-06-02": 0.25,
+          "2026-06-03": 0.25,
+          "2026-06-04": 0.25,
+          "2026-06-05": 0.25,
+          "2026-06-08": 0.25,
+          "2026-06-09": 0.25
+        },
         "Hiebsch, Adin": {
           "2026-05-27": 0,
           "2026-05-28": 0,
@@ -2332,16 +2372,16 @@ const projects = [
           "2026-06-09": 0
         },
         "Butler, Justin": {
-          "2026-05-27": 0.5,
-          "2026-05-28": 0.5,
-          "2026-05-29": 0.5,
-          "2026-06-01": 0.5,
-          "2026-06-02": 0.5,
-          "2026-06-03": 0.5,
-          "2026-06-04": 0.5,
-          "2026-06-05": 0.5,
-          "2026-06-08": 0.5,
-          "2026-06-09": 0.5
+          "2026-05-27": 1,
+          "2026-05-28": 1,
+          "2026-05-29": 1,
+          "2026-06-01": 1,
+          "2026-06-02": 1,
+          "2026-06-03": 1,
+          "2026-06-04": 1,
+          "2026-06-05": 1,
+          "2026-06-08": 1,
+          "2026-06-09": 1
         }
       },
       "isCurrent": true
@@ -2976,10 +3016,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 5",
         "startDate": "2026-05-27T00:00:00Z",
         "endDate": "2026-06-09T00:00:00Z",
-        "totalSP": 4,
+        "totalSP": 7.5,
         "completedSP": 0,
-        "remainingSP": 4,
-        "storyCount": 4,
+        "remainingSP": 7.5,
+        "storyCount": 6,
         "stories": [
           {
             "id": 27690,
@@ -3010,6 +3050,34 @@ const projects = [
             "taskCompletedWork": 0
           },
           {
+            "id": 28838,
+            "title": "GPH Royalties: Incorporate Dynamics GP data in console app",
+            "type": "User Story",
+            "state": "Ready for Review",
+            "storyPoints": 2,
+            "completedSP": 0,
+            "remainingSP": 2,
+            "assignedTo": "Medina, Joel",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28838",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 28840,
+            "title": "GPH Royalties: Email stakeholders",
+            "type": "User Story",
+            "state": "Ready for Review",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Medina, Joel",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28840",
+            "taskRemainingWork": 0.25,
+            "taskCompletedWork": 0
+          },
+          {
             "id": 29711,
             "title": "Small settings fixes / naming fixes",
             "type": "User Story",
@@ -3028,65 +3096,65 @@ const projects = [
             "title": "Setup CI/CD Pipelines",
             "type": "User Story",
             "state": "Committed",
-            "storyPoints": 0.5,
+            "storyPoints": 1,
             "completedSP": 0,
-            "remainingSP": 0.5,
+            "remainingSP": 1,
             "assignedTo": "Butler, Justin",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/30041",
-            "taskRemainingWork": 0.5,
+            "taskRemainingWork": 1,
             "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering daily date card update, contributor services: special monthly process, and 2 other items.",
+        "sprintGoals": "Delivering gph royalties enhancements, along with daily date card update, contributor services: special monthly process, and 2 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 4,
+          "totalSP": 7.5,
           "points": [
             {
               "date": "2026-05-27",
-              "remaining": 4
+              "remaining": 7.5
             }
           ],
           "ideal": [
             {
               "date": "2026-05-27",
-              "remaining": 4
+              "remaining": 7.5
             },
             {
               "date": "2026-05-28",
-              "remaining": 3.5555555555555554
+              "remaining": 6.666666666666667
             },
             {
               "date": "2026-05-29",
-              "remaining": 3.111111111111111
+              "remaining": 5.833333333333333
             },
             {
               "date": "2026-06-01",
-              "remaining": 2.666666666666667
+              "remaining": 5
             },
             {
               "date": "2026-06-02",
-              "remaining": 2.2222222222222223
+              "remaining": 4.166666666666666
             },
             {
               "date": "2026-06-03",
-              "remaining": 1.7777777777777777
+              "remaining": 3.333333333333333
             },
             {
               "date": "2026-06-04",
-              "remaining": 1.3333333333333335
+              "remaining": 2.5
             },
             {
               "date": "2026-06-05",
-              "remaining": 0.8888888888888893
+              "remaining": 1.666666666666666
             },
             {
               "date": "2026-06-08",
-              "remaining": 0.44444444444444464
+              "remaining": 0.833333333333333
             },
             {
               "date": "2026-06-09",
@@ -3107,6 +3175,18 @@ const projects = [
             "2026-06-08": 4,
             "2026-06-09": 4
           },
+          "Medina, Joel": {
+            "2026-05-27": 0.25,
+            "2026-05-28": 0.25,
+            "2026-05-29": 0.25,
+            "2026-06-01": 0.25,
+            "2026-06-02": 0.25,
+            "2026-06-03": 0.25,
+            "2026-06-04": 0.25,
+            "2026-06-05": 0.25,
+            "2026-06-08": 0.25,
+            "2026-06-09": 0.25
+          },
           "Hiebsch, Adin": {
             "2026-05-27": 0,
             "2026-05-28": 0,
@@ -3120,16 +3200,16 @@ const projects = [
             "2026-06-09": 0
           },
           "Butler, Justin": {
-            "2026-05-27": 0.5,
-            "2026-05-28": 0.5,
-            "2026-05-29": 0.5,
-            "2026-06-01": 0.5,
-            "2026-06-02": 0.5,
-            "2026-06-03": 0.5,
-            "2026-06-04": 0.5,
-            "2026-06-05": 0.5,
-            "2026-06-08": 0.5,
-            "2026-06-09": 0.5
+            "2026-05-27": 1,
+            "2026-05-28": 1,
+            "2026-05-29": 1,
+            "2026-06-01": 1,
+            "2026-06-02": 1,
+            "2026-06-03": 1,
+            "2026-06-04": 1,
+            "2026-06-05": 1,
+            "2026-06-08": 1,
+            "2026-06-09": 1
           }
         },
         "isCurrent": true
