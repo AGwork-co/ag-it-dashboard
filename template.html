@@ -1207,14 +1207,14 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     const supportRows = support.map(r => `<tr>
         <td><a href="${r.url}" target="_blank">${r.id}</a></td>
         <td>${r.project}</td>
-        <td>${(r.description || r.title || '').replace(/</g,'&lt;')}</td>
+        <td>${(r.title || '').replace(/</g,'&lt;')}</td>
         <td><span class="state-pill ${stateClass(r.state)}">${r.state}</span></td>
       </tr>`).join('');
     const supportSection = support.length > 0 ? `
         <div class="tmc-section-header">Support Requests <span class="tmc-section-count">${support.length}</span></div>
         <div class="tmc-stories">
           <table>
-            <thead><tr><th>BPI</th><th>Project</th><th>Description</th><th>State</th></tr></thead>
+            <thead><tr><th>BPI</th><th>Project</th><th>Title</th><th>State</th></tr></thead>
             <tbody>${supportRows}</tbody>
           </table>
         </div>` : '';
