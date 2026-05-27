@@ -33,7 +33,7 @@ const AUTH_HEADER = 'Basic ' + Buffer.from(':' + PAT).toString('base64');
 // Closed sprints are immutable, so we cache them on disk and only re-fetch
 // when the iteration end date is today or in the future.
 const SPRINT_CACHE_PATH = path.join(__dirname, 'cache', 'sprint-history.json');
-const SPRINT_CACHE_VERSION = 3;
+const SPRINT_CACHE_VERSION = 4;
 const sprintCache = (() => {
   try {
     const raw = JSON.parse(fs.readFileSync(SPRINT_CACHE_PATH, 'utf8'));
@@ -61,7 +61,7 @@ function saveSprintCache() {
 // frozen here. The current sprint's daily data accumulates across builds and
 // is never recomputed for past days, only extended with today's value.
 const DAILY_BURNDOWN_CACHE_PATH = path.join(__dirname, 'cache', 'daily-burndown.json');
-const DAILY_BURNDOWN_CACHE_VERSION = 2;
+const DAILY_BURNDOWN_CACHE_VERSION = 3;
 const dailyBurndownCache = (() => {
   try {
     const raw = JSON.parse(fs.readFileSync(DAILY_BURNDOWN_CACHE_PATH, 'utf8'));
@@ -491,9 +491,9 @@ async function fetchProjectData(config) {
     ]);
   }
 
-  // 3. Get User Stories with story points + assigned to
+  // 3. Get User Stories and Bugs with story points + assigned to
   const storyRefs = await wiqlQuery(project,
-    `SELECT [System.Id] FROM WorkItems WHERE [System.WorkItemType] = 'User Story' AND [System.TeamProject] = '${project}' ORDER BY [System.Id]`
+    `SELECT [System.Id] FROM WorkItems WHERE [System.WorkItemType] IN ('User Story', 'Bug') AND [System.TeamProject] = '${project}' ORDER BY [System.Id]`
   );
   const storyIds = storyRefs.map(w => w.id);
 
@@ -501,12 +501,22 @@ async function fetchProjectData(config) {
   if (storyIds.length) {
     stories = await getWorkItemDetails(storyIds, [
       'System.Id', 'System.Title', 'System.State', 'System.Parent',
+      'System.WorkItemType',
       'Microsoft.VSTS.Scheduling.StoryPoints',
+      'Microsoft.VSTS.Scheduling.Effort',
       'System.IterationPath',
       'System.AssignedTo',
       'System.Description',
       'Microsoft.VSTS.Common.AcceptanceCriteria'
     ]);
+    // Bugs may carry their estimate in Effort rather than Story Points.
+    // Normalize into StoryPoints so all downstream logic is unchanged.
+    stories.forEach(s => {
+      if (s.fields['Microsoft.VSTS.Scheduling.StoryPoints'] == null &&
+          s.fields['Microsoft.VSTS.Scheduling.Effort'] != null) {
+        s.fields['Microsoft.VSTS.Scheduling.StoryPoints'] = s.fields['Microsoft.VSTS.Scheduling.Effort'];
+      }
+    });
   }
 
   // 4. Build epic summaries
@@ -607,6 +617,7 @@ async function fetchProjectData(config) {
         return {
           id: s.id,
           title: f['System.Title'],
+          type: f['System.WorkItemType'] || 'User Story',
           description: f['System.Description'] || '',
           acceptanceCriteria: f['Microsoft.VSTS.Common.AcceptanceCriteria'] || '',
           state,
