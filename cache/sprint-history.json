@@ -27009,6 +27009,152 @@
         }
       },
       "isCurrent": false
+    },
+    "AGWM Financial Reporting::0f8149ab-3e5c-45d4-81ce-cdc4a2728f0a": {
+      "name": "Q2 2026 - Sprint 4",
+      "startDate": "2026-05-13T00:00:00Z",
+      "endDate": "2026-05-26T00:00:00Z",
+      "totalSP": 3,
+      "completedSP": 3,
+      "remainingSP": 0,
+      "storyCount": 2,
+      "stories": [
+        {
+          "id": 22480,
+          "title": "Verify % fundraising milestones for tracking purposes",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Georgiades, George",
+          "completedDate": "2026-05-14T19:08:08.577Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/22480",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29682,
+          "title": "Implement Role-Based Access Control for Itineration Module",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Georgiades, George",
+          "completedDate": "2026-05-13T17:32:06.427Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/29682",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering verify % fundraising milestones for tracking purposes, along with implement role-based access control for itineration module.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 3,
+        "points": [
+          {
+            "date": "2026-05-13",
+            "remaining": 2
+          },
+          {
+            "date": "2026-05-14",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-15",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-18",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-19",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-20",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-21",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-22",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-25",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-26",
+            "remaining": 0
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-13",
+            "remaining": 3
+          },
+          {
+            "date": "2026-05-14",
+            "remaining": 2.6666666666666665
+          },
+          {
+            "date": "2026-05-15",
+            "remaining": 2.3333333333333335
+          },
+          {
+            "date": "2026-05-18",
+            "remaining": 2
+          },
+          {
+            "date": "2026-05-19",
+            "remaining": 1.6666666666666667
+          },
+          {
+            "date": "2026-05-20",
+            "remaining": 1.3333333333333335
+          },
+          {
+            "date": "2026-05-21",
+            "remaining": 1
+          },
+          {
+            "date": "2026-05-22",
+            "remaining": 0.666666666666667
+          },
+          {
+            "date": "2026-05-25",
+            "remaining": 0.3333333333333335
+          },
+          {
+            "date": "2026-05-26",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Georgiades, George": {
+          "2026-05-13": 4,
+          "2026-05-14": 2,
+          "2026-05-15": 2,
+          "2026-05-18": 2,
+          "2026-05-19": 2,
+          "2026-05-20": 2,
+          "2026-05-21": 2,
+          "2026-05-22": 2,
+          "2026-05-25": 2,
+          "2026-05-26": 2
+        }
+      },
+      "isCurrent": false
     }
   }
 }

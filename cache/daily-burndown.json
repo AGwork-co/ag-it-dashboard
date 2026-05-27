@@ -196,7 +196,8 @@
     },
     "AG Shared::9a294de9-3b77-4fc3-9192-fe57c016f8f8": {
       "Hiebsch, Adin": {},
-      "Butler, Justin": {}
+      "Butler, Justin": {},
+      "Farrand, Phil": {}
     },
     "AG.Giving::1f6cdc0b-c061-4ce9-a51d-9cd906117056": {},
     "AG.Giving::ea51413b-c8b0-4da8-88c4-1c532ddc9737": {
@@ -491,7 +492,10 @@
         "2026-05-26": 0
       }
     },
-    "AGWM Apps::4dc47d6b-92fa-4b78-9db2-c9235437a74d": {},
+    "AGWM Apps::4dc47d6b-92fa-4b78-9db2-c9235437a74d": {
+      "Campbell, Jack H": {},
+      "Farrand, Phil": {}
+    },
     "AGWM Financial Reporting::92b5240d-c247-4240-8c05-c2ca23801d4e": {
       "Campbell, Jack H": {
         "2025-12-31": 0,
@@ -1599,7 +1603,10 @@
       }
     },
     "CRM::353aad71-3d6c-4d24-8ab4-545187b959ec": {
-      "Hassbaum, Ralph": {}
+      "Hassbaum, Ralph": {},
+      "Georgiades, George": {},
+      "Roach, Joseph": {},
+      "Lamar, Brion": {}
     },
     "CRM::f89d212c-f7ea-4417-8a37-29ceaabf6caf": {},
     "Fine Arts::c982118f-dcd4-4412-a80e-117b6de2e998": {
@@ -1980,7 +1987,9 @@
         "2026-05-26": 0.75
       }
     },
-    "Fine Arts::d0e08d48-97ec-44ca-b237-6f06e3f2cde5": {},
+    "Fine Arts::d0e08d48-97ec-44ca-b237-6f06e3f2cde5": {
+      "Hiebsch, Adin": {}
+    },
     "FPHC::d0d67561-ad6c-4907-bbf1-2f1c560d7894": {
       "Medina, Joel": {
         "2025-12-31": 5.25,
@@ -2584,6 +2593,10 @@
         "2026-03-31": 0
       }
     },
-    "USMIA::c135ff0a-7b1d-4ecb-b7b7-31fb56513fc0": {}
+    "USMIA::c135ff0a-7b1d-4ecb-b7b7-31fb56513fc0": {},
+    "AGWM Financial Reporting::8078a254-4314-420e-96ce-38ce99c60a67": {
+      "Georgiades, George": {},
+      "Campbell, Jack H": {}
+    }
   }
 }
