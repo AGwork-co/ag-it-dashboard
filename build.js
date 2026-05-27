@@ -33,7 +33,7 @@ const AUTH_HEADER = 'Basic ' + Buffer.from(':' + PAT).toString('base64');
 // Closed sprints are immutable, so we cache them on disk and only re-fetch
 // when the iteration end date is today or in the future.
 const SPRINT_CACHE_PATH = path.join(__dirname, 'cache', 'sprint-history.json');
-const SPRINT_CACHE_VERSION = 2;
+const SPRINT_CACHE_VERSION = 3;
 const sprintCache = (() => {
   try {
     const raw = JSON.parse(fs.readFileSync(SPRINT_CACHE_PATH, 'utf8'));
@@ -61,7 +61,7 @@ function saveSprintCache() {
 // frozen here. The current sprint's daily data accumulates across builds and
 // is never recomputed for past days, only extended with today's value.
 const DAILY_BURNDOWN_CACHE_PATH = path.join(__dirname, 'cache', 'daily-burndown.json');
-const DAILY_BURNDOWN_CACHE_VERSION = 1;
+const DAILY_BURNDOWN_CACHE_VERSION = 2;
 const dailyBurndownCache = (() => {
   try {
     const raw = JSON.parse(fs.readFileSync(DAILY_BURNDOWN_CACHE_PATH, 'utf8'));
@@ -700,46 +700,33 @@ async function fetchProjectData(config) {
         });
 
         Object.entries(personTasks).forEach(([person, taskIds]) => {
-          // For each task, build a timeline: date -> remaining at end of that date
+          // For each task, keep its chronological remaining-work history.
           const taskTimelines = {};
           taskIds.forEach(tid => {
-            const hist = taskHistory[tid] || [];
+            const hist = (taskHistory[tid] || []).slice().sort((a, b) => a.date.localeCompare(b.date));
             const t = taskMap[tid];
             const currentRemaining = t ? (t.fields['Microsoft.VSTS.Scheduling.RemainingWork'] || 0) : 0;
-            // Determine the original remaining work (before any changes during sprint)
-            // Walk history backwards from the first sprint-day change to find original value
-            // The first history entry's old value is the original, or if no history use current
-            let originalRemaining = currentRemaining;
-            if (hist.length > 0) {
-              // History tracks newValue changes. To find what it was BEFORE the first change,
-              // we need the old value. Since we only store newValue, reconstruct:
-              // If there's history, the value before first change = first entry represents a SET,
-              // so the original is what it was set to initially (often the same as first entry for new tasks)
-              // Best approximation: use the MAX remaining seen in history (the original estimate)
-              const allVals = hist.map(h => h.remaining);
-              allVals.push(currentRemaining);
-              originalRemaining = Math.max(...allVals);
-            }
-            // Build sorted changes
-            const changes = {};
-            hist.forEach(h => {
-              changes[h.date] = h.remaining; // last change on that date wins
-            });
-            taskTimelines[tid] = { initial: originalRemaining, changes, current: originalRemaining };
+            taskTimelines[tid] = { hist, currentRemaining };
           });
 
-          // Walk through each working day and compute total remaining
+          // Walk each working day; a task's remaining on day ds is the value of
+          // its last revision dated on/before ds. Tasks whose first revision is
+          // after ds didn't exist yet (contribute 0). Tasks with no recorded
+          // history fall back to their current remaining (flat line).
           const dailyRemaining = {};
           for (let d = new Date(sDate); d <= eDate; d.setDate(d.getDate() + 1)) {
             if (d.getDay() === 0 || d.getDay() === 6) continue;
             const ds = d.toISOString().split('T')[0];
             let total = 0;
             taskIds.forEach(tid => {
-              const tl = taskTimelines[tid];
-              if (tl.changes[ds] !== undefined) {
-                tl.current = tl.changes[ds];
+              const { hist, currentRemaining } = taskTimelines[tid];
+              if (hist.length === 0) { total += currentRemaining; return; }
+              let val = null;
+              for (const h of hist) {
+                if (h.date <= ds) val = h.remaining;
+                else break;
               }
-              total += tl.current;
+              total += (val !== null ? val : 0);
             });
             dailyRemaining[ds] = Math.round(total * 100) / 100;
           }
