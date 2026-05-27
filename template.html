@@ -1155,10 +1155,17 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
     const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
     const remainingWork = stories.reduce((s, st) => s + (st.taskRemainingWork != null ? st.taskRemainingWork : st.remainingSP), 0);
+    // Committed work = total task hours assigned (remaining + completed)
+    const committedWork = stories.reduce((s, st) => {
+      const rem = st.taskRemainingWork != null ? st.taskRemainingWork : (st.remainingSP || 0);
+      const done = st.taskCompletedWork != null ? st.taskCompletedWork : (st.completedSP || 0);
+      return s + rem + done;
+    }, 0);
     const cap = personCapacity[name] || { available: 0 };
     // Capacity in hours = available days × 8h/day
     const capHrs = (cap.available || 0) * 8;
-    const utilPct = capHrs > 0 ? Math.round((remainingWork / capHrs) * 100) : 0;
+    // Utilization = how loaded the person is = committed work / capacity
+    const utilPct = capHrs > 0 ? Math.round((committedWork / capHrs) * 100) : 0;
     const utilColor = utilPct > 100 ? '#F87171' : utilPct >= 80 ? '#FBBF24' : '#34D399';
 
     const rows = sorted.map(s => {
