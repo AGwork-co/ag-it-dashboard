@@ -262,6 +262,18 @@
   .tmc-stories tr:hover td { background: rgba(212,184,106,0.1); }
   .tmc-stories a { color: var(--primary-light); text-decoration: none; font-weight: 500; }
   .tmc-stories a:hover { text-decoration: underline; }
+  .tmc-section-header {
+    padding: 10px 18px 6px; font-size: 12px; font-weight: 700; color: var(--primary-light);
+    text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 8px;
+  }
+  .tmc-section-count {
+    font-size: 10px; font-weight: 600; color: var(--text-muted);
+    background: rgba(148,163,184,0.15); padding: 1px 7px; border-radius: 10px;
+  }
+  .tmc-support-pill {
+    margin-left: 6px; font-size: 10px; font-weight: 600; color: var(--warn);
+    background: rgba(232,184,99,0.18); padding: 1px 8px; border-radius: 10px;
+  }
 
   /* Sprint header */
   .sprint-header {
@@ -325,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, May 27, 2026 at 9:19 AM</span>
+    <span>Last updated: Wednesday, May 27, 2026 at 9:29 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -36420,6 +36432,234 @@ const projects = [
     ]
   }
 ];
+const supportRequests = {
+  "Georgiades, George": [
+    {
+      "id": 29633,
+      "title": "Request for Ann Bull : IT Access To Apps - Other > Employee: Lisa Huechteman > Effective Date: Wed, May 6, 2026",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Description System Privilege Request - Other for employee IT access to National Office applications. All requests can take up to 3 days to process Requestor's First & Last Name: Ann Bull Today's Date: Wed, May 06, 2026 Effective Date: Wed, May 06, 2026 Employee First Name: Lisa Employee Middle Name:…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29633"
+    },
+    {
+      "id": 29881,
+      "title": "AGWM Apps for Allie Trask and Mary McGee",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Allie Trask starts today in AGWM Strategic Initiative, and she is needing access to MIA and minutes reports. The sys priv form is 128430 if you need to see the entire request. I was told George's team still handles these. Mary McGee is a Contractor100 for the MK office and needs MIA, ticket number 1…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29881"
+    }
+  ],
+  "Campbell, Jack H": [
+    {
+      "id": 29752,
+      "title": "K2 Updates - Workflow + Display Text",
+      "state": "Waiting",
+      "project": "Missions Support",
+      "description": "Description Hello, I was just informed that the Shipley’s work agreement will need to go to Kim Parton kparton@ag.org in the AGWM Executive Office. Please remove Tami and Sherry and then assign the Shipleys to Kim who should receive all missionaries assigned to Strategic Initiatives. Please change t…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29752"
+    },
+    {
+      "id": 29758,
+      "title": "K2 Question - How To Delete SDR Item [107605 - #84015]",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Description Hello! Is there a way to get ID #84015 reported on SDR 107605 deleted? I had sent that back to the missionary and he reported the airfare correctly but it’s giving the SDR a higher deficit amount than what should be. Thank you for your help! Blessings, Malissa Lamar AP Finance Specialist…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29758"
+    },
+    {
+      "id": 29931,
+      "title": "FW: reporting questions - Brett & Donna Dailey 248722 ",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Another one I sent to SysDev for Jack or Phil. Thanks! Elise Rothermel Elise Rothermel Financial Services – Assistant Manager Assemblies of God World Missions AG National Office | (417) 862-2781 Ext. 3124 From: Rothermel, Elise Sent: Tuesday, May 19, 2026 7:59 AM To: Sysdev <Sysdev@ag.org> Subject: …",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29931"
+    }
+  ],
+  "Farrand, Phil": [
+    {
+      "id": 29759,
+      "title": "K2 Error Message - SDR Form Item Search / Account number Not Located",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Description From: Hahn, Lee-Ann <lehahn@ag.org> Sent: Wednesday, April 29, 2026 2:03 PM To: AGWM Technical Services <help@agmd.org> Cc: Nearns, Brandy <bnearns@ag.org> Subject: SDR search Hello! I put in a ticket on this a month ago (#INC-63590), but I’m not sure if it got assigned out before the sw…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29759"
+    },
+    {
+      "id": 29775,
+      "title": "New AGWM Financial Reporting Online Forms [Tax Election]",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Description We would like to pursue having the MAPS Self-Employment/Income Tax Election form and the MA Self-Employment Tax Election form added to Financial Reporting under Performance > Online Forms Categorized > Tax Related. Attached are copies of the current forms. Verbiage will be changing, but …",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29775"
+    },
+    {
+      "id": 29776,
+      "title": "Internal Sales Entries Not Hitting AGWM Statements",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Description We have noticed that a number of internal sales JEs processed as posted by “postmaster” are not hitting the AGWM statements. This has resulted in balance errors. Can you help us determine how to correct this going forward and how to deal with the balance errors? This issue affects the fi…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29776"
+    },
+    {
+      "id": 29803,
+      "title": "Scott Berkey (89) Balance Issue",
+      "state": "Committed",
+      "project": "Missions Support",
+      "description": "Description Hello, We’ve had an issue with Scott’s (89) balance for a couple months and I think Phil Farrand will be able to help if he can, as he has a good understanding of the (89) budget funds system. &#128522; There were a lot of issues because of a Children’s Schooling disbursement gone wrong …",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29803"
+    },
+    {
+      "id": 29929,
+      "title": "FW: ACTION SUGGESTED: Are you ready to complete your SDR?",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Is SysDev still active? Or does everything go through Help Desk now? This is something Phil Farrand or Jack Campbell normally helps with. Elise Rothermel Elise Rothermel Financial Services – Assistant Manager Assemblies of God World Missions AG National Office | (417) 862-2781 Ext. 3124 From: Rother…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29929"
+    }
+  ],
+  "Lamar, Brion": [
+    {
+      "id": 29946,
+      "title": "FW: ticket needed  Change name in HMFA",
+      "state": "New",
+      "project": "Missions Support",
+      "description": "Ramona Edgman Administrator, AG U.S. Missions (417) 862-2781 AG National Office 1445 N Boonville Ave Springfield, MO 65802 From: Edgman, Ramona Sent: Tuesday, May 19, 2026 5:37 PM To: help@ag.org Subject: Fwd: ticket needed Change name in HMFA Hmfa. Usually Brion Lamar handles Sent from my iPhone Be…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/29946"
+    }
+  ],
+  "Butler, Justin": [
+    {
+      "id": 20630,
+      "title": "Web Customer Support Module Lookup",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "@Justin Butler – Not sure if this has something to do with the server errors Randy observed but on the Customer Support Module I can’t seem to view these documents. Used: https://cfapps.gcag.net/GPHWebStoreAdministration/store/checkout/cs-processselectoption.cfm With the email address as the search …",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/20630"
+    },
+    {
+      "id": 27854,
+      "title": "Add Cost Center 363 to the Job Description System",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "Hi, A new cost center has been added to the AGNO. It is 363. There will be 4 employees in that cost center after 4/5/2026. Thank you for your help. Lori Lori Van Veen HR Information Specialist AG National Office Phone: 417.862.2781 ext. 1080 Beginning in January 2026: Hours: M-Th, 7:30 a.m. to 5:00 …",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/27854"
+    },
+    {
+      "id": 29567,
+      "title": "Odoo - Credit Card Error",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "Met with Beth & Rhonda on 5/7/26. We attempted to replicate the error, but were only partially successful. We did encounter a browser console error, but this was prior to attempting payment. However, the error is related to Flex Microform (flex.cybersource.com). I confirmed with John Ivaska that fle…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29567"
+    },
+    {
+      "id": 29569,
+      "title": "ACM762 Report",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "From: Butler, Justin <JButler@ag.org> Date: Thursday, May 7, 2026 at 2:31 PM To: Clarensau, Mike <mclarensau@ag.org> Subject: Re: update on request Mike, Checked with Steve. He asked if you could send me the official 762 report from last year? Justin From: Butler, Justin <JButler@ag.org> Date: Tuesd…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29569"
+    },
+    {
+      "id": 29685,
+      "title": "Data Pull - Minister and Church - Directories",
+      "state": "New",
+      "project": "Business Software Support",
+      "description": "Hi Aurelia, Could you please connect me with the correct person to pull minister data and church data for our annual directory project? (Two separate pulls.) We would like to have it pulled on Tuesday June 9 th . I have attached the last email Steve Dorland and I had about the project. I can find ol…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29685"
+    },
+    {
+      "id": 29821,
+      "title": "Odoo - Failed Fascor to Odoo Inventory Adjustment",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "Myriam Weiler Tue, May 12, 10:10 AM (3 days ago) to me , jsherman Hi Justin, Austin mentioned that you may be able to assist with this ticket. Since you don't have acces to FreshService, please let me know if you need any additional information from me. The ticket has been in the queue since last we…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29821"
+    },
+    {
+      "id": 29917,
+      "title": "RE: Permissions for ChurchList Email and ACMR Online Administration",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "I’m just checking in regarding the below email. When I try to forward or reply to emails from the churchlist@ag.org inbox I am still receiving the following message: When I try to access the https://acmr.ag.org/Admin/Home website I am still receiving this message: Rebecca Gullion Operational Team Le…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29917"
+    }
+  ],
+  "Hull, Darrin": [
+    {
+      "id": 26788,
+      "title": "Church directory issue",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "It appears the page numbers at the bottom of the church directory are not adjusting when the window is enlarged or shrunk, but instead are bleeding off the page. For example, a search of churches by state for Missouri only shows as many pages as the screen can hold (see below). Thanks. Keith Surface…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/26788"
+    },
+    {
+      "id": 29623,
+      "title": "Camp Kit Webpage",
+      "state": "Waiting",
+      "project": "Business Software Support",
+      "description": "Project Origin: Requested by John Zick (Called), designed by Caleb Weidman at BLKBAR, approved by Mark Forrester (Chief Communications Officer, ag.org). What's Being Built: A hidden page on ag.org (not in site navigation, accessible only via direct URL) serving as a resource hub for districts runnin…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29623"
+    },
+    {
+      "id": 29669,
+      "title": "Ethnic Relations New Fellowship",
+      "state": "Waiting",
+      "project": "Business Software Support",
+      "description": "Hello, On the Ethnic Relations Website we have the &quot;Fellowships&quot; page. With the recent addition of our new fellowship, we are needing to add an additional page for the &quot;Francophone African Fellowship of the AG&quot; that displays the president's name and photo, relevant links for the …",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29669"
+    }
+  ],
+  "Stilts, Brent": [
+    {
+      "id": 28048,
+      "title": "FW: Warner Press Files",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "Do we have a date as to when these files will be uploaded? Thank you. Tisha Oates Specialist, Customer Relations AG National Office | (417) 862-2781 x. 8306 Mobile: (417) 862-2781 | Fax: (417) 862-2781 1445 N Boonville Ave, Springfield, MO 65802 -----Original Message----- From: donotreply@myhealthyc…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/28048"
+    }
+  ],
+  "Medina, Joel": [
+    {
+      "id": 28622,
+      "title": "NA Country dropdown menu",
+      "state": "Waiting",
+      "project": "Business Software Support",
+      "description": "Not urgent, more of an FYI: The dropdown menu for the Country field in Name and Address has migrated the far upper left corner of the screen. Agents are still able to select a country best I can tell for now. See screenshot: Aurelia Stratton AG National Office | (417) 862-2781",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/28622"
+    },
+    {
+      "id": 29540,
+      "title": "South Carolina Sections/Regions Church List",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "South Carolina Sections/Regions Church List South Carolina Sections/Regions Church List Rebecca Gullion reported a day ago (Tue, May 5 2:56 PM) via Email To: jbutler@ag.org Cc: helpdesk@ag.org, nstewart@ag.org Rebecca Gullion reported a day ago (Tue, May 5 2:56 PM) via Email To: jbutler@ag.org Cc: h…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29540"
+    },
+    {
+      "id": 29918,
+      "title": "Customer Does Not Have Access to Digital Subscription",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "Good Morning. We have a customer that has purchased a digital item on our website at https://digital.myhealthychurch.com . When he goes to log in, he cannot find the subscription in his library. When I tried to access the information through the administrator portal that Scott Keltner has helped us …",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29918"
+    }
+  ],
+  "Stratton, Jason": [
+    {
+      "id": 29905,
+      "title": "Deprecate and Redirect [https://membercareonline.com]",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "Description Dear Help Desk, Can you help us figure out who manages the MemberCareOnline.com platform? Thanks, Bob. Bob Lafon Technical Services Manager Assemblies of God World Missions AG National Office | (417) 862-2781 Ext. 3154 From: Wilson, Andrew <awilson@ag.org> Sent: Wednesday, May 13, 2026 1…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29905"
+    }
+  ]
+};
 
 // ============================================================
 // COMPUTE METRICS
@@ -37226,19 +37466,39 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
       </tr>`;
     }).join('');
 
+    // Support requests (open FreshService PBIs) assigned to this person —
+    // excluded from burndown, listed separately.
+    const support = (supportRequests[name] || []);
+    const supportRows = support.map(r => `<tr>
+        <td><a href="${r.url}" target="_blank">${r.id}</a></td>
+        <td>${r.project}</td>
+        <td>${(r.description || r.title || '').replace(/</g,'&lt;')}</td>
+        <td><span class="state-pill ${stateClass(r.state)}">${r.state}</span></td>
+      </tr>`).join('');
+    const supportSection = support.length > 0 ? `
+        <div class="tmc-section-header">Support Requests <span class="tmc-section-count">${support.length}</span></div>
+        <div class="tmc-stories">
+          <table>
+            <thead><tr><th>BPI</th><th>Project</th><th>Description</th><th>State</th></tr></thead>
+            <tbody>${supportRows}</tbody>
+          </table>
+        </div>` : '';
+
     html += `<div class="team-member-card" id="tmCard_${idx}">
       <div class="tmc-header" onclick="toggleTeamCard(${idx})">
         <h4>${name}</h4>
-        <span class="tmc-stats">${totalSP} sp · ${remainingWork.toFixed(1)}h remaining / ${capHrs}h capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span></span>
+        <span class="tmc-stats">${totalSP} sp · ${remainingWork.toFixed(1)}h remaining / ${capHrs}h capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span>${support.length > 0 ? ` <span class="tmc-support-pill">${support.length} support</span>` : ''}</span>
       </div>
       <div class="tmc-detail">
         <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
+        <div class="tmc-section-header">User Story Assignments <span class="tmc-section-count">${stories.length}</span></div>
         <div class="tmc-stories">
           <table>
             <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th style="white-space:nowrap">Est / Rem</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
+        ${supportSection}
       </div>
     </div>`;
   });
