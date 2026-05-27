@@ -27327,6 +27327,183 @@
         }
       },
       "isCurrent": false
+    },
+    "Chi Alpha::3c2f6fbe-b3a2-40d8-bbb9-c0dc61751ca3": {
+      "name": "Q1 2026 - Sprint 6",
+      "startDate": "2026-03-11T00:00:00Z",
+      "endDate": "2026-03-31T00:00:00Z",
+      "totalSP": 0.5,
+      "completedSP": 0.5,
+      "remainingSP": 0,
+      "storyCount": 1,
+      "stories": [
+        {
+          "id": 27470,
+          "title": "Document comprehensive inventory of all systems supporting Chi Alpha operations",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Georgiades, George",
+          "completedDate": "2026-04-03T16:06:41.447Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Chi%20Alpha/_workitems/edit/27470",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering Document comprehensive inventory of all systems supporting Chi Alph....",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 0.5,
+        "points": [
+          {
+            "date": "2026-03-11",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-12",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-13",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-16",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-17",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-18",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-19",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-20",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-23",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-24",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-25",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-26",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-27",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-30",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-31",
+            "remaining": 0.5
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-03-11",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-03-12",
+            "remaining": 0.4642857142857143
+          },
+          {
+            "date": "2026-03-13",
+            "remaining": 0.4285714285714286
+          },
+          {
+            "date": "2026-03-16",
+            "remaining": 0.39285714285714285
+          },
+          {
+            "date": "2026-03-17",
+            "remaining": 0.35714285714285715
+          },
+          {
+            "date": "2026-03-18",
+            "remaining": 0.32142857142857145
+          },
+          {
+            "date": "2026-03-19",
+            "remaining": 0.2857142857142857
+          },
+          {
+            "date": "2026-03-20",
+            "remaining": 0.25
+          },
+          {
+            "date": "2026-03-23",
+            "remaining": 0.2142857142857143
+          },
+          {
+            "date": "2026-03-24",
+            "remaining": 0.1785714285714286
+          },
+          {
+            "date": "2026-03-25",
+            "remaining": 0.1428571428571429
+          },
+          {
+            "date": "2026-03-26",
+            "remaining": 0.10714285714285715
+          },
+          {
+            "date": "2026-03-27",
+            "remaining": 0.07142857142857145
+          },
+          {
+            "date": "2026-03-30",
+            "remaining": 0.035714285714285754
+          },
+          {
+            "date": "2026-03-31",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Lamar, Brion": {
+          "2026-03-11": 0,
+          "2026-03-12": 0.5,
+          "2026-03-13": 0.5,
+          "2026-03-16": 0.5,
+          "2026-03-17": 0.5,
+          "2026-03-18": 0.5,
+          "2026-03-19": 0.5,
+          "2026-03-20": 0.5,
+          "2026-03-23": 0.5,
+          "2026-03-24": 0.5,
+          "2026-03-25": 0.5,
+          "2026-03-26": 0.5,
+          "2026-03-27": 0.5,
+          "2026-03-30": 0.5,
+          "2026-03-31": 0.5
+        }
+      },
+      "isCurrent": false
     }
   }
 }
