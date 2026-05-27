@@ -851,14 +851,66 @@ async function fetchProjectData(config) {
   };
 }
 
+// ── Support requests ────────────────────────────────────────────────────────
+// FreshService support tickets live as Product Backlog Items in these Kanban
+// projects. They aren't estimated and have no SP tasks, so they're excluded
+// from burndown — but open ones assigned to a developer are surfaced in that
+// person's team-member sprint view.
+const SUPPORT_PROJECTS = ['Missions Support', 'Business Software Support'];
+
+/** Fetch open support PBIs assigned to people, grouped by normalized name. */
+async function fetchSupportRequests() {
+  const byPerson = {};
+  for (const project of SUPPORT_PROJECTS) {
+    try {
+      const refs = await wiqlQuery(project,
+        `SELECT [System.Id] FROM WorkItems WHERE [System.WorkItemType] = 'Product Backlog Item' ` +
+        `AND [System.TeamProject] = '${project}' ` +
+        `AND [System.State] NOT IN ('Done', 'Removed', 'Closed', 'Resolved') ` +
+        `AND [System.AssignedTo] <> '' ORDER BY [System.ChangedDate] DESC`
+      );
+      const ids = refs.map(w => w.id);
+      if (!ids.length) continue;
+
+      const items = await getWorkItemDetails(ids, [
+        'System.Id', 'System.Title', 'System.State', 'System.AssignedTo',
+        'System.Description', 'System.TeamProject'
+      ]);
+
+      items.forEach(it => {
+        const f = it.fields;
+        const assignedTo = f['System.AssignedTo'];
+        if (!assignedTo) return;
+        const person = normalizeName(assignedTo.displayName || assignedTo);
+        const desc = stripHtml(f['System.Description'] || '');
+        const record = {
+          id: it.id,
+          title: f['System.Title'] || '',
+          state: f['System.State'] || '',
+          project: f['System.TeamProject'] || project,
+          description: desc.length > 300 ? desc.slice(0, 300) + '…' : desc,
+          url: `${ORG_URL}/${encodeURIComponent(project)}/_workitems/edit/${it.id}`
+        };
+        if (!byPerson[person]) byPerson[person] = [];
+        byPerson[person].push(record);
+      });
+      console.log(`   🎫 Support "${project}": ${items.length} open requests`);
+    } catch (e) {
+      console.warn(`   ⚠ Could not fetch support requests for ${project}: ${e.message}`);
+    }
+  }
+  return byPerson;
+}
+
 // ── HTML generation ─────────────────────────────────────────────────────────
 
-function generateHTML(projectsData, buildTime) {
+function generateHTML(projectsData, supportRequests, buildTime) {
   const template = fs.readFileSync(path.join(__dirname, 'template.html'), 'utf8');
 
   // Inject live data
   const html = template
     .replace('/*__PROJECT_DATA__*/', JSON.stringify(projectsData, null, 2))
+    .replace('/*__SUPPORT_DATA__*/', JSON.stringify(supportRequests || {}, null, 2))
     .replace('__BUILD_TIME__', buildTime)
     .replace('__REFRESH_WORKER_URL__', process.env.REFRESH_WORKER_URL || '');
 
@@ -898,13 +950,17 @@ async function main() {
     }
   }
 
+  // Fetch open support requests assigned to developers (separate from sprint work)
+  console.log('\n🎫 Fetching support requests...');
+  const supportRequests = await fetchSupportRequests();
+
   const buildTime = new Date().toLocaleString('en-US', {
     timeZone: 'America/Chicago',
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
     hour: 'numeric', minute: '2-digit', hour12: true
   });
 
-  const html = generateHTML(projectsData, buildTime);
+  const html = generateHTML(projectsData, supportRequests, buildTime);
 
   // Write to docs/ for GitHub Pages
   const outDir = path.join(__dirname, 'docs');

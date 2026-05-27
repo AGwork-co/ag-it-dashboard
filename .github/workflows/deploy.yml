@@ -30,7 +30,9 @@ jobs:
         run: npm install
 
       - name: Fix template placeholder
-        run: sed -i 's|/\*__PROJECT_DATA__\*/\[\]|/*__PROJECT_DATA__*/|' template.html
+        run: |
+          sed -i 's|/\*__PROJECT_DATA__\*/\[\]|/*__PROJECT_DATA__*/|' template.html
+          sed -i 's|/\*__SUPPORT_DATA__\*/{}|/*__SUPPORT_DATA__*/|' template.html
 
       - name: Build dashboard
         env:

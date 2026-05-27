@@ -262,6 +262,18 @@
   .tmc-stories tr:hover td { background: rgba(212,184,106,0.1); }
   .tmc-stories a { color: var(--primary-light); text-decoration: none; font-weight: 500; }
   .tmc-stories a:hover { text-decoration: underline; }
+  .tmc-section-header {
+    padding: 10px 18px 6px; font-size: 12px; font-weight: 700; color: var(--primary-light);
+    text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 8px;
+  }
+  .tmc-section-count {
+    font-size: 10px; font-weight: 600; color: var(--text-muted);
+    background: rgba(148,163,184,0.15); padding: 1px 7px; border-radius: 10px;
+  }
+  .tmc-support-pill {
+    margin-left: 6px; font-size: 10px; font-weight: 600; color: var(--warn);
+    background: rgba(232,184,99,0.18); padding: 1px 8px; border-radius: 10px;
+  }
 
   /* Sprint header */
   .sprint-header {
@@ -382,6 +394,7 @@ Chart.defaults.borderColor = '#334155';
 // LIVE DATA — Injected by build.js from Azure DevOps
 // ============================================================
 const projects = /*__PROJECT_DATA__*/[];
+const supportRequests = /*__SUPPORT_DATA__*/{};
 
 // ============================================================
 // COMPUTE METRICS
@@ -1188,19 +1201,39 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
       </tr>`;
     }).join('');
 
+    // Support requests (open FreshService PBIs) assigned to this person —
+    // excluded from burndown, listed separately.
+    const support = (supportRequests[name] || []);
+    const supportRows = support.map(r => `<tr>
+        <td><a href="${r.url}" target="_blank">${r.id}</a></td>
+        <td>${r.project}</td>
+        <td>${(r.description || r.title || '').replace(/</g,'&lt;')}</td>
+        <td><span class="state-pill ${stateClass(r.state)}">${r.state}</span></td>
+      </tr>`).join('');
+    const supportSection = support.length > 0 ? `
+        <div class="tmc-section-header">Support Requests <span class="tmc-section-count">${support.length}</span></div>
+        <div class="tmc-stories">
+          <table>
+            <thead><tr><th>BPI</th><th>Project</th><th>Description</th><th>State</th></tr></thead>
+            <tbody>${supportRows}</tbody>
+          </table>
+        </div>` : '';
+
     html += `<div class="team-member-card" id="tmCard_${idx}">
       <div class="tmc-header" onclick="toggleTeamCard(${idx})">
         <h4>${name}</h4>
-        <span class="tmc-stats">${totalSP} sp · ${remainingWork.toFixed(1)}h remaining / ${capHrs}h capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span></span>
+        <span class="tmc-stats">${totalSP} sp · ${remainingWork.toFixed(1)}h remaining / ${capHrs}h capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span>${support.length > 0 ? ` <span class="tmc-support-pill">${support.length} support</span>` : ''}</span>
       </div>
       <div class="tmc-detail">
         <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
+        <div class="tmc-section-header">User Story Assignments <span class="tmc-section-count">${stories.length}</span></div>
         <div class="tmc-stories">
           <table>
             <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th style="white-space:nowrap">Est / Rem</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
+        ${supportSection}
       </div>
     </div>`;
   });
