@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, May 28, 2026 at 2:35 PM</span>
+    <span>Last updated: Thursday, May 28, 2026 at 5:40 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -14946,7 +14946,7 @@ const projects = [
         "title": "Phase 2: MIA",
         "state": "Active",
         "features": 5,
-        "stories": 97
+        "stories": 99
       },
       {
         "id": 26793,
@@ -14988,7 +14988,7 @@ const projects = [
         "title": "AG 360 Portal (MVP)",
         "state": "Active",
         "features": 5,
-        "stories": 74
+        "stories": 75
       },
       {
         "id": 28512,
@@ -14999,11 +14999,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 547,
-      "estimated": 334,
-      "unestimated": 213,
-      "totalSP": 638.3,
-      "incompleteSP": 115.25,
+      "total": 550,
+      "estimated": 336,
+      "unestimated": 214,
+      "totalSP": 639.8,
+      "incompleteSP": 115.75,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 85.25,
@@ -15022,7 +15022,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 5": 44,
+        "Q2 2026 - Sprint 5": 45.5,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
@@ -15035,10 +15035,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 5",
       "startDate": "2026-05-27T00:00:00Z",
       "endDate": "2026-06-09T00:00:00Z",
-      "totalSP": 44,
-      "completedSP": 2.5,
-      "remainingSP": 41.5,
-      "storyCount": 23,
+      "totalSP": 45.5,
+      "completedSP": 3.5,
+      "remainingSP": 42,
+      "storyCount": 25,
       "stories": [
         {
           "id": 23670,
@@ -15361,61 +15361,89 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30061",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 30089,
+          "title": "Configure AG 360 releases for separated binary/config artifacts",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-05-28T21:19:20.013Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30089",
+          "taskRemainingWork": 0.2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30100,
+          "title": "Backlog review: re-evaluate open stories under Feature 26914 (MIA to SF Data Sync)",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30100",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering 360 portal enhancements, account enhancements, sprint cdc enhancements, kafkaconnect jdbc enhancements, retention topics enhancements, flink enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 4 other items.",
+      "sprintGoals": "Delivering 360 portal enhancements, account enhancements, sprint cdc enhancements, kafkaconnect jdbc enhancements, retention topics enhancements, flink enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 5 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 44,
+        "totalSP": 45.5,
         "points": [
           {
             "date": "2026-05-27",
-            "remaining": 41.5
+            "remaining": 43
           },
           {
             "date": "2026-05-28",
-            "remaining": 41.5
+            "remaining": 42
           }
         ],
         "ideal": [
           {
             "date": "2026-05-27",
-            "remaining": 44
+            "remaining": 45.5
           },
           {
             "date": "2026-05-28",
-            "remaining": 39.111111111111114
+            "remaining": 40.44444444444444
           },
           {
             "date": "2026-05-29",
-            "remaining": 34.22222222222222
+            "remaining": 35.388888888888886
           },
           {
             "date": "2026-06-01",
-            "remaining": 29.333333333333332
+            "remaining": 30.333333333333336
           },
           {
             "date": "2026-06-02",
-            "remaining": 24.444444444444443
+            "remaining": 25.27777777777778
           },
           {
             "date": "2026-06-03",
-            "remaining": 19.555555555555554
+            "remaining": 20.22222222222222
           },
           {
             "date": "2026-06-04",
-            "remaining": 14.666666666666664
+            "remaining": 15.166666666666668
           },
           {
             "date": "2026-06-05",
-            "remaining": 9.777777777777771
+            "remaining": 10.111111111111114
           },
           {
             "date": "2026-06-08",
-            "remaining": 4.888888888888886
+            "remaining": 5.055555555555557
           },
           {
             "date": "2026-06-09",
@@ -15438,27 +15466,27 @@ const projects = [
         },
         "Roach, Joseph": {
           "2026-05-27": 11.5,
-          "2026-05-28": 11.5,
-          "2026-05-29": 11.5,
-          "2026-06-01": 11.5,
-          "2026-06-02": 11.5,
-          "2026-06-03": 11.5,
-          "2026-06-04": 11.5,
-          "2026-06-05": 11.5,
-          "2026-06-08": 11.5,
-          "2026-06-09": 11.5
+          "2026-05-28": 11.7,
+          "2026-05-29": 11.7,
+          "2026-06-01": 11.7,
+          "2026-06-02": 11.7,
+          "2026-06-03": 11.7,
+          "2026-06-04": 11.7,
+          "2026-06-05": 11.7,
+          "2026-06-08": 11.7,
+          "2026-06-09": 11.7
         },
         "Lamar, Brion": {
           "2026-05-27": 7,
-          "2026-05-28": 6.5,
-          "2026-05-29": 6.5,
-          "2026-06-01": 6.5,
-          "2026-06-02": 6.5,
-          "2026-06-03": 6.5,
-          "2026-06-04": 6.5,
-          "2026-06-05": 6.5,
-          "2026-06-08": 6.5,
-          "2026-06-09": 6.5
+          "2026-05-28": 7,
+          "2026-05-29": 7,
+          "2026-06-01": 7,
+          "2026-06-02": 7,
+          "2026-06-03": 7,
+          "2026-06-04": 7,
+          "2026-06-05": 7,
+          "2026-06-08": 7,
+          "2026-06-09": 7
         },
         "Hassbaum, Ralph": {
           "2026-05-27": 9,
@@ -20673,10 +20701,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 5",
         "startDate": "2026-05-27T00:00:00Z",
         "endDate": "2026-06-09T00:00:00Z",
-        "totalSP": 44,
-        "completedSP": 2.5,
-        "remainingSP": 41.5,
-        "storyCount": 23,
+        "totalSP": 45.5,
+        "completedSP": 3.5,
+        "remainingSP": 42,
+        "storyCount": 25,
         "stories": [
           {
             "id": 23670,
@@ -20999,61 +21027,89 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30061",
             "taskRemainingWork": 0,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 30089,
+            "title": "Configure AG 360 releases for separated binary/config artifacts",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Roach, Joseph",
+            "completedDate": "2026-05-28T21:19:20.013Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30089",
+            "taskRemainingWork": 0.2,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30100,
+            "title": "Backlog review: re-evaluate open stories under Feature 26914 (MIA to SF Data Sync)",
+            "type": "User Story",
+            "state": "Ready for Review",
+            "storyPoints": 0.5,
+            "completedSP": 0,
+            "remainingSP": 0.5,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30100",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering 360 portal enhancements, account enhancements, sprint cdc enhancements, kafkaconnect jdbc enhancements, retention topics enhancements, flink enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 4 other items.",
+        "sprintGoals": "Delivering 360 portal enhancements, account enhancements, sprint cdc enhancements, kafkaconnect jdbc enhancements, retention topics enhancements, flink enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 5 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 44,
+          "totalSP": 45.5,
           "points": [
             {
               "date": "2026-05-27",
-              "remaining": 41.5
+              "remaining": 43
             },
             {
               "date": "2026-05-28",
-              "remaining": 41.5
+              "remaining": 42
             }
           ],
           "ideal": [
             {
               "date": "2026-05-27",
-              "remaining": 44
+              "remaining": 45.5
             },
             {
               "date": "2026-05-28",
-              "remaining": 39.111111111111114
+              "remaining": 40.44444444444444
             },
             {
               "date": "2026-05-29",
-              "remaining": 34.22222222222222
+              "remaining": 35.388888888888886
             },
             {
               "date": "2026-06-01",
-              "remaining": 29.333333333333332
+              "remaining": 30.333333333333336
             },
             {
               "date": "2026-06-02",
-              "remaining": 24.444444444444443
+              "remaining": 25.27777777777778
             },
             {
               "date": "2026-06-03",
-              "remaining": 19.555555555555554
+              "remaining": 20.22222222222222
             },
             {
               "date": "2026-06-04",
-              "remaining": 14.666666666666664
+              "remaining": 15.166666666666668
             },
             {
               "date": "2026-06-05",
-              "remaining": 9.777777777777771
+              "remaining": 10.111111111111114
             },
             {
               "date": "2026-06-08",
-              "remaining": 4.888888888888886
+              "remaining": 5.055555555555557
             },
             {
               "date": "2026-06-09",
@@ -21076,27 +21132,27 @@ const projects = [
           },
           "Roach, Joseph": {
             "2026-05-27": 11.5,
-            "2026-05-28": 11.5,
-            "2026-05-29": 11.5,
-            "2026-06-01": 11.5,
-            "2026-06-02": 11.5,
-            "2026-06-03": 11.5,
-            "2026-06-04": 11.5,
-            "2026-06-05": 11.5,
-            "2026-06-08": 11.5,
-            "2026-06-09": 11.5
+            "2026-05-28": 11.7,
+            "2026-05-29": 11.7,
+            "2026-06-01": 11.7,
+            "2026-06-02": 11.7,
+            "2026-06-03": 11.7,
+            "2026-06-04": 11.7,
+            "2026-06-05": 11.7,
+            "2026-06-08": 11.7,
+            "2026-06-09": 11.7
           },
           "Lamar, Brion": {
             "2026-05-27": 7,
-            "2026-05-28": 6.5,
-            "2026-05-29": 6.5,
-            "2026-06-01": 6.5,
-            "2026-06-02": 6.5,
-            "2026-06-03": 6.5,
-            "2026-06-04": 6.5,
-            "2026-06-05": 6.5,
-            "2026-06-08": 6.5,
-            "2026-06-09": 6.5
+            "2026-05-28": 7,
+            "2026-05-29": 7,
+            "2026-06-01": 7,
+            "2026-06-02": 7,
+            "2026-06-03": 7,
+            "2026-06-04": 7,
+            "2026-06-05": 7,
+            "2026-06-08": 7,
+            "2026-06-09": 7
           },
           "Hassbaum, Ralph": {
             "2026-05-27": 9,
@@ -26038,7 +26094,7 @@ const projects = [
           "assignedTo": "Medina, Joel",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29976",
-          "taskRemainingWork": 0.5,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -26157,7 +26213,7 @@ const projects = [
           "id": 29987,
           "title": "Delivery Method Update — Audio/Visual Records",
           "type": "User Story",
-          "state": "Ready for Review",
+          "state": "Committed",
           "storyPoints": 0.25,
           "completedSP": 0,
           "remainingSP": 0.25,
@@ -26259,15 +26315,15 @@ const projects = [
       "personTaskBurndown": {
         "Medina, Joel": {
           "2026-05-27": 8,
-          "2026-05-28": 7.75,
-          "2026-05-29": 7.75,
-          "2026-06-01": 7.75,
-          "2026-06-02": 7.75,
-          "2026-06-03": 7.75,
-          "2026-06-04": 7.75,
-          "2026-06-05": 7.75,
-          "2026-06-08": 7.75,
-          "2026-06-09": 7.75
+          "2026-05-28": 7.25,
+          "2026-05-29": 7.25,
+          "2026-06-01": 7.25,
+          "2026-06-02": 7.25,
+          "2026-06-03": 7.25,
+          "2026-06-04": 7.25,
+          "2026-06-05": 7.25,
+          "2026-06-08": 7.25,
+          "2026-06-09": 7.25
         }
       },
       "isCurrent": true
@@ -28563,7 +28619,7 @@ const projects = [
             "assignedTo": "Medina, Joel",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29976",
-            "taskRemainingWork": 0.5,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           },
           {
@@ -28682,7 +28738,7 @@ const projects = [
             "id": 29987,
             "title": "Delivery Method Update — Audio/Visual Records",
             "type": "User Story",
-            "state": "Ready for Review",
+            "state": "Committed",
             "storyPoints": 0.25,
             "completedSP": 0,
             "remainingSP": 0.25,
@@ -28784,15 +28840,15 @@ const projects = [
         "personTaskBurndown": {
           "Medina, Joel": {
             "2026-05-27": 8,
-            "2026-05-28": 7.75,
-            "2026-05-29": 7.75,
-            "2026-06-01": 7.75,
-            "2026-06-02": 7.75,
-            "2026-06-03": 7.75,
-            "2026-06-04": 7.75,
-            "2026-06-05": 7.75,
-            "2026-06-08": 7.75,
-            "2026-06-09": 7.75
+            "2026-05-28": 7.25,
+            "2026-05-29": 7.25,
+            "2026-06-01": 7.25,
+            "2026-06-02": 7.25,
+            "2026-06-03": 7.25,
+            "2026-06-04": 7.25,
+            "2026-06-05": 7.25,
+            "2026-06-08": 7.25,
+            "2026-06-09": 7.25
           }
         },
         "isCurrent": true
