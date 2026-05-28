@@ -195,10 +195,18 @@
       }
     },
     "AG Shared::9a294de9-3b77-4fc3-9192-fe57c016f8f8": {
-      "Hiebsch, Adin": {},
-      "Butler, Justin": {},
-      "Farrand, Phil": {},
-      "Medina, Joel": {}
+      "Hiebsch, Adin": {
+        "2026-05-27": 0
+      },
+      "Butler, Justin": {
+        "2026-05-27": 0.5
+      },
+      "Farrand, Phil": {
+        "2026-05-27": 4
+      },
+      "Medina, Joel": {
+        "2026-05-27": 0.25
+      }
     },
     "AG.Giving::1f6cdc0b-c061-4ce9-a51d-9cd906117056": {},
     "AG.Giving::ea51413b-c8b0-4da8-88c4-1c532ddc9737": {
@@ -358,7 +366,9 @@
       }
     },
     "AG.Giving::36f6d6d6-7997-45ea-99de-63f685682c44": {
-      "Butler, Justin": {}
+      "Butler, Justin": {
+        "2026-05-27": 3
+      }
     },
     "AGWM Apps::384aacaf-4dd2-4ebd-af4e-02fd061d85c2": {},
     "AGWM Apps::3ab9104d-fe72-4f18-aaea-c3600362e3b1": {},
@@ -494,8 +504,12 @@
       }
     },
     "AGWM Apps::4dc47d6b-92fa-4b78-9db2-c9235437a74d": {
-      "Campbell, Jack H": {},
-      "Farrand, Phil": {}
+      "Campbell, Jack H": {
+        "2026-05-27": 0.5
+      },
+      "Farrand, Phil": {
+        "2026-05-27": 0
+      }
     },
     "AGWM Financial Reporting::92b5240d-c247-4240-8c05-c2ca23801d4e": {
       "Campbell, Jack H": {
@@ -845,7 +859,11 @@
         "2026-05-26": 0
       }
     },
-    "Bible Engagement Project::6b9d14f6-3ff3-44bd-8226-4d45de704508": {},
+    "Bible Engagement Project::6b9d14f6-3ff3-44bd-8226-4d45de704508": {
+      "Greg Pawlik": {
+        "2026-05-27": 0
+      }
+    },
     "Bible Engagement Project::07da7f11-ded7-460e-9537-7547a0bb8b49": {},
     "Chi Alpha::3c2f6fbe-b3a2-40d8-bbb9-c0dc61751ca3": {
       "Lamar, Brion": {
@@ -1113,7 +1131,9 @@
       }
     },
     "CMS vNext::2f4d6360-e815-40da-893c-623b275d8bc8": {
-      "Hull, Darrin": {}
+      "Hull, Darrin": {
+        "2026-05-27": 5.5
+      }
     },
     "CRM::48162f6a-c703-4da5-9d8f-183916c1fc7b": {
       "Furr, Darren M": {
@@ -1604,10 +1624,18 @@
       }
     },
     "CRM::353aad71-3d6c-4d24-8ab4-545187b959ec": {
-      "Hassbaum, Ralph": {},
-      "Georgiades, George": {},
-      "Roach, Joseph": {},
-      "Lamar, Brion": {}
+      "Hassbaum, Ralph": {
+        "2026-05-27": 9
+      },
+      "Georgiades, George": {
+        "2026-05-27": 2.5
+      },
+      "Roach, Joseph": {
+        "2026-05-27": 11.5
+      },
+      "Lamar, Brion": {
+        "2026-05-27": 7
+      }
     },
     "CRM::f89d212c-f7ea-4417-8a37-29ceaabf6caf": {},
     "Fine Arts::c982118f-dcd4-4412-a80e-117b6de2e998": {
@@ -1989,8 +2017,12 @@
       }
     },
     "Fine Arts::d0e08d48-97ec-44ca-b237-6f06e3f2cde5": {
-      "Hiebsch, Adin": {},
-      "Butler, Justin": {}
+      "Hiebsch, Adin": {
+        "2026-05-27": 4
+      },
+      "Butler, Justin": {
+        "2026-05-27": 4
+      }
     },
     "FPHC::d0d67561-ad6c-4907-bbf1-2f1c560d7894": {
       "Medina, Joel": {
@@ -2332,9 +2364,15 @@
       }
     },
     "GPH::d4b12f62-c7ca-453a-a265-3aaff3a83d32": {
-      "Butler, Justin": {},
-      "dkobozev gloo.us": {},
-      "Keltner, Scott": {}
+      "Butler, Justin": {
+        "2026-05-27": 2
+      },
+      "dkobozev gloo.us": {
+        "2026-05-27": 9
+      },
+      "Keltner, Scott": {
+        "2026-05-27": 5
+      }
     },
     "GPH::198c4d50-9d4f-4b4a-b82b-8265d38bb10c": {
       "Butler, Justin": {}
@@ -2601,8 +2639,12 @@
     },
     "USMIA::c135ff0a-7b1d-4ecb-b7b7-31fb56513fc0": {},
     "AGWM Financial Reporting::8078a254-4314-420e-96ce-38ce99c60a67": {
-      "Georgiades, George": {},
-      "Campbell, Jack H": {}
+      "Georgiades, George": {
+        "2026-05-27": 2
+      },
+      "Campbell, Jack H": {
+        "2026-05-27": 6
+      }
     },
     "CMS vNext::0a1f93dc-f472-44ac-b017-21198da8c718": {
       "Hull, Darrin": {}
@@ -2611,10 +2653,14 @@
       "Hiebsch, Adin": {}
     },
     "FPHC::f2b8ee62-e876-4e77-8a04-ec577dee9b6f": {
-      "Medina, Joel": {}
+      "Medina, Joel": {
+        "2026-05-27": 8
+      }
     },
     "Chi Alpha::30ba4c01-3429-47bf-8a4f-412d082ca91f": {
-      "Georgiades, George": {}
+      "Georgiades, George": {
+        "2026-05-27": 5
+      }
     }
   }
 }
