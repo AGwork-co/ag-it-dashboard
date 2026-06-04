@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, June 4, 2026 at 2:22 PM</span>
+    <span>Last updated: Thursday, June 4, 2026 at 5:18 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -11869,13 +11869,13 @@ const projects = [
         "title": "Affiliate Ministry Transition",
         "state": "New",
         "features": 2,
-        "stories": 2
+        "stories": 3
       }
     ],
     "estimation": {
-      "total": 4,
+      "total": 5,
       "estimated": 3,
-      "unestimated": 1,
+      "unestimated": 2,
       "totalSP": 6.5,
       "incompleteSP": 6,
       "sprintSP": {
@@ -15535,7 +15535,7 @@ const projects = [
         "title": "Phase 2: MIA",
         "state": "Active",
         "features": 5,
-        "stories": 110
+        "stories": 111
       },
       {
         "id": 26793,
@@ -15577,7 +15577,7 @@ const projects = [
         "title": "AG 360 Portal (MVP)",
         "state": "Active",
         "features": 5,
-        "stories": 76
+        "stories": 77
       },
       {
         "id": 28512,
@@ -15588,11 +15588,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 567,
-      "estimated": 348,
-      "unestimated": 219,
-      "totalSP": 659.8,
-      "incompleteSP": 124.75,
+      "total": 569,
+      "estimated": 349,
+      "unestimated": 220,
+      "totalSP": 660.3,
+      "incompleteSP": 122.25,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 85.25,
@@ -15611,7 +15611,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 5": 65.5,
+        "Q2 2026 - Sprint 5": 66,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
@@ -15624,10 +15624,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 5",
       "startDate": "2026-05-27T00:00:00Z",
       "endDate": "2026-06-09T00:00:00Z",
-      "totalSP": 65.5,
-      "completedSP": 14.5,
-      "remainingSP": 51,
-      "storyCount": 37,
+      "totalSP": 66,
+      "completedSP": 17.5,
+      "remainingSP": 48.5,
+      "storyCount": 39,
       "stories": [
         {
           "id": 23670,
@@ -15885,14 +15885,14 @@ const projects = [
           "id": 29970,
           "title": "Refactor MIA forward sync for SF \"MIA Traits\" meta object (pending Nicholas)",
           "type": "User Story",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 3,
-          "completedSP": 0,
-          "remainingSP": 3,
+          "completedSP": 3,
+          "remainingSP": 0,
           "assignedTo": "Lamar, Brion",
-          "completedDate": null,
+          "completedDate": "2026-06-04T21:28:35.39Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29970",
-          "taskRemainingWork": 3,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -16137,7 +16137,7 @@ const projects = [
           "id": 30222,
           "title": "Audit & fix FM CDC column-name/casing mismatches across all mia-transformer-sf POJOs",
           "type": "User Story",
-          "state": "New",
+          "state": "Committed",
           "storyPoints": 3,
           "completedSP": 0,
           "remainingSP": 3,
@@ -16146,81 +16146,109 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30222",
           "taskRemainingWork": 3,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 30236,
+          "title": "360 Portal: Electron launcher UX fixes (keep-open, single-instance, login close, settings/hotkey)",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30236",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30237,
+          "title": "Fix retry-topic RetryRecord serialization (CdcEnvelope derived getters) + RetryDelayFunction test assertions",
+          "type": "Bug",
+          "state": "Ready for Review",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30237",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering 360 portal enhancements, cdc sprint enhancements, mia sync enhancements, account enhancements, sprint enhancements, api enhancements, fix enhancements, kafkaconnect jdbc enhancements, name app enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 6 other items.",
+      "sprintGoals": "Delivering 360 portal enhancements, cdc sprint enhancements, mia sync enhancements, fix enhancements, account enhancements, sprint enhancements, api enhancements, kafkaconnect jdbc enhancements, name app enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 6 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 65.5,
+        "totalSP": 66,
         "points": [
           {
             "date": "2026-05-27",
-            "remaining": 63.5
+            "remaining": 64
           },
           {
             "date": "2026-05-28",
-            "remaining": 62.5
+            "remaining": 63
           },
           {
             "date": "2026-05-29",
-            "remaining": 62.5
+            "remaining": 63
           },
           {
             "date": "2026-06-01",
-            "remaining": 59
+            "remaining": 59.5
           },
           {
             "date": "2026-06-02",
-            "remaining": 55
+            "remaining": 55.5
           },
           {
             "date": "2026-06-03",
-            "remaining": 51
+            "remaining": 51.5
           },
           {
             "date": "2026-06-04",
-            "remaining": 51
+            "remaining": 48.5
           }
         ],
         "ideal": [
           {
             "date": "2026-05-27",
-            "remaining": 65.5
+            "remaining": 66
           },
           {
             "date": "2026-05-28",
-            "remaining": 58.22222222222222
+            "remaining": 58.666666666666664
           },
           {
             "date": "2026-05-29",
-            "remaining": 50.94444444444444
+            "remaining": 51.333333333333336
           },
           {
             "date": "2026-06-01",
-            "remaining": 43.66666666666667
+            "remaining": 44
           },
           {
             "date": "2026-06-02",
-            "remaining": 36.388888888888886
+            "remaining": 36.66666666666667
           },
           {
             "date": "2026-06-03",
-            "remaining": 29.111111111111114
+            "remaining": 29.333333333333336
           },
           {
             "date": "2026-06-04",
-            "remaining": 21.833333333333336
+            "remaining": 22
           },
           {
             "date": "2026-06-05",
-            "remaining": 14.555555555555557
+            "remaining": 14.666666666666671
           },
           {
             "date": "2026-06-08",
-            "remaining": 7.277777777777779
+            "remaining": 7.333333333333336
           },
           {
             "date": "2026-06-09",
@@ -16272,10 +16300,10 @@ const projects = [
           "2026-06-01": 6.5,
           "2026-06-02": 8,
           "2026-06-03": 8,
-          "2026-06-04": 8,
-          "2026-06-05": 8,
-          "2026-06-08": 8,
-          "2026-06-09": 8
+          "2026-06-04": 8.5,
+          "2026-06-05": 8.5,
+          "2026-06-08": 8.5,
+          "2026-06-09": 8.5
         }
       },
       "isCurrent": true
@@ -21478,10 +21506,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 5",
         "startDate": "2026-05-27T00:00:00Z",
         "endDate": "2026-06-09T00:00:00Z",
-        "totalSP": 65.5,
-        "completedSP": 14.5,
-        "remainingSP": 51,
-        "storyCount": 37,
+        "totalSP": 66,
+        "completedSP": 17.5,
+        "remainingSP": 48.5,
+        "storyCount": 39,
         "stories": [
           {
             "id": 23670,
@@ -21739,14 +21767,14 @@ const projects = [
             "id": 29970,
             "title": "Refactor MIA forward sync for SF \"MIA Traits\" meta object (pending Nicholas)",
             "type": "User Story",
-            "state": "Ready for Review",
+            "state": "Done",
             "storyPoints": 3,
-            "completedSP": 0,
-            "remainingSP": 3,
+            "completedSP": 3,
+            "remainingSP": 0,
             "assignedTo": "Lamar, Brion",
-            "completedDate": null,
+            "completedDate": "2026-06-04T21:28:35.39Z",
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29970",
-            "taskRemainingWork": 3,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           },
           {
@@ -21991,7 +22019,7 @@ const projects = [
             "id": 30222,
             "title": "Audit & fix FM CDC column-name/casing mismatches across all mia-transformer-sf POJOs",
             "type": "User Story",
-            "state": "New",
+            "state": "Committed",
             "storyPoints": 3,
             "completedSP": 0,
             "remainingSP": 3,
@@ -22000,81 +22028,109 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30222",
             "taskRemainingWork": 3,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 30236,
+            "title": "360 Portal: Electron launcher UX fixes (keep-open, single-instance, login close, settings/hotkey)",
+            "type": "User Story",
+            "state": "New",
+            "storyPoints": 0,
+            "completedSP": 0,
+            "remainingSP": 0,
+            "assignedTo": "Unassigned",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30236",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30237,
+            "title": "Fix retry-topic RetryRecord serialization (CdcEnvelope derived getters) + RetryDelayFunction test assertions",
+            "type": "Bug",
+            "state": "Ready for Review",
+            "storyPoints": 0.5,
+            "completedSP": 0,
+            "remainingSP": 0.5,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30237",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering 360 portal enhancements, cdc sprint enhancements, mia sync enhancements, account enhancements, sprint enhancements, api enhancements, fix enhancements, kafkaconnect jdbc enhancements, name app enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 6 other items.",
+        "sprintGoals": "Delivering 360 portal enhancements, cdc sprint enhancements, mia sync enhancements, fix enhancements, account enhancements, sprint enhancements, api enhancements, kafkaconnect jdbc enhancements, name app enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 6 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 65.5,
+          "totalSP": 66,
           "points": [
             {
               "date": "2026-05-27",
-              "remaining": 63.5
+              "remaining": 64
             },
             {
               "date": "2026-05-28",
-              "remaining": 62.5
+              "remaining": 63
             },
             {
               "date": "2026-05-29",
-              "remaining": 62.5
+              "remaining": 63
             },
             {
               "date": "2026-06-01",
-              "remaining": 59
+              "remaining": 59.5
             },
             {
               "date": "2026-06-02",
-              "remaining": 55
+              "remaining": 55.5
             },
             {
               "date": "2026-06-03",
-              "remaining": 51
+              "remaining": 51.5
             },
             {
               "date": "2026-06-04",
-              "remaining": 51
+              "remaining": 48.5
             }
           ],
           "ideal": [
             {
               "date": "2026-05-27",
-              "remaining": 65.5
+              "remaining": 66
             },
             {
               "date": "2026-05-28",
-              "remaining": 58.22222222222222
+              "remaining": 58.666666666666664
             },
             {
               "date": "2026-05-29",
-              "remaining": 50.94444444444444
+              "remaining": 51.333333333333336
             },
             {
               "date": "2026-06-01",
-              "remaining": 43.66666666666667
+              "remaining": 44
             },
             {
               "date": "2026-06-02",
-              "remaining": 36.388888888888886
+              "remaining": 36.66666666666667
             },
             {
               "date": "2026-06-03",
-              "remaining": 29.111111111111114
+              "remaining": 29.333333333333336
             },
             {
               "date": "2026-06-04",
-              "remaining": 21.833333333333336
+              "remaining": 22
             },
             {
               "date": "2026-06-05",
-              "remaining": 14.555555555555557
+              "remaining": 14.666666666666671
             },
             {
               "date": "2026-06-08",
-              "remaining": 7.277777777777779
+              "remaining": 7.333333333333336
             },
             {
               "date": "2026-06-09",
@@ -22126,10 +22182,10 @@ const projects = [
             "2026-06-01": 6.5,
             "2026-06-02": 8,
             "2026-06-03": 8,
-            "2026-06-04": 8,
-            "2026-06-05": 8,
-            "2026-06-08": 8,
-            "2026-06-09": 8
+            "2026-06-04": 8.5,
+            "2026-06-05": 8.5,
+            "2026-06-08": 8.5,
+            "2026-06-09": 8.5
           }
         },
         "isCurrent": true
@@ -39795,14 +39851,6 @@ const supportRequests = {
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/30116"
     },
     {
-      "id": 30146,
-      "title": "USMIA Budget Tab 500 Error [Shameca Black]",
-      "state": "Committed",
-      "project": "Missions Support",
-      "description": "Brion Lamar is the one that used to fix. Ramona Edgman Administrator, AG U.S. Missions (417) 862-2781 AG National Office 1445 N Boonville Ave Springfield, MO 65802 From: Eoff, Dawn <DEoff@ag.org> Sent: Tuesday, June 2, 2026 12:36 PM To: Edgman, Ramona <REdgman@ag.org> Subject: need ticket to look at…",
-      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/30146"
-    },
-    {
       "id": 30147,
       "title": "Update Email Recipients [US Missions Trusted Employees Background Checks]",
       "state": "New",
@@ -40037,28 +40085,12 @@ const supportRequests = {
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29685"
     },
     {
-      "id": 29918,
-      "title": "Customer Does Not Have Access to Digital Subscription",
-      "state": "Approved",
-      "project": "Business Software Support",
-      "description": "Good Morning. We have a customer that has purchased a digital item on our website at https://digital.myhealthychurch.com . When he goes to log in, he cannot find the subscription in his library. When I tried to access the information through the administrator portal that Scott Keltner has helped us …",
-      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29918"
-    },
-    {
       "id": 30029,
       "title": "FW: Minister Exam",
       "state": "Waiting",
       "project": "Business Software Support",
       "description": "Good morning, On the Minister Exam site, ministerexam.ag.org, the doctrine exam for Anthony Rosario, anthonyr180@gmail.com , in the Spanish Eastern district has been hung up on the exam completed status for over a week. Please move it to the scored status when able. Thank you, Josiah Eckard Credenti…",
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/30029"
-    },
-    {
-      "id": 30117,
-      "title": "Digital.MyHealthyChurch.com purchase not reflected in customer account",
-      "state": "Approved",
-      "project": "Business Software Support",
-      "description": "Good morning. We have another instance where a digital purchase is not reflected in the customer account. Can someone please look at the logs for this purchase to determine if something is wrong with the settings? Customer Name: Kristen Davis Customer ID: 96246450 Subscription: Girls Ministries Rain…",
-      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/30117"
     }
   ],
   "Stratton, Jason": [
