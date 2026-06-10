@@ -29826,6 +29826,572 @@
       },
       "personTaskBurndown": {},
       "isCurrent": false
+    },
+    "AG Shared::9a294de9-3b77-4fc3-9192-fe57c016f8f8": {
+      "name": "Q2 2026 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 7.5,
+      "completedSP": 3.5,
+      "remainingSP": 4,
+      "storyCount": 6,
+      "stories": [
+        {
+          "id": 27690,
+          "title": "Daily Date Card Update",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Farrand, Phil",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/27690",
+          "taskRemainingWork": 1.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28131,
+          "title": "Contributor Services: Special Monthly Process",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Farrand, Phil",
+          "completedDate": "2026-05-28T18:44:33.687Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28131",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28838,
+          "title": "GPH Royalties: Incorporate Dynamics GP data in console app",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Medina, Joel",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28838",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28840,
+          "title": "GPH Royalties: Email stakeholders",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Medina, Joel",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/28840",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29711,
+          "title": "Small settings fixes / naming fixes",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": "2026-05-29T18:51:14.593Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/29711",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30041,
+          "title": "Setup CI/CD Pipelines",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-05-29T18:29:10.443Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Shared/_workitems/edit/30041",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering gph royalties enhancements, along with daily date card update, contributor services: special monthly process, and 2 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 7.5,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 7.5
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 5.5
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 4
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 7.5
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 6.666666666666667
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 5.833333333333333
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 5
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 4.166666666666666
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 3.333333333333333
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 2.5
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 1.666666666666666
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0.833333333333333
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Farrand, Phil": {
+          "2026-05-27": 4,
+          "2026-05-28": 2,
+          "2026-05-29": 2,
+          "2026-06-01": 2,
+          "2026-06-02": 1.5,
+          "2026-06-03": 1.5,
+          "2026-06-04": 1.5,
+          "2026-06-05": 1.5,
+          "2026-06-08": 1.5,
+          "2026-06-09": 1.5
+        },
+        "Medina, Joel": {
+          "2026-05-27": 0.25,
+          "2026-05-28": 0.25,
+          "2026-05-29": 0.25,
+          "2026-06-01": 0.25,
+          "2026-06-02": 0.25,
+          "2026-06-03": 0.25,
+          "2026-06-04": 0.25,
+          "2026-06-05": 0.25,
+          "2026-06-08": 0.25,
+          "2026-06-09": 0.25
+        },
+        "Hiebsch, Adin": {
+          "2026-05-27": 0,
+          "2026-05-28": 0,
+          "2026-05-29": 0,
+          "2026-06-01": 0,
+          "2026-06-02": 0,
+          "2026-06-03": 0,
+          "2026-06-04": 0,
+          "2026-06-05": 0,
+          "2026-06-08": 0,
+          "2026-06-09": 0
+        },
+        "Butler, Justin": {
+          "2026-05-27": 0.5,
+          "2026-05-28": 0.5,
+          "2026-05-29": 0,
+          "2026-06-01": 0,
+          "2026-06-02": 0,
+          "2026-06-03": 0,
+          "2026-06-04": 0,
+          "2026-06-05": 0,
+          "2026-06-08": 0,
+          "2026-06-09": 0
+        }
+      },
+      "isCurrent": false
+    },
+    "FPHC::f2b8ee62-e876-4e77-8a04-ec577dee9b6f": {
+      "name": "Q2 2026 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 7.75,
+      "completedSP": 7.75,
+      "remainingSP": 0,
+      "storyCount": 15,
+      "stories": [
+        {
+          "id": 29853,
+          "title": "Ensure Delivery Options are correct",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-05-28T19:30:40.837Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29853",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29974,
+          "title": "Audio/Visual Resource Type Consolidation",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-09T16:22:29.25Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29974",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29975,
+          "title": "Field Label Updates — Audio/Visual Archive",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-01T15:20:41.867Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29975",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29976,
+          "title": "Remove File Upload from Document Resource Type",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-01T15:20:41.867Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29976",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29977,
+          "title": "Date Cataloged filter should Default to Today's Date",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-05-28T19:30:40.963Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29977",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29978,
+          "title": "Results Per Page Options Update",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-01T15:25:42.927Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29978",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29979,
+          "title": "Sort Filter Simplification — Digital Publications Index Search",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-01T15:25:43.05Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29979",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29980,
+          "title": "Publish Date Format Standardization",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-05-28T19:30:41.083Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29980",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29981,
+          "title": "Progress Indicator on Terms & Conditions Acceptance",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-09T16:22:29.39Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29981",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29982,
+          "title": "MARC Number Visible on Preview",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-01T15:25:43.163Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29982",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29984,
+          "title": "Archive Editing Column Width",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-09T16:22:29.46Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29984",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29985,
+          "title": "Prevent Copying \"Cataloged By\" Fields on Record Copy",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-05-28T19:30:41.21Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29985",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29987,
+          "title": "Delivery Method Update — Audio/Visual Records",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-01T15:25:43.267Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29987",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29988,
+          "title": "Back Navigation Error — Photograph \"More by Creator\"",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-09T16:22:29.533Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29988",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29993,
+          "title": "Duplicate Registration Notification Emails",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-05-28T19:30:41.47Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29993",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering audiovisual enhancements, options enhancements, date enhancements, and remove file upload from document resource type, Sort Filter Simplification — Digital Publicatio..., and 6 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 7.75,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 7.75
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 6
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 6
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 3.75
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 3.75
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 3.75
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 3.75
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 3.75
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 3.75
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 7.75
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 6.888888888888889
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 6.027777777777778
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 5.166666666666666
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 4.305555555555555
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 3.4444444444444446
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 2.583333333333333
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 1.7222222222222214
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0.8611111111111107
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Medina, Joel": {
+          "2026-05-27": 8,
+          "2026-05-28": 7.25,
+          "2026-05-29": 6,
+          "2026-06-01": 5.25,
+          "2026-06-02": 3.25,
+          "2026-06-03": 2.75,
+          "2026-06-04": 2.75,
+          "2026-06-05": 2.25,
+          "2026-06-08": 2,
+          "2026-06-09": 2
+        }
+      },
+      "isCurrent": false
     }
   }
 }
