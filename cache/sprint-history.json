@@ -27504,6 +27504,2120 @@
         }
       },
       "isCurrent": false
+    },
+    "AG Missions Common::38959e30-e279-46ba-858b-0b5f9f43f59e": {
+      "name": "Q2 2026 - Sprint 3",
+      "startDate": "2026-04-29T00:00:00Z",
+      "endDate": "2026-05-12T00:00:00Z",
+      "totalSP": 0.5,
+      "completedSP": 0,
+      "remainingSP": 0.5,
+      "storyCount": 1,
+      "stories": [
+        {
+          "id": 28837,
+          "title": "Access AGWM Data Bases",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Missions%20Common/_workitems/edit/28837",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering access agwm data bases.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 0.5,
+        "points": [
+          {
+            "date": "2026-04-29",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-04-30",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-05-01",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-05-04",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-05-05",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-05-06",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-05-07",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-05-08",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-05-11",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-05-12",
+            "remaining": 0.5
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-04-29",
+            "remaining": 0.5
+          },
+          {
+            "date": "2026-04-30",
+            "remaining": 0.4444444444444444
+          },
+          {
+            "date": "2026-05-01",
+            "remaining": 0.3888888888888889
+          },
+          {
+            "date": "2026-05-04",
+            "remaining": 0.33333333333333337
+          },
+          {
+            "date": "2026-05-05",
+            "remaining": 0.2777777777777778
+          },
+          {
+            "date": "2026-05-06",
+            "remaining": 0.2222222222222222
+          },
+          {
+            "date": "2026-05-07",
+            "remaining": 0.16666666666666669
+          },
+          {
+            "date": "2026-05-08",
+            "remaining": 0.11111111111111116
+          },
+          {
+            "date": "2026-05-11",
+            "remaining": 0.05555555555555558
+          },
+          {
+            "date": "2026-05-12",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Lamar, Brion": {
+          "2026-04-29": 0.5,
+          "2026-04-30": 0,
+          "2026-05-01": 0,
+          "2026-05-04": 0,
+          "2026-05-05": 0,
+          "2026-05-06": 0,
+          "2026-05-07": 0,
+          "2026-05-08": 0,
+          "2026-05-11": 0,
+          "2026-05-12": 0
+        }
+      },
+      "isCurrent": false
+    },
+    "AG.Giving::36f6d6d6-7997-45ea-99de-63f685682c44": {
+      "name": "Q2 2026 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 0,
+      "completedSP": 0,
+      "remainingSP": 0,
+      "storyCount": 0,
+      "stories": [],
+      "sprintGoals": "",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 0,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {},
+      "isCurrent": false
+    },
+    "Bible Engagement Project::6b9d14f6-3ff3-44bd-8226-4d45de704508": {
+      "name": "Q2 2026 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 3,
+      "completedSP": 0,
+      "remainingSP": 3,
+      "storyCount": 3,
+      "stories": [
+        {
+          "id": 29551,
+          "title": "Youth Roadmap: Library Home UX Revisions",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/29551",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30091,
+          "title": "v3.2.1 fixes",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/30091",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30223,
+          "title": "Church Profile",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Greg Pawlik",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/30223",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering youth roadmap: library home ux revisions, v3.2.1 fixes, and 1 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 3,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 3
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 3
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 3
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 3
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 3
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 3
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 3
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 3
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 3
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 3
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 3
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 2.6666666666666665
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 2.3333333333333335
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 2
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 1.6666666666666667
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 1.3333333333333335
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 0.666666666666667
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0.3333333333333335
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Greg Pawlik": {
+          "2026-05-27": 0,
+          "2026-05-28": 0,
+          "2026-05-29": 0,
+          "2026-06-01": 0,
+          "2026-06-02": 0,
+          "2026-06-03": 0,
+          "2026-06-04": 0,
+          "2026-06-05": 0,
+          "2026-06-08": 0,
+          "2026-06-09": 0
+        }
+      },
+      "isCurrent": false
+    },
+    "CMS vNext::2f4d6360-e815-40da-893c-623b275d8bc8": {
+      "name": "Q2 2026 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 24,
+      "completedSP": 5.25,
+      "remainingSP": 18.75,
+      "storyCount": 21,
+      "stories": [
+        {
+          "id": 25808,
+          "title": "MFC: Base Layout / Menu / CSS",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": "2026-06-02T16:15:42.063Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/25808",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 25809,
+          "title": "MFC: Pages: Home",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/25809",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 27079,
+          "title": "Church Admin Essentials Web Page Update",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/27079",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28714,
+          "title": "Discipleship: Cutover DNS",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/28714",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29622,
+          "title": "Young Adults: Cutover DNS",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/29622",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29623,
+          "title": "Camp Kit Webpage",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/29623",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29888,
+          "title": "Discipleship: User Set-up Documentation",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/29888",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30064,
+          "title": "Called Jobs Board - Form: Conditional AG Account Number Logic",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Keltner, Scott",
+          "completedDate": "2026-06-08T15:15:00.827Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30064",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30065,
+          "title": "Called Job Board - Search: Add \"Executive\" Category",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Keltner, Scott",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30065",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30066,
+          "title": "Called Job Board - Search: Rename \"Worship\" Category",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Keltner, Scott",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30066",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30129,
+          "title": "Camp Kit: Update Page Title",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": "2026-06-03T13:19:52.26Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30129",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30130,
+          "title": "Camp Kit: Update Opening Paragraph",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": "2026-06-03T13:20:42.427Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30130",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30131,
+          "title": "Camp Kit: Invert Youth Dept. Section Colors",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": "2026-06-03T13:21:01.673Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30131",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30190,
+          "title": "StartRoyalRangers: One Step Migrate",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": "2026-06-05T15:19:30.49Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30190",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30193,
+          "title": "discipleshippathway.ag.org: Single Page",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30193",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30196,
+          "title": "worldagfellowship.org: Base Layout / Menu / CSS - Copy",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30196",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30197,
+          "title": "worldagfellowship.org: Fellowship related pages",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30197",
+          "taskRemainingWork": 3,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30199,
+          "title": "worldagfellowship.org: Relief related page",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 0.25,
+          "completedSP": 0,
+          "remainingSP": 0.25,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30199",
+          "taskRemainingWork": 0.25,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30200,
+          "title": "worldagfellowship.org: Congress and Events",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30200",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30201,
+          "title": "worldagfellowship.org: Missions",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30201",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30202,
+          "title": "worldagfellowship.org: Commissions and Committees",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hull, Darrin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30202",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering worldagfellowshiporg related enhancements, camp kit enhancements, called board enhancements, mfc enhancements, discipleship enhancements, and church admin essentials web page update, young adults: cutover dns, and 2 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 24,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 24
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 24
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 24
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 24
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 22
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 21.25
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 21.25
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 19.25
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 18.75
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 18.75
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 24
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 21.333333333333332
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 18.666666666666668
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 16
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 13.333333333333334
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 10.666666666666668
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 8
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 5.333333333333336
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 2.666666666666668
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Hull, Darrin": {
+          "2026-05-27": 5.5,
+          "2026-05-28": 4.5,
+          "2026-05-29": 4.5,
+          "2026-06-01": 4.5,
+          "2026-06-02": 3.25,
+          "2026-06-03": 6.5,
+          "2026-06-04": 6.5,
+          "2026-06-05": 3.5,
+          "2026-06-08": 3.5,
+          "2026-06-09": 13.75
+        },
+        "Keltner, Scott": {
+          "2026-05-27": 0,
+          "2026-05-28": 0,
+          "2026-05-29": 0,
+          "2026-06-01": 1.5,
+          "2026-06-02": 1.5,
+          "2026-06-03": 1.5,
+          "2026-06-04": 1.5,
+          "2026-06-05": 1.5,
+          "2026-06-08": 1,
+          "2026-06-09": 1
+        }
+      },
+      "isCurrent": false
+    },
+    "CRM::353aad71-3d6c-4d24-8ab4-545187b959ec": {
+      "name": "Q2 2026 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 63.5,
+      "completedSP": 37,
+      "remainingSP": 26.5,
+      "storyCount": 41,
+      "stories": [
+        {
+          "id": 23670,
+          "title": "na-blackbox-sf finalize",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 8,
+          "completedSP": 0,
+          "remainingSP": 8,
+          "assignedTo": "Georgiades, George",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/23670",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28459,
+          "title": "360 Portal: International Address & Phone Number Support — UI",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28459",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28462,
+          "title": "360 Portal: Electron Auto-Update Deployment",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1.5,
+          "completedSP": 1.5,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-06-10T00:22:18.43Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28462",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28716,
+          "title": "Kafka-Connect: JDBC Sink Connector",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28716",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28717,
+          "title": "Kafka-Connect: JDBC Source Connector",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28717",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29213,
+          "title": "Add suffix and doNotContact to composite create-account contract",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29213",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29288,
+          "title": "Individual Account ParentId Linking",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-02T19:48:59.65Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29288",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29332,
+          "title": "Agenda Minutes to Task Pipeline",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29332",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29333,
+          "title": "Switchover CDC -- HoH Swap",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29333",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29334,
+          "title": "CDC Burst Resilience",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29334",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29699,
+          "title": "Configure Smarty credentials for AG 360 address autocomplete",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-06-01T16:16:05.283Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29699",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29715,
+          "title": "Set retention on CDC topics to -1",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-05-27T15:20:23.72Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29715",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29817,
+          "title": "Salesforce Permissions Model for SOML Data (AGWM Visibility)",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-09T20:42:13.823Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29817",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29876,
+          "title": "Account Number Lookup & Creation REST API",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Georgiades, George",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29876",
+          "taskRemainingWork": 2.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29964,
+          "title": "Account Lookup and Creation via NA API in the 360 Portal",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 4,
+          "completedSP": 0,
+          "remainingSP": 4,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29964",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29970,
+          "title": "Refactor MIA forward sync for SF \"MIA Traits\" meta object (pending Nicholas)",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 3,
+          "completedSP": 3,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-05T07:18:06.85Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29970",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29995,
+          "title": "Add additional Slots to Flink Task Managers",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-05-27T17:47:54.95Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29995",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30025,
+          "title": "Apply Drizzle schema migrations in prod API release",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-06-01T13:21:06.13Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30025",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30053,
+          "title": "Story 4.9 - NA Rework Support",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-06-05T20:59:33.067Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30053",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30061,
+          "title": "Fix Flink SQL parse failure on SOOL_Titles Ordinal column",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-01T12:38:55.07Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30061",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30089,
+          "title": "Configure AG 360 releases for separated binary/config artifacts",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-05-28T21:19:20.013Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30089",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30100,
+          "title": "Backlog review: re-evaluate open stories under Feature 26914 (MIA to SF Data Sync)",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-02T19:48:59.28Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30100",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30104,
+          "title": "MIA composite-graph assembler + fan-in to shared sf-composite-graph sink (AssemblerJob)",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 3,
+          "completedSP": 3,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-05T07:18:07.5Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30104",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30110,
+          "title": "Fix: Both the TransactionRepository and FundView Stimzi source connectors are pointing to the wrong database.",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-06-02T15:26:38.08Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30110",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30136,
+          "title": "Assignment Ministries__c — emit semicolon-delimited for SF multi-select picklist",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-02T19:48:59.493Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30136",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30152,
+          "title": "Rename MIA Assignment external ID to Missionary_Assignment_ID__c",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-05T07:18:08.637Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30152",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30153,
+          "title": "Cut over MIA transformer to composite-graph sink; retire per-entity upsert topics",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-09T20:42:13.43Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30153",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30157,
+          "title": "Desktop app branding: tray icon, app icon, name, and download-page favicon",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-06-03T18:49:52.433Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30157",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30167,
+          "title": "Support - FundView CDC topics inactive after Strimzi connection issues",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-06-05T12:37:49.6Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30167",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30169,
+          "title": "Support - Salesforce API user expired on 06/01 causing all jobs to fail",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-06-05T12:37:18.283Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30169",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30198,
+          "title": "Modify the Update logic to parse and split Name Parts into ExtendedNamePart 1-9 and don't use Proper*",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 2.5,
+          "completedSP": 0,
+          "remainingSP": 2.5,
+          "assignedTo": "Georgiades, George",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30198",
+          "taskRemainingWork": 2.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30206,
+          "title": "Migrate candidate proposed region/country to MIA_Trait__c",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-09T23:22:14.157Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30206",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30208,
+          "title": "FM→SF value crosswalk for MIA_Trait__c.Citizenship_Nation__c restricted picklist",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-08T18:58:04.217Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30208",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30217,
+          "title": "Support - Fix the Service constant for the blackbox ModifiedBy",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-06-08T18:58:04.493Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30217",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30222,
+          "title": "Audit & fix FM CDC column-name/casing mismatches across all mia-transformer-sf POJOs",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 3,
+          "completedSP": 3,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-05T20:59:28.877Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30222",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30236,
+          "title": "360 Portal: Electron launcher UX fixes (keep-open, single-instance, login close, settings/hotkey)",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30236",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30237,
+          "title": "Fix retry-topic RetryRecord serialization (CdcEnvelope derived getters) + RetryDelayFunction test assertions",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-05T20:59:29.427Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30237",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30254,
+          "title": "Degree_Title__c forward sync: DEGREE CDC capture + reference lookup + FM→SF crosswalk",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-10T14:09:31.06Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30254",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30264,
+          "title": "Temporary access lockdown: restrict portal to dev/PM accounts until WorkOS RBAC",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-06-09T15:03:29.427Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30264",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30268,
+          "title": "Support - Extend Flink Task Manager Slots to 30",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-06-09T20:42:13.993Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30268",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30297,
+          "title": "Refactor Electron main process index.ts into focused modules",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-06-09T19:36:26.787Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30297",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering 360 portal enhancements, cdc topics enhancements, mia sync enhancements, fix enhancements, api enhancements, flink slots enhancements, kafkaconnect jdbc enhancements, picklist enhancements, name app enhancements, and na-blackbox-sf finalize, Add suffix and doNotContact to composite create..., and 7 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 63.5,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 61.5
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 60.5
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 60.5
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 57
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 54
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 53
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 53
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 38.5
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 36.5
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 30
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 63.5
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 56.44444444444444
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 49.388888888888886
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 42.333333333333336
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 35.27777777777778
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 28.22222222222222
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 21.16666666666667
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 14.111111111111114
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 7.055555555555557
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Georgiades, George": {
+          "2026-05-27": 2.5,
+          "2026-05-28": 2.5,
+          "2026-05-29": 2.5,
+          "2026-06-01": 2,
+          "2026-06-02": 2,
+          "2026-06-03": 6,
+          "2026-06-04": 6,
+          "2026-06-05": 6,
+          "2026-06-08": 6,
+          "2026-06-09": 6
+        },
+        "Roach, Joseph": {
+          "2026-05-27": 11.5,
+          "2026-05-28": 11.7,
+          "2026-05-29": 11.7,
+          "2026-06-01": 11.7,
+          "2026-06-02": 11.9,
+          "2026-06-03": 8.9,
+          "2026-06-04": 8.9,
+          "2026-06-05": 6,
+          "2026-06-08": 6,
+          "2026-06-09": 6
+        },
+        "Lamar, Brion": {
+          "2026-05-27": 7,
+          "2026-05-28": 7,
+          "2026-05-29": 6,
+          "2026-06-01": 6.5,
+          "2026-06-02": 8,
+          "2026-06-03": 8,
+          "2026-06-04": 8.5,
+          "2026-06-05": 6,
+          "2026-06-08": 3,
+          "2026-06-09": 5
+        },
+        "Hassbaum, Ralph": {
+          "2026-05-27": 9,
+          "2026-05-28": 9,
+          "2026-05-29": 10,
+          "2026-06-01": 10,
+          "2026-06-02": 10,
+          "2026-06-03": 15,
+          "2026-06-04": 15,
+          "2026-06-05": 14,
+          "2026-06-08": 13,
+          "2026-06-09": 1
+        }
+      },
+      "isCurrent": false
+    },
+    "Fine Arts::d0e08d48-97ec-44ca-b237-6f06e3f2cde5": {
+      "name": "Q2 2026 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 15.25,
+      "completedSP": 4.25,
+      "remainingSP": 11,
+      "storyCount": 10,
+      "stories": [
+        {
+          "id": 5583,
+          "title": "Digital Evaluations: QC Queue Grid",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Butler, Justin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/5583",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 22368,
+          "title": "Digital Evaluations: Submit Score/No Show",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-06-05T14:36:16.317Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/22368",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 23125,
+          "title": "Celebration Service: Dashboard Setup / Cards",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/23125",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 26779,
+          "title": "Celebration Service: Categories MUI Grid",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/26779",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29535,
+          "title": "Scanning QSX: Upgrades to point to blob storage",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Butler, Justin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/29535",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29930,
+          "title": "Results & Top # Results Reports: add Show Group Members filter",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": "2026-06-01T19:53:21.447Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/29930",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 1
+        },
+        {
+          "id": 30059,
+          "title": "Celebration Service: Background Images for Slides",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Hiebsch, Adin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/30059",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30069,
+          "title": "Setup Blob Storage accounts (QA & Prod)",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-06-10T00:48:23.363Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/30069",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30113,
+          "title": "Callback Scheduling: Randomize Presentation Order",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-06-01T16:14:23.46Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/30113",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30138,
+          "title": "Digital Evaluations: Perform QC Review Check Upon Submission",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Butler, Justin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/30138",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering digital evaluations enhancements, celebration service enhancements, blob storage enhancements, results & top # results reports: add show group members filter, and callback scheduling: randomize presentation order.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 15.25,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 15.25
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 15.25
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 15.25
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 14
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 14
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 14
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 14
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 12
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 12
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 12
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 15.25
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 13.555555555555555
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 11.86111111111111
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 10.166666666666668
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 8.472222222222221
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 6.777777777777779
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 5.083333333333334
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 3.3888888888888893
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 1.6944444444444446
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Hiebsch, Adin": {
+          "2026-05-27": 4,
+          "2026-05-28": 4,
+          "2026-05-29": 2,
+          "2026-06-01": 2,
+          "2026-06-02": 1,
+          "2026-06-03": 4,
+          "2026-06-04": 4,
+          "2026-06-05": 3,
+          "2026-06-08": 3,
+          "2026-06-09": 3
+        },
+        "Butler, Justin": {
+          "2026-05-27": 4,
+          "2026-05-28": 4,
+          "2026-05-29": 4,
+          "2026-06-01": 4,
+          "2026-06-02": 5.25,
+          "2026-06-03": 5.25,
+          "2026-06-04": 5.25,
+          "2026-06-05": 4.25,
+          "2026-06-08": 4.25,
+          "2026-06-09": 4.25
+        }
+      },
+      "isCurrent": false
+    },
+    "GPH::d4b12f62-c7ca-453a-a265-3aaff3a83d32": {
+      "name": "Q2 2026 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 18,
+      "completedSP": 7,
+      "remainingSP": 11,
+      "storyCount": 11,
+      "stories": [
+        {
+          "id": 26345,
+          "title": "Org Banner and Checkout Indicator: Who Am I Buying For",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 5,
+          "completedSP": 5,
+          "remainingSP": 0,
+          "assignedTo": "Keltner, Scott",
+          "completedDate": "2026-06-08T13:33:55.893Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/26345",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28169,
+          "title": "Investigate and fix Payload-to-Typesense search sync failures on staging",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Keltner, Scott",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/28169",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 28626,
+          "title": "Sync GP Invoices to BC",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Butler, Justin",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/28626",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29796,
+          "title": "UI: Mobile Account Navigation Drawer",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "dkobozev gloo.us",
+          "completedDate": "2026-06-09T14:56:19.71Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/29796",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30028,
+          "title": "Write Integration Test for BC => GP Orders",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "dkobozev gloo.us",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30028",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30171,
+          "title": "Order Sync: Set DocType to WEB_BC",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "dkobozev gloo.us",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30171",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30250,
+          "title": "Order Sync: Ensure shipping method transferred to Dynamics GP",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "dkobozev gloo.us",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30250",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30251,
+          "title": "Require Contact Phone field",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "dkobozev gloo.us",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30251",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30252,
+          "title": "Order Sync: Duplicate Orders",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "dkobozev gloo.us",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30252",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30253,
+          "title": "Order Sync: Create payment records on order Import",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "dkobozev gloo.us",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30253",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30260,
+          "title": "Investigate and resolve subscription credit card purchase failure for reps and non-org buyers",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Keltner, Scott",
+          "completedDate": "2026-06-08T13:33:52.86Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30260",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering sync order enhancements, along with Org Banner and Checkout Indicator: Who Am I Buy..., ui: mobile account navigation drawer, and 3 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 18,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 18
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 18
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 18
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 18
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 18
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 18
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 18
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 18
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 12
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 11
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 18
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 16
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 14
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 12
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 8
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 6
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 2
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Butler, Justin": {
+          "2026-05-27": 2,
+          "2026-05-28": 2,
+          "2026-05-29": 2,
+          "2026-06-01": 2,
+          "2026-06-02": 2,
+          "2026-06-03": 2,
+          "2026-06-04": 2,
+          "2026-06-05": 1,
+          "2026-06-08": 1,
+          "2026-06-09": 1
+        },
+        "Keltner, Scott": {
+          "2026-05-27": 5,
+          "2026-05-28": 5,
+          "2026-05-29": 5,
+          "2026-06-01": 4,
+          "2026-06-02": 4,
+          "2026-06-03": 2.5,
+          "2026-06-04": 2.5,
+          "2026-06-05": 2.5,
+          "2026-06-08": 1,
+          "2026-06-09": 1
+        },
+        "dkobozev gloo.us": {
+          "2026-05-27": 9,
+          "2026-05-28": 9,
+          "2026-05-29": 10.25,
+          "2026-06-01": 10.25,
+          "2026-06-02": 10.25,
+          "2026-06-03": 10.25,
+          "2026-06-04": 10.25,
+          "2026-06-05": 10.25,
+          "2026-06-08": 10.25,
+          "2026-06-09": 6
+        }
+      },
+      "isCurrent": false
     }
   }
 }
