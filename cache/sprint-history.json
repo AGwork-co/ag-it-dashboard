@@ -29618,6 +29618,214 @@
         }
       },
       "isCurrent": false
+    },
+    "AGWM Financial Reporting::8078a254-4314-420e-96ce-38ce99c60a67": {
+      "name": "Q2 2025 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 0,
+      "completedSP": 0,
+      "remainingSP": 0,
+      "storyCount": 0,
+      "stories": [],
+      "sprintGoals": "",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 0,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {},
+      "isCurrent": false
+    },
+    "Chi Alpha::30ba4c01-3429-47bf-8a4f-412d082ca91f": {
+      "name": "Q2 2025 - Sprint 5",
+      "startDate": "2026-05-27T00:00:00Z",
+      "endDate": "2026-06-09T00:00:00Z",
+      "totalSP": 0,
+      "completedSP": 0,
+      "remainingSP": 0,
+      "storyCount": 0,
+      "stories": [],
+      "sprintGoals": "",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 0,
+        "points": [
+          {
+            "date": "2026-05-27",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-05-27",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-28",
+            "remaining": 0
+          },
+          {
+            "date": "2026-05-29",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-01",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-02",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-03",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-04",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-05",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-08",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-09",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {},
+      "isCurrent": false
     }
   }
 }

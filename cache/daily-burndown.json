@@ -1766,7 +1766,10 @@
       }
     },
     "CRM::f89d212c-f7ea-4417-8a37-29ceaabf6caf": {
-      "Hassbaum, Ralph": {}
+      "Hassbaum, Ralph": {},
+      "Georgiades, George": {},
+      "Roach, Joseph": {},
+      "Lamar, Brion": {}
     },
     "Fine Arts::c982118f-dcd4-4412-a80e-117b6de2e998": {
       "Hiebsch, Adin": {
@@ -2551,7 +2554,8 @@
     },
     "GPH::198c4d50-9d4f-4b4a-b82b-8265d38bb10c": {
       "Butler, Justin": {},
-      "dkobozev gloo.us": {}
+      "dkobozev gloo.us": {},
+      "Keltner, Scott": {}
     },
     "Infrastructure::66eb5231-071b-4fe5-aca7-1b895db93a5a": {
       "Yarbrough, Darren": {
@@ -2879,6 +2883,15 @@
     },
     "AG.Giving::ed0ccf1e-4944-4dc0-a99c-956855ecac84": {
       "Butler, Justin": {}
+    },
+    "AGWM Financial Reporting::478b4f51-4da4-4b39-ba21-3d9822f40cf0": {
+      "Campbell, Jack H": {}
+    },
+    "AGWM Financial Reporting::b481977d-6b9a-4709-bae3-13b73e8fca50": {
+      "Georgiades, George": {}
+    },
+    "Chi Alpha::b06eb831-f1d0-4948-b794-32d17806c79f": {
+      "Georgiades, George": {}
     }
   }
 }
