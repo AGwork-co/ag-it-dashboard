@@ -935,7 +935,11 @@
         "2026-06-09": 0
       }
     },
-    "Bible Engagement Project::07da7f11-ded7-460e-9537-7547a0bb8b49": {},
+    "Bible Engagement Project::07da7f11-ded7-460e-9537-7547a0bb8b49": {
+      "Greg Pawlik": {
+        "2026-06-10": 0
+      }
+    },
     "Chi Alpha::3c2f6fbe-b3a2-40d8-bbb9-c0dc61751ca3": {
       "Lamar, Brion": {
         "2026-03-11": 0,
@@ -1766,10 +1770,18 @@
       }
     },
     "CRM::f89d212c-f7ea-4417-8a37-29ceaabf6caf": {
-      "Hassbaum, Ralph": {},
-      "Georgiades, George": {},
-      "Roach, Joseph": {},
-      "Lamar, Brion": {}
+      "Hassbaum, Ralph": {
+        "2026-06-10": 14
+      },
+      "Georgiades, George": {
+        "2026-06-10": 9.5
+      },
+      "Roach, Joseph": {
+        "2026-06-10": 9
+      },
+      "Lamar, Brion": {
+        "2026-06-10": 9.5
+      }
     },
     "Fine Arts::c982118f-dcd4-4412-a80e-117b6de2e998": {
       "Hiebsch, Adin": {
@@ -2554,8 +2566,12 @@
     },
     "GPH::198c4d50-9d4f-4b4a-b82b-8265d38bb10c": {
       "Butler, Justin": {},
-      "dkobozev gloo.us": {},
-      "Keltner, Scott": {}
+      "dkobozev gloo.us": {
+        "2026-06-10": 8
+      },
+      "Keltner, Scott": {
+        "2026-06-10": 9.25
+      }
     },
     "Infrastructure::66eb5231-071b-4fe5-aca7-1b895db93a5a": {
       "Yarbrough, Darren": {
@@ -2845,13 +2861,23 @@
       }
     },
     "CMS vNext::0a1f93dc-f472-44ac-b017-21198da8c718": {
-      "Hull, Darrin": {},
-      "Keltner, Scott": {}
+      "Hull, Darrin": {
+        "2026-06-10": 11.5
+      },
+      "Keltner, Scott": {
+        "2026-06-10": 1
+      }
     },
     "Fine Arts::9ff6b98b-9b79-41e5-9422-b3c5b228cd06": {
-      "Hiebsch, Adin": {},
-      "Butler, Justin": {},
-      "drodrigues gloo.us": {}
+      "Hiebsch, Adin": {
+        "2026-06-10": 8
+      },
+      "Butler, Justin": {
+        "2026-06-10": 5
+      },
+      "drodrigues gloo.us": {
+        "2026-06-10": 8
+      }
     },
     "FPHC::f2b8ee62-e876-4e77-8a04-ec577dee9b6f": {
       "Medina, Joel": {
@@ -2882,23 +2908,33 @@
       }
     },
     "AG Missions Common::cc3cdef5-5806-4e6a-8abc-79b0a6dc8acd": {
-      "Farrand, Phil": {}
+      "Farrand, Phil": {
+        "2026-06-10": 2
+      }
     },
     "AG.Giving::ed0ccf1e-4944-4dc0-a99c-956855ecac84": {
-      "Butler, Justin": {}
+      "Butler, Justin": {
+        "2026-06-10": 3
+      }
     },
     "AGWM Financial Reporting::478b4f51-4da4-4b39-ba21-3d9822f40cf0": {
-      "Campbell, Jack H": {}
+      "Campbell, Jack H": {
+        "2026-06-10": 9
+      }
     },
     "AGWM Financial Reporting::b481977d-6b9a-4709-bae3-13b73e8fca50": {
       "Georgiades, George": {}
     },
     "Chi Alpha::b06eb831-f1d0-4948-b794-32d17806c79f": {
-      "Georgiades, George": {}
+      "Georgiades, George": {
+        "2026-06-10": 5
+      }
     },
     "AG Shared::c9a1ad2b-6faa-404b-b069-cf7895f5a6cc": {},
     "FPHC::192145fb-e9c7-4da5-a17c-65e869f94d2a": {
-      "Medina, Joel": {}
+      "Medina, Joel": {
+        "2026-06-10": 5.25
+      }
     },
     "GPH::9bcf831d-9e73-4496-a9e9-33ebd97499ca": {
       "Butler, Justin": {}
