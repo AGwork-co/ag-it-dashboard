@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, June 17, 2026 at 5:44 PM</span>
+    <span>Last updated: Thursday, June 18, 2026 at 11:27 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -808,6 +808,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 2
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 2
           }
         ],
@@ -2181,6 +2185,10 @@ const projects = [
             {
               "date": "2026-06-17",
               "remaining": 2
+            },
+            {
+              "date": "2026-06-18",
+              "remaining": 2
             }
           ],
           "ideal": [
@@ -2374,6 +2382,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 0
           }
         ],
@@ -3347,6 +3359,10 @@ const projects = [
             {
               "date": "2026-06-17",
               "remaining": 0
+            },
+            {
+              "date": "2026-06-18",
+              "remaining": 0
             }
           ],
           "ideal": [
@@ -3703,6 +3719,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 3
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 3
           }
         ],
@@ -5551,6 +5571,10 @@ const projects = [
             },
             {
               "date": "2026-06-17",
+              "remaining": 3
+            },
+            {
+              "date": "2026-06-18",
               "remaining": 3
             }
           ],
@@ -7522,6 +7546,10 @@ const projects = [
           {
             "date": "2026-06-17",
             "remaining": 6
+          },
+          {
+            "date": "2026-06-18",
+            "remaining": 6
           }
         ],
         "ideal": [
@@ -9301,6 +9329,10 @@ const projects = [
             {
               "date": "2026-06-17",
               "remaining": 6
+            },
+            {
+              "date": "2026-06-18",
+              "remaining": 6
             }
           ],
           "ideal": [
@@ -10096,6 +10128,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 0
           }
         ],
@@ -12351,6 +12387,10 @@ const projects = [
             {
               "date": "2026-06-17",
               "remaining": 0
+            },
+            {
+              "date": "2026-06-18",
+              "remaining": 0
             }
           ],
           "ideal": [
@@ -12566,6 +12606,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 10
           }
         ],
@@ -13020,6 +13064,10 @@ const projects = [
             },
             {
               "date": "2026-06-17",
+              "remaining": 10
+            },
+            {
+              "date": "2026-06-18",
               "remaining": 10
             }
           ],
@@ -13570,6 +13618,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 10.75
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 10.75
           }
         ],
@@ -16698,6 +16750,10 @@ const projects = [
             {
               "date": "2026-06-17",
               "remaining": 10.75
+            },
+            {
+              "date": "2026-06-18",
+              "remaining": 10.75
             }
           ],
           "ideal": [
@@ -16871,7 +16927,7 @@ const projects = [
         "title": "AG 360 Portal (MVP)",
         "state": "Active",
         "features": 5,
-        "stories": 84
+        "stories": 85
       },
       {
         "id": 28512,
@@ -16882,9 +16938,9 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 597,
+      "total": 598,
       "estimated": 383,
-      "unestimated": 214,
+      "unestimated": 215,
       "totalSP": 697.8,
       "incompleteSP": 112.5,
       "sprintSP": {
@@ -16922,7 +16978,7 @@ const projects = [
       "totalSP": 60.5,
       "completedSP": 24.75,
       "remainingSP": 35.75,
-      "storyCount": 43,
+      "storyCount": 44,
       "stories": [
         {
           "id": 23670,
@@ -17110,7 +17166,7 @@ const projects = [
           "id": 30124,
           "title": "MIA Contact keying — switch-stable surrogate External ID (HoH-swap orphaning)",
           "type": "User Story",
-          "state": "Approved",
+          "state": "Ready for Review",
           "storyPoints": 3,
           "completedSP": 0,
           "remainingSP": 3,
@@ -17525,9 +17581,23 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30546",
           "taskRemainingWork": 0.25,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 30556,
+          "title": "Wire launcher search to the indexed query (fix slow/erroring search found in real-data testing)",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30556",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering miatraitc migrate enhancements, portal 360 enhancements, cdc delete enhancements, account composite enhancements, miatransformersf duplicate enhancements, fix enhancements, kafkaconnect jdbc enhancements, salesforce enhancements, and na-blackbox-sf finalize, State 7a — Duplicate detection intercept on Sav..., and 7 other items.",
+      "sprintGoals": "Delivering miatraitc migrate enhancements, portal 360 enhancements, cdc delete enhancements, account composite enhancements, miatransformersf duplicate enhancements, fix search enhancements, kafkaconnect jdbc enhancements, salesforce enhancements, and na-blackbox-sf finalize, State 7a — Duplicate detection intercept on Sav..., and 7 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
@@ -17557,6 +17627,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 35.75
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 35.75
           }
         ],
@@ -17648,15 +17722,15 @@ const projects = [
           "2026-06-15": 9,
           "2026-06-16": 9,
           "2026-06-17": 10,
-          "2026-06-18": 10,
-          "2026-06-19": 10,
-          "2026-06-22": 10,
-          "2026-06-23": 10,
-          "2026-06-24": 10,
-          "2026-06-25": 10,
-          "2026-06-26": 10,
-          "2026-06-29": 10,
-          "2026-06-30": 10
+          "2026-06-18": 10.5,
+          "2026-06-19": 10.5,
+          "2026-06-22": 10.5,
+          "2026-06-23": 10.5,
+          "2026-06-24": 10.5,
+          "2026-06-25": 10.5,
+          "2026-06-26": 10.5,
+          "2026-06-29": 10.5,
+          "2026-06-30": 10.5
         },
         "Hassbaum, Ralph": {
           "2026-06-10": 14,
@@ -23624,7 +23698,7 @@ const projects = [
         "totalSP": 60.5,
         "completedSP": 24.75,
         "remainingSP": 35.75,
-        "storyCount": 43,
+        "storyCount": 44,
         "stories": [
           {
             "id": 23670,
@@ -23812,7 +23886,7 @@ const projects = [
             "id": 30124,
             "title": "MIA Contact keying — switch-stable surrogate External ID (HoH-swap orphaning)",
             "type": "User Story",
-            "state": "Approved",
+            "state": "Ready for Review",
             "storyPoints": 3,
             "completedSP": 0,
             "remainingSP": 3,
@@ -24227,9 +24301,23 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30546",
             "taskRemainingWork": 0.25,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 30556,
+            "title": "Wire launcher search to the indexed query (fix slow/erroring search found in real-data testing)",
+            "type": "User Story",
+            "state": "Ready for Review",
+            "storyPoints": 0,
+            "completedSP": 0,
+            "remainingSP": 0,
+            "assignedTo": "Roach, Joseph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30556",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering miatraitc migrate enhancements, portal 360 enhancements, cdc delete enhancements, account composite enhancements, miatransformersf duplicate enhancements, fix enhancements, kafkaconnect jdbc enhancements, salesforce enhancements, and na-blackbox-sf finalize, State 7a — Duplicate detection intercept on Sav..., and 7 other items.",
+        "sprintGoals": "Delivering miatraitc migrate enhancements, portal 360 enhancements, cdc delete enhancements, account composite enhancements, miatransformersf duplicate enhancements, fix search enhancements, kafkaconnect jdbc enhancements, salesforce enhancements, and na-blackbox-sf finalize, State 7a — Duplicate detection intercept on Sav..., and 7 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
@@ -24259,6 +24347,10 @@ const projects = [
             },
             {
               "date": "2026-06-17",
+              "remaining": 35.75
+            },
+            {
+              "date": "2026-06-18",
               "remaining": 35.75
             }
           ],
@@ -24350,15 +24442,15 @@ const projects = [
             "2026-06-15": 9,
             "2026-06-16": 9,
             "2026-06-17": 10,
-            "2026-06-18": 10,
-            "2026-06-19": 10,
-            "2026-06-22": 10,
-            "2026-06-23": 10,
-            "2026-06-24": 10,
-            "2026-06-25": 10,
-            "2026-06-26": 10,
-            "2026-06-29": 10,
-            "2026-06-30": 10
+            "2026-06-18": 10.5,
+            "2026-06-19": 10.5,
+            "2026-06-22": 10.5,
+            "2026-06-23": 10.5,
+            "2026-06-24": 10.5,
+            "2026-06-25": 10.5,
+            "2026-06-26": 10.5,
+            "2026-06-29": 10.5,
+            "2026-06-30": 10.5
           },
           "Hassbaum, Ralph": {
             "2026-06-10": 14,
@@ -24933,6 +25025,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 27
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 27
           }
         ],
@@ -29358,6 +29454,10 @@ const projects = [
             {
               "date": "2026-06-17",
               "remaining": 27
+            },
+            {
+              "date": "2026-06-18",
+              "remaining": 27
             }
           ],
           "ideal": [
@@ -29764,6 +29864,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 10.25
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 10.25
           }
         ],
@@ -32592,6 +32696,10 @@ const projects = [
             {
               "date": "2026-06-17",
               "remaining": 10.25
+            },
+            {
+              "date": "2026-06-18",
+              "remaining": 10.25
             }
           ],
           "ideal": [
@@ -33056,6 +33164,10 @@ const projects = [
           },
           {
             "date": "2026-06-17",
+            "remaining": 11.25
+          },
+          {
+            "date": "2026-06-18",
             "remaining": 11.25
           }
         ],
@@ -35196,6 +35308,10 @@ const projects = [
             },
             {
               "date": "2026-06-17",
+              "remaining": 11.25
+            },
+            {
+              "date": "2026-06-18",
               "remaining": 11.25
             }
           ],
