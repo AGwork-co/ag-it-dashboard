@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Friday, June 19, 2026 at 10:58 AM</span>
+    <span>Last updated: Friday, June 19, 2026 at 1:52 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -10140,7 +10140,7 @@ const projects = [
           "assignedTo": "Unassigned",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/30569",
-          "taskRemainingWork": 1,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         }
       ],
@@ -12416,7 +12416,7 @@ const projects = [
             "assignedTo": "Unassigned",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/30569",
-            "taskRemainingWork": 1,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           }
         ],
@@ -16969,7 +16969,7 @@ const projects = [
         "title": "Phase 2: MIA",
         "state": "Active",
         "features": 5,
-        "stories": 124
+        "stories": 125
       },
       {
         "id": 26793,
@@ -17011,7 +17011,7 @@ const projects = [
         "title": "AG 360 Portal (MVP)",
         "state": "Active",
         "features": 5,
-        "stories": 86
+        "stories": 87
       },
       {
         "id": 28512,
@@ -17022,11 +17022,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 600,
-      "estimated": 385,
+      "total": 602,
+      "estimated": 387,
       "unestimated": 215,
-      "totalSP": 699,
-      "incompleteSP": 110.25,
+      "totalSP": 700.2,
+      "incompleteSP": 110.45,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 92.75,
@@ -17045,7 +17045,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 6": 56.7,
+        "Q2 2026 - Sprint 6": 57.900000000000006,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
@@ -17059,10 +17059,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 6",
       "startDate": "2026-06-10T00:00:00Z",
       "endDate": "2026-06-30T00:00:00Z",
-      "totalSP": 56.7,
-      "completedSP": 28.2,
-      "remainingSP": 28.500000000000004,
-      "storyCount": 45,
+      "totalSP": 57.900000000000006,
+      "completedSP": 29.2,
+      "remainingSP": 28.700000000000006,
+      "storyCount": 47,
       "stories": [
         {
           "id": 23670,
@@ -17684,118 +17684,146 @@ const projects = [
           "id": 30574,
           "title": "Fix launcher search: use account_guid as FK join for contacts/addresses so portal-created records appear in results",
           "type": "User Story",
-          "state": "New",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Roach, Joseph",
-          "completedDate": null,
+          "completedDate": "2026-06-19T17:27:53.063Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30574",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 30584,
+          "title": "Discovery — legacy Centura MIA security model and database roles for Salesforce access parity",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30584",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30588,
+          "title": "Fix search prod 500s: apply missing migration 0013, autovacuum tuning, deploy-time ANALYZE",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 0.2,
+          "completedSP": 0,
+          "remainingSP": 0.2,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30588",
+          "taskRemainingWork": 0.2,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering miatraitc migrate enhancements, portal 360 enhancements, cdc delete enhancements, fix search enhancements, account composite enhancements, miatransformersf duplicate enhancements, kafkaconnect jdbc enhancements, salesforce enhancements, and na-blackbox-sf finalize, State 7a — Duplicate detection intercept on Sav..., and 6 other items.",
+      "sprintGoals": "Delivering miatraitc migrate enhancements, fix search enhancements, portal 360 enhancements, cdc delete enhancements, account composite enhancements, mia enhancements, miatransformersf duplicate enhancements, salesforce enhancements, kafkaconnect jdbc enhancements, and na-blackbox-sf finalize, State 7a — Duplicate detection intercept on Sav..., ...",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 56.7,
+        "totalSP": 57.900000000000006,
         "points": [
           {
             "date": "2026-06-10",
-            "remaining": 56.2
+            "remaining": 57.400000000000006
           },
           {
             "date": "2026-06-11",
-            "remaining": 54.2
+            "remaining": 55.400000000000006
           },
           {
             "date": "2026-06-12",
-            "remaining": 47.2
+            "remaining": 48.400000000000006
           },
           {
             "date": "2026-06-15",
-            "remaining": 41.2
+            "remaining": 42.400000000000006
           },
           {
             "date": "2026-06-16",
-            "remaining": 36.45
+            "remaining": 37.650000000000006
           },
           {
             "date": "2026-06-17",
-            "remaining": 31.950000000000003
+            "remaining": 33.150000000000006
           },
           {
             "date": "2026-06-18",
-            "remaining": 31.500000000000004
+            "remaining": 32.7
           },
           {
             "date": "2026-06-19",
-            "remaining": 28.500000000000004
+            "remaining": 28.700000000000003
           }
         ],
         "ideal": [
           {
             "date": "2026-06-10",
-            "remaining": 56.7
+            "remaining": 57.900000000000006
           },
           {
             "date": "2026-06-11",
-            "remaining": 52.650000000000006
+            "remaining": 53.76428571428572
           },
           {
             "date": "2026-06-12",
-            "remaining": 48.6
+            "remaining": 49.62857142857143
           },
           {
             "date": "2026-06-15",
-            "remaining": 44.550000000000004
+            "remaining": 45.49285714285715
           },
           {
             "date": "2026-06-16",
-            "remaining": 40.5
+            "remaining": 41.35714285714286
           },
           {
             "date": "2026-06-17",
-            "remaining": 36.45
+            "remaining": 37.221428571428575
           },
           {
             "date": "2026-06-18",
-            "remaining": 32.400000000000006
+            "remaining": 33.08571428571429
           },
           {
             "date": "2026-06-19",
-            "remaining": 28.350000000000005
+            "remaining": 28.950000000000003
           },
           {
             "date": "2026-06-22",
-            "remaining": 24.300000000000004
+            "remaining": 24.814285714285717
           },
           {
             "date": "2026-06-23",
-            "remaining": 20.250000000000007
+            "remaining": 20.67857142857143
           },
           {
             "date": "2026-06-24",
-            "remaining": 16.200000000000003
+            "remaining": 16.542857142857144
           },
           {
             "date": "2026-06-25",
-            "remaining": 12.150000000000006
+            "remaining": 12.407142857142858
           },
           {
             "date": "2026-06-26",
-            "remaining": 8.100000000000009
+            "remaining": 8.271428571428572
           },
           {
             "date": "2026-06-29",
-            "remaining": 4.050000000000004
+            "remaining": 4.135714285714286
           },
           {
             "date": "2026-06-30",
-            "remaining": 7.105427357601002e-15
+            "remaining": 0
           }
         ]
       },
@@ -17859,14 +17887,14 @@ const projects = [
           "2026-06-16": 4.25,
           "2026-06-17": 5.25,
           "2026-06-18": 4,
-          "2026-06-19": 2,
-          "2026-06-22": 2,
-          "2026-06-23": 2,
-          "2026-06-24": 2,
-          "2026-06-25": 2,
-          "2026-06-26": 2,
-          "2026-06-29": 2,
-          "2026-06-30": 2
+          "2026-06-19": 3,
+          "2026-06-22": 3,
+          "2026-06-23": 3,
+          "2026-06-24": 3,
+          "2026-06-25": 3,
+          "2026-06-26": 3,
+          "2026-06-29": 3,
+          "2026-06-30": 3
         }
       },
       "isCurrent": true
@@ -23797,10 +23825,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 6",
         "startDate": "2026-06-10T00:00:00Z",
         "endDate": "2026-06-30T00:00:00Z",
-        "totalSP": 56.7,
-        "completedSP": 28.2,
-        "remainingSP": 28.500000000000004,
-        "storyCount": 45,
+        "totalSP": 57.900000000000006,
+        "completedSP": 29.2,
+        "remainingSP": 28.700000000000006,
+        "storyCount": 47,
         "stories": [
           {
             "id": 23670,
@@ -24422,118 +24450,146 @@ const projects = [
             "id": 30574,
             "title": "Fix launcher search: use account_guid as FK join for contacts/addresses so portal-created records appear in results",
             "type": "User Story",
-            "state": "New",
+            "state": "Done",
             "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
             "assignedTo": "Roach, Joseph",
-            "completedDate": null,
+            "completedDate": "2026-06-19T17:27:53.063Z",
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30574",
             "taskRemainingWork": 0,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 30584,
+            "title": "Discovery — legacy Centura MIA security model and database roles for Salesforce access parity",
+            "type": "User Story",
+            "state": "Ready for Review",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30584",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30588,
+            "title": "Fix search prod 500s: apply missing migration 0013, autovacuum tuning, deploy-time ANALYZE",
+            "type": "User Story",
+            "state": "New",
+            "storyPoints": 0.2,
+            "completedSP": 0,
+            "remainingSP": 0.2,
+            "assignedTo": "Roach, Joseph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30588",
+            "taskRemainingWork": 0.2,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering miatraitc migrate enhancements, portal 360 enhancements, cdc delete enhancements, fix search enhancements, account composite enhancements, miatransformersf duplicate enhancements, kafkaconnect jdbc enhancements, salesforce enhancements, and na-blackbox-sf finalize, State 7a — Duplicate detection intercept on Sav..., and 6 other items.",
+        "sprintGoals": "Delivering miatraitc migrate enhancements, fix search enhancements, portal 360 enhancements, cdc delete enhancements, account composite enhancements, mia enhancements, miatransformersf duplicate enhancements, salesforce enhancements, kafkaconnect jdbc enhancements, and na-blackbox-sf finalize, State 7a — Duplicate detection intercept on Sav..., ...",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 56.7,
+          "totalSP": 57.900000000000006,
           "points": [
             {
               "date": "2026-06-10",
-              "remaining": 56.2
+              "remaining": 57.400000000000006
             },
             {
               "date": "2026-06-11",
-              "remaining": 54.2
+              "remaining": 55.400000000000006
             },
             {
               "date": "2026-06-12",
-              "remaining": 47.2
+              "remaining": 48.400000000000006
             },
             {
               "date": "2026-06-15",
-              "remaining": 41.2
+              "remaining": 42.400000000000006
             },
             {
               "date": "2026-06-16",
-              "remaining": 36.45
+              "remaining": 37.650000000000006
             },
             {
               "date": "2026-06-17",
-              "remaining": 31.950000000000003
+              "remaining": 33.150000000000006
             },
             {
               "date": "2026-06-18",
-              "remaining": 31.500000000000004
+              "remaining": 32.7
             },
             {
               "date": "2026-06-19",
-              "remaining": 28.500000000000004
+              "remaining": 28.700000000000003
             }
           ],
           "ideal": [
             {
               "date": "2026-06-10",
-              "remaining": 56.7
+              "remaining": 57.900000000000006
             },
             {
               "date": "2026-06-11",
-              "remaining": 52.650000000000006
+              "remaining": 53.76428571428572
             },
             {
               "date": "2026-06-12",
-              "remaining": 48.6
+              "remaining": 49.62857142857143
             },
             {
               "date": "2026-06-15",
-              "remaining": 44.550000000000004
+              "remaining": 45.49285714285715
             },
             {
               "date": "2026-06-16",
-              "remaining": 40.5
+              "remaining": 41.35714285714286
             },
             {
               "date": "2026-06-17",
-              "remaining": 36.45
+              "remaining": 37.221428571428575
             },
             {
               "date": "2026-06-18",
-              "remaining": 32.400000000000006
+              "remaining": 33.08571428571429
             },
             {
               "date": "2026-06-19",
-              "remaining": 28.350000000000005
+              "remaining": 28.950000000000003
             },
             {
               "date": "2026-06-22",
-              "remaining": 24.300000000000004
+              "remaining": 24.814285714285717
             },
             {
               "date": "2026-06-23",
-              "remaining": 20.250000000000007
+              "remaining": 20.67857142857143
             },
             {
               "date": "2026-06-24",
-              "remaining": 16.200000000000003
+              "remaining": 16.542857142857144
             },
             {
               "date": "2026-06-25",
-              "remaining": 12.150000000000006
+              "remaining": 12.407142857142858
             },
             {
               "date": "2026-06-26",
-              "remaining": 8.100000000000009
+              "remaining": 8.271428571428572
             },
             {
               "date": "2026-06-29",
-              "remaining": 4.050000000000004
+              "remaining": 4.135714285714286
             },
             {
               "date": "2026-06-30",
-              "remaining": 7.105427357601002e-15
+              "remaining": 0
             }
           ]
         },
@@ -24597,14 +24653,14 @@ const projects = [
             "2026-06-16": 4.25,
             "2026-06-17": 5.25,
             "2026-06-18": 4,
-            "2026-06-19": 2,
-            "2026-06-22": 2,
-            "2026-06-23": 2,
-            "2026-06-24": 2,
-            "2026-06-25": 2,
-            "2026-06-26": 2,
-            "2026-06-29": 2,
-            "2026-06-30": 2
+            "2026-06-19": 3,
+            "2026-06-22": 3,
+            "2026-06-23": 3,
+            "2026-06-24": 3,
+            "2026-06-25": 3,
+            "2026-06-26": 3,
+            "2026-06-29": 3,
+            "2026-06-30": 3
           }
         },
         "isCurrent": true
@@ -29846,7 +29902,7 @@ const projects = [
           "assignedTo": "Medina, Joel",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29862",
-          "taskRemainingWork": 0.25,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -30075,14 +30131,14 @@ const projects = [
           "2026-06-16": 2.75,
           "2026-06-17": 1.75,
           "2026-06-18": 1.75,
-          "2026-06-19": 1.25,
-          "2026-06-22": 1.25,
-          "2026-06-23": 1.25,
-          "2026-06-24": 1.25,
-          "2026-06-25": 1.25,
-          "2026-06-26": 1.25,
-          "2026-06-29": 1.25,
-          "2026-06-30": 1.25
+          "2026-06-19": 1,
+          "2026-06-22": 1,
+          "2026-06-23": 1,
+          "2026-06-24": 1,
+          "2026-06-25": 1,
+          "2026-06-26": 1,
+          "2026-06-29": 1,
+          "2026-06-30": 1
         },
         "Anderson, Zack": {
           "2026-06-10": 0,
@@ -32681,7 +32737,7 @@ const projects = [
             "assignedTo": "Medina, Joel",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29862",
-            "taskRemainingWork": 0.25,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           },
           {
@@ -32910,14 +32966,14 @@ const projects = [
             "2026-06-16": 2.75,
             "2026-06-17": 1.75,
             "2026-06-18": 1.75,
-            "2026-06-19": 1.25,
-            "2026-06-22": 1.25,
-            "2026-06-23": 1.25,
-            "2026-06-24": 1.25,
-            "2026-06-25": 1.25,
-            "2026-06-26": 1.25,
-            "2026-06-29": 1.25,
-            "2026-06-30": 1.25
+            "2026-06-19": 1,
+            "2026-06-22": 1,
+            "2026-06-23": 1,
+            "2026-06-24": 1,
+            "2026-06-25": 1,
+            "2026-06-26": 1,
+            "2026-06-29": 1,
+            "2026-06-30": 1
           },
           "Anderson, Zack": {
             "2026-06-10": 0,
