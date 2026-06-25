@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, June 25, 2026 at 10:38 AM</span>
+    <span>Last updated: Thursday, June 25, 2026 at 2:04 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -13532,9 +13532,9 @@ const projects = [
       },
       {
         "id": 20328,
-        "title": "CMS - v2026.Q2 - WordPress Migrations (Customer Requested)",
+        "title": "CMS - v2026 - WordPress Migrations (Customer Requested)",
         "state": "Active",
-        "features": 18,
+        "features": 21,
         "stories": 110
       },
       {
@@ -17295,7 +17295,7 @@ const projects = [
         "title": "AG 360 Portal (MVP)",
         "state": "Active",
         "features": 5,
-        "stories": 92
+        "stories": 93
       },
       {
         "id": 28512,
@@ -17306,11 +17306,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 609,
-      "estimated": 397,
-      "unestimated": 212,
-      "totalSP": 706.4,
-      "incompleteSP": 108,
+      "total": 612,
+      "estimated": 399,
+      "unestimated": 213,
+      "totalSP": 708.4,
+      "incompleteSP": 110,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 92,
@@ -17329,7 +17329,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 6": 63.85000000000001,
+        "Q2 2026 - Sprint 6": 65.85000000000001,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
@@ -17343,10 +17343,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 6",
       "startDate": "2026-06-10T00:00:00Z",
       "endDate": "2026-06-30T00:00:00Z",
-      "totalSP": 63.85000000000001,
+      "totalSP": 65.85000000000001,
       "completedSP": 35.35000000000001,
-      "remainingSP": 28.5,
-      "storyCount": 56,
+      "remainingSP": 30.5,
+      "storyCount": 59,
       "stories": [
         {
           "id": 23670,
@@ -18131,125 +18131,167 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30640",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0.2
+        },
+        {
+          "id": 30647,
+          "title": "Cut MIA AssemblerJob to production composite-graph topic; remove preview topic",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30647",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30648,
+          "title": "Enable MIA AssemblerJob on preview composite-graph topic (isolated from prod SF)",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30648",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30661,
+          "title": "Fix JDBC sink crash: coerce blank composite GUIDs to null in Flink flatten",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Roach, Joseph",
+          "completedDate": "2026-06-25T19:00:19.9Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30661",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering fix search enhancements, miatraitc migrate enhancements, mia access enhancements, portal 360 enhancements, account composite enhancements, cdc dbodegree enhancements, miatransformersf duplicate enhancements, discovery model enhancements, kafkaconnect jdbc enhancements, split enhancements, agdatabasemasterscripts enhancements, and na-b...",
+      "sprintGoals": "Delivering fix search enhancements, mia access enhancements, miatraitc migrate enhancements, portal 360 enhancements, account composite enhancements, cdc dbodegree enhancements, miatransformersf duplicate enhancements, discovery model enhancements, jdbc kafkaconnect enhancements, split enhancements, agdatabasemasterscripts enhancements, and na-b...",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 63.85000000000001,
+        "totalSP": 65.85000000000001,
         "points": [
           {
             "date": "2026-06-10",
-            "remaining": 63.35000000000001
+            "remaining": 65.35000000000001
           },
           {
             "date": "2026-06-11",
-            "remaining": 61.35000000000001
+            "remaining": 63.35000000000001
           },
           {
             "date": "2026-06-12",
-            "remaining": 54.35000000000001
+            "remaining": 56.35000000000001
           },
           {
             "date": "2026-06-15",
-            "remaining": 48.35000000000001
+            "remaining": 50.35000000000001
           },
           {
             "date": "2026-06-16",
-            "remaining": 43.60000000000001
+            "remaining": 45.60000000000001
           },
           {
             "date": "2026-06-17",
-            "remaining": 39.10000000000001
+            "remaining": 41.10000000000001
           },
           {
             "date": "2026-06-18",
-            "remaining": 38.150000000000006
+            "remaining": 40.150000000000006
           },
           {
             "date": "2026-06-19",
-            "remaining": 33.95
+            "remaining": 35.95
           },
           {
             "date": "2026-06-22",
-            "remaining": 32.45
+            "remaining": 34.45
           },
           {
             "date": "2026-06-23",
-            "remaining": 31.450000000000003
+            "remaining": 33.45
           },
           {
             "date": "2026-06-24",
-            "remaining": 31.450000000000003
+            "remaining": 33.45
           },
           {
             "date": "2026-06-25",
-            "remaining": 28.500000000000004
+            "remaining": 30.500000000000004
           }
         ],
         "ideal": [
           {
             "date": "2026-06-10",
-            "remaining": 63.85000000000001
+            "remaining": 65.85000000000001
           },
           {
             "date": "2026-06-11",
-            "remaining": 59.289285714285725
+            "remaining": 61.14642857142858
           },
           {
             "date": "2026-06-12",
-            "remaining": 54.728571428571435
+            "remaining": 56.44285714285715
           },
           {
             "date": "2026-06-15",
-            "remaining": 50.16785714285715
+            "remaining": 51.73928571428572
           },
           {
             "date": "2026-06-16",
-            "remaining": 45.60714285714286
+            "remaining": 47.03571428571429
           },
           {
             "date": "2026-06-17",
-            "remaining": 41.04642857142858
+            "remaining": 42.33214285714286
           },
           {
             "date": "2026-06-18",
-            "remaining": 36.485714285714295
+            "remaining": 37.62857142857143
           },
           {
             "date": "2026-06-19",
-            "remaining": 31.925000000000008
+            "remaining": 32.925000000000004
           },
           {
             "date": "2026-06-22",
-            "remaining": 27.36428571428572
+            "remaining": 28.221428571428575
           },
           {
             "date": "2026-06-23",
-            "remaining": 22.803571428571438
+            "remaining": 23.517857142857146
           },
           {
             "date": "2026-06-24",
-            "remaining": 18.242857142857147
+            "remaining": 18.814285714285717
           },
           {
             "date": "2026-06-25",
-            "remaining": 13.682142857142864
+            "remaining": 14.110714285714288
           },
           {
             "date": "2026-06-26",
-            "remaining": 9.12142857142858
+            "remaining": 9.407142857142858
           },
           {
             "date": "2026-06-29",
-            "remaining": 4.56071428571429
+            "remaining": 4.703571428571429
           },
           {
             "date": "2026-06-30",
-            "remaining": 7.105427357601002e-15
+            "remaining": 0
           }
         ]
       },
@@ -18317,10 +18359,10 @@ const projects = [
           "2026-06-22": 2,
           "2026-06-23": 3,
           "2026-06-24": 4,
-          "2026-06-25": 4,
-          "2026-06-26": 4,
-          "2026-06-29": 4,
-          "2026-06-30": 4
+          "2026-06-25": 6,
+          "2026-06-26": 6,
+          "2026-06-29": 6,
+          "2026-06-30": 6
         }
       },
       "isCurrent": true
@@ -24251,10 +24293,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 6",
         "startDate": "2026-06-10T00:00:00Z",
         "endDate": "2026-06-30T00:00:00Z",
-        "totalSP": 63.85000000000001,
+        "totalSP": 65.85000000000001,
         "completedSP": 35.35000000000001,
-        "remainingSP": 28.5,
-        "storyCount": 56,
+        "remainingSP": 30.5,
+        "storyCount": 59,
         "stories": [
           {
             "id": 23670,
@@ -25039,125 +25081,167 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30640",
             "taskRemainingWork": 0,
             "taskCompletedWork": 0.2
+          },
+          {
+            "id": 30647,
+            "title": "Cut MIA AssemblerJob to production composite-graph topic; remove preview topic",
+            "type": "User Story",
+            "state": "New",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30647",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30648,
+            "title": "Enable MIA AssemblerJob on preview composite-graph topic (isolated from prod SF)",
+            "type": "User Story",
+            "state": "Ready for Review",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30648",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30661,
+            "title": "Fix JDBC sink crash: coerce blank composite GUIDs to null in Flink flatten",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 0,
+            "completedSP": 0,
+            "remainingSP": 0,
+            "assignedTo": "Roach, Joseph",
+            "completedDate": "2026-06-25T19:00:19.9Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30661",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering fix search enhancements, miatraitc migrate enhancements, mia access enhancements, portal 360 enhancements, account composite enhancements, cdc dbodegree enhancements, miatransformersf duplicate enhancements, discovery model enhancements, kafkaconnect jdbc enhancements, split enhancements, agdatabasemasterscripts enhancements, and na-b...",
+        "sprintGoals": "Delivering fix search enhancements, mia access enhancements, miatraitc migrate enhancements, portal 360 enhancements, account composite enhancements, cdc dbodegree enhancements, miatransformersf duplicate enhancements, discovery model enhancements, jdbc kafkaconnect enhancements, split enhancements, agdatabasemasterscripts enhancements, and na-b...",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 63.85000000000001,
+          "totalSP": 65.85000000000001,
           "points": [
             {
               "date": "2026-06-10",
-              "remaining": 63.35000000000001
+              "remaining": 65.35000000000001
             },
             {
               "date": "2026-06-11",
-              "remaining": 61.35000000000001
+              "remaining": 63.35000000000001
             },
             {
               "date": "2026-06-12",
-              "remaining": 54.35000000000001
+              "remaining": 56.35000000000001
             },
             {
               "date": "2026-06-15",
-              "remaining": 48.35000000000001
+              "remaining": 50.35000000000001
             },
             {
               "date": "2026-06-16",
-              "remaining": 43.60000000000001
+              "remaining": 45.60000000000001
             },
             {
               "date": "2026-06-17",
-              "remaining": 39.10000000000001
+              "remaining": 41.10000000000001
             },
             {
               "date": "2026-06-18",
-              "remaining": 38.150000000000006
+              "remaining": 40.150000000000006
             },
             {
               "date": "2026-06-19",
-              "remaining": 33.95
+              "remaining": 35.95
             },
             {
               "date": "2026-06-22",
-              "remaining": 32.45
+              "remaining": 34.45
             },
             {
               "date": "2026-06-23",
-              "remaining": 31.450000000000003
+              "remaining": 33.45
             },
             {
               "date": "2026-06-24",
-              "remaining": 31.450000000000003
+              "remaining": 33.45
             },
             {
               "date": "2026-06-25",
-              "remaining": 28.500000000000004
+              "remaining": 30.500000000000004
             }
           ],
           "ideal": [
             {
               "date": "2026-06-10",
-              "remaining": 63.85000000000001
+              "remaining": 65.85000000000001
             },
             {
               "date": "2026-06-11",
-              "remaining": 59.289285714285725
+              "remaining": 61.14642857142858
             },
             {
               "date": "2026-06-12",
-              "remaining": 54.728571428571435
+              "remaining": 56.44285714285715
             },
             {
               "date": "2026-06-15",
-              "remaining": 50.16785714285715
+              "remaining": 51.73928571428572
             },
             {
               "date": "2026-06-16",
-              "remaining": 45.60714285714286
+              "remaining": 47.03571428571429
             },
             {
               "date": "2026-06-17",
-              "remaining": 41.04642857142858
+              "remaining": 42.33214285714286
             },
             {
               "date": "2026-06-18",
-              "remaining": 36.485714285714295
+              "remaining": 37.62857142857143
             },
             {
               "date": "2026-06-19",
-              "remaining": 31.925000000000008
+              "remaining": 32.925000000000004
             },
             {
               "date": "2026-06-22",
-              "remaining": 27.36428571428572
+              "remaining": 28.221428571428575
             },
             {
               "date": "2026-06-23",
-              "remaining": 22.803571428571438
+              "remaining": 23.517857142857146
             },
             {
               "date": "2026-06-24",
-              "remaining": 18.242857142857147
+              "remaining": 18.814285714285717
             },
             {
               "date": "2026-06-25",
-              "remaining": 13.682142857142864
+              "remaining": 14.110714285714288
             },
             {
               "date": "2026-06-26",
-              "remaining": 9.12142857142858
+              "remaining": 9.407142857142858
             },
             {
               "date": "2026-06-29",
-              "remaining": 4.56071428571429
+              "remaining": 4.703571428571429
             },
             {
               "date": "2026-06-30",
-              "remaining": 7.105427357601002e-15
+              "remaining": 0
             }
           ]
         },
@@ -25225,10 +25309,10 @@ const projects = [
             "2026-06-22": 2,
             "2026-06-23": 3,
             "2026-06-24": 4,
-            "2026-06-25": 4,
-            "2026-06-26": 4,
-            "2026-06-29": 4,
-            "2026-06-30": 4
+            "2026-06-25": 6,
+            "2026-06-26": 6,
+            "2026-06-29": 6,
+            "2026-06-30": 6
           }
         },
         "isCurrent": true
@@ -30475,7 +30559,7 @@ const projects = [
       "estimated": 248,
       "unestimated": 240,
       "totalSP": 291.5,
-      "incompleteSP": 10.5,
+      "incompleteSP": 8.5,
       "sprintSP": {
         "FPHC": 48.5,
         "Q2 2025 - Sprint 4": 11,
@@ -30515,8 +30599,8 @@ const projects = [
       "startDate": "2026-06-10T00:00:00Z",
       "endDate": "2026-06-30T00:00:00Z",
       "totalSP": 11,
-      "completedSP": 9,
-      "remainingSP": 2,
+      "completedSP": 11,
+      "remainingSP": 0,
       "storyCount": 11,
       "stories": [
         {
@@ -30663,14 +30747,14 @@ const projects = [
           "id": 30420,
           "title": "Infrastructure Info Dump – FPHC Archive Data Categorization and Migration Planning",
           "type": "User Story",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
           "assignedTo": "Anderson, Zack",
-          "completedDate": null,
+          "completedDate": "2026-06-25T19:02:51.277Z",
           "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/30420",
-          "taskRemainingWork": 2,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         }
       ],
@@ -30728,7 +30812,7 @@ const projects = [
           },
           {
             "date": "2026-06-25",
-            "remaining": 2
+            "remaining": 0
           }
         ],
         "ideal": [
@@ -30824,10 +30908,10 @@ const projects = [
           "2026-06-22": 2,
           "2026-06-23": 2,
           "2026-06-24": 2,
-          "2026-06-25": 2,
-          "2026-06-26": 2,
-          "2026-06-29": 2,
-          "2026-06-30": 2
+          "2026-06-25": 0,
+          "2026-06-26": 0,
+          "2026-06-29": 0,
+          "2026-06-30": 0
         }
       },
       "isCurrent": true
@@ -33366,8 +33450,8 @@ const projects = [
         "startDate": "2026-06-10T00:00:00Z",
         "endDate": "2026-06-30T00:00:00Z",
         "totalSP": 11,
-        "completedSP": 9,
-        "remainingSP": 2,
+        "completedSP": 11,
+        "remainingSP": 0,
         "storyCount": 11,
         "stories": [
           {
@@ -33514,14 +33598,14 @@ const projects = [
             "id": 30420,
             "title": "Infrastructure Info Dump – FPHC Archive Data Categorization and Migration Planning",
             "type": "User Story",
-            "state": "Committed",
+            "state": "Done",
             "storyPoints": 2,
-            "completedSP": 0,
-            "remainingSP": 2,
+            "completedSP": 2,
+            "remainingSP": 0,
             "assignedTo": "Anderson, Zack",
-            "completedDate": null,
+            "completedDate": "2026-06-25T19:02:51.277Z",
             "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/30420",
-            "taskRemainingWork": 2,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           }
         ],
@@ -33579,7 +33663,7 @@ const projects = [
             },
             {
               "date": "2026-06-25",
-              "remaining": 2
+              "remaining": 0
             }
           ],
           "ideal": [
@@ -33675,10 +33759,10 @@ const projects = [
             "2026-06-22": 2,
             "2026-06-23": 2,
             "2026-06-24": 2,
-            "2026-06-25": 2,
-            "2026-06-26": 2,
-            "2026-06-29": 2,
-            "2026-06-30": 2
+            "2026-06-25": 0,
+            "2026-06-26": 0,
+            "2026-06-29": 0,
+            "2026-06-30": 0
           }
         },
         "isCurrent": true
@@ -33762,7 +33846,7 @@ const projects = [
         "title": "GPH: MVP (2026.05)",
         "state": "Active",
         "features": 6,
-        "stories": 122
+        "stories": 123
       },
       {
         "id": 27290,
@@ -33780,10 +33864,10 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 230,
-      "estimated": 172,
+      "total": 231,
+      "estimated": 173,
       "unestimated": 58,
-      "totalSP": 256.6,
+      "totalSP": 257.1,
       "incompleteSP": 118.75,
       "sprintSP": {
         "Q2 2025 - Sprint 5": 4,
@@ -33800,7 +33884,7 @@ const projects = [
         "Q4 2025 - Sprint 5": 1,
         "Q4 2025 - Sprint 1": 2,
         "Q2 2026 - Sprint 2": 22.1,
-        "Q2 2026 - Sprint 6": 25.75,
+        "Q2 2026 - Sprint 6": 26.25,
         "Q2 2026 - Sprint 1": 7.5,
         "Q2 2026 - Sprint 5": 12,
         "Q2 2026 - Sprint 4": 15,
@@ -33812,10 +33896,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 6",
       "startDate": "2026-06-10T00:00:00Z",
       "endDate": "2026-06-30T00:00:00Z",
-      "totalSP": 25.75,
-      "completedSP": 22,
+      "totalSP": 26.25,
+      "completedSP": 22.5,
       "remainingSP": 3.75,
-      "storyCount": 20,
+      "storyCount": 21,
       "stories": [
         {
           "id": 26334,
@@ -33877,14 +33961,14 @@ const projects = [
           "id": 30233,
           "title": "Increase Payload File Upload Size Limit",
           "type": "User Story",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 0.5,
-          "completedSP": 0,
-          "remainingSP": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
           "assignedTo": "Keltner, Scott",
-          "completedDate": null,
+          "completedDate": "2026-06-25T16:30:37.71Z",
           "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30233",
-          "taskRemainingWork": 0.5,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -34096,59 +34180,73 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30623",
           "taskRemainingWork": 1,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 30657,
+          "title": "Decrypt env secrets for staging and prod for Darren",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Keltner, Scott",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30657",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering sync order enhancements, fix product enhancements, locale unique enhancements, bigcommerce enhancements, and increase payload file upload size limit, require contact phone field, and 3 other items.",
+      "sprintGoals": "Delivering sync order enhancements, fix product enhancements, locale unique enhancements, bigcommerce enhancements, and increase payload file upload size limit, require contact phone field, and 4 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 25.75,
+        "totalSP": 26.25,
         "points": [
           {
             "date": "2026-06-10",
-            "remaining": 25.75
+            "remaining": 26.25
           },
           {
             "date": "2026-06-11",
-            "remaining": 24.75
+            "remaining": 25.25
           },
           {
             "date": "2026-06-12",
-            "remaining": 24.75
+            "remaining": 25.25
           },
           {
             "date": "2026-06-15",
-            "remaining": 21.75
+            "remaining": 22.25
           },
           {
             "date": "2026-06-16",
-            "remaining": 21.75
+            "remaining": 22.25
           },
           {
             "date": "2026-06-17",
-            "remaining": 16.75
+            "remaining": 17.25
           },
           {
             "date": "2026-06-18",
-            "remaining": 16.75
+            "remaining": 17.25
           },
           {
             "date": "2026-06-19",
-            "remaining": 16.75
+            "remaining": 17.25
           },
           {
             "date": "2026-06-22",
-            "remaining": 15.75
+            "remaining": 16.25
           },
           {
             "date": "2026-06-23",
-            "remaining": 9.25
+            "remaining": 9.75
           },
           {
             "date": "2026-06-24",
-            "remaining": 3.75
+            "remaining": 4.25
           },
           {
             "date": "2026-06-25",
@@ -34158,59 +34256,59 @@ const projects = [
         "ideal": [
           {
             "date": "2026-06-10",
-            "remaining": 25.75
+            "remaining": 26.25
           },
           {
             "date": "2026-06-11",
-            "remaining": 23.910714285714285
+            "remaining": 24.375
           },
           {
             "date": "2026-06-12",
-            "remaining": 22.071428571428573
+            "remaining": 22.5
           },
           {
             "date": "2026-06-15",
-            "remaining": 20.232142857142858
+            "remaining": 20.625
           },
           {
             "date": "2026-06-16",
-            "remaining": 18.392857142857142
+            "remaining": 18.75
           },
           {
             "date": "2026-06-17",
-            "remaining": 16.55357142857143
+            "remaining": 16.875
           },
           {
             "date": "2026-06-18",
-            "remaining": 14.714285714285715
+            "remaining": 15
           },
           {
             "date": "2026-06-19",
-            "remaining": 12.875
+            "remaining": 13.125
           },
           {
             "date": "2026-06-22",
-            "remaining": 11.035714285714286
+            "remaining": 11.25
           },
           {
             "date": "2026-06-23",
-            "remaining": 9.196428571428573
+            "remaining": 9.375
           },
           {
             "date": "2026-06-24",
-            "remaining": 7.357142857142858
+            "remaining": 7.5
           },
           {
             "date": "2026-06-25",
-            "remaining": 5.517857142857142
+            "remaining": 5.625
           },
           {
             "date": "2026-06-26",
-            "remaining": 3.6785714285714306
+            "remaining": 3.75
           },
           {
             "date": "2026-06-29",
-            "remaining": 1.8392857142857153
+            "remaining": 1.875
           },
           {
             "date": "2026-06-30",
@@ -36060,10 +36158,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 6",
         "startDate": "2026-06-10T00:00:00Z",
         "endDate": "2026-06-30T00:00:00Z",
-        "totalSP": 25.75,
-        "completedSP": 22,
+        "totalSP": 26.25,
+        "completedSP": 22.5,
         "remainingSP": 3.75,
-        "storyCount": 20,
+        "storyCount": 21,
         "stories": [
           {
             "id": 26334,
@@ -36125,14 +36223,14 @@ const projects = [
             "id": 30233,
             "title": "Increase Payload File Upload Size Limit",
             "type": "User Story",
-            "state": "Committed",
+            "state": "Done",
             "storyPoints": 0.5,
-            "completedSP": 0,
-            "remainingSP": 0.5,
+            "completedSP": 0.5,
+            "remainingSP": 0,
             "assignedTo": "Keltner, Scott",
-            "completedDate": null,
+            "completedDate": "2026-06-25T16:30:37.71Z",
             "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30233",
-            "taskRemainingWork": 0.5,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           },
           {
@@ -36344,59 +36442,73 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30623",
             "taskRemainingWork": 1,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 30657,
+            "title": "Decrypt env secrets for staging and prod for Darren",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 0.5,
+            "completedSP": 0,
+            "remainingSP": 0.5,
+            "assignedTo": "Keltner, Scott",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/30657",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering sync order enhancements, fix product enhancements, locale unique enhancements, bigcommerce enhancements, and increase payload file upload size limit, require contact phone field, and 3 other items.",
+        "sprintGoals": "Delivering sync order enhancements, fix product enhancements, locale unique enhancements, bigcommerce enhancements, and increase payload file upload size limit, require contact phone field, and 4 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 25.75,
+          "totalSP": 26.25,
           "points": [
             {
               "date": "2026-06-10",
-              "remaining": 25.75
+              "remaining": 26.25
             },
             {
               "date": "2026-06-11",
-              "remaining": 24.75
+              "remaining": 25.25
             },
             {
               "date": "2026-06-12",
-              "remaining": 24.75
+              "remaining": 25.25
             },
             {
               "date": "2026-06-15",
-              "remaining": 21.75
+              "remaining": 22.25
             },
             {
               "date": "2026-06-16",
-              "remaining": 21.75
+              "remaining": 22.25
             },
             {
               "date": "2026-06-17",
-              "remaining": 16.75
+              "remaining": 17.25
             },
             {
               "date": "2026-06-18",
-              "remaining": 16.75
+              "remaining": 17.25
             },
             {
               "date": "2026-06-19",
-              "remaining": 16.75
+              "remaining": 17.25
             },
             {
               "date": "2026-06-22",
-              "remaining": 15.75
+              "remaining": 16.25
             },
             {
               "date": "2026-06-23",
-              "remaining": 9.25
+              "remaining": 9.75
             },
             {
               "date": "2026-06-24",
-              "remaining": 3.75
+              "remaining": 4.25
             },
             {
               "date": "2026-06-25",
@@ -36406,59 +36518,59 @@ const projects = [
           "ideal": [
             {
               "date": "2026-06-10",
-              "remaining": 25.75
+              "remaining": 26.25
             },
             {
               "date": "2026-06-11",
-              "remaining": 23.910714285714285
+              "remaining": 24.375
             },
             {
               "date": "2026-06-12",
-              "remaining": 22.071428571428573
+              "remaining": 22.5
             },
             {
               "date": "2026-06-15",
-              "remaining": 20.232142857142858
+              "remaining": 20.625
             },
             {
               "date": "2026-06-16",
-              "remaining": 18.392857142857142
+              "remaining": 18.75
             },
             {
               "date": "2026-06-17",
-              "remaining": 16.55357142857143
+              "remaining": 16.875
             },
             {
               "date": "2026-06-18",
-              "remaining": 14.714285714285715
+              "remaining": 15
             },
             {
               "date": "2026-06-19",
-              "remaining": 12.875
+              "remaining": 13.125
             },
             {
               "date": "2026-06-22",
-              "remaining": 11.035714285714286
+              "remaining": 11.25
             },
             {
               "date": "2026-06-23",
-              "remaining": 9.196428571428573
+              "remaining": 9.375
             },
             {
               "date": "2026-06-24",
-              "remaining": 7.357142857142858
+              "remaining": 7.5
             },
             {
               "date": "2026-06-25",
-              "remaining": 5.517857142857142
+              "remaining": 5.625
             },
             {
               "date": "2026-06-26",
-              "remaining": 3.6785714285714306
+              "remaining": 3.75
             },
             {
               "date": "2026-06-29",
-              "remaining": 1.8392857142857153
+              "remaining": 1.875
             },
             {
               "date": "2026-06-30",
@@ -44352,14 +44464,6 @@ const supportRequests = {
       "project": "Business Software Support",
       "description": "Hello, On the Ethnic Relations Website we have the &quot;Fellowships&quot; page. With the recent addition of our new fellowship, we are needing to add an additional page for the &quot;Francophone African Fellowship of the AG&quot; that displays the president's name and photo, relevant links for the …",
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29669"
-    },
-    {
-      "id": 30636,
-      "title": "FW: www redirect for nationalcamporama.com website",
-      "state": "Approved",
-      "project": "Business Software Support",
-      "description": "John Hicks National Programs & Curriculum Coordinator National Boy’s Ministries & Royal Rangers AG National Office | (417) 862-2781 x.4192 From: Hicks, John Sent: Wednesday, June 24, 2026 10:44 AM To: 'Del Wales' <del@wmservices.net> Subject: RE: www redirect for nationalcamporama.com website Thanks…",
-      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/30636"
     }
   ],
   "Stilts, Brent": [
