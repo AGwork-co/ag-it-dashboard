@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, June 25, 2026 at 2:04 PM</span>
+    <span>Last updated: Thursday, June 25, 2026 at 5:19 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -3696,8 +3696,8 @@ const projects = [
         "id": 29536,
         "title": "AG Giving - v2025.Q3 (Tech Facing)",
         "state": "Active",
-        "features": 7,
-        "stories": 32
+        "features": 8,
+        "stories": 33
       },
       {
         "id": 29537,
@@ -3708,11 +3708,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 1093,
-      "estimated": 469,
+      "total": 1094,
+      "estimated": 470,
       "unestimated": 624,
-      "totalSP": 1745.75,
-      "incompleteSP": 143,
+      "totalSP": 1746.25,
+      "incompleteSP": 143.5,
       "sprintSP": {
         "2020-33": 56,
         "AG.Giving": 496.5,
@@ -3760,7 +3760,8 @@ const projects = [
         "Q4 2025 - Sprint 2": 3.25,
         "Q4 2025 - Sprint 4": 8.25,
         "Q1 2026 - Sprint 5": 0.75,
-        "Q2 2026 - Sprint 4": 0.25
+        "Q2 2026 - Sprint 4": 0.25,
+        "Q3 2026 - Sprint 1": 0.5
       }
     },
     "currentSprint": {
@@ -17306,10 +17307,10 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 612,
-      "estimated": 399,
+      "total": 613,
+      "estimated": 400,
       "unestimated": 213,
-      "totalSP": 708.4,
+      "totalSP": 709.4,
       "incompleteSP": 110,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
@@ -17329,7 +17330,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q2 2026 - Sprint 6": 65.85000000000001,
+        "Q2 2026 - Sprint 6": 66.85000000000001,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
@@ -17343,10 +17344,10 @@ const projects = [
       "name": "Q2 2026 - Sprint 6",
       "startDate": "2026-06-10T00:00:00Z",
       "endDate": "2026-06-30T00:00:00Z",
-      "totalSP": 65.85000000000001,
-      "completedSP": 35.35000000000001,
+      "totalSP": 66.85000000000001,
+      "completedSP": 36.35000000000001,
       "remainingSP": 30.5,
-      "storyCount": 59,
+      "storyCount": 60,
       "stories": [
         {
           "id": 23670,
@@ -18169,63 +18170,77 @@ const projects = [
           "completedSP": 0,
           "remainingSP": 0,
           "assignedTo": "Roach, Joseph",
-          "completedDate": "2026-06-25T19:00:19.9Z",
+          "completedDate": "2026-06-25T19:04:00.743Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30661",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30669,
+          "title": "Fix MIA assembler preview config for Flink session cluster (PROGRAM_ARGS)",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-06-25T21:59:48.08Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30669",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering fix search enhancements, mia access enhancements, miatraitc migrate enhancements, portal 360 enhancements, account composite enhancements, cdc dbodegree enhancements, miatransformersf duplicate enhancements, discovery model enhancements, jdbc kafkaconnect enhancements, split enhancements, agdatabasemasterscripts enhancements, and na-b...",
+      "sprintGoals": "Delivering fix search enhancements, mia access enhancements, miatraitc migrate enhancements, portal 360 enhancements, account composite enhancements, cdc dbodegree enhancements, flink miatransformersf enhancements, discovery model enhancements, jdbc kafkaconnect enhancements, split enhancements, agdatabasemasterscripts enhancements, and na-black...",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 65.85000000000001,
+        "totalSP": 66.85000000000001,
         "points": [
           {
             "date": "2026-06-10",
-            "remaining": 65.35000000000001
+            "remaining": 66.35000000000001
           },
           {
             "date": "2026-06-11",
-            "remaining": 63.35000000000001
+            "remaining": 64.35000000000001
           },
           {
             "date": "2026-06-12",
-            "remaining": 56.35000000000001
+            "remaining": 57.35000000000001
           },
           {
             "date": "2026-06-15",
-            "remaining": 50.35000000000001
+            "remaining": 51.35000000000001
           },
           {
             "date": "2026-06-16",
-            "remaining": 45.60000000000001
+            "remaining": 46.60000000000001
           },
           {
             "date": "2026-06-17",
-            "remaining": 41.10000000000001
+            "remaining": 42.10000000000001
           },
           {
             "date": "2026-06-18",
-            "remaining": 40.150000000000006
+            "remaining": 41.150000000000006
           },
           {
             "date": "2026-06-19",
-            "remaining": 35.95
+            "remaining": 36.95
           },
           {
             "date": "2026-06-22",
-            "remaining": 34.45
+            "remaining": 35.45
           },
           {
             "date": "2026-06-23",
-            "remaining": 33.45
+            "remaining": 34.45
           },
           {
             "date": "2026-06-24",
-            "remaining": 33.45
+            "remaining": 34.45
           },
           {
             "date": "2026-06-25",
@@ -18235,59 +18250,59 @@ const projects = [
         "ideal": [
           {
             "date": "2026-06-10",
-            "remaining": 65.85000000000001
+            "remaining": 66.85000000000001
           },
           {
             "date": "2026-06-11",
-            "remaining": 61.14642857142858
+            "remaining": 62.07500000000001
           },
           {
             "date": "2026-06-12",
-            "remaining": 56.44285714285715
+            "remaining": 57.30000000000001
           },
           {
             "date": "2026-06-15",
-            "remaining": 51.73928571428572
+            "remaining": 52.525000000000006
           },
           {
             "date": "2026-06-16",
-            "remaining": 47.03571428571429
+            "remaining": 47.75000000000001
           },
           {
             "date": "2026-06-17",
-            "remaining": 42.33214285714286
+            "remaining": 42.97500000000001
           },
           {
             "date": "2026-06-18",
-            "remaining": 37.62857142857143
+            "remaining": 38.2
           },
           {
             "date": "2026-06-19",
-            "remaining": 32.925000000000004
+            "remaining": 33.425000000000004
           },
           {
             "date": "2026-06-22",
-            "remaining": 28.221428571428575
+            "remaining": 28.650000000000006
           },
           {
             "date": "2026-06-23",
-            "remaining": 23.517857142857146
+            "remaining": 23.875000000000007
           },
           {
             "date": "2026-06-24",
-            "remaining": 18.814285714285717
+            "remaining": 19.10000000000001
           },
           {
             "date": "2026-06-25",
-            "remaining": 14.110714285714288
+            "remaining": 14.325000000000003
           },
           {
             "date": "2026-06-26",
-            "remaining": 9.407142857142858
+            "remaining": 9.550000000000004
           },
           {
             "date": "2026-06-29",
-            "remaining": 4.703571428571429
+            "remaining": 4.775000000000006
           },
           {
             "date": "2026-06-30",
@@ -24293,10 +24308,10 @@ const projects = [
         "name": "Q2 2026 - Sprint 6",
         "startDate": "2026-06-10T00:00:00Z",
         "endDate": "2026-06-30T00:00:00Z",
-        "totalSP": 65.85000000000001,
-        "completedSP": 35.35000000000001,
+        "totalSP": 66.85000000000001,
+        "completedSP": 36.35000000000001,
         "remainingSP": 30.5,
-        "storyCount": 59,
+        "storyCount": 60,
         "stories": [
           {
             "id": 23670,
@@ -25119,63 +25134,77 @@ const projects = [
             "completedSP": 0,
             "remainingSP": 0,
             "assignedTo": "Roach, Joseph",
-            "completedDate": "2026-06-25T19:00:19.9Z",
+            "completedDate": "2026-06-25T19:04:00.743Z",
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30661",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30669,
+            "title": "Fix MIA assembler preview config for Flink session cluster (PROGRAM_ARGS)",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": "2026-06-25T21:59:48.08Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30669",
             "taskRemainingWork": 0,
             "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering fix search enhancements, mia access enhancements, miatraitc migrate enhancements, portal 360 enhancements, account composite enhancements, cdc dbodegree enhancements, miatransformersf duplicate enhancements, discovery model enhancements, jdbc kafkaconnect enhancements, split enhancements, agdatabasemasterscripts enhancements, and na-b...",
+        "sprintGoals": "Delivering fix search enhancements, mia access enhancements, miatraitc migrate enhancements, portal 360 enhancements, account composite enhancements, cdc dbodegree enhancements, flink miatransformersf enhancements, discovery model enhancements, jdbc kafkaconnect enhancements, split enhancements, agdatabasemasterscripts enhancements, and na-black...",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 65.85000000000001,
+          "totalSP": 66.85000000000001,
           "points": [
             {
               "date": "2026-06-10",
-              "remaining": 65.35000000000001
+              "remaining": 66.35000000000001
             },
             {
               "date": "2026-06-11",
-              "remaining": 63.35000000000001
+              "remaining": 64.35000000000001
             },
             {
               "date": "2026-06-12",
-              "remaining": 56.35000000000001
+              "remaining": 57.35000000000001
             },
             {
               "date": "2026-06-15",
-              "remaining": 50.35000000000001
+              "remaining": 51.35000000000001
             },
             {
               "date": "2026-06-16",
-              "remaining": 45.60000000000001
+              "remaining": 46.60000000000001
             },
             {
               "date": "2026-06-17",
-              "remaining": 41.10000000000001
+              "remaining": 42.10000000000001
             },
             {
               "date": "2026-06-18",
-              "remaining": 40.150000000000006
+              "remaining": 41.150000000000006
             },
             {
               "date": "2026-06-19",
-              "remaining": 35.95
+              "remaining": 36.95
             },
             {
               "date": "2026-06-22",
-              "remaining": 34.45
+              "remaining": 35.45
             },
             {
               "date": "2026-06-23",
-              "remaining": 33.45
+              "remaining": 34.45
             },
             {
               "date": "2026-06-24",
-              "remaining": 33.45
+              "remaining": 34.45
             },
             {
               "date": "2026-06-25",
@@ -25185,59 +25214,59 @@ const projects = [
           "ideal": [
             {
               "date": "2026-06-10",
-              "remaining": 65.85000000000001
+              "remaining": 66.85000000000001
             },
             {
               "date": "2026-06-11",
-              "remaining": 61.14642857142858
+              "remaining": 62.07500000000001
             },
             {
               "date": "2026-06-12",
-              "remaining": 56.44285714285715
+              "remaining": 57.30000000000001
             },
             {
               "date": "2026-06-15",
-              "remaining": 51.73928571428572
+              "remaining": 52.525000000000006
             },
             {
               "date": "2026-06-16",
-              "remaining": 47.03571428571429
+              "remaining": 47.75000000000001
             },
             {
               "date": "2026-06-17",
-              "remaining": 42.33214285714286
+              "remaining": 42.97500000000001
             },
             {
               "date": "2026-06-18",
-              "remaining": 37.62857142857143
+              "remaining": 38.2
             },
             {
               "date": "2026-06-19",
-              "remaining": 32.925000000000004
+              "remaining": 33.425000000000004
             },
             {
               "date": "2026-06-22",
-              "remaining": 28.221428571428575
+              "remaining": 28.650000000000006
             },
             {
               "date": "2026-06-23",
-              "remaining": 23.517857142857146
+              "remaining": 23.875000000000007
             },
             {
               "date": "2026-06-24",
-              "remaining": 18.814285714285717
+              "remaining": 19.10000000000001
             },
             {
               "date": "2026-06-25",
-              "remaining": 14.110714285714288
+              "remaining": 14.325000000000003
             },
             {
               "date": "2026-06-26",
-              "remaining": 9.407142857142858
+              "remaining": 9.550000000000004
             },
             {
               "date": "2026-06-29",
-              "remaining": 4.703571428571429
+              "remaining": 4.775000000000006
             },
             {
               "date": "2026-06-30",
@@ -25560,10 +25589,10 @@ const projects = [
       },
       {
         "id": 23882,
-        "title": "Fine Arts - v2026.06.30 (Nationals)",
+        "title": "Fine Arts - v2026.07.25 (Nationals)",
         "state": "Active",
-        "features": 13,
-        "stories": 56
+        "features": 14,
+        "stories": 57
       },
       {
         "id": 23982,
@@ -25595,11 +25624,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 400,
-      "estimated": 334,
+      "total": 401,
+      "estimated": 335,
       "unestimated": 66,
-      "totalSP": 503,
-      "incompleteSP": 111.5,
+      "totalSP": 503.5,
+      "incompleteSP": 112,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 13,
         "Fine Arts": 118,
@@ -25628,7 +25657,8 @@ const projects = [
         "Q2 2026 - Sprint 4": 9.5,
         "Q2 2026 - Sprint 2": 9.75,
         "Q2 2026 - Sprint 3": 14.25,
-        "Q2 2026 - Sprint 1": 3.25
+        "Q2 2026 - Sprint 1": 3.25,
+        "Q3 2026 - Sprint 1": 0.5
       }
     },
     "currentSprint": {
@@ -33846,7 +33876,7 @@ const projects = [
         "title": "GPH: MVP (2026.05)",
         "state": "Active",
         "features": 6,
-        "stories": 123
+        "stories": 124
       },
       {
         "id": 27290,
@@ -33864,9 +33894,9 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 231,
+      "total": 232,
       "estimated": 173,
-      "unestimated": 58,
+      "unestimated": 59,
       "totalSP": 257.1,
       "incompleteSP": 118.75,
       "sprintSP": {
