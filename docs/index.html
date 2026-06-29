@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, June 29, 2026 at 9:51 AM</span>
+    <span>Last updated: Monday, June 29, 2026 at 11:27 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -3879,7 +3879,7 @@ const projects = [
           "assignedTo": "Butler, Justin",
           "completedDate": "2026-06-29T14:50:04.107Z",
           "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/4803",
-          "taskRemainingWork": 2,
+          "taskRemainingWork": 0.25,
           "taskCompletedWork": 0
         },
         {
@@ -4040,8 +4040,8 @@ const projects = [
           "2026-06-24": 2,
           "2026-06-25": 2,
           "2026-06-26": 2,
-          "2026-06-29": 2,
-          "2026-06-30": 2
+          "2026-06-29": 0.25,
+          "2026-06-30": 0.25
         }
       },
       "isCurrent": true
@@ -5759,7 +5759,7 @@ const projects = [
             "assignedTo": "Butler, Justin",
             "completedDate": "2026-06-29T14:50:04.107Z",
             "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/4803",
-            "taskRemainingWork": 2,
+            "taskRemainingWork": 0.25,
             "taskCompletedWork": 0
           },
           {
@@ -5920,8 +5920,8 @@ const projects = [
             "2026-06-24": 2,
             "2026-06-25": 2,
             "2026-06-26": 2,
-            "2026-06-29": 2,
-            "2026-06-30": 2
+            "2026-06-29": 0.25,
+            "2026-06-30": 0.25
           }
         },
         "isCurrent": true
@@ -7665,14 +7665,14 @@ const projects = [
     "name": "AGWM Financial Reporting",
     "shortName": "Financial",
     "devopsProject": "AGWM Financial Reporting",
-    "phase": "New",
+    "phase": "Active",
     "epics": [
       {
         "id": 19987,
         "title": "Financial Reporting",
         "state": "New",
         "features": 5,
-        "stories": 84
+        "stories": 85
       },
       {
         "id": 19990,
@@ -7705,15 +7705,15 @@ const projects = [
       {
         "id": 22144,
         "title": "Missionary Itineration Form (Access)",
-        "state": "New",
+        "state": "In Progress",
         "features": 8,
         "stories": 24
       }
     ],
     "estimation": {
-      "total": 149,
+      "total": 150,
       "estimated": 77,
-      "unestimated": 72,
+      "unestimated": 73,
       "totalSP": 158.75,
       "incompleteSP": 24.75,
       "sprintSP": {
@@ -9746,7 +9746,7 @@ const projects = [
         "totalSP": 3,
         "completedSP": 0,
         "remainingSP": 3,
-        "storyCount": 1,
+        "storyCount": 2,
         "stories": [
           {
             "id": 22478,
@@ -9761,9 +9761,23 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/22478",
             "taskRemainingWork": 2,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 30166,
+            "title": "Redesign AGWM MAPS Tax Deduct Processes",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 0,
+            "completedSP": 0,
+            "remainingSP": 0,
+            "assignedTo": "Farrand, Phil",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/30166",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering fr reports prm795 upgrade to handle more params and automation.",
+        "sprintGoals": "Delivering fr reports prm795 upgrade to handle more params and automation, along with redesign agwm maps tax deduct processes.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
@@ -44849,14 +44863,6 @@ const supportRequests = {
       "project": "Missions Support",
       "description": "",
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/30433"
-    },
-    {
-      "id": 30553,
-      "title": "Nightly Jobs Failing [\"Refresh Migrate Credentialed Missionaries\" + \"HM_AM_Imports\"]",
-      "state": "Committed",
-      "project": "Missions Support",
-      "description": "See below. Thanks. Brent Stilts From: Georgiades, George <ggeorgiades@ag.org> Sent: Wednesday, June 17, 2026 3:45 PM To: Stilts, Brent <BStilts@ag.org>; Farrand, Phil <PFarrand@ag.org>; Yarbrough, Darren <DYarbrough@ag.org> Subject: Re: Refresh Migrate Credentialed Missionaries I’d say log at ticket…",
-      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/30553"
     }
   ],
   "Lamar, Brion": [
@@ -44875,16 +44881,6 @@ const supportRequests = {
       "project": "Missions Support",
       "description": "We need to get this fixed as soon as possible for her. This is normally a Brion Lamar fix. We think this is something we have encountered in the past with having 2 accounts but we can’t see it, she can’t, etc. Ramona Edgman Administrator, AG U.S. Missions (417) 862-2781 AG National Office 1445 N Boo…",
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/30668"
-    }
-  ],
-  "coursbourn gloo.us": [
-    {
-      "id": 30166,
-      "title": "Redesign AGWM MAPS Tax Deduct Processes",
-      "state": "New",
-      "project": "Missions Support",
-      "description": "Good afternoon! I had sent in a question earlier, and now I need to submit this as a programming request. We need to have the tax calculation for Missionary Associates and MAPS workers split from one another so that we can apply different percentages to each. Phil Farrand is aware of the request (se…",
-      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/30166"
     }
   ],
   "Butler, Justin": [
