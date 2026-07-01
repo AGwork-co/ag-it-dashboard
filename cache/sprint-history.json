@@ -33020,6 +33020,340 @@
         }
       },
       "isCurrent": false
+    },
+    "FPHC::192145fb-e9c7-4da5-a17c-65e869f94d2a": {
+      "name": "Q2 2026 - Sprint 6",
+      "startDate": "2026-06-10T00:00:00Z",
+      "endDate": "2026-06-30T00:00:00Z",
+      "totalSP": 11,
+      "completedSP": 11,
+      "remainingSP": 0,
+      "storyCount": 11,
+      "stories": [
+        {
+          "id": 29855,
+          "title": "Pagination/Results Per Page Error",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T19:47:42.337Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29855",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29856,
+          "title": "Ensure FPHC staff receives email when application submitted",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T16:24:56.213Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29856",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29862,
+          "title": "Photo Collection: Changing Date Cataloged does not filter results",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T16:24:56.343Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29862",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29973,
+          "title": "Archive UI Restructure — Audio/Visual Add/Edit",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T16:24:56.45Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29973",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29986,
+          "title": "Mobile: Keyword Search Bar Always Visible",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T19:47:42.403Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29986",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29989,
+          "title": "Sort by Creator Not Working — Archive Additional Results",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T16:24:56.553Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29989",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29990,
+          "title": "Thumbnail Missing — Photograph Archive \"More by Subject/Creator\"",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T16:24:56.657Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29990",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29991,
+          "title": "Enter Key Does Not Trigger Search — Digital Publications Index",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T19:47:42.47Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29991",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29992,
+          "title": "Missing Articles 1997–2002 in Sorted Search Results",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T16:24:56.793Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29992",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 29994,
+          "title": "PE Article Embargo Not Enforced for Approved Users",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Medina, Joel",
+          "completedDate": "2026-06-24T16:24:56.903Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29994",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30420,
+          "title": "Infrastructure Info Dump – FPHC Archive Data Categorization and Migration Planning",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
+          "assignedTo": "Anderson, Zack",
+          "completedDate": "2026-06-25T19:02:51.277Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/30420",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering archive enhancements, results enhancements, search enhancements, and pagination/results per page error, Ensure FPHC staff receives email when applicati..., and 1 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 11,
+        "points": [
+          {
+            "date": "2026-06-10",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-11",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-12",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-15",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-16",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-17",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-18",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-19",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-22",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-23",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-24",
+            "remaining": 2
+          },
+          {
+            "date": "2026-06-25",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-26",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-29",
+            "remaining": 0
+          },
+          {
+            "date": "2026-06-30",
+            "remaining": 0
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-06-10",
+            "remaining": 11
+          },
+          {
+            "date": "2026-06-11",
+            "remaining": 10.214285714285714
+          },
+          {
+            "date": "2026-06-12",
+            "remaining": 9.428571428571429
+          },
+          {
+            "date": "2026-06-15",
+            "remaining": 8.642857142857142
+          },
+          {
+            "date": "2026-06-16",
+            "remaining": 7.857142857142858
+          },
+          {
+            "date": "2026-06-17",
+            "remaining": 7.071428571428571
+          },
+          {
+            "date": "2026-06-18",
+            "remaining": 6.285714285714286
+          },
+          {
+            "date": "2026-06-19",
+            "remaining": 5.5
+          },
+          {
+            "date": "2026-06-22",
+            "remaining": 4.714285714285714
+          },
+          {
+            "date": "2026-06-23",
+            "remaining": 3.928571428571429
+          },
+          {
+            "date": "2026-06-24",
+            "remaining": 3.1428571428571432
+          },
+          {
+            "date": "2026-06-25",
+            "remaining": 2.3571428571428577
+          },
+          {
+            "date": "2026-06-26",
+            "remaining": 1.5714285714285712
+          },
+          {
+            "date": "2026-06-29",
+            "remaining": 0.7857142857142865
+          },
+          {
+            "date": "2026-06-30",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Medina, Joel": {
+          "2026-06-10": 5.25,
+          "2026-06-11": 4.75,
+          "2026-06-12": 5.75,
+          "2026-06-15": 3.75,
+          "2026-06-16": 2.75,
+          "2026-06-17": 1.75,
+          "2026-06-18": 1.75,
+          "2026-06-19": 1,
+          "2026-06-22": 0.5,
+          "2026-06-23": 0,
+          "2026-06-24": 0,
+          "2026-06-25": 0,
+          "2026-06-26": 0,
+          "2026-06-29": 0,
+          "2026-06-30": 0
+        },
+        "Anderson, Zack": {
+          "2026-06-10": 0,
+          "2026-06-11": 0,
+          "2026-06-12": 2,
+          "2026-06-15": 2,
+          "2026-06-16": 2,
+          "2026-06-17": 2,
+          "2026-06-18": 2,
+          "2026-06-19": 2,
+          "2026-06-22": 2,
+          "2026-06-23": 2,
+          "2026-06-24": 2,
+          "2026-06-25": 0,
+          "2026-06-26": 0,
+          "2026-06-29": 0,
+          "2026-06-30": 0
+        }
+      },
+      "isCurrent": false
     }
   }
 }

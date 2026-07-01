@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Wednesday, July 1, 2026 at 10:39 AM</span>
+    <span>Last updated: Wednesday, July 1, 2026 at 1:58 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -428,31 +428,47 @@ const projects = [
       "estimated": 11,
       "unestimated": 25,
       "totalSP": 24.75,
-      "incompleteSP": 14.25,
+      "incompleteSP": 14,
       "sprintSP": {
-        "AG Accounts": 14.5,
+        "AG Accounts": 14.25,
         "Q3 2025 - Sprint 6": 5,
         "Q3 2025 - Sprint 2": 3,
         "Q4 2025 - Sprint 2": 1.25,
-        "Q4 2025 - Sprint 1": 1
+        "Q4 2025 - Sprint 1": 1,
+        "Q3 2026 - Sprint 1": 0.25
       }
     },
     "currentSprint": {
       "name": "Q3 2026 - Sprint 1",
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
-      "totalSP": 0,
-      "completedSP": 0,
+      "totalSP": 0.25,
+      "completedSP": 0.25,
       "remainingSP": 0,
-      "storyCount": 0,
-      "stories": [],
-      "sprintGoals": "",
+      "storyCount": 1,
+      "stories": [
+        {
+          "id": 30815,
+          "title": "accounts.ag.org - Remove support chat feature",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
+          "assignedTo": "Butler, Justin",
+          "completedDate": "2026-07-01T14:11:44.41Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/AG%20Accounts/_workitems/edit/30815",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering accounts.ag.org - remove support chat feature.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 0,
+        "totalSP": 0.25,
         "points": [
           {
             "date": "2026-07-01",
@@ -462,39 +478,39 @@ const projects = [
         "ideal": [
           {
             "date": "2026-07-01",
-            "remaining": 0
+            "remaining": 0.25
           },
           {
             "date": "2026-07-02",
-            "remaining": 0
+            "remaining": 0.2222222222222222
           },
           {
             "date": "2026-07-03",
-            "remaining": 0
+            "remaining": 0.19444444444444445
           },
           {
             "date": "2026-07-06",
-            "remaining": 0
+            "remaining": 0.16666666666666669
           },
           {
             "date": "2026-07-07",
-            "remaining": 0
+            "remaining": 0.1388888888888889
           },
           {
             "date": "2026-07-08",
-            "remaining": 0
+            "remaining": 0.1111111111111111
           },
           {
             "date": "2026-07-09",
-            "remaining": 0
+            "remaining": 0.08333333333333334
           },
           {
             "date": "2026-07-10",
-            "remaining": 0
+            "remaining": 0.05555555555555558
           },
           {
             "date": "2026-07-13",
-            "remaining": 0
+            "remaining": 0.02777777777777779
           },
           {
             "date": "2026-07-14",
@@ -502,7 +518,20 @@ const projects = [
           }
         ]
       },
-      "personTaskBurndown": {},
+      "personTaskBurndown": {
+        "Butler, Justin": {
+          "2026-07-01": 0,
+          "2026-07-02": 0,
+          "2026-07-03": 0,
+          "2026-07-06": 0,
+          "2026-07-07": 0,
+          "2026-07-08": 0,
+          "2026-07-09": 0,
+          "2026-07-10": 0,
+          "2026-07-13": 0,
+          "2026-07-14": 0
+        }
+      },
       "isCurrent": true
     },
     "allSprints": [
@@ -614,18 +643,33 @@ const projects = [
         "name": "Q3 2026 - Sprint 1",
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
-        "totalSP": 0,
-        "completedSP": 0,
+        "totalSP": 0.25,
+        "completedSP": 0.25,
         "remainingSP": 0,
-        "storyCount": 0,
-        "stories": [],
-        "sprintGoals": "",
+        "storyCount": 1,
+        "stories": [
+          {
+            "id": 30815,
+            "title": "accounts.ag.org - Remove support chat feature",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 0.25,
+            "completedSP": 0.25,
+            "remainingSP": 0,
+            "assignedTo": "Butler, Justin",
+            "completedDate": "2026-07-01T14:11:44.41Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/AG%20Accounts/_workitems/edit/30815",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          }
+        ],
+        "sprintGoals": "Delivering accounts.ag.org - remove support chat feature.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 0,
+          "totalSP": 0.25,
           "points": [
             {
               "date": "2026-07-01",
@@ -635,39 +679,39 @@ const projects = [
           "ideal": [
             {
               "date": "2026-07-01",
-              "remaining": 0
+              "remaining": 0.25
             },
             {
               "date": "2026-07-02",
-              "remaining": 0
+              "remaining": 0.2222222222222222
             },
             {
               "date": "2026-07-03",
-              "remaining": 0
+              "remaining": 0.19444444444444445
             },
             {
               "date": "2026-07-06",
-              "remaining": 0
+              "remaining": 0.16666666666666669
             },
             {
               "date": "2026-07-07",
-              "remaining": 0
+              "remaining": 0.1388888888888889
             },
             {
               "date": "2026-07-08",
-              "remaining": 0
+              "remaining": 0.1111111111111111
             },
             {
               "date": "2026-07-09",
-              "remaining": 0
+              "remaining": 0.08333333333333334
             },
             {
               "date": "2026-07-10",
-              "remaining": 0
+              "remaining": 0.05555555555555558
             },
             {
               "date": "2026-07-13",
-              "remaining": 0
+              "remaining": 0.02777777777777779
             },
             {
               "date": "2026-07-14",
@@ -675,7 +719,20 @@ const projects = [
             }
           ]
         },
-        "personTaskBurndown": {},
+        "personTaskBurndown": {
+          "Butler, Justin": {
+            "2026-07-01": 0,
+            "2026-07-02": 0,
+            "2026-07-03": 0,
+            "2026-07-06": 0,
+            "2026-07-07": 0,
+            "2026-07-08": 0,
+            "2026-07-09": 0,
+            "2026-07-10": 0,
+            "2026-07-13": 0,
+            "2026-07-14": 0
+          }
+        },
         "isCurrent": true
       }
     ]
@@ -3716,8 +3773,8 @@ const projects = [
         "id": 13326,
         "title": "AG Giving - vNext",
         "state": "New",
-        "features": 28,
-        "stories": 82
+        "features": 29,
+        "stories": 87
       },
       {
         "id": 15829,
@@ -3750,23 +3807,23 @@ const projects = [
       {
         "id": 25339,
         "title": "AG Giving - v2025.Q2 (Donor Facing)",
-        "state": "Active",
-        "features": 7,
-        "stories": 15
+        "state": "Done",
+        "features": 3,
+        "stories": 6
       },
       {
         "id": 29536,
         "title": "AG Giving - v2025.Q3 (Tech Facing)",
         "state": "Active",
-        "features": 8,
-        "stories": 34
+        "features": 7,
+        "stories": 33
       },
       {
         "id": 29537,
         "title": "AG Giving - v2025.Q3 (Donor Facing)",
         "state": "Active",
-        "features": 12,
-        "stories": 52
+        "features": 14,
+        "stories": 57
       }
     ],
     "estimation": {
@@ -3777,7 +3834,7 @@ const projects = [
       "incompleteSP": 143.75,
       "sprintSP": {
         "2020-33": 56,
-        "AG.Giving": 499.5,
+        "AG.Giving": 503,
         "2021-04": 63,
         "2020-49": 64,
         "2020-51": 70,
@@ -3804,7 +3861,6 @@ const projects = [
         "Q2 2025 - Sprint 3": 22.25,
         "Q2 2026 - Sprint 6": 3.25,
         "Q3 2025 - Sprint 5": 11.25,
-        "Q1 2026 - Sprint 6": 13,
         "Q3 2025 - Sprint 2": 23,
         "Q3 2025 - Sprint 3": 18.5,
         "Q2 2025 - Sprint 6": 4.25,
@@ -3819,6 +3875,7 @@ const projects = [
         "Q1 2026 - Sprint 3": 7.75,
         "Q1 2026 - Sprint 4": 4.25,
         "Q1 2026 - Sprint 2": 5.5,
+        "Q1 2026 - Sprint 6": 9.5,
         "Q4 2025 - Sprint 2": 3.25,
         "Q4 2025 - Sprint 4": 8.25,
         "Q1 2026 - Sprint 5": 0.75,
@@ -17388,7 +17445,7 @@ const projects = [
         "title": "AG 360 Portal (MVP)",
         "state": "Active",
         "features": 5,
-        "stories": 94
+        "stories": 93
       },
       {
         "id": 28512,
@@ -17399,14 +17456,14 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 620,
-      "estimated": 406,
+      "total": 619,
+      "estimated": 405,
       "unestimated": 214,
-      "totalSP": 722.55,
-      "incompleteSP": 113,
+      "totalSP": 719.55,
+      "incompleteSP": 108,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
-        "CRM": 95,
+        "CRM": 92,
         "Q2 2025 - Sprint 2": 2,
         "Q3 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 1": 7,
@@ -17438,8 +17495,8 @@ const projects = [
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
       "totalSP": 29.5,
-      "completedSP": 0,
-      "remainingSP": 29.5,
+      "completedSP": 2,
+      "remainingSP": 27.5,
       "storyCount": 11,
       "stories": [
         {
@@ -17467,7 +17524,7 @@ const projects = [
           "assignedTo": "Roach, Joseph",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28717",
-          "taskRemainingWork": 6,
+          "taskRemainingWork": 4,
           "taskCompletedWork": 0
         },
         {
@@ -17544,14 +17601,14 @@ const projects = [
           "id": 30249,
           "title": "360 Portal: Electron code signing (Windows + macOS)",
           "type": "User Story",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
           "assignedTo": "Roach, Joseph",
-          "completedDate": null,
+          "completedDate": "2026-07-01T16:24:13.493Z",
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30249",
-          "taskRemainingWork": 0.25,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -17579,7 +17636,7 @@ const projects = [
           "assignedTo": "Roach, Joseph",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30472",
-          "taskRemainingWork": 2,
+          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         },
         {
@@ -17607,7 +17664,7 @@ const projects = [
         "points": [
           {
             "date": "2026-07-01",
-            "remaining": 29.5
+            "remaining": 27.5
           }
         ],
         "ideal": [
@@ -17666,18 +17723,6 @@ const projects = [
           "2026-07-13": 7.5,
           "2026-07-14": 7.5
         },
-        "Roach, Joseph": {
-          "2026-07-01": 8.25,
-          "2026-07-02": 8.25,
-          "2026-07-03": 8.25,
-          "2026-07-06": 8.25,
-          "2026-07-07": 8.25,
-          "2026-07-08": 8.25,
-          "2026-07-09": 8.25,
-          "2026-07-10": 8.25,
-          "2026-07-13": 8.25,
-          "2026-07-14": 8.25
-        },
         "Hassbaum, Ralph": {
           "2026-07-01": 7,
           "2026-07-02": 7,
@@ -17701,6 +17746,18 @@ const projects = [
           "2026-07-10": 3,
           "2026-07-13": 3,
           "2026-07-14": 3
+        },
+        "Roach, Joseph": {
+          "2026-07-01": 5,
+          "2026-07-02": 5,
+          "2026-07-03": 5,
+          "2026-07-06": 5,
+          "2026-07-07": 5,
+          "2026-07-08": 5,
+          "2026-07-09": 5,
+          "2026-07-10": 5,
+          "2026-07-13": 5,
+          "2026-07-14": 5
         }
       },
       "isCurrent": true
@@ -24557,8 +24614,8 @@ const projects = [
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
         "totalSP": 29.5,
-        "completedSP": 0,
-        "remainingSP": 29.5,
+        "completedSP": 2,
+        "remainingSP": 27.5,
         "storyCount": 11,
         "stories": [
           {
@@ -24586,7 +24643,7 @@ const projects = [
             "assignedTo": "Roach, Joseph",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/28717",
-            "taskRemainingWork": 6,
+            "taskRemainingWork": 4,
             "taskCompletedWork": 0
           },
           {
@@ -24663,14 +24720,14 @@ const projects = [
             "id": 30249,
             "title": "360 Portal: Electron code signing (Windows + macOS)",
             "type": "User Story",
-            "state": "Ready for Review",
+            "state": "Done",
             "storyPoints": 2,
-            "completedSP": 0,
-            "remainingSP": 2,
+            "completedSP": 2,
+            "remainingSP": 0,
             "assignedTo": "Roach, Joseph",
-            "completedDate": null,
+            "completedDate": "2026-07-01T16:24:13.493Z",
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30249",
-            "taskRemainingWork": 0.25,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           },
           {
@@ -24698,7 +24755,7 @@ const projects = [
             "assignedTo": "Roach, Joseph",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30472",
-            "taskRemainingWork": 2,
+            "taskRemainingWork": 1,
             "taskCompletedWork": 0
           },
           {
@@ -24726,7 +24783,7 @@ const projects = [
           "points": [
             {
               "date": "2026-07-01",
-              "remaining": 29.5
+              "remaining": 27.5
             }
           ],
           "ideal": [
@@ -24785,18 +24842,6 @@ const projects = [
             "2026-07-13": 7.5,
             "2026-07-14": 7.5
           },
-          "Roach, Joseph": {
-            "2026-07-01": 8.25,
-            "2026-07-02": 8.25,
-            "2026-07-03": 8.25,
-            "2026-07-06": 8.25,
-            "2026-07-07": 8.25,
-            "2026-07-08": 8.25,
-            "2026-07-09": 8.25,
-            "2026-07-10": 8.25,
-            "2026-07-13": 8.25,
-            "2026-07-14": 8.25
-          },
           "Hassbaum, Ralph": {
             "2026-07-01": 7,
             "2026-07-02": 7,
@@ -24820,6 +24865,18 @@ const projects = [
             "2026-07-10": 3,
             "2026-07-13": 3,
             "2026-07-14": 3
+          },
+          "Roach, Joseph": {
+            "2026-07-01": 5,
+            "2026-07-02": 5,
+            "2026-07-03": 5,
+            "2026-07-06": 5,
+            "2026-07-07": 5,
+            "2026-07-08": 5,
+            "2026-07-09": 5,
+            "2026-07-10": 5,
+            "2026-07-13": 5,
+            "2026-07-14": 5
           }
         },
         "isCurrent": true
@@ -25069,8 +25126,8 @@ const projects = [
         "id": 23882,
         "title": "Fine Arts - v2026.07.25 (Nationals)",
         "state": "Active",
-        "features": 14,
-        "stories": 62
+        "features": 15,
+        "stories": 63
       },
       {
         "id": 23982,
@@ -25102,21 +25159,21 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 407,
-      "estimated": 338,
+      "total": 408,
+      "estimated": 339,
       "unestimated": 69,
       "totalSP": 505.75,
       "incompleteSP": 109,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 13,
-        "Fine Arts": 110,
+        "Fine Arts": 111,
         "Q3 2025 - Sprint 5": 9.5,
         "Q1 2026 - Sprint 1": 9.25,
         "Q4 2025 - Sprint 4": 20.5,
         "Q4 2025 - Sprint 2": 32.25,
         "Q1 2026 - Sprint 2": 29.5,
         "Q4 2025 - Sprint 3": 11.5,
-        "Q3 2026 - Sprint 1": 24.5,
+        "Q3 2026 - Sprint 1": 23.5,
         "Q2 2025 - Sprint 4": 20.25,
         "Q1 2026 - Sprint 6": 18.5,
         "Q2 2025 - Sprint 5": 6,
@@ -25143,9 +25200,9 @@ const projects = [
       "name": "Q3 2026 - Sprint 1",
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
-      "totalSP": 24.5,
+      "totalSP": 23.5,
       "completedSP": 0,
-      "remainingSP": 24.5,
+      "remainingSP": 23.5,
       "storyCount": 13,
       "stories": [
         {
@@ -25307,13 +25364,13 @@ const projects = [
           "title": "Digital Evaluations: Cron Job",
           "type": "User Story",
           "state": "Committed",
-          "storyPoints": 2,
+          "storyPoints": 1,
           "completedSP": 0,
-          "remainingSP": 2,
+          "remainingSP": 1,
           "assignedTo": "Butler, Justin",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/30775",
-          "taskRemainingWork": 2,
+          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         },
         {
@@ -25337,49 +25394,49 @@ const projects = [
         "members": []
       },
       "burndown": {
-        "totalSP": 24.5,
+        "totalSP": 23.5,
         "points": [
           {
             "date": "2026-07-01",
-            "remaining": 24.5
+            "remaining": 23.5
           }
         ],
         "ideal": [
           {
             "date": "2026-07-01",
-            "remaining": 24.5
+            "remaining": 23.5
           },
           {
             "date": "2026-07-02",
-            "remaining": 21.77777777777778
+            "remaining": 20.88888888888889
           },
           {
             "date": "2026-07-03",
-            "remaining": 19.055555555555557
+            "remaining": 18.27777777777778
           },
           {
             "date": "2026-07-06",
-            "remaining": 16.333333333333332
+            "remaining": 15.666666666666666
           },
           {
             "date": "2026-07-07",
-            "remaining": 13.61111111111111
+            "remaining": 13.055555555555555
           },
           {
             "date": "2026-07-08",
-            "remaining": 10.88888888888889
+            "remaining": 10.444444444444445
           },
           {
             "date": "2026-07-09",
-            "remaining": 8.166666666666664
+            "remaining": 7.833333333333332
           },
           {
             "date": "2026-07-10",
-            "remaining": 5.444444444444443
+            "remaining": 5.222222222222221
           },
           {
             "date": "2026-07-13",
-            "remaining": 2.7222222222222214
+            "remaining": 2.6111111111111107
           },
           {
             "date": "2026-07-14",
@@ -25401,16 +25458,16 @@ const projects = [
           "2026-07-14": 2.25
         },
         "Butler, Justin": {
-          "2026-07-01": 6.5,
-          "2026-07-02": 6.5,
-          "2026-07-03": 6.5,
-          "2026-07-06": 6.5,
-          "2026-07-07": 6.5,
-          "2026-07-08": 6.5,
-          "2026-07-09": 6.5,
-          "2026-07-10": 6.5,
-          "2026-07-13": 6.5,
-          "2026-07-14": 6.5
+          "2026-07-01": 5.5,
+          "2026-07-02": 5.5,
+          "2026-07-03": 5.5,
+          "2026-07-06": 5.5,
+          "2026-07-07": 5.5,
+          "2026-07-08": 5.5,
+          "2026-07-09": 5.5,
+          "2026-07-10": 5.5,
+          "2026-07-13": 5.5,
+          "2026-07-14": 5.5
         },
         "drodrigues gloo.us": {
           "2026-07-01": 2,
@@ -29832,9 +29889,9 @@ const projects = [
         "name": "Q3 2026 - Sprint 1",
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
-        "totalSP": 24.5,
+        "totalSP": 23.5,
         "completedSP": 0,
-        "remainingSP": 24.5,
+        "remainingSP": 23.5,
         "storyCount": 13,
         "stories": [
           {
@@ -29996,13 +30053,13 @@ const projects = [
             "title": "Digital Evaluations: Cron Job",
             "type": "User Story",
             "state": "Committed",
-            "storyPoints": 2,
+            "storyPoints": 1,
             "completedSP": 0,
-            "remainingSP": 2,
+            "remainingSP": 1,
             "assignedTo": "Butler, Justin",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/30775",
-            "taskRemainingWork": 2,
+            "taskRemainingWork": 1,
             "taskCompletedWork": 0
           },
           {
@@ -30026,49 +30083,49 @@ const projects = [
           "members": []
         },
         "burndown": {
-          "totalSP": 24.5,
+          "totalSP": 23.5,
           "points": [
             {
               "date": "2026-07-01",
-              "remaining": 24.5
+              "remaining": 23.5
             }
           ],
           "ideal": [
             {
               "date": "2026-07-01",
-              "remaining": 24.5
+              "remaining": 23.5
             },
             {
               "date": "2026-07-02",
-              "remaining": 21.77777777777778
+              "remaining": 20.88888888888889
             },
             {
               "date": "2026-07-03",
-              "remaining": 19.055555555555557
+              "remaining": 18.27777777777778
             },
             {
               "date": "2026-07-06",
-              "remaining": 16.333333333333332
+              "remaining": 15.666666666666666
             },
             {
               "date": "2026-07-07",
-              "remaining": 13.61111111111111
+              "remaining": 13.055555555555555
             },
             {
               "date": "2026-07-08",
-              "remaining": 10.88888888888889
+              "remaining": 10.444444444444445
             },
             {
               "date": "2026-07-09",
-              "remaining": 8.166666666666664
+              "remaining": 7.833333333333332
             },
             {
               "date": "2026-07-10",
-              "remaining": 5.444444444444443
+              "remaining": 5.222222222222221
             },
             {
               "date": "2026-07-13",
-              "remaining": 2.7222222222222214
+              "remaining": 2.6111111111111107
             },
             {
               "date": "2026-07-14",
@@ -30090,16 +30147,16 @@ const projects = [
             "2026-07-14": 2.25
           },
           "Butler, Justin": {
-            "2026-07-01": 6.5,
-            "2026-07-02": 6.5,
-            "2026-07-03": 6.5,
-            "2026-07-06": 6.5,
-            "2026-07-07": 6.5,
-            "2026-07-08": 6.5,
-            "2026-07-09": 6.5,
-            "2026-07-10": 6.5,
-            "2026-07-13": 6.5,
-            "2026-07-14": 6.5
+            "2026-07-01": 5.5,
+            "2026-07-02": 5.5,
+            "2026-07-03": 5.5,
+            "2026-07-06": 5.5,
+            "2026-07-07": 5.5,
+            "2026-07-08": 5.5,
+            "2026-07-09": 5.5,
+            "2026-07-10": 5.5,
+            "2026-07-13": 5.5,
+            "2026-07-14": 5.5
           },
           "drodrigues gloo.us": {
             "2026-07-01": 2,
@@ -30165,13 +30222,13 @@ const projects = [
         "title": "FPHC - v2026.Q2",
         "state": "Active",
         "features": 10,
-        "stories": 63
+        "stories": 65
       }
     ],
     "estimation": {
-      "total": 488,
+      "total": 490,
       "estimated": 248,
-      "unestimated": 240,
+      "unestimated": 242,
       "totalSP": 291.5,
       "incompleteSP": 8.5,
       "sprintSP": {
@@ -30209,337 +30266,71 @@ const projects = [
       }
     },
     "currentSprint": {
-      "name": "Q2 2026 - Sprint 6",
-      "startDate": "2026-06-10T00:00:00Z",
-      "endDate": "2026-06-30T00:00:00Z",
-      "totalSP": 11,
-      "completedSP": 11,
+      "name": "Q3 2026 - Sprint 1",
+      "startDate": "2026-07-01T00:00:00Z",
+      "endDate": "2026-07-14T00:00:00Z",
+      "totalSP": 0,
+      "completedSP": 0,
       "remainingSP": 0,
-      "storyCount": 11,
-      "stories": [
-        {
-          "id": 29855,
-          "title": "Pagination/Results Per Page Error",
-          "type": "Bug",
-          "state": "Done",
-          "storyPoints": 0.25,
-          "completedSP": 0.25,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T19:47:42.337Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29855",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29856,
-          "title": "Ensure FPHC staff receives email when application submitted",
-          "type": "Bug",
-          "state": "Done",
-          "storyPoints": 0.5,
-          "completedSP": 0.5,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T16:24:56.213Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29856",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29862,
-          "title": "Photo Collection: Changing Date Cataloged does not filter results",
-          "type": "Bug",
-          "state": "Done",
-          "storyPoints": 1,
-          "completedSP": 1,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T16:24:56.343Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29862",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29973,
-          "title": "Archive UI Restructure — Audio/Visual Add/Edit",
-          "type": "User Story",
-          "state": "Done",
-          "storyPoints": 2,
-          "completedSP": 2,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T16:24:56.45Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29973",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29986,
-          "title": "Mobile: Keyword Search Bar Always Visible",
-          "type": "User Story",
-          "state": "Done",
-          "storyPoints": 0.5,
-          "completedSP": 0.5,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T19:47:42.403Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29986",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29989,
-          "title": "Sort by Creator Not Working — Archive Additional Results",
-          "type": "Bug",
-          "state": "Done",
-          "storyPoints": 0.5,
-          "completedSP": 0.5,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T16:24:56.553Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29989",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29990,
-          "title": "Thumbnail Missing — Photograph Archive \"More by Subject/Creator\"",
-          "type": "Bug",
-          "state": "Done",
-          "storyPoints": 2,
-          "completedSP": 2,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T16:24:56.657Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29990",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29991,
-          "title": "Enter Key Does Not Trigger Search — Digital Publications Index",
-          "type": "Bug",
-          "state": "Done",
-          "storyPoints": 0.25,
-          "completedSP": 0.25,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T19:47:42.47Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29991",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29992,
-          "title": "Missing Articles 1997–2002 in Sorted Search Results",
-          "type": "Bug",
-          "state": "Done",
-          "storyPoints": 1,
-          "completedSP": 1,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T16:24:56.793Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29992",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 29994,
-          "title": "PE Article Embargo Not Enforced for Approved Users",
-          "type": "Bug",
-          "state": "Done",
-          "storyPoints": 1,
-          "completedSP": 1,
-          "remainingSP": 0,
-          "assignedTo": "Medina, Joel",
-          "completedDate": "2026-06-24T16:24:56.903Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/29994",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 30420,
-          "title": "Infrastructure Info Dump – FPHC Archive Data Categorization and Migration Planning",
-          "type": "User Story",
-          "state": "Done",
-          "storyPoints": 2,
-          "completedSP": 2,
-          "remainingSP": 0,
-          "assignedTo": "Anderson, Zack",
-          "completedDate": "2026-06-25T19:02:51.277Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/FPHC/_workitems/edit/30420",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        }
-      ],
-      "sprintGoals": "Delivering archive enhancements, results enhancements, search enhancements, and pagination/results per page error, Ensure FPHC staff receives email when applicati..., and 1 other items.",
+      "storyCount": 0,
+      "stories": [],
+      "sprintGoals": "",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 11,
+        "totalSP": 0,
         "points": [
           {
-            "date": "2026-06-10",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-11",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-12",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-15",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-16",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-17",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-18",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-19",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-22",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-23",
-            "remaining": 11
-          },
-          {
-            "date": "2026-06-24",
-            "remaining": 2
-          },
-          {
-            "date": "2026-06-25",
-            "remaining": 0
-          },
-          {
-            "date": "2026-06-26",
-            "remaining": 0
-          },
-          {
-            "date": "2026-06-29",
-            "remaining": 0
-          },
-          {
-            "date": "2026-06-30",
+            "date": "2026-07-01",
             "remaining": 0
           }
         ],
         "ideal": [
           {
-            "date": "2026-06-10",
-            "remaining": 11
+            "date": "2026-07-01",
+            "remaining": 0
           },
           {
-            "date": "2026-06-11",
-            "remaining": 10.214285714285714
+            "date": "2026-07-02",
+            "remaining": 0
           },
           {
-            "date": "2026-06-12",
-            "remaining": 9.428571428571429
+            "date": "2026-07-03",
+            "remaining": 0
           },
           {
-            "date": "2026-06-15",
-            "remaining": 8.642857142857142
+            "date": "2026-07-06",
+            "remaining": 0
           },
           {
-            "date": "2026-06-16",
-            "remaining": 7.857142857142858
+            "date": "2026-07-07",
+            "remaining": 0
           },
           {
-            "date": "2026-06-17",
-            "remaining": 7.071428571428571
+            "date": "2026-07-08",
+            "remaining": 0
           },
           {
-            "date": "2026-06-18",
-            "remaining": 6.285714285714286
+            "date": "2026-07-09",
+            "remaining": 0
           },
           {
-            "date": "2026-06-19",
-            "remaining": 5.5
+            "date": "2026-07-10",
+            "remaining": 0
           },
           {
-            "date": "2026-06-22",
-            "remaining": 4.714285714285714
+            "date": "2026-07-13",
+            "remaining": 0
           },
           {
-            "date": "2026-06-23",
-            "remaining": 3.928571428571429
-          },
-          {
-            "date": "2026-06-24",
-            "remaining": 3.1428571428571432
-          },
-          {
-            "date": "2026-06-25",
-            "remaining": 2.3571428571428577
-          },
-          {
-            "date": "2026-06-26",
-            "remaining": 1.5714285714285712
-          },
-          {
-            "date": "2026-06-29",
-            "remaining": 0.7857142857142865
-          },
-          {
-            "date": "2026-06-30",
+            "date": "2026-07-14",
             "remaining": 0
           }
         ]
       },
-      "personTaskBurndown": {
-        "Medina, Joel": {
-          "2026-06-10": 5.25,
-          "2026-06-11": 4.75,
-          "2026-06-12": 5.75,
-          "2026-06-15": 3.75,
-          "2026-06-16": 2.75,
-          "2026-06-17": 1.75,
-          "2026-06-18": 1.75,
-          "2026-06-19": 1,
-          "2026-06-22": 0.5,
-          "2026-06-23": 0,
-          "2026-06-24": 0,
-          "2026-06-25": 0,
-          "2026-06-26": 0,
-          "2026-06-29": 0,
-          "2026-06-30": 0
-        },
-        "Anderson, Zack": {
-          "2026-06-10": 0,
-          "2026-06-11": 0,
-          "2026-06-12": 2,
-          "2026-06-15": 2,
-          "2026-06-16": 2,
-          "2026-06-17": 2,
-          "2026-06-18": 2,
-          "2026-06-19": 2,
-          "2026-06-22": 2,
-          "2026-06-23": 2,
-          "2026-06-24": 2,
-          "2026-06-25": 0,
-          "2026-06-26": 0,
-          "2026-06-29": 0,
-          "2026-06-30": 0
-        }
-      },
+      "personTaskBurndown": {},
       "isCurrent": true
     },
     "allSprints": [
@@ -33403,6 +33194,74 @@ const projects = [
             "2026-06-30": 0
           }
         },
+        "isCurrent": false
+      },
+      {
+        "name": "Q3 2026 - Sprint 1",
+        "startDate": "2026-07-01T00:00:00Z",
+        "endDate": "2026-07-14T00:00:00Z",
+        "totalSP": 0,
+        "completedSP": 0,
+        "remainingSP": 0,
+        "storyCount": 0,
+        "stories": [],
+        "sprintGoals": "",
+        "capacity": {
+          "hoursPerDay": 0,
+          "members": []
+        },
+        "burndown": {
+          "totalSP": 0,
+          "points": [
+            {
+              "date": "2026-07-01",
+              "remaining": 0
+            }
+          ],
+          "ideal": [
+            {
+              "date": "2026-07-01",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-02",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-03",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-06",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-07",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-08",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-09",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-10",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-13",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-14",
+              "remaining": 0
+            }
+          ]
+        },
+        "personTaskBurndown": {},
         "isCurrent": true
       }
     ]
@@ -33522,23 +33381,37 @@ const projects = [
         "Q4 2025 - Sprint 5": 1,
         "Q4 2025 - Sprint 1": 2,
         "Q2 2026 - Sprint 2": 22.1,
-        "Q2 2026 - Sprint 6": 27.5,
+        "Q2 2026 - Sprint 6": 26.5,
         "Q2 2026 - Sprint 1": 7.5,
         "Q2 2026 - Sprint 5": 12,
         "Q2 2026 - Sprint 4": 15,
         "Q2 2026 - Sprint 3": 14,
-        "Q3 2026 - Sprint 1": 1.75
+        "Q3 2026 - Sprint 1": 2.75
       }
     },
     "currentSprint": {
       "name": "Q3 2026 - Sprint 1",
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
-      "totalSP": 1.75,
+      "totalSP": 2.75,
       "completedSP": 0,
-      "remainingSP": 1.75,
-      "storyCount": 4,
+      "remainingSP": 2.75,
+      "storyCount": 5,
       "stories": [
+        {
+          "id": 28169,
+          "title": "Investigate and fix Payload-to-Typesense search sync failures on staging",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Keltner, Scott",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/28169",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
         {
           "id": 28626,
           "title": "Sync GP Invoices to BC",
@@ -33602,49 +33475,49 @@ const projects = [
         "members": []
       },
       "burndown": {
-        "totalSP": 1.75,
+        "totalSP": 2.75,
         "points": [
           {
             "date": "2026-07-01",
-            "remaining": 1.75
+            "remaining": 2.75
           }
         ],
         "ideal": [
           {
             "date": "2026-07-01",
-            "remaining": 1.75
+            "remaining": 2.75
           },
           {
             "date": "2026-07-02",
-            "remaining": 1.5555555555555556
+            "remaining": 2.4444444444444446
           },
           {
             "date": "2026-07-03",
-            "remaining": 1.3611111111111112
+            "remaining": 2.138888888888889
           },
           {
             "date": "2026-07-06",
-            "remaining": 1.1666666666666665
+            "remaining": 1.8333333333333333
           },
           {
             "date": "2026-07-07",
-            "remaining": 0.9722222222222222
+            "remaining": 1.5277777777777777
           },
           {
             "date": "2026-07-08",
-            "remaining": 0.7777777777777778
+            "remaining": 1.222222222222222
           },
           {
             "date": "2026-07-09",
-            "remaining": 0.5833333333333333
+            "remaining": 0.9166666666666665
           },
           {
             "date": "2026-07-10",
-            "remaining": 0.38888888888888884
+            "remaining": 0.6111111111111107
           },
           {
             "date": "2026-07-13",
-            "remaining": 0.19444444444444442
+            "remaining": 0.30555555555555536
           },
           {
             "date": "2026-07-14",
@@ -33664,6 +33537,18 @@ const projects = [
           "2026-07-10": 1.75,
           "2026-07-13": 1.75,
           "2026-07-14": 1.75
+        },
+        "Keltner, Scott": {
+          "2026-07-01": 1,
+          "2026-07-02": 1,
+          "2026-07-03": 1,
+          "2026-07-06": 1,
+          "2026-07-07": 1,
+          "2026-07-08": 1,
+          "2026-07-09": 1,
+          "2026-07-10": 1,
+          "2026-07-13": 1,
+          "2026-07-14": 1
         }
       },
       "isCurrent": true
@@ -35977,11 +35862,25 @@ const projects = [
         "name": "Q3 2026 - Sprint 1",
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
-        "totalSP": 1.75,
+        "totalSP": 2.75,
         "completedSP": 0,
-        "remainingSP": 1.75,
-        "storyCount": 4,
+        "remainingSP": 2.75,
+        "storyCount": 5,
         "stories": [
+          {
+            "id": 28169,
+            "title": "Investigate and fix Payload-to-Typesense search sync failures on staging",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Keltner, Scott",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/28169",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
           {
             "id": 28626,
             "title": "Sync GP Invoices to BC",
@@ -36045,49 +35944,49 @@ const projects = [
           "members": []
         },
         "burndown": {
-          "totalSP": 1.75,
+          "totalSP": 2.75,
           "points": [
             {
               "date": "2026-07-01",
-              "remaining": 1.75
+              "remaining": 2.75
             }
           ],
           "ideal": [
             {
               "date": "2026-07-01",
-              "remaining": 1.75
+              "remaining": 2.75
             },
             {
               "date": "2026-07-02",
-              "remaining": 1.5555555555555556
+              "remaining": 2.4444444444444446
             },
             {
               "date": "2026-07-03",
-              "remaining": 1.3611111111111112
+              "remaining": 2.138888888888889
             },
             {
               "date": "2026-07-06",
-              "remaining": 1.1666666666666665
+              "remaining": 1.8333333333333333
             },
             {
               "date": "2026-07-07",
-              "remaining": 0.9722222222222222
+              "remaining": 1.5277777777777777
             },
             {
               "date": "2026-07-08",
-              "remaining": 0.7777777777777778
+              "remaining": 1.222222222222222
             },
             {
               "date": "2026-07-09",
-              "remaining": 0.5833333333333333
+              "remaining": 0.9166666666666665
             },
             {
               "date": "2026-07-10",
-              "remaining": 0.38888888888888884
+              "remaining": 0.6111111111111107
             },
             {
               "date": "2026-07-13",
-              "remaining": 0.19444444444444442
+              "remaining": 0.30555555555555536
             },
             {
               "date": "2026-07-14",
@@ -36107,6 +36006,18 @@ const projects = [
             "2026-07-10": 1.75,
             "2026-07-13": 1.75,
             "2026-07-14": 1.75
+          },
+          "Keltner, Scott": {
+            "2026-07-01": 1,
+            "2026-07-02": 1,
+            "2026-07-03": 1,
+            "2026-07-06": 1,
+            "2026-07-07": 1,
+            "2026-07-08": 1,
+            "2026-07-09": 1,
+            "2026-07-10": 1,
+            "2026-07-13": 1,
+            "2026-07-14": 1
           }
         },
         "isCurrent": true
