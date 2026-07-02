@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Thursday, July 2, 2026 at 1:24 PM</span>
+    <span>Last updated: Thursday, July 2, 2026 at 5:04 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -17485,7 +17485,7 @@ const projects = [
         "title": "AG 360 Portal (MVP)",
         "state": "Active",
         "features": 5,
-        "stories": 94
+        "stories": 95
       },
       {
         "id": 28512,
@@ -17496,11 +17496,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 625,
-      "estimated": 410,
-      "unestimated": 215,
-      "totalSP": 727.55,
-      "incompleteSP": 114,
+      "total": 628,
+      "estimated": 412,
+      "unestimated": 216,
+      "totalSP": 731.55,
+      "incompleteSP": 118,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 92,
@@ -17519,7 +17519,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q3 2026 - Sprint 1": 37.5,
+        "Q3 2026 - Sprint 1": 41.5,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
@@ -17534,10 +17534,10 @@ const projects = [
       "name": "Q3 2026 - Sprint 1",
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
-      "totalSP": 37.5,
+      "totalSP": 41.5,
       "completedSP": 4,
-      "remainingSP": 33.5,
-      "storyCount": 17,
+      "remainingSP": 37.5,
+      "storyCount": 19,
       "stories": [
         {
           "id": 23670,
@@ -17776,61 +17776,89 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30887",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 30888,
+          "title": "Fix mia-transformer-sf TaskManager OOM on account-resolution and validate shared session-cluster capacity",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30888",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30891,
+          "title": "Replace composite-accounts broadcast with keyed RocksDB-backed lookup in ContactJob",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 3,
+          "completedSP": 0,
+          "remainingSP": 3,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30891",
+          "taskRemainingWork": 3,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering mia composite enhancements, account api enhancements, 360 portal enhancements, split enhancements, and na-blackbox-sf finalize, kafka-connect: jdbc source connector, and 2 other items.",
+      "sprintGoals": "Delivering mia composite enhancements, account api enhancements, 360 portal enhancements, split enhancements, and na-blackbox-sf finalize, kafka-connect: jdbc source connector, and 4 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 37.5,
+        "totalSP": 41.5,
         "points": [
           {
             "date": "2026-07-01",
-            "remaining": 34.5
+            "remaining": 38.5
           },
           {
             "date": "2026-07-02",
-            "remaining": 33.5
+            "remaining": 37.5
           }
         ],
         "ideal": [
           {
             "date": "2026-07-01",
-            "remaining": 37.5
+            "remaining": 41.5
           },
           {
             "date": "2026-07-02",
-            "remaining": 33.333333333333336
+            "remaining": 36.888888888888886
           },
           {
             "date": "2026-07-03",
-            "remaining": 29.166666666666664
+            "remaining": 32.27777777777778
           },
           {
             "date": "2026-07-06",
-            "remaining": 25
+            "remaining": 27.666666666666668
           },
           {
             "date": "2026-07-07",
-            "remaining": 20.833333333333332
+            "remaining": 23.055555555555557
           },
           {
             "date": "2026-07-08",
-            "remaining": 16.666666666666664
+            "remaining": 18.444444444444446
           },
           {
             "date": "2026-07-09",
-            "remaining": 12.5
+            "remaining": 13.833333333333336
           },
           {
             "date": "2026-07-10",
-            "remaining": 8.333333333333332
+            "remaining": 9.222222222222229
           },
           {
             "date": "2026-07-13",
-            "remaining": 4.166666666666664
+            "remaining": 4.611111111111114
           },
           {
             "date": "2026-07-14",
@@ -17865,15 +17893,15 @@ const projects = [
         },
         "Lamar, Brion": {
           "2026-07-01": 3,
-          "2026-07-02": 3,
-          "2026-07-03": 3,
-          "2026-07-06": 3,
-          "2026-07-07": 3,
-          "2026-07-08": 3,
-          "2026-07-09": 3,
-          "2026-07-10": 3,
-          "2026-07-13": 3,
-          "2026-07-14": 3
+          "2026-07-02": 7,
+          "2026-07-03": 7,
+          "2026-07-06": 7,
+          "2026-07-07": 7,
+          "2026-07-08": 7,
+          "2026-07-09": 7,
+          "2026-07-10": 7,
+          "2026-07-13": 7,
+          "2026-07-14": 7
         },
         "Roach, Joseph": {
           "2026-07-01": 5,
@@ -24741,10 +24769,10 @@ const projects = [
         "name": "Q3 2026 - Sprint 1",
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
-        "totalSP": 37.5,
+        "totalSP": 41.5,
         "completedSP": 4,
-        "remainingSP": 33.5,
-        "storyCount": 17,
+        "remainingSP": 37.5,
+        "storyCount": 19,
         "stories": [
           {
             "id": 23670,
@@ -24983,61 +25011,89 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30887",
             "taskRemainingWork": 0,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 30888,
+            "title": "Fix mia-transformer-sf TaskManager OOM on account-resolution and validate shared session-cluster capacity",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30888",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30891,
+            "title": "Replace composite-accounts broadcast with keyed RocksDB-backed lookup in ContactJob",
+            "type": "User Story",
+            "state": "Ready for Review",
+            "storyPoints": 3,
+            "completedSP": 0,
+            "remainingSP": 3,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30891",
+            "taskRemainingWork": 3,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering mia composite enhancements, account api enhancements, 360 portal enhancements, split enhancements, and na-blackbox-sf finalize, kafka-connect: jdbc source connector, and 2 other items.",
+        "sprintGoals": "Delivering mia composite enhancements, account api enhancements, 360 portal enhancements, split enhancements, and na-blackbox-sf finalize, kafka-connect: jdbc source connector, and 4 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 37.5,
+          "totalSP": 41.5,
           "points": [
             {
               "date": "2026-07-01",
-              "remaining": 34.5
+              "remaining": 38.5
             },
             {
               "date": "2026-07-02",
-              "remaining": 33.5
+              "remaining": 37.5
             }
           ],
           "ideal": [
             {
               "date": "2026-07-01",
-              "remaining": 37.5
+              "remaining": 41.5
             },
             {
               "date": "2026-07-02",
-              "remaining": 33.333333333333336
+              "remaining": 36.888888888888886
             },
             {
               "date": "2026-07-03",
-              "remaining": 29.166666666666664
+              "remaining": 32.27777777777778
             },
             {
               "date": "2026-07-06",
-              "remaining": 25
+              "remaining": 27.666666666666668
             },
             {
               "date": "2026-07-07",
-              "remaining": 20.833333333333332
+              "remaining": 23.055555555555557
             },
             {
               "date": "2026-07-08",
-              "remaining": 16.666666666666664
+              "remaining": 18.444444444444446
             },
             {
               "date": "2026-07-09",
-              "remaining": 12.5
+              "remaining": 13.833333333333336
             },
             {
               "date": "2026-07-10",
-              "remaining": 8.333333333333332
+              "remaining": 9.222222222222229
             },
             {
               "date": "2026-07-13",
-              "remaining": 4.166666666666664
+              "remaining": 4.611111111111114
             },
             {
               "date": "2026-07-14",
@@ -25072,15 +25128,15 @@ const projects = [
           },
           "Lamar, Brion": {
             "2026-07-01": 3,
-            "2026-07-02": 3,
-            "2026-07-03": 3,
-            "2026-07-06": 3,
-            "2026-07-07": 3,
-            "2026-07-08": 3,
-            "2026-07-09": 3,
-            "2026-07-10": 3,
-            "2026-07-13": 3,
-            "2026-07-14": 3
+            "2026-07-02": 7,
+            "2026-07-03": 7,
+            "2026-07-06": 7,
+            "2026-07-07": 7,
+            "2026-07-08": 7,
+            "2026-07-09": 7,
+            "2026-07-10": 7,
+            "2026-07-13": 7,
+            "2026-07-14": 7
           },
           "Roach, Joseph": {
             "2026-07-01": 5,
@@ -44532,14 +44588,6 @@ const supportRequests = {
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/29569"
     },
     {
-      "id": 30115,
-      "title": "Request for Natalie Stewart : Transfer In > Employee: Brian \"Bez\" Benson > Effective Date: Sun, May 31, 2026",
-      "state": "Approved",
-      "project": "Business Software Support",
-      "description": "Request for Natalie Stewart : Transfer In > Employee: Brian &quot;Bez&quot; Benson > Effective Date: Sun, May 31, 2026",
-      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/30115"
-    },
-    {
       "id": 30747,
       "title": "Program Request for JotForm Insurance Payments",
       "state": "Waiting",
@@ -44592,16 +44640,6 @@ const supportRequests = {
       "project": "Business Software Support",
       "description": "[EXTERNAL EMAIL] Hi! While on the QA site, no results are displayed. I am meeting with Karen tonight to look over all reports. &#128578; Thanks for your help with this. Jill -- Jill Nelson FAST Consultant and Liaison Michigan Fine Arts Coordinator",
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/30660"
-    }
-  ],
-  "Keltner, Scott": [
-    {
-      "id": 30832,
-      "title": "Remove Bill Kingham from AG Giving Admin and Ministers Only",
-      "state": "Approved",
-      "project": "Business Software Support",
-      "description": "Bill Kingham is no longer serving the ITAS team, please remove his access to AG Giving Admin and Ministers only. At this time, we do not have details on his new role related to AG, I have not invalidated his AG Accounts login wkingham@ag.org. Account number is 6792105.",
-      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/30832"
     }
   ]
 };
