@@ -3168,9 +3168,15 @@
       }
     },
     "AGWM Financial Reporting::b481977d-6b9a-4709-bae3-13b73e8fca50": {
-      "Georgiades, George": {},
-      "Campbell, Jack H": {},
-      "Farrand, Phil": {}
+      "Georgiades, George": {
+        "2026-07-01": 2
+      },
+      "Campbell, Jack H": {
+        "2026-07-01": 8
+      },
+      "Farrand, Phil": {
+        "2026-07-01": 5
+      }
     },
     "Chi Alpha::b06eb831-f1d0-4948-b794-32d17806c79f": {
       "Georgiades, George": {
@@ -3246,33 +3252,63 @@
       }
     },
     "GPH::9bcf831d-9e73-4496-a9e9-33ebd97499ca": {
-      "Butler, Justin": {},
-      "Keltner, Scott": {},
-      "dkobozev gloo.us": {},
-      "Medina, Joel": {}
+      "Butler, Justin": {
+        "2026-07-01": 0.75
+      },
+      "Keltner, Scott": {
+        "2026-07-01": 6.5
+      },
+      "dkobozev gloo.us": {
+        "2026-07-01": 7.5
+      },
+      "Medina, Joel": {
+        "2026-07-01": 6.5
+      }
     },
     "AG Accounts::cdd9d129-9b4e-44df-a497-822e26706611": {
-      "Butler, Justin": {}
+      "Butler, Justin": {
+        "2026-07-01": 0
+      }
     },
     "CRM::0ce6f085-0c6f-4f7d-aa1c-5a1675cf95ca": {
-      "Georgiades, George": {},
-      "Roach, Joseph": {},
-      "Lamar, Brion": {},
-      "Hassbaum, Ralph": {}
+      "Georgiades, George": {
+        "2026-07-01": 7.5
+      },
+      "Roach, Joseph": {
+        "2026-07-01": 5
+      },
+      "Lamar, Brion": {
+        "2026-07-01": 3
+      },
+      "Hassbaum, Ralph": {
+        "2026-07-01": 7
+      }
     },
     "Fine Arts::2eda94ce-a2a5-4e5d-9944-9ee3d0e5eab9": {
-      "Butler, Justin": {},
-      "Hiebsch, Adin": {},
-      "drodrigues gloo.us": {}
+      "Butler, Justin": {
+        "2026-07-01": 4.5
+      },
+      "Hiebsch, Adin": {
+        "2026-07-01": 4.5
+      },
+      "drodrigues gloo.us": {
+        "2026-07-01": 8
+      }
     },
     "AG.Giving::e62cb614-7a3d-4664-9dc8-bb528bacf52c": {
-      "Butler, Justin": {}
+      "Butler, Justin": {
+        "2026-07-01": 0.75
+      }
     },
     "AG Missions Common::8384caad-9c0a-4e7d-9213-7849e1aefe68": {
-      "Farrand, Phil": {}
+      "Farrand, Phil": {
+        "2026-07-01": 1
+      }
     },
     "CMS vNext::39f68911-6e63-4cc1-b1c8-321c94a1dcd0": {
-      "Hull, Darrin": {}
+      "Hull, Darrin": {
+        "2026-07-01": 4
+      }
     },
     "FPHC::b7d9646b-ba7d-4b13-b5e4-30941eec7438": {}
   }
