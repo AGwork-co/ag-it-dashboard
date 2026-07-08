@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Tuesday, July 7, 2026 at 5:09 PM</span>
+    <span>Last updated: Wednesday, July 8, 2026 at 10:18 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -488,6 +488,10 @@ const projects = [
           },
           {
             "date": "2026-07-07",
+            "remaining": 0
+          },
+          {
+            "date": "2026-07-08",
             "remaining": 0
           }
         ],
@@ -705,6 +709,10 @@ const projects = [
             },
             {
               "date": "2026-07-07",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-08",
               "remaining": 0
             }
           ],
@@ -1264,6 +1272,10 @@ const projects = [
           },
           {
             "date": "2026-07-07",
+            "remaining": 2
+          },
+          {
+            "date": "2026-07-08",
             "remaining": 2
           }
         ],
@@ -2751,6 +2763,10 @@ const projects = [
             },
             {
               "date": "2026-07-07",
+              "remaining": 2
+            },
+            {
+              "date": "2026-07-08",
               "remaining": 2
             }
           ],
@@ -4696,6 +4712,10 @@ const projects = [
           },
           {
             "date": "2026-07-07",
+            "remaining": 0.75
+          },
+          {
+            "date": "2026-07-08",
             "remaining": 0.75
           }
         ],
@@ -6706,6 +6726,10 @@ const projects = [
             },
             {
               "date": "2026-07-07",
+              "remaining": 0.75
+            },
+            {
+              "date": "2026-07-08",
               "remaining": 0.75
             }
           ],
@@ -9014,6 +9038,10 @@ const projects = [
           {
             "date": "2026-07-07",
             "remaining": 16
+          },
+          {
+            "date": "2026-07-08",
+            "remaining": 16
           }
         ],
         "ideal": [
@@ -10959,6 +10987,10 @@ const projects = [
             },
             {
               "date": "2026-07-07",
+              "remaining": 16
+            },
+            {
+              "date": "2026-07-08",
               "remaining": 16
             }
           ],
@@ -15272,6 +15304,10 @@ const projects = [
           {
             "date": "2026-07-07",
             "remaining": 18
+          },
+          {
+            "date": "2026-07-08",
+            "remaining": 18
           }
         ],
         "ideal": [
@@ -18561,6 +18597,10 @@ const projects = [
             {
               "date": "2026-07-07",
               "remaining": 18
+            },
+            {
+              "date": "2026-07-08",
+              "remaining": 18
             }
           ],
           "ideal": [
@@ -18989,7 +19029,7 @@ const projects = [
         "title": "Phase 2: MIA",
         "state": "Active",
         "features": 5,
-        "stories": 137
+        "stories": 140
       },
       {
         "id": 26793,
@@ -19042,11 +19082,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 638,
-      "estimated": 417,
-      "unestimated": 221,
-      "totalSP": 735.05,
-      "incompleteSP": 116,
+      "total": 641,
+      "estimated": 419,
+      "unestimated": 222,
+      "totalSP": 736.55,
+      "incompleteSP": 117,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 92,
@@ -19065,7 +19105,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q3 2026 - Sprint 1": 45,
+        "Q3 2026 - Sprint 1": 46.5,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
@@ -19080,10 +19120,10 @@ const projects = [
       "name": "Q3 2026 - Sprint 1",
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
-      "totalSP": 45,
-      "completedSP": 9.5,
-      "remainingSP": 35.5,
-      "storyCount": 27,
+      "totalSP": 46.5,
+      "completedSP": 10,
+      "remainingSP": 36.5,
+      "storyCount": 29,
       "stories": [
         {
           "id": 23670,
@@ -19453,14 +19493,42 @@ const projects = [
           "id": 30992,
           "title": "Seed Salesforce sandbox with MIA data from local instance (test load)",
           "type": "User Story",
-          "state": "New",
+          "state": "Committed",
           "storyPoints": 2,
           "completedSP": 0,
           "remainingSP": 2,
           "assignedTo": "Lamar, Brion",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30992",
-          "taskRemainingWork": 2,
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30995,
+          "title": "Fix CDC deserialization of mixed-case FM columns (spouses & children silently dropped)",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-07-08T12:16:57.51Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30995",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31002,
+          "title": "Fix: household fan-in key mismatch splits child records from their household graph",
+          "type": "User Story",
+          "state": "Ready for Review",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31002",
+          "taskRemainingWork": 1,
           "taskCompletedWork": 0
         }
       ],
@@ -19470,65 +19538,69 @@ const projects = [
         "members": []
       },
       "burndown": {
-        "totalSP": 45,
+        "totalSP": 46.5,
         "points": [
           {
             "date": "2026-07-01",
-            "remaining": 43
+            "remaining": 44.5
           },
           {
             "date": "2026-07-02",
-            "remaining": 39
+            "remaining": 40.5
           },
           {
             "date": "2026-07-03",
-            "remaining": 39
+            "remaining": 40.5
           },
           {
             "date": "2026-07-06",
-            "remaining": 37
+            "remaining": 38.5
           },
           {
             "date": "2026-07-07",
-            "remaining": 35.5
+            "remaining": 37
+          },
+          {
+            "date": "2026-07-08",
+            "remaining": 36.5
           }
         ],
         "ideal": [
           {
             "date": "2026-07-01",
-            "remaining": 45
+            "remaining": 46.5
           },
           {
             "date": "2026-07-02",
-            "remaining": 40
+            "remaining": 41.333333333333336
           },
           {
             "date": "2026-07-03",
-            "remaining": 35
+            "remaining": 36.166666666666664
           },
           {
             "date": "2026-07-06",
-            "remaining": 30
+            "remaining": 31
           },
           {
             "date": "2026-07-07",
-            "remaining": 25
+            "remaining": 25.833333333333332
           },
           {
             "date": "2026-07-08",
-            "remaining": 20
+            "remaining": 20.666666666666664
           },
           {
             "date": "2026-07-09",
-            "remaining": 15
+            "remaining": 15.5
           },
           {
             "date": "2026-07-10",
-            "remaining": 10
+            "remaining": 10.333333333333329
           },
           {
             "date": "2026-07-13",
-            "remaining": 5
+            "remaining": 5.166666666666664
           },
           {
             "date": "2026-07-14",
@@ -19567,11 +19639,11 @@ const projects = [
           "2026-07-03": 4,
           "2026-07-06": 3.5,
           "2026-07-07": 3,
-          "2026-07-08": 3,
-          "2026-07-09": 3,
-          "2026-07-10": 3,
-          "2026-07-13": 3,
-          "2026-07-14": 3
+          "2026-07-08": 5,
+          "2026-07-09": 5,
+          "2026-07-10": 5,
+          "2026-07-13": 5,
+          "2026-07-14": 5
         },
         "Roach, Joseph": {
           "2026-07-01": 5,
@@ -26439,10 +26511,10 @@ const projects = [
         "name": "Q3 2026 - Sprint 1",
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
-        "totalSP": 45,
-        "completedSP": 9.5,
-        "remainingSP": 35.5,
-        "storyCount": 27,
+        "totalSP": 46.5,
+        "completedSP": 10,
+        "remainingSP": 36.5,
+        "storyCount": 29,
         "stories": [
           {
             "id": 23670,
@@ -26812,14 +26884,42 @@ const projects = [
             "id": 30992,
             "title": "Seed Salesforce sandbox with MIA data from local instance (test load)",
             "type": "User Story",
-            "state": "New",
+            "state": "Committed",
             "storyPoints": 2,
             "completedSP": 0,
             "remainingSP": 2,
             "assignedTo": "Lamar, Brion",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30992",
-            "taskRemainingWork": 2,
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30995,
+            "title": "Fix CDC deserialization of mixed-case FM columns (spouses & children silently dropped)",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 0.5,
+            "completedSP": 0.5,
+            "remainingSP": 0,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": "2026-07-08T12:16:57.51Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30995",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31002,
+            "title": "Fix: household fan-in key mismatch splits child records from their household graph",
+            "type": "User Story",
+            "state": "Ready for Review",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31002",
+            "taskRemainingWork": 1,
             "taskCompletedWork": 0
           }
         ],
@@ -26829,65 +26929,69 @@ const projects = [
           "members": []
         },
         "burndown": {
-          "totalSP": 45,
+          "totalSP": 46.5,
           "points": [
             {
               "date": "2026-07-01",
-              "remaining": 43
+              "remaining": 44.5
             },
             {
               "date": "2026-07-02",
-              "remaining": 39
+              "remaining": 40.5
             },
             {
               "date": "2026-07-03",
-              "remaining": 39
+              "remaining": 40.5
             },
             {
               "date": "2026-07-06",
-              "remaining": 37
+              "remaining": 38.5
             },
             {
               "date": "2026-07-07",
-              "remaining": 35.5
+              "remaining": 37
+            },
+            {
+              "date": "2026-07-08",
+              "remaining": 36.5
             }
           ],
           "ideal": [
             {
               "date": "2026-07-01",
-              "remaining": 45
+              "remaining": 46.5
             },
             {
               "date": "2026-07-02",
-              "remaining": 40
+              "remaining": 41.333333333333336
             },
             {
               "date": "2026-07-03",
-              "remaining": 35
+              "remaining": 36.166666666666664
             },
             {
               "date": "2026-07-06",
-              "remaining": 30
+              "remaining": 31
             },
             {
               "date": "2026-07-07",
-              "remaining": 25
+              "remaining": 25.833333333333332
             },
             {
               "date": "2026-07-08",
-              "remaining": 20
+              "remaining": 20.666666666666664
             },
             {
               "date": "2026-07-09",
-              "remaining": 15
+              "remaining": 15.5
             },
             {
               "date": "2026-07-10",
-              "remaining": 10
+              "remaining": 10.333333333333329
             },
             {
               "date": "2026-07-13",
-              "remaining": 5
+              "remaining": 5.166666666666664
             },
             {
               "date": "2026-07-14",
@@ -26926,11 +27030,11 @@ const projects = [
             "2026-07-03": 4,
             "2026-07-06": 3.5,
             "2026-07-07": 3,
-            "2026-07-08": 3,
-            "2026-07-09": 3,
-            "2026-07-10": 3,
-            "2026-07-13": 3,
-            "2026-07-14": 3
+            "2026-07-08": 5,
+            "2026-07-09": 5,
+            "2026-07-10": 5,
+            "2026-07-13": 5,
+            "2026-07-14": 5
           },
           "Roach, Joseph": {
             "2026-07-01": 5,
@@ -27564,6 +27668,10 @@ const projects = [
           },
           {
             "date": "2026-07-07",
+            "remaining": 31.25
+          },
+          {
+            "date": "2026-07-08",
             "remaining": 31.25
           }
         ],
@@ -32354,6 +32462,10 @@ const projects = [
             {
               "date": "2026-07-07",
               "remaining": 31.25
+            },
+            {
+              "date": "2026-07-08",
+              "remaining": 31.25
             }
           ],
           "ideal": [
@@ -32824,7 +32936,7 @@ const projects = [
       },
       {
         "id": 28104,
-        "title": "FPHC - v2026.Q2",
+        "title": "FPHC vNext + Migration to Evangel",
         "state": "Active",
         "features": 10,
         "stories": 65
@@ -32905,6 +33017,10 @@ const projects = [
           },
           {
             "date": "2026-07-07",
+            "remaining": 0
+          },
+          {
+            "date": "2026-07-08",
             "remaining": 0
           }
         ],
@@ -35853,6 +35969,10 @@ const projects = [
             {
               "date": "2026-07-07",
               "remaining": 0
+            },
+            {
+              "date": "2026-07-08",
+              "remaining": 0
             }
           ],
           "ideal": [
@@ -36319,7 +36439,7 @@ const projects = [
         "title": "GPH: MVP (Go Live)",
         "state": "Active",
         "features": 7,
-        "stories": 169
+        "stories": 170
       },
       {
         "id": 27290,
@@ -36337,9 +36457,9 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 295,
+      "total": 296,
       "estimated": 196,
-      "unestimated": 99,
+      "unestimated": 100,
       "totalSP": 286.6,
       "incompleteSP": 140.5,
       "sprintSP": {
@@ -36723,6 +36843,10 @@ const projects = [
           },
           {
             "date": "2026-07-07",
+            "remaining": 23.75
+          },
+          {
+            "date": "2026-07-08",
             "remaining": 23.75
           }
         ],
@@ -39485,6 +39609,10 @@ const projects = [
             {
               "date": "2026-07-07",
               "remaining": 23.75
+            },
+            {
+              "date": "2026-07-08",
+              "remaining": 23.75
             }
           ],
           "ideal": [
@@ -40147,6 +40275,10 @@ const projects = [
           },
           {
             "date": "2026-07-07",
+            "remaining": 0
+          },
+          {
+            "date": "2026-07-08",
             "remaining": 0
           }
         ],
@@ -43389,6 +43521,10 @@ const projects = [
             },
             {
               "date": "2026-07-07",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-08",
               "remaining": 0
             }
           ],
@@ -47922,7 +48058,7 @@ const supportRequests = {
     {
       "id": 30788,
       "title": "History Master",
-      "state": "Committed",
+      "state": "Waiting",
       "project": "Missions Support",
       "description": "Lisa has access to the History Master now but there is no way to approve the form after validating. She gets the error below after validating the info which works, and then she clicks on that red button that should say “Submit” or “Approve” but that error comes up. Elise Rothermel Elise Rothermel Fi…",
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/30788"
