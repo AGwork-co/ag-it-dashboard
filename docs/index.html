@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Monday, July 13, 2026 at 8:48 AM</span>
+    <span>Last updated: Monday, July 13, 2026 at 9:28 AM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -19334,14 +19334,21 @@ const projects = [
         "state": "Active",
         "features": 2,
         "stories": 4
+      },
+      {
+        "id": 31252,
+        "title": "AG Data Requests Portal",
+        "state": "Active",
+        "features": 1,
+        "stories": 0
       }
     ],
     "estimation": {
-      "total": 653,
-      "estimated": 428,
+      "total": 681,
+      "estimated": 456,
       "unestimated": 225,
-      "totalSP": 742.3,
-      "incompleteSP": 108.25,
+      "totalSP": 770.3,
+      "incompleteSP": 130.25,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 92,
@@ -19360,7 +19367,7 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q3 2026 - Sprint 1": 52.25,
+        "Q3 2026 - Sprint 1": 80.25,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
@@ -19375,10 +19382,10 @@ const projects = [
       "name": "Q3 2026 - Sprint 1",
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
-      "totalSP": 52.25,
-      "completedSP": 24.5,
-      "remainingSP": 27.75,
-      "storyCount": 39,
+      "totalSP": 80.25,
+      "completedSP": 30.5,
+      "remainingSP": 49.75,
+      "storyCount": 67,
       "stories": [
         {
           "id": 23670,
@@ -19923,91 +19930,483 @@ const projects = [
           "assignedTo": "Lamar, Brion",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31083",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31086,
+          "title": "Story 1.1 — BBS AGWM Appeal end-to-end workflow",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-07-13T13:54:10.003Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31086",
           "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31087,
+          "title": "Story 1.2 — Azure AD authentication for portal",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-07-13T13:54:10.003Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31087",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31088,
+          "title": "Story 1.3 — Project documentation and ADRs",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-07-13T13:54:10.003Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31088",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31089,
+          "title": "Story 2.1 — Durable request persistence and audit",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-07-13T13:54:10.003Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31089",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31090,
+          "title": "Story 2.2 — Preview/export workflow hardening",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-07-13T13:54:10.003Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31090",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31091,
+          "title": "Story 2.3 — AGWM Advancement church contacts template",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": "2026-07-13T13:54:10.003Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31091",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31092,
+          "title": "Story 2.4 — Appeal ruleset SQL migration + SP @RulesetCode",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31092",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31093,
+          "title": "Story 2.5 — Env validation, CI, ops hygiene",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31093",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31094,
+          "title": "Story 2.6 — Portal SQL app login and SP signing",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31094",
+          "taskRemainingWork": 6,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31095,
+          "title": "Story 2.7 — Production Entra app registration",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31095",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31096,
+          "title": "Story 2.8 — Export CSV contract and automated tests",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31096",
+          "taskRemainingWork": 6,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31097,
+          "title": "Story 2.9 — Appeal ruleset portal API + UI",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31097",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31098,
+          "title": "Story 3.1 — Container image and Next standalone",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31098",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31099,
+          "title": "Story 3.2 — ADO pipeline build/push to ACR",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31099",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31100,
+          "title": "Story 4.6 — Additional appeals backlog / index",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31100",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31101,
+          "title": "Story 4.7 — Light for the Lost — portal onboarding",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31101",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31102,
+          "title": "Story 5.1 — Smarty client secrets batching tests",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31102",
+          "taskRemainingWork": 7,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31103,
+          "title": "Story 5.2 — Melissa client secrets rules",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31103",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31104,
+          "title": "Story 5.3 — Mail vendor handoff and monitoring",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31104",
+          "taskRemainingWork": 6,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31105,
+          "title": "Story 5.4 — Wire Smarty into export path + audit UI",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31105",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31106,
+          "title": "Story 5.5 — Wire Melissa after Smarty into export",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31106",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31107,
+          "title": "Story 3.3 — AKS manifests namespace Ingress secrets",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31107",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31108,
+          "title": "Story 3.4 — CD release QA/Prod smoke",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31108",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31109,
+          "title": "Story 4.1 — Template catalog drives new-request UI",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31109",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31110,
+          "title": "Story 4.2 — Template-level Entra group authorization",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31110",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31111,
+          "title": "Story 4.3 — Fast preview-only appeal SP path",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31111",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31112,
+          "title": "Story 4.4 — Align v99 with production rules / v11 path",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31112",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31113,
+          "title": "Story 4.5 — Light for the Lost — email inventory + SP clarify",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31113",
+          "taskRemainingWork": 4,
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering fix mia enhancements, mia composite enhancements, account api enhancements, split enhancements, missionary enhancements, and na-blackbox-sf finalize, kafka-connect: jdbc source connector, and 4 other items.",
+      "sprintGoals": "Delivering fix mia enhancements, mia composite enhancements, portal 360 enhancements, account enhancements, appeal enhancements, production enhancements, export wire enhancements, secrets client enhancements, split enhancements, missionary enhancements, template enhancements, and na-blackbox-sf finalize, kafka-connect: jdbc source connector, and...",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 52.25,
+        "totalSP": 80.25,
         "points": [
           {
             "date": "2026-07-01",
-            "remaining": 50.25
+            "remaining": 78.25
           },
           {
             "date": "2026-07-02",
-            "remaining": 46.25
+            "remaining": 74.25
           },
           {
             "date": "2026-07-03",
-            "remaining": 46.25
+            "remaining": 74.25
           },
           {
             "date": "2026-07-06",
-            "remaining": 44.25
+            "remaining": 72.25
           },
           {
             "date": "2026-07-07",
-            "remaining": 42.75
+            "remaining": 70.75
           },
           {
             "date": "2026-07-08",
-            "remaining": 42.75
+            "remaining": 70.75
           },
           {
             "date": "2026-07-09",
-            "remaining": 40.75
+            "remaining": 68.75
           },
           {
             "date": "2026-07-10",
-            "remaining": 31.75
+            "remaining": 59.75
           },
           {
             "date": "2026-07-13",
-            "remaining": 27.75
+            "remaining": 49.75
           }
         ],
         "ideal": [
           {
             "date": "2026-07-01",
-            "remaining": 52.25
+            "remaining": 80.25
           },
           {
             "date": "2026-07-02",
-            "remaining": 46.44444444444444
+            "remaining": 71.33333333333333
           },
           {
             "date": "2026-07-03",
-            "remaining": 40.638888888888886
+            "remaining": 62.41666666666667
           },
           {
             "date": "2026-07-06",
-            "remaining": 34.833333333333336
+            "remaining": 53.5
           },
           {
             "date": "2026-07-07",
-            "remaining": 29.02777777777778
+            "remaining": 44.583333333333336
           },
           {
             "date": "2026-07-08",
-            "remaining": 23.22222222222222
+            "remaining": 35.66666666666667
           },
           {
             "date": "2026-07-09",
-            "remaining": 17.41666666666667
+            "remaining": 26.75
           },
           {
             "date": "2026-07-10",
-            "remaining": 11.611111111111114
+            "remaining": 17.833333333333336
           },
           {
             "date": "2026-07-13",
-            "remaining": 5.805555555555557
+            "remaining": 8.916666666666671
           },
           {
             "date": "2026-07-14",
@@ -20037,8 +20436,8 @@ const projects = [
           "2026-07-08": 4,
           "2026-07-09": 14.25,
           "2026-07-10": 6.25,
-          "2026-07-13": 6.25,
-          "2026-07-14": 6.25
+          "2026-07-13": 6.75,
+          "2026-07-14": 6.75
         },
         "Roach, Joseph": {
           "2026-07-01": 5,
@@ -20061,8 +20460,8 @@ const projects = [
           "2026-07-08": 7,
           "2026-07-09": 2,
           "2026-07-10": 2,
-          "2026-07-13": 2,
-          "2026-07-14": 2
+          "2026-07-13": 105,
+          "2026-07-14": 105
         }
       },
       "isCurrent": true
@@ -26918,10 +27317,10 @@ const projects = [
         "name": "Q3 2026 - Sprint 1",
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
-        "totalSP": 52.25,
-        "completedSP": 24.5,
-        "remainingSP": 27.75,
-        "storyCount": 39,
+        "totalSP": 80.25,
+        "completedSP": 30.5,
+        "remainingSP": 49.75,
+        "storyCount": 67,
         "stories": [
           {
             "id": 23670,
@@ -27466,91 +27865,483 @@ const projects = [
             "assignedTo": "Lamar, Brion",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31083",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31086,
+            "title": "Story 1.1 — BBS AGWM Appeal end-to-end workflow",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": "2026-07-13T13:54:10.003Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31086",
             "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31087,
+            "title": "Story 1.2 — Azure AD authentication for portal",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": "2026-07-13T13:54:10.003Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31087",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31088,
+            "title": "Story 1.3 — Project documentation and ADRs",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": "2026-07-13T13:54:10.003Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31088",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31089,
+            "title": "Story 2.1 — Durable request persistence and audit",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": "2026-07-13T13:54:10.003Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31089",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31090,
+            "title": "Story 2.2 — Preview/export workflow hardening",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": "2026-07-13T13:54:10.003Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31090",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31091,
+            "title": "Story 2.3 — AGWM Advancement church contacts template",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": "2026-07-13T13:54:10.003Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31091",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31092,
+            "title": "Story 2.4 — Appeal ruleset SQL migration + SP @RulesetCode",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31092",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31093,
+            "title": "Story 2.5 — Env validation, CI, ops hygiene",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31093",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31094,
+            "title": "Story 2.6 — Portal SQL app login and SP signing",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31094",
+            "taskRemainingWork": 6,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31095,
+            "title": "Story 2.7 — Production Entra app registration",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31095",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31096,
+            "title": "Story 2.8 — Export CSV contract and automated tests",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31096",
+            "taskRemainingWork": 6,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31097,
+            "title": "Story 2.9 — Appeal ruleset portal API + UI",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31097",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31098,
+            "title": "Story 3.1 — Container image and Next standalone",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31098",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31099,
+            "title": "Story 3.2 — ADO pipeline build/push to ACR",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31099",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31100,
+            "title": "Story 4.6 — Additional appeals backlog / index",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31100",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31101,
+            "title": "Story 4.7 — Light for the Lost — portal onboarding",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31101",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31102,
+            "title": "Story 5.1 — Smarty client secrets batching tests",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31102",
+            "taskRemainingWork": 7,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31103,
+            "title": "Story 5.2 — Melissa client secrets rules",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31103",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31104,
+            "title": "Story 5.3 — Mail vendor handoff and monitoring",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31104",
+            "taskRemainingWork": 6,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31105,
+            "title": "Story 5.4 — Wire Smarty into export path + audit UI",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31105",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31106,
+            "title": "Story 5.5 — Wire Melissa after Smarty into export",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31106",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31107,
+            "title": "Story 3.3 — AKS manifests namespace Ingress secrets",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31107",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31108,
+            "title": "Story 3.4 — CD release QA/Prod smoke",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31108",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31109,
+            "title": "Story 4.1 — Template catalog drives new-request UI",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31109",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31110,
+            "title": "Story 4.2 — Template-level Entra group authorization",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31110",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31111,
+            "title": "Story 4.3 — Fast preview-only appeal SP path",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31111",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31112,
+            "title": "Story 4.4 — Align v99 with production rules / v11 path",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31112",
+            "taskRemainingWork": 4,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31113,
+            "title": "Story 4.5 — Light for the Lost — email inventory + SP clarify",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31113",
+            "taskRemainingWork": 4,
             "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering fix mia enhancements, mia composite enhancements, account api enhancements, split enhancements, missionary enhancements, and na-blackbox-sf finalize, kafka-connect: jdbc source connector, and 4 other items.",
+        "sprintGoals": "Delivering fix mia enhancements, mia composite enhancements, portal 360 enhancements, account enhancements, appeal enhancements, production enhancements, export wire enhancements, secrets client enhancements, split enhancements, missionary enhancements, template enhancements, and na-blackbox-sf finalize, kafka-connect: jdbc source connector, and...",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 52.25,
+          "totalSP": 80.25,
           "points": [
             {
               "date": "2026-07-01",
-              "remaining": 50.25
+              "remaining": 78.25
             },
             {
               "date": "2026-07-02",
-              "remaining": 46.25
+              "remaining": 74.25
             },
             {
               "date": "2026-07-03",
-              "remaining": 46.25
+              "remaining": 74.25
             },
             {
               "date": "2026-07-06",
-              "remaining": 44.25
+              "remaining": 72.25
             },
             {
               "date": "2026-07-07",
-              "remaining": 42.75
+              "remaining": 70.75
             },
             {
               "date": "2026-07-08",
-              "remaining": 42.75
+              "remaining": 70.75
             },
             {
               "date": "2026-07-09",
-              "remaining": 40.75
+              "remaining": 68.75
             },
             {
               "date": "2026-07-10",
-              "remaining": 31.75
+              "remaining": 59.75
             },
             {
               "date": "2026-07-13",
-              "remaining": 27.75
+              "remaining": 49.75
             }
           ],
           "ideal": [
             {
               "date": "2026-07-01",
-              "remaining": 52.25
+              "remaining": 80.25
             },
             {
               "date": "2026-07-02",
-              "remaining": 46.44444444444444
+              "remaining": 71.33333333333333
             },
             {
               "date": "2026-07-03",
-              "remaining": 40.638888888888886
+              "remaining": 62.41666666666667
             },
             {
               "date": "2026-07-06",
-              "remaining": 34.833333333333336
+              "remaining": 53.5
             },
             {
               "date": "2026-07-07",
-              "remaining": 29.02777777777778
+              "remaining": 44.583333333333336
             },
             {
               "date": "2026-07-08",
-              "remaining": 23.22222222222222
+              "remaining": 35.66666666666667
             },
             {
               "date": "2026-07-09",
-              "remaining": 17.41666666666667
+              "remaining": 26.75
             },
             {
               "date": "2026-07-10",
-              "remaining": 11.611111111111114
+              "remaining": 17.833333333333336
             },
             {
               "date": "2026-07-13",
-              "remaining": 5.805555555555557
+              "remaining": 8.916666666666671
             },
             {
               "date": "2026-07-14",
@@ -27580,8 +28371,8 @@ const projects = [
             "2026-07-08": 4,
             "2026-07-09": 14.25,
             "2026-07-10": 6.25,
-            "2026-07-13": 6.25,
-            "2026-07-14": 6.25
+            "2026-07-13": 6.75,
+            "2026-07-14": 6.75
           },
           "Roach, Joseph": {
             "2026-07-01": 5,
@@ -27604,8 +28395,8 @@ const projects = [
             "2026-07-08": 7,
             "2026-07-09": 2,
             "2026-07-10": 2,
-            "2026-07-13": 2,
-            "2026-07-14": 2
+            "2026-07-13": 105,
+            "2026-07-14": 105
           }
         },
         "isCurrent": true
@@ -37040,7 +37831,7 @@ const projects = [
       "estimated": 209,
       "unestimated": 86,
       "totalSP": 308.35,
-      "incompleteSP": 142,
+      "incompleteSP": 140,
       "sprintSP": {
         "Q2 2025 - Sprint 5": 4,
         "Q2 2025 - Sprint 3": 5,
@@ -37070,8 +37861,8 @@ const projects = [
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
       "totalSP": 33,
-      "completedSP": 5,
-      "remainingSP": 28,
+      "completedSP": 7,
+      "remainingSP": 26,
       "storyCount": 24,
       "stories": [
         {
@@ -37092,14 +37883,14 @@ const projects = [
           "id": 28626,
           "title": "Sync GP Invoices to BC",
           "type": "User Story",
-          "state": "Committed",
+          "state": "Done",
           "storyPoints": 2,
-          "completedSP": 0,
-          "remainingSP": 2,
+          "completedSP": 2,
+          "remainingSP": 0,
           "assignedTo": "dkobozev gloo.us",
-          "completedDate": null,
+          "completedDate": "2026-07-13T14:26:44.523Z",
           "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/28626",
-          "taskRemainingWork": 2,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -37453,7 +38244,7 @@ const projects = [
           },
           {
             "date": "2026-07-13",
-            "remaining": 28
+            "remaining": 26
           }
         ],
         "ideal": [
@@ -37509,8 +38300,8 @@ const projects = [
           "2026-07-08": 6,
           "2026-07-09": 5,
           "2026-07-10": 5,
-          "2026-07-13": 4,
-          "2026-07-14": 4
+          "2026-07-13": 2,
+          "2026-07-14": 2
         },
         "Keltner, Scott": {
           "2026-07-01": 6.5,
@@ -39861,8 +40652,8 @@ const projects = [
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
         "totalSP": 33,
-        "completedSP": 5,
-        "remainingSP": 28,
+        "completedSP": 7,
+        "remainingSP": 26,
         "storyCount": 24,
         "stories": [
           {
@@ -39883,14 +40674,14 @@ const projects = [
             "id": 28626,
             "title": "Sync GP Invoices to BC",
             "type": "User Story",
-            "state": "Committed",
+            "state": "Done",
             "storyPoints": 2,
-            "completedSP": 0,
-            "remainingSP": 2,
+            "completedSP": 2,
+            "remainingSP": 0,
             "assignedTo": "dkobozev gloo.us",
-            "completedDate": null,
+            "completedDate": "2026-07-13T14:26:44.523Z",
             "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/28626",
-            "taskRemainingWork": 2,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           },
           {
@@ -40244,7 +41035,7 @@ const projects = [
             },
             {
               "date": "2026-07-13",
-              "remaining": 28
+              "remaining": 26
             }
           ],
           "ideal": [
@@ -40300,8 +41091,8 @@ const projects = [
             "2026-07-08": 6,
             "2026-07-09": 5,
             "2026-07-10": 5,
-            "2026-07-13": 4,
-            "2026-07-14": 4
+            "2026-07-13": 2,
+            "2026-07-14": 2
           },
           "Keltner, Scott": {
             "2026-07-01": 6.5,
