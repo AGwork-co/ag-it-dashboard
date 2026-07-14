@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Tuesday, July 14, 2026 at 9:47 AM</span>
+    <span>Last updated: Tuesday, July 14, 2026 at 12:59 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -1222,7 +1222,7 @@ const projects = [
         "id": 28101,
         "title": "Support",
         "state": "New",
-        "features": 1,
+        "features": 2,
         "stories": 3
       }
     ],
@@ -1231,7 +1231,7 @@ const projects = [
       "estimated": 54,
       "unestimated": 73,
       "totalSP": 117.25,
-      "incompleteSP": 18.25,
+      "incompleteSP": 17.75,
       "sprintSP": {
         "Q3 2025 - Sprint 1": 4.25,
         "Q3 2025 - Sprint 2": 5,
@@ -19862,11 +19862,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 687,
-      "estimated": 464,
+      "total": 688,
+      "estimated": 465,
       "unestimated": 223,
-      "totalSP": 786.3,
-      "incompleteSP": 133.75,
+      "totalSP": 787.3,
+      "incompleteSP": 134.75,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 113,
@@ -19885,13 +19885,14 @@ const projects = [
         "Q4 2025 - Sprint 6": 10,
         "Q4 2025 - Sprint 5": 1,
         "Q1 2026 - Sprint 4": 7,
-        "Q3 2026 - Sprint 1": 75.25,
+        "Q3 2026 - Sprint 2": 13.5,
         "Q1 2026 - Sprint 2": 4.5,
         "Q2 2026 - Sprint 1": 58.55,
         "Q1 2026 - Sprint 5": 42,
         "Q1 2026 - Sprint 6": 116,
         "Q2 2026 - Sprint 6": 47.5,
         "Q2 2026 - Sprint 4": 39,
+        "Q3 2026 - Sprint 1": 62.75,
         "Q2 2026 - Sprint 3": 64,
         "Q2 2026 - Sprint 5": 40.5
       }
@@ -19900,25 +19901,11 @@ const projects = [
       "name": "Q3 2026 - Sprint 1",
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
-      "totalSP": 75.25,
+      "totalSP": 62.75,
       "completedSP": 43,
-      "remainingSP": 32.25,
-      "storyCount": 59,
+      "remainingSP": 19.75,
+      "storyCount": 57,
       "stories": [
-        {
-          "id": 23670,
-          "title": "na-blackbox-sf finalize",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 8,
-          "completedSP": 0,
-          "remainingSP": 8,
-          "assignedTo": "Georgiades, George",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/23670",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
         {
           "id": 27225,
           "title": "State 7b — Confirm existing record before linking or navigating",
@@ -19976,20 +19963,6 @@ const projects = [
           "taskCompletedWork": 0
         },
         {
-          "id": 29876,
-          "title": "Account Number Lookup & Creation REST API",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 3,
-          "completedSP": 0,
-          "remainingSP": 3,
-          "assignedTo": "Georgiades, George",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29876",
-          "taskRemainingWork": 2,
-          "taskCompletedWork": 0
-        },
-        {
           "id": 30030,
           "title": "Data Validation: MIA — Full run after mia-transformer-sf deployment",
           "type": "User Story",
@@ -20001,20 +19974,6 @@ const projects = [
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30030",
           "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 30198,
-          "title": "Modify the Update logic to parse and split Name Parts into ExtendedNamePart 1-9 and don't use Proper*",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 2.5,
-          "completedSP": 0,
-          "remainingSP": 2.5,
-          "assignedTo": "Georgiades, George",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30198",
-          "taskRemainingWork": 4.5,
           "taskCompletedWork": 0
         },
         {
@@ -20721,7 +20680,7 @@ const projects = [
           "id": 31319,
           "title": "Harden mia-contact-sf: DLQ/cancel must not FATAL shared Flink TaskManagers",
           "type": "User Story",
-          "state": "Committed",
+          "state": "Ready for Review",
           "storyPoints": 2,
           "completedSP": 0,
           "remainingSP": 2,
@@ -20730,93 +20689,107 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31319",
           "taskRemainingWork": 2,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 31329,
+          "title": "Flink session watchdog + alerting",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Hassbaum, Ralph",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31329",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering fix mia enhancements, mia composite enhancements, account api enhancements, portal signing enhancements, appeal enhancements, split enhancements, missionary enhancements, and na-blackbox-sf finalize, State 7b — Confirm existing record before linki..., and 15 other items.",
+      "sprintGoals": "Delivering fix mia enhancements, mia composite enhancements, portal 360 enhancements, appeal enhancements, flink enhancements, missionary enhancements, and State 7b — Confirm existing record before linki..., kafka-connect: jdbc source connector, and 15 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 75.25,
+        "totalSP": 62.75,
         "points": [
           {
             "date": "2026-07-01",
-            "remaining": 73.25
+            "remaining": 60.75
           },
           {
             "date": "2026-07-02",
-            "remaining": 69.25
+            "remaining": 56.75
           },
           {
             "date": "2026-07-03",
-            "remaining": 69.25
+            "remaining": 56.75
           },
           {
             "date": "2026-07-06",
-            "remaining": 67.25
+            "remaining": 54.75
           },
           {
             "date": "2026-07-07",
-            "remaining": 65.25
+            "remaining": 52.75
           },
           {
             "date": "2026-07-08",
-            "remaining": 65.25
+            "remaining": 52.75
           },
           {
             "date": "2026-07-09",
-            "remaining": 63.25
+            "remaining": 50.75
           },
           {
             "date": "2026-07-10",
-            "remaining": 54.25
+            "remaining": 41.75
           },
           {
             "date": "2026-07-13",
-            "remaining": 38.25
+            "remaining": 25.75
           },
           {
             "date": "2026-07-14",
-            "remaining": 32.25
+            "remaining": 19.75
           }
         ],
         "ideal": [
           {
             "date": "2026-07-01",
-            "remaining": 75.25
+            "remaining": 62.75
           },
           {
             "date": "2026-07-02",
-            "remaining": 66.88888888888889
+            "remaining": 55.77777777777778
           },
           {
             "date": "2026-07-03",
-            "remaining": 58.52777777777778
+            "remaining": 48.80555555555556
           },
           {
             "date": "2026-07-06",
-            "remaining": 50.16666666666667
+            "remaining": 41.83333333333333
           },
           {
             "date": "2026-07-07",
-            "remaining": 41.80555555555556
+            "remaining": 34.861111111111114
           },
           {
             "date": "2026-07-08",
-            "remaining": 33.44444444444444
+            "remaining": 27.888888888888886
           },
           {
             "date": "2026-07-09",
-            "remaining": 25.083333333333336
+            "remaining": 20.916666666666664
           },
           {
             "date": "2026-07-10",
-            "remaining": 16.72222222222223
+            "remaining": 13.944444444444443
           },
           {
             "date": "2026-07-13",
-            "remaining": 8.361111111111114
+            "remaining": 6.972222222222221
           },
           {
             "date": "2026-07-14",
@@ -20825,18 +20798,6 @@ const projects = [
         ]
       },
       "personTaskBurndown": {
-        "Georgiades, George": {
-          "2026-07-01": 7.5,
-          "2026-07-02": 7.5,
-          "2026-07-03": 7.5,
-          "2026-07-06": 7.5,
-          "2026-07-07": 7.5,
-          "2026-07-08": 7.5,
-          "2026-07-09": 7.5,
-          "2026-07-10": 7.5,
-          "2026-07-13": 7.5,
-          "2026-07-14": 7.5
-        },
         "Lamar, Brion": {
           "2026-07-01": 3,
           "2026-07-02": 4,
@@ -20871,7 +20832,19 @@ const projects = [
           "2026-07-09": 2,
           "2026-07-10": 2,
           "2026-07-13": 29,
-          "2026-07-14": 29
+          "2026-07-14": 30
+        },
+        "Georgiades, George": {
+          "2026-07-01": 7.5,
+          "2026-07-02": 7.5,
+          "2026-07-03": 7.5,
+          "2026-07-06": 7.5,
+          "2026-07-07": 7.5,
+          "2026-07-08": 7.5,
+          "2026-07-09": 7.5,
+          "2026-07-10": 7.5,
+          "2026-07-13": 7.5,
+          "2026-07-14": 0
         }
       },
       "isCurrent": true
@@ -27727,25 +27700,11 @@ const projects = [
         "name": "Q3 2026 - Sprint 1",
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
-        "totalSP": 75.25,
+        "totalSP": 62.75,
         "completedSP": 43,
-        "remainingSP": 32.25,
-        "storyCount": 59,
+        "remainingSP": 19.75,
+        "storyCount": 57,
         "stories": [
-          {
-            "id": 23670,
-            "title": "na-blackbox-sf finalize",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 8,
-            "completedSP": 0,
-            "remainingSP": 8,
-            "assignedTo": "Georgiades, George",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/23670",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
           {
             "id": 27225,
             "title": "State 7b — Confirm existing record before linking or navigating",
@@ -27803,20 +27762,6 @@ const projects = [
             "taskCompletedWork": 0
           },
           {
-            "id": 29876,
-            "title": "Account Number Lookup & Creation REST API",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 3,
-            "completedSP": 0,
-            "remainingSP": 3,
-            "assignedTo": "Georgiades, George",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29876",
-            "taskRemainingWork": 2,
-            "taskCompletedWork": 0
-          },
-          {
             "id": 30030,
             "title": "Data Validation: MIA — Full run after mia-transformer-sf deployment",
             "type": "User Story",
@@ -27828,20 +27773,6 @@ const projects = [
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30030",
             "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 30198,
-            "title": "Modify the Update logic to parse and split Name Parts into ExtendedNamePart 1-9 and don't use Proper*",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 2.5,
-            "completedSP": 0,
-            "remainingSP": 2.5,
-            "assignedTo": "Georgiades, George",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30198",
-            "taskRemainingWork": 4.5,
             "taskCompletedWork": 0
           },
           {
@@ -28548,7 +28479,7 @@ const projects = [
             "id": 31319,
             "title": "Harden mia-contact-sf: DLQ/cancel must not FATAL shared Flink TaskManagers",
             "type": "User Story",
-            "state": "Committed",
+            "state": "Ready for Review",
             "storyPoints": 2,
             "completedSP": 0,
             "remainingSP": 2,
@@ -28557,93 +28488,107 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31319",
             "taskRemainingWork": 2,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 31329,
+            "title": "Flink session watchdog + alerting",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Hassbaum, Ralph",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31329",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering fix mia enhancements, mia composite enhancements, account api enhancements, portal signing enhancements, appeal enhancements, split enhancements, missionary enhancements, and na-blackbox-sf finalize, State 7b — Confirm existing record before linki..., and 15 other items.",
+        "sprintGoals": "Delivering fix mia enhancements, mia composite enhancements, portal 360 enhancements, appeal enhancements, flink enhancements, missionary enhancements, and State 7b — Confirm existing record before linki..., kafka-connect: jdbc source connector, and 15 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 75.25,
+          "totalSP": 62.75,
           "points": [
             {
               "date": "2026-07-01",
-              "remaining": 73.25
+              "remaining": 60.75
             },
             {
               "date": "2026-07-02",
-              "remaining": 69.25
+              "remaining": 56.75
             },
             {
               "date": "2026-07-03",
-              "remaining": 69.25
+              "remaining": 56.75
             },
             {
               "date": "2026-07-06",
-              "remaining": 67.25
+              "remaining": 54.75
             },
             {
               "date": "2026-07-07",
-              "remaining": 65.25
+              "remaining": 52.75
             },
             {
               "date": "2026-07-08",
-              "remaining": 65.25
+              "remaining": 52.75
             },
             {
               "date": "2026-07-09",
-              "remaining": 63.25
+              "remaining": 50.75
             },
             {
               "date": "2026-07-10",
-              "remaining": 54.25
+              "remaining": 41.75
             },
             {
               "date": "2026-07-13",
-              "remaining": 38.25
+              "remaining": 25.75
             },
             {
               "date": "2026-07-14",
-              "remaining": 32.25
+              "remaining": 19.75
             }
           ],
           "ideal": [
             {
               "date": "2026-07-01",
-              "remaining": 75.25
+              "remaining": 62.75
             },
             {
               "date": "2026-07-02",
-              "remaining": 66.88888888888889
+              "remaining": 55.77777777777778
             },
             {
               "date": "2026-07-03",
-              "remaining": 58.52777777777778
+              "remaining": 48.80555555555556
             },
             {
               "date": "2026-07-06",
-              "remaining": 50.16666666666667
+              "remaining": 41.83333333333333
             },
             {
               "date": "2026-07-07",
-              "remaining": 41.80555555555556
+              "remaining": 34.861111111111114
             },
             {
               "date": "2026-07-08",
-              "remaining": 33.44444444444444
+              "remaining": 27.888888888888886
             },
             {
               "date": "2026-07-09",
-              "remaining": 25.083333333333336
+              "remaining": 20.916666666666664
             },
             {
               "date": "2026-07-10",
-              "remaining": 16.72222222222223
+              "remaining": 13.944444444444443
             },
             {
               "date": "2026-07-13",
-              "remaining": 8.361111111111114
+              "remaining": 6.972222222222221
             },
             {
               "date": "2026-07-14",
@@ -28652,18 +28597,6 @@ const projects = [
           ]
         },
         "personTaskBurndown": {
-          "Georgiades, George": {
-            "2026-07-01": 7.5,
-            "2026-07-02": 7.5,
-            "2026-07-03": 7.5,
-            "2026-07-06": 7.5,
-            "2026-07-07": 7.5,
-            "2026-07-08": 7.5,
-            "2026-07-09": 7.5,
-            "2026-07-10": 7.5,
-            "2026-07-13": 7.5,
-            "2026-07-14": 7.5
-          },
           "Lamar, Brion": {
             "2026-07-01": 3,
             "2026-07-02": 4,
@@ -28698,10 +28631,141 @@ const projects = [
             "2026-07-09": 2,
             "2026-07-10": 2,
             "2026-07-13": 29,
-            "2026-07-14": 29
+            "2026-07-14": 30
+          },
+          "Georgiades, George": {
+            "2026-07-01": 7.5,
+            "2026-07-02": 7.5,
+            "2026-07-03": 7.5,
+            "2026-07-06": 7.5,
+            "2026-07-07": 7.5,
+            "2026-07-08": 7.5,
+            "2026-07-09": 7.5,
+            "2026-07-10": 7.5,
+            "2026-07-13": 7.5,
+            "2026-07-14": 0
           }
         },
         "isCurrent": true
+      },
+      {
+        "name": "Q3 2026 - Sprint 2",
+        "startDate": "2026-07-15T00:00:00Z",
+        "endDate": "2026-07-28T00:00:00Z",
+        "totalSP": 13.5,
+        "completedSP": 0,
+        "remainingSP": 13.5,
+        "storyCount": 3,
+        "stories": [
+          {
+            "id": 23670,
+            "title": "na-blackbox-sf finalize",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 8,
+            "completedSP": 0,
+            "remainingSP": 8,
+            "assignedTo": "Georgiades, George",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/23670",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 29876,
+            "title": "Account Number Lookup & Creation REST API",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 3,
+            "completedSP": 0,
+            "remainingSP": 3,
+            "assignedTo": "Georgiades, George",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/29876",
+            "taskRemainingWork": 2,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 30198,
+            "title": "Modify the Update logic to parse and split Name Parts into ExtendedNamePart 1-9 and don't use Proper*",
+            "type": "User Story",
+            "state": "Committed",
+            "storyPoints": 2.5,
+            "completedSP": 0,
+            "remainingSP": 2.5,
+            "assignedTo": "Georgiades, George",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/30198",
+            "taskRemainingWork": 4.5,
+            "taskCompletedWork": 0
+          }
+        ],
+        "sprintGoals": "Delivering na-blackbox-sf finalize, account number lookup & creation rest api, and 1 other items.",
+        "capacity": {
+          "hoursPerDay": 0,
+          "members": []
+        },
+        "burndown": {
+          "totalSP": 13.5,
+          "points": [],
+          "ideal": [
+            {
+              "date": "2026-07-15",
+              "remaining": null
+            },
+            {
+              "date": "2026-07-16",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-17",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-20",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-21",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-22",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-23",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-24",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-27",
+              "remaining": 0
+            },
+            {
+              "date": "2026-07-28",
+              "remaining": 0
+            }
+          ]
+        },
+        "personTaskBurndown": {
+          "Georgiades, George": {
+            "2026-07-15": 7.5,
+            "2026-07-16": 7.5,
+            "2026-07-17": 7.5,
+            "2026-07-20": 7.5,
+            "2026-07-21": 7.5,
+            "2026-07-22": 7.5,
+            "2026-07-23": 7.5,
+            "2026-07-24": 7.5,
+            "2026-07-27": 7.5,
+            "2026-07-28": 7.5
+          }
+        },
+        "isCurrent": false
       }
     ]
   },
@@ -28985,7 +29049,7 @@ const projects = [
       "estimated": 350,
       "unestimated": 69,
       "totalSP": 521.75,
-      "incompleteSP": 109.5,
+      "incompleteSP": 110.5,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 13,
         "Fine Arts": 119.25,
@@ -29023,8 +29087,8 @@ const projects = [
       "startDate": "2026-07-01T00:00:00Z",
       "endDate": "2026-07-14T00:00:00Z",
       "totalSP": 31.25,
-      "completedSP": 15.25,
-      "remainingSP": 16,
+      "completedSP": 14.25,
+      "remainingSP": 17,
       "storyCount": 19,
       "stories": [
         {
@@ -29241,12 +29305,12 @@ const projects = [
           "id": 30903,
           "title": "Celebration Service Background Image Upload fails",
           "type": "Bug",
-          "state": "Done",
+          "state": "Ready for Review",
           "storyPoints": 1,
-          "completedSP": 1,
-          "remainingSP": 0,
+          "completedSP": 0,
+          "remainingSP": 1,
           "assignedTo": "Hiebsch, Adin",
-          "completedDate": "2026-07-13T22:06:15.863Z",
+          "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/30903",
           "taskRemainingWork": 0.5,
           "taskCompletedWork": 0
@@ -29336,11 +29400,11 @@ const projects = [
           },
           {
             "date": "2026-07-13",
-            "remaining": 21
+            "remaining": 22
           },
           {
             "date": "2026-07-14",
-            "remaining": 16
+            "remaining": 17
           }
         ],
         "ideal": [
@@ -33832,8 +33896,8 @@ const projects = [
         "startDate": "2026-07-01T00:00:00Z",
         "endDate": "2026-07-14T00:00:00Z",
         "totalSP": 31.25,
-        "completedSP": 15.25,
-        "remainingSP": 16,
+        "completedSP": 14.25,
+        "remainingSP": 17,
         "storyCount": 19,
         "stories": [
           {
@@ -34050,12 +34114,12 @@ const projects = [
             "id": 30903,
             "title": "Celebration Service Background Image Upload fails",
             "type": "Bug",
-            "state": "Done",
+            "state": "Ready for Review",
             "storyPoints": 1,
-            "completedSP": 1,
-            "remainingSP": 0,
+            "completedSP": 0,
+            "remainingSP": 1,
             "assignedTo": "Hiebsch, Adin",
-            "completedDate": "2026-07-13T22:06:15.863Z",
+            "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/Fine%20Arts/_workitems/edit/30903",
             "taskRemainingWork": 0.5,
             "taskCompletedWork": 0
@@ -34145,11 +34209,11 @@ const projects = [
             },
             {
               "date": "2026-07-13",
-              "remaining": 21
+              "remaining": 22
             },
             {
               "date": "2026-07-14",
-              "remaining": 16
+              "remaining": 17
             }
           ],
           "ideal": [
@@ -42053,13 +42117,13 @@ const projects = [
     ],
     "estimation": {
       "total": 386,
-      "estimated": 95,
-      "unestimated": 291,
-      "totalSP": 102,
-      "incompleteSP": 27.25,
+      "estimated": 96,
+      "unestimated": 290,
+      "totalSP": 104,
+      "incompleteSP": 25.25,
       "sprintSP": {
         "Q3 2025 - Sprint 4": 11,
-        "Infrastructure": 14,
+        "Infrastructure": 16,
         "Q3 2025 - Sprint 6": 14.25,
         "Q3 2025 - Sprint 5": 6.5,
         "Q4 2025 - Sprint 1": 13,
