@@ -33458,6 +33458,239 @@
       },
       "personTaskBurndown": {},
       "isCurrent": false
+    },
+    "Bible Engagement Project::07da7f11-ded7-460e-9537-7547a0bb8b49": {
+      "name": "Q2 2026 - Sprint 6",
+      "startDate": "2026-06-10T00:00:00Z",
+      "endDate": "2026-06-30T00:00:00Z",
+      "totalSP": 4,
+      "completedSP": 4,
+      "remainingSP": 0,
+      "storyCount": 5,
+      "stories": [
+        {
+          "id": 29551,
+          "title": "Youth Roadmap: Library Home UX Revisions",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 3,
+          "completedSP": 3,
+          "remainingSP": 0,
+          "assignedTo": "Greg Pawlik",
+          "completedDate": "2026-06-11T12:53:09.94Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/29551",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30382,
+          "title": "v3.2.1 fixes",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Greg Pawlik",
+          "completedDate": "2026-07-14T00:30:19.15Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/30382",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30383,
+          "title": "Fix: large zip downloads hanging on Safari",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Greg Pawlik",
+          "completedDate": "2026-06-11T16:05:52.453Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/30383",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30532,
+          "title": "Fix lesson section restore during session navigation",
+          "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Greg Pawlik",
+          "completedDate": "2026-06-17T16:19:04.28Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/30532",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30569,
+          "title": "Sub-Libraries: Search",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Unassigned",
+          "completedDate": "2026-07-14T00:30:29.277Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/30569",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering fix enhancements, along with youth roadmap: library home ux revisions, v3.2.1 fixes, and 1 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 4,
+        "points": [
+          {
+            "date": "2026-06-10",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-11",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-12",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-15",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-16",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-17",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-18",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-19",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-22",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-23",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-24",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-25",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-26",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-29",
+            "remaining": 1
+          },
+          {
+            "date": "2026-06-30",
+            "remaining": 1
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-06-10",
+            "remaining": 4
+          },
+          {
+            "date": "2026-06-11",
+            "remaining": 3.7142857142857144
+          },
+          {
+            "date": "2026-06-12",
+            "remaining": 3.428571428571429
+          },
+          {
+            "date": "2026-06-15",
+            "remaining": 3.142857142857143
+          },
+          {
+            "date": "2026-06-16",
+            "remaining": 2.857142857142857
+          },
+          {
+            "date": "2026-06-17",
+            "remaining": 2.5714285714285716
+          },
+          {
+            "date": "2026-06-18",
+            "remaining": 2.2857142857142856
+          },
+          {
+            "date": "2026-06-19",
+            "remaining": 2
+          },
+          {
+            "date": "2026-06-22",
+            "remaining": 1.7142857142857144
+          },
+          {
+            "date": "2026-06-23",
+            "remaining": 1.4285714285714288
+          },
+          {
+            "date": "2026-06-24",
+            "remaining": 1.1428571428571432
+          },
+          {
+            "date": "2026-06-25",
+            "remaining": 0.8571428571428572
+          },
+          {
+            "date": "2026-06-26",
+            "remaining": 0.5714285714285716
+          },
+          {
+            "date": "2026-06-29",
+            "remaining": 0.28571428571428603
+          },
+          {
+            "date": "2026-06-30",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Greg Pawlik": {
+          "2026-06-10": 0,
+          "2026-06-11": 0,
+          "2026-06-12": 0,
+          "2026-06-15": 0,
+          "2026-06-16": 0,
+          "2026-06-17": 0,
+          "2026-06-18": 0,
+          "2026-06-19": 0,
+          "2026-06-22": 0,
+          "2026-06-23": 0,
+          "2026-06-24": 0,
+          "2026-06-25": 0,
+          "2026-06-26": 0,
+          "2026-06-29": 0,
+          "2026-06-30": 0
+        }
+      },
+      "isCurrent": false
     }
   }
 }
