@@ -3471,7 +3471,18 @@
       }
     },
     "FPHC::b7d9646b-ba7d-4b13-b5e4-30941eec7438": {},
-    "AG Accounts::81fdb273-43bd-4694-b9cd-e698eea2e868": {},
+    "AG Accounts::81fdb273-43bd-4694-b9cd-e698eea2e868": {
+      "Georgiades, George": {
+        "2026-07-15": 0,
+        "2026-07-16": 0,
+        "2026-07-17": 0,
+        "2026-07-20": 0,
+        "2026-07-21": 0,
+        "2026-07-22": 0,
+        "2026-07-23": 0,
+        "2026-07-24": 0
+      }
+    },
     "AG Accounts::0556d638-c5fc-456e-96eb-b71eca1a3f5c": {},
     "AG Accounts::f17cd8a4-2fb7-438d-8048-b7da95ecd506": {},
     "AG Accounts::5fd0ea10-93d2-418b-96e6-11dd5bafdae9": {},
