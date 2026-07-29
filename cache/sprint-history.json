@@ -39542,6 +39542,197 @@
       },
       "personTaskBurndown": {},
       "isCurrent": false
+    },
+    "Chi Alpha::b06eb831-f1d0-4948-b794-32d17806c79f": {
+      "name": "Q2 2026 - Sprint 6",
+      "startDate": "2026-06-10T00:00:00Z",
+      "endDate": "2026-06-30T00:00:00Z",
+      "totalSP": 10,
+      "completedSP": 0,
+      "remainingSP": 10,
+      "storyCount": 2,
+      "stories": [
+        {
+          "id": 29783,
+          "title": "AGUSM API for Chi Alpha",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Georgiades, George",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Chi%20Alpha/_workitems/edit/29783",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0.5
+        },
+        {
+          "id": 30610,
+          "title": "Chi Alpha Add / Edit / Remove Missionaries in the Api",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Georgiades, George",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Chi%20Alpha/_workitems/edit/30610",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering api chi enhancements.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 10,
+        "points": [
+          {
+            "date": "2026-06-10",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-11",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-12",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-15",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-16",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-17",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-18",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-19",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-22",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-23",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-24",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-25",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-26",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-29",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-30",
+            "remaining": 10
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-06-10",
+            "remaining": 10
+          },
+          {
+            "date": "2026-06-11",
+            "remaining": 9.285714285714286
+          },
+          {
+            "date": "2026-06-12",
+            "remaining": 8.571428571428571
+          },
+          {
+            "date": "2026-06-15",
+            "remaining": 7.857142857142858
+          },
+          {
+            "date": "2026-06-16",
+            "remaining": 7.142857142857142
+          },
+          {
+            "date": "2026-06-17",
+            "remaining": 6.428571428571429
+          },
+          {
+            "date": "2026-06-18",
+            "remaining": 5.714285714285714
+          },
+          {
+            "date": "2026-06-19",
+            "remaining": 5
+          },
+          {
+            "date": "2026-06-22",
+            "remaining": 4.285714285714286
+          },
+          {
+            "date": "2026-06-23",
+            "remaining": 3.571428571428571
+          },
+          {
+            "date": "2026-06-24",
+            "remaining": 2.8571428571428568
+          },
+          {
+            "date": "2026-06-25",
+            "remaining": 2.1428571428571423
+          },
+          {
+            "date": "2026-06-26",
+            "remaining": 1.4285714285714288
+          },
+          {
+            "date": "2026-06-29",
+            "remaining": 0.7142857142857135
+          },
+          {
+            "date": "2026-06-30",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Georgiades, George": {
+          "2026-06-10": 5,
+          "2026-06-11": 5,
+          "2026-06-12": 5,
+          "2026-06-15": 5,
+          "2026-06-16": 6.5,
+          "2026-06-17": 4.5,
+          "2026-06-18": 4.5,
+          "2026-06-19": 4.5,
+          "2026-06-22": 3,
+          "2026-06-23": 8,
+          "2026-06-24": 8,
+          "2026-06-25": 8,
+          "2026-06-26": 8,
+          "2026-06-29": 8,
+          "2026-06-30": 8
+        }
+      },
+      "isCurrent": false
     }
   }
 }
