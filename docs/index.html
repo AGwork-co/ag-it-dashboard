@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Friday, July 31, 2026 at 10:16 AM</span>
+    <span>Last updated: Friday, July 31, 2026 at 1:17 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -12285,18 +12285,75 @@ const projects = [
         "Q2 2026 - Sprint 3": 5,
         "Q2 2026 - Sprint 4": 8,
         "Q2 2026 - Sprint 6": 4,
-        "Q3 2026 - Sprint 2": 5
+        "Q3 2026 - Sprint 3": 4,
+        "Q3 2026 - Sprint 2": 1
       }
     },
     "currentSprint": {
       "name": "Q3 2026 - Sprint 3",
       "startDate": "2026-07-29T00:00:00Z",
       "endDate": "2026-08-11T00:00:00Z",
-      "totalSP": 0,
+      "totalSP": 4,
       "completedSP": 0,
-      "remainingSP": 0,
-      "storyCount": 2,
+      "remainingSP": 4,
+      "storyCount": 6,
       "stories": [
+        {
+          "id": 31495,
+          "title": "Store setup",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31495",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31496,
+          "title": "Client-side IAP configuration",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Greg Pawlik",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31496",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31498,
+          "title": "Entitlements handling in Functions",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Greg Pawlik",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31498",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 31499,
+          "title": "Web purchase handling",
+          "type": "User Story",
+          "state": "Approved",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Unassigned",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31499",
+          "taskRemainingWork": 3,
+          "taskCompletedWork": 0
+        },
         {
           "id": 31895,
           "title": "v3.3.3 fixes",
@@ -12326,63 +12383,63 @@ const projects = [
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering v3.3.3 fixes, along with fix expo-video getvideoview crash.",
+      "sprintGoals": "Delivering handling enhancements, along with store setup, client-side iap configuration, and 2 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 0,
+        "totalSP": 4,
         "points": [
           {
             "date": "2026-07-29",
-            "remaining": 0
+            "remaining": 4
           },
           {
             "date": "2026-07-30",
-            "remaining": 0
+            "remaining": 4
           },
           {
             "date": "2026-07-31",
-            "remaining": 0
+            "remaining": 4
           }
         ],
         "ideal": [
           {
             "date": "2026-07-29",
-            "remaining": 0
+            "remaining": 4
           },
           {
             "date": "2026-07-30",
-            "remaining": 0
+            "remaining": 3.5555555555555554
           },
           {
             "date": "2026-07-31",
-            "remaining": 0
+            "remaining": 3.111111111111111
           },
           {
             "date": "2026-08-03",
-            "remaining": 0
+            "remaining": 2.666666666666667
           },
           {
             "date": "2026-08-04",
-            "remaining": 0
+            "remaining": 2.2222222222222223
           },
           {
             "date": "2026-08-05",
-            "remaining": 0
+            "remaining": 1.7777777777777777
           },
           {
             "date": "2026-08-06",
-            "remaining": 0
+            "remaining": 1.3333333333333335
           },
           {
             "date": "2026-08-07",
-            "remaining": 0
+            "remaining": 0.8888888888888893
           },
           {
             "date": "2026-08-10",
-            "remaining": 0
+            "remaining": 0.44444444444444464
           },
           {
             "date": "2026-08-11",
@@ -12391,17 +12448,29 @@ const projects = [
         ]
       },
       "personTaskBurndown": {
+        "Unassigned": {
+          "2026-07-29": 1,
+          "2026-07-30": 1,
+          "2026-07-31": 1,
+          "2026-08-03": 1,
+          "2026-08-04": 1,
+          "2026-08-05": 1,
+          "2026-08-06": 1,
+          "2026-08-07": 1,
+          "2026-08-10": 1,
+          "2026-08-11": 1
+        },
         "Greg Pawlik": {
           "2026-07-29": 0,
           "2026-07-30": 0,
-          "2026-07-31": 0,
-          "2026-08-03": 0,
-          "2026-08-04": 0,
-          "2026-08-05": 0,
-          "2026-08-06": 0,
-          "2026-08-07": 0,
-          "2026-08-10": 0,
-          "2026-08-11": 0
+          "2026-07-31": 5,
+          "2026-08-03": 5,
+          "2026-08-04": 5,
+          "2026-08-05": 5,
+          "2026-08-06": 5,
+          "2026-08-07": 5,
+          "2026-08-10": 5,
+          "2026-08-11": 5
         }
       },
       "isCurrent": true
@@ -15186,11 +15255,67 @@ const projects = [
         "name": "Q3 2026 - Sprint 3",
         "startDate": "2026-07-29T00:00:00Z",
         "endDate": "2026-08-11T00:00:00Z",
-        "totalSP": 0,
+        "totalSP": 4,
         "completedSP": 0,
-        "remainingSP": 0,
-        "storyCount": 2,
+        "remainingSP": 4,
+        "storyCount": 6,
         "stories": [
+          {
+            "id": 31495,
+            "title": "Store setup",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Unassigned",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31495",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31496,
+            "title": "Client-side IAP configuration",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Greg Pawlik",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31496",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31498,
+            "title": "Entitlements handling in Functions",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Greg Pawlik",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31498",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31499,
+            "title": "Web purchase handling",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Unassigned",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31499",
+            "taskRemainingWork": 3,
+            "taskCompletedWork": 0
+          },
           {
             "id": 31895,
             "title": "v3.3.3 fixes",
@@ -15220,63 +15345,63 @@ const projects = [
             "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering v3.3.3 fixes, along with fix expo-video getvideoview crash.",
+        "sprintGoals": "Delivering handling enhancements, along with store setup, client-side iap configuration, and 2 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 0,
+          "totalSP": 4,
           "points": [
             {
               "date": "2026-07-29",
-              "remaining": 0
+              "remaining": 4
             },
             {
               "date": "2026-07-30",
-              "remaining": 0
+              "remaining": 4
             },
             {
               "date": "2026-07-31",
-              "remaining": 0
+              "remaining": 4
             }
           ],
           "ideal": [
             {
               "date": "2026-07-29",
-              "remaining": 0
+              "remaining": 4
             },
             {
               "date": "2026-07-30",
-              "remaining": 0
+              "remaining": 3.5555555555555554
             },
             {
               "date": "2026-07-31",
-              "remaining": 0
+              "remaining": 3.111111111111111
             },
             {
               "date": "2026-08-03",
-              "remaining": 0
+              "remaining": 2.666666666666667
             },
             {
               "date": "2026-08-04",
-              "remaining": 0
+              "remaining": 2.2222222222222223
             },
             {
               "date": "2026-08-05",
-              "remaining": 0
+              "remaining": 1.7777777777777777
             },
             {
               "date": "2026-08-06",
-              "remaining": 0
+              "remaining": 1.3333333333333335
             },
             {
               "date": "2026-08-07",
-              "remaining": 0
+              "remaining": 0.8888888888888893
             },
             {
               "date": "2026-08-10",
-              "remaining": 0
+              "remaining": 0.44444444444444464
             },
             {
               "date": "2026-08-11",
@@ -15285,17 +15410,29 @@ const projects = [
           ]
         },
         "personTaskBurndown": {
+          "Unassigned": {
+            "2026-07-29": 1,
+            "2026-07-30": 1,
+            "2026-07-31": 1,
+            "2026-08-03": 1,
+            "2026-08-04": 1,
+            "2026-08-05": 1,
+            "2026-08-06": 1,
+            "2026-08-07": 1,
+            "2026-08-10": 1,
+            "2026-08-11": 1
+          },
           "Greg Pawlik": {
             "2026-07-29": 0,
             "2026-07-30": 0,
-            "2026-07-31": 0,
-            "2026-08-03": 0,
-            "2026-08-04": 0,
-            "2026-08-05": 0,
-            "2026-08-06": 0,
-            "2026-08-07": 0,
-            "2026-08-10": 0,
-            "2026-08-11": 0
+            "2026-07-31": 5,
+            "2026-08-03": 5,
+            "2026-08-04": 5,
+            "2026-08-05": 5,
+            "2026-08-06": 5,
+            "2026-08-07": 5,
+            "2026-08-10": 5,
+            "2026-08-11": 5
           }
         },
         "isCurrent": true
@@ -16368,7 +16505,7 @@ const projects = [
         "Q3 2025 - Sprint 1": 6.75,
         "Q4 2025 - Sprint 2": 11,
         "Q3 2025 - Sprint 5": 2,
-        "CMS vNext": 74,
+        "CMS vNext": 152,
         "Q4 2025 - Sprint 1": 13.5,
         "Q4 2025 - Sprint 4": 14.5,
         "Q3 2025 - Sprint 6": 5.5,
@@ -16386,7 +16523,6 @@ const projects = [
         "Q2 2026 - Sprint 6": 5.25,
         "Q2 2026 - Sprint 1": 5,
         "Q2 2026 - Sprint 4": 5,
-        "Q3 2026 - Sprint 3": 78,
         "Q3 2026 - Sprint 1": 11.25,
         "Q3 2026 - Sprint 2": 11.5
       }
@@ -16395,1063 +16531,68 @@ const projects = [
       "name": "Q3 2026 - Sprint 3",
       "startDate": "2026-07-29T00:00:00Z",
       "endDate": "2026-08-11T00:00:00Z",
-      "totalSP": 78,
-      "completedSP": 8,
-      "remainingSP": 70,
-      "storyCount": 71,
-      "stories": [
-        {
-          "id": 30344,
-          "title": "DNS Cutover",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30344",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 30501,
-          "title": "women.ag.org: Leading Together 1",
-          "type": "User Story",
-          "state": "Approved",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30501",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 30912,
-          "title": "MSC WordPress Migration",
-          "type": "User Story",
-          "state": "Done",
-          "storyPoints": 8,
-          "completedSP": 8,
-          "remainingSP": 0,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": "2026-07-29T17:10:05.457Z",
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30912",
-          "taskRemainingWork": 0,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31720,
-          "title": "NGM.ag.org - Home",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31720",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31721,
-          "title": "NGM.ag.org - General Council",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31721",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31722,
-          "title": "NGM.ag.org - About -WHo We Are",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31722",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31723,
-          "title": "NGM.ag.org - About - National Staff",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31723",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31724,
-          "title": "NGM.ag.org - About- Getting Started",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31724",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31725,
-          "title": "NGM.ag.org - About - Discipleship and Achievement",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31725",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31726,
-          "title": "NGM.ag.org - Preschool Elementary - About",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31726",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31727,
-          "title": "NGM.ag.org - Preschool Elementary - Clubs",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31727",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31728,
-          "title": "NGM.ag.org - Preschool Elementary - Resources",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31728",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31729,
-          "title": "NGM.ag.org - Preschool Elementary - Rainbows",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31729",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31730,
-          "title": "NGM.ag.org - Preschool Elementary - Daisies",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31730",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31731,
-          "title": "NGM.ag.org - Preschool Elementary - Prims",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31731",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31732,
-          "title": "NGM.ag.org - Preschool Elementary - Stars",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31732",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31733,
-          "title": "NGM.ag.org - Teen Girls - About",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31733",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31734,
-          "title": "NGM.ag.org - Teen Girls - Clubs",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31734",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31735,
-          "title": "NGM.ag.org - Teen Girls - Resources",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31735",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31736,
-          "title": "NGM.ag.org - Teen Girls - Friends",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31736",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31737,
-          "title": "NGM.ag.org - Teen Girls - Girls Only",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31737",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31738,
-          "title": "NGM.ag.org - Teen Girls - Hot Topics",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31738",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31739,
-          "title": "NGM.ag.org - Teen Girls - Teen Girl Daybook",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31739",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31740,
-          "title": "NGM.ag.org - Teen Girls - Teen Girl Retreat",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31740",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31741,
-          "title": "NGM.ag.org - Leaders - Safety & Supervision",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31741",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31742,
-          "title": "NGM.ag.org - Leaders - Training",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31742",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31743,
-          "title": "NGM.ag.org - Leaders - Connect to Your District",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31743",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31744,
-          "title": "NGM.ag.org - Leaders - Login / Secure Area",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31744",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31745,
-          "title": "NGM.ag.org - Missions - Coins for Kids",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31745",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31746,
-          "title": "NGM.ag.org - Missions - Coins for Kids Resources",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31746",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31747,
-          "title": "NGM.ag.org - Events - Girls Ministries Event",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31747",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31748,
-          "title": "NGM.ag.org - Events - NGM Week",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31748",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31749,
-          "title": "NGM.ag.org - Events - SYATA",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31749",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31750,
-          "title": "NGM.ag.org - Events - Serve Day",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31750",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31751,
-          "title": "NGM.ag.org - Events - Share the Gospel Day",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31751",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31752,
-          "title": "NGM.ag.org - Events - Teen Girl Event",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31752",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31753,
-          "title": "NGM.ag.org - Topics & Resources - Articles: Leaders",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31753",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31754,
-          "title": "NGM.ag.org - Topics & Resources - Articles: Ministry",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31754",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31755,
-          "title": "NGM.ag.org - Topics & Resources - Articles: Missions",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31755",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31756,
-          "title": "NGM.ag.org - Topics & Resources - Articles: News",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31756",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31757,
-          "title": "NGM.ag.org - Topics & Resources - Articles: Quick Tips",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31757",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31758,
-          "title": "NGM.ag.org - Topics & Resources - Articles: Parents",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31758",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31759,
-          "title": "NGM.ag.org - Topics & Resources - Products",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31759",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31760,
-          "title": "NGM.ag.org - Topics & Resources - Built to Be Bold",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31760",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31761,
-          "title": "NGM.ag.org - Topics & Resources - Preschool Elementary",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31761",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31762,
-          "title": "NGM.ag.org - Topics & Resources - Teen Girls",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31762",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31763,
-          "title": "NGM.ag.org - Topics & Resources - Annual Theme",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31763",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31764,
-          "title": "NGM.ag.org - Topics & Resources - Coins for Kids",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31764",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31765,
-          "title": "NGM.ag.org - Topics & Resources - Events",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31765",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31766,
-          "title": "NGM.ag.org - Topics & Resources - FAQs",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31766",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31767,
-          "title": "NGM.ag.org - Topics & Resources - Heart of Compassion",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31767",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31768,
-          "title": "NGM.ag.org - Topics & Resources - Leaders",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31768",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31769,
-          "title": "NGM.ag.org - Topics & Resources - Media",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31769",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31770,
-          "title": "NGM.ag.org - Leader Training Guide",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31770",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31771,
-          "title": "NGM.ag.org - Leader Training Guide Spanish",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31771",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31772,
-          "title": "NGM.ag.org - Secure Area - 2024 Promo Logos",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31772",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31773,
-          "title": "NGM.ag.org - Secure Area - 2025 Promo Logos",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31773",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31774,
-          "title": "NGM.ag.org - Secure Area - 2026 Promo Logos",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31774",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31775,
-          "title": "NGM.ag.org - Secure Area - Banners",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31775",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31776,
-          "title": "NGM.ag.org - Secure Area - NLT",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31776",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31777,
-          "title": "NGM.ag.org - Secure Area - Chartering",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31777",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31778,
-          "title": "NGM.ag.org - Secure Area - Coins for Kids",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31778",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31779,
-          "title": "NGM.ag.org - Secure Area - DGMD Manual",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31779",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31780,
-          "title": "NGM.ag.org - Secure Area - Honor Resources",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31780",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31781,
-          "title": "NGM.ag.org - Secure Area - Logos",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31781",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31782,
-          "title": "NGM.ag.org - Secure Area - Memberrship Cards",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31782",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31783,
-          "title": "NGM.ag.org - Secure Area - Miriam Spirit Award Nominations",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31783",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31784,
-          "title": "NGM.ag.org - Secure Area - Prayer Experience",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31784",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31785,
-          "title": "NGM.ag.org - Secure Area - Serve Day",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31785",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31786,
-          "title": "NGM.ag.org - Secure Area - Training",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31786",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        },
-        {
-          "id": 31787,
-          "title": "NGM.ag.org - Base Layout / Menu / CSS",
-          "type": "User Story",
-          "state": "Committed",
-          "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
-          "assignedTo": "Hull, Darrin",
-          "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31787",
-          "taskRemainingWork": 1,
-          "taskCompletedWork": 0
-        }
-      ],
-      "sprintGoals": "Delivering ngmagorg resources enhancements, along with dns cutover, women.ag.org: leading together 1, and 1 other items.",
+      "totalSP": 0,
+      "completedSP": 0,
+      "remainingSP": 0,
+      "storyCount": 0,
+      "stories": [],
+      "sprintGoals": "",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 78,
+        "totalSP": 0,
         "points": [
           {
             "date": "2026-07-29",
-            "remaining": 70
+            "remaining": 0
           },
           {
             "date": "2026-07-30",
-            "remaining": 70
+            "remaining": 0
           },
           {
             "date": "2026-07-31",
-            "remaining": 70
+            "remaining": 0
           }
         ],
         "ideal": [
           {
             "date": "2026-07-29",
-            "remaining": 78
+            "remaining": 0
           },
           {
             "date": "2026-07-30",
-            "remaining": 69.33333333333333
+            "remaining": 0
           },
           {
             "date": "2026-07-31",
-            "remaining": 60.66666666666667
+            "remaining": 0
           },
           {
             "date": "2026-08-03",
-            "remaining": 52
+            "remaining": 0
           },
           {
             "date": "2026-08-04",
-            "remaining": 43.333333333333336
+            "remaining": 0
           },
           {
             "date": "2026-08-05",
-            "remaining": 34.66666666666667
+            "remaining": 0
           },
           {
             "date": "2026-08-06",
-            "remaining": 26
+            "remaining": 0
           },
           {
             "date": "2026-08-07",
-            "remaining": 17.333333333333336
+            "remaining": 0
           },
           {
             "date": "2026-08-10",
-            "remaining": 8.666666666666671
+            "remaining": 0
           },
           {
             "date": "2026-08-11",
@@ -17459,20 +16600,7 @@ const projects = [
           }
         ]
       },
-      "personTaskBurndown": {
-        "Hull, Darrin": {
-          "2026-07-29": 2,
-          "2026-07-30": 70,
-          "2026-07-31": 70,
-          "2026-08-03": 70,
-          "2026-08-04": 70,
-          "2026-08-05": 70,
-          "2026-08-06": 70,
-          "2026-08-07": 70,
-          "2026-08-10": 70,
-          "2026-08-11": 70
-        }
-      },
+      "personTaskBurndown": {},
       "isCurrent": true
     },
     "allSprints": [
@@ -20988,1063 +20116,68 @@ const projects = [
         "name": "Q3 2026 - Sprint 3",
         "startDate": "2026-07-29T00:00:00Z",
         "endDate": "2026-08-11T00:00:00Z",
-        "totalSP": 78,
-        "completedSP": 8,
-        "remainingSP": 70,
-        "storyCount": 71,
-        "stories": [
-          {
-            "id": 30344,
-            "title": "DNS Cutover",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30344",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 30501,
-            "title": "women.ag.org: Leading Together 1",
-            "type": "User Story",
-            "state": "Approved",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30501",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 30912,
-            "title": "MSC WordPress Migration",
-            "type": "User Story",
-            "state": "Done",
-            "storyPoints": 8,
-            "completedSP": 8,
-            "remainingSP": 0,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": "2026-07-29T17:10:05.457Z",
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/30912",
-            "taskRemainingWork": 0,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31720,
-            "title": "NGM.ag.org - Home",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31720",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31721,
-            "title": "NGM.ag.org - General Council",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31721",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31722,
-            "title": "NGM.ag.org - About -WHo We Are",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31722",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31723,
-            "title": "NGM.ag.org - About - National Staff",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31723",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31724,
-            "title": "NGM.ag.org - About- Getting Started",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31724",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31725,
-            "title": "NGM.ag.org - About - Discipleship and Achievement",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31725",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31726,
-            "title": "NGM.ag.org - Preschool Elementary - About",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31726",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31727,
-            "title": "NGM.ag.org - Preschool Elementary - Clubs",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31727",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31728,
-            "title": "NGM.ag.org - Preschool Elementary - Resources",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31728",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31729,
-            "title": "NGM.ag.org - Preschool Elementary - Rainbows",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31729",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31730,
-            "title": "NGM.ag.org - Preschool Elementary - Daisies",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31730",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31731,
-            "title": "NGM.ag.org - Preschool Elementary - Prims",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31731",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31732,
-            "title": "NGM.ag.org - Preschool Elementary - Stars",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31732",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31733,
-            "title": "NGM.ag.org - Teen Girls - About",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31733",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31734,
-            "title": "NGM.ag.org - Teen Girls - Clubs",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31734",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31735,
-            "title": "NGM.ag.org - Teen Girls - Resources",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31735",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31736,
-            "title": "NGM.ag.org - Teen Girls - Friends",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31736",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31737,
-            "title": "NGM.ag.org - Teen Girls - Girls Only",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31737",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31738,
-            "title": "NGM.ag.org - Teen Girls - Hot Topics",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31738",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31739,
-            "title": "NGM.ag.org - Teen Girls - Teen Girl Daybook",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31739",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31740,
-            "title": "NGM.ag.org - Teen Girls - Teen Girl Retreat",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31740",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31741,
-            "title": "NGM.ag.org - Leaders - Safety & Supervision",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31741",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31742,
-            "title": "NGM.ag.org - Leaders - Training",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31742",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31743,
-            "title": "NGM.ag.org - Leaders - Connect to Your District",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31743",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31744,
-            "title": "NGM.ag.org - Leaders - Login / Secure Area",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31744",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31745,
-            "title": "NGM.ag.org - Missions - Coins for Kids",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31745",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31746,
-            "title": "NGM.ag.org - Missions - Coins for Kids Resources",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31746",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31747,
-            "title": "NGM.ag.org - Events - Girls Ministries Event",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31747",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31748,
-            "title": "NGM.ag.org - Events - NGM Week",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31748",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31749,
-            "title": "NGM.ag.org - Events - SYATA",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31749",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31750,
-            "title": "NGM.ag.org - Events - Serve Day",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31750",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31751,
-            "title": "NGM.ag.org - Events - Share the Gospel Day",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31751",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31752,
-            "title": "NGM.ag.org - Events - Teen Girl Event",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31752",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31753,
-            "title": "NGM.ag.org - Topics & Resources - Articles: Leaders",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31753",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31754,
-            "title": "NGM.ag.org - Topics & Resources - Articles: Ministry",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31754",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31755,
-            "title": "NGM.ag.org - Topics & Resources - Articles: Missions",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31755",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31756,
-            "title": "NGM.ag.org - Topics & Resources - Articles: News",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31756",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31757,
-            "title": "NGM.ag.org - Topics & Resources - Articles: Quick Tips",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31757",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31758,
-            "title": "NGM.ag.org - Topics & Resources - Articles: Parents",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31758",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31759,
-            "title": "NGM.ag.org - Topics & Resources - Products",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31759",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31760,
-            "title": "NGM.ag.org - Topics & Resources - Built to Be Bold",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31760",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31761,
-            "title": "NGM.ag.org - Topics & Resources - Preschool Elementary",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31761",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31762,
-            "title": "NGM.ag.org - Topics & Resources - Teen Girls",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31762",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31763,
-            "title": "NGM.ag.org - Topics & Resources - Annual Theme",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31763",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31764,
-            "title": "NGM.ag.org - Topics & Resources - Coins for Kids",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31764",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31765,
-            "title": "NGM.ag.org - Topics & Resources - Events",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31765",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31766,
-            "title": "NGM.ag.org - Topics & Resources - FAQs",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31766",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31767,
-            "title": "NGM.ag.org - Topics & Resources - Heart of Compassion",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31767",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31768,
-            "title": "NGM.ag.org - Topics & Resources - Leaders",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31768",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31769,
-            "title": "NGM.ag.org - Topics & Resources - Media",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31769",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31770,
-            "title": "NGM.ag.org - Leader Training Guide",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31770",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31771,
-            "title": "NGM.ag.org - Leader Training Guide Spanish",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31771",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31772,
-            "title": "NGM.ag.org - Secure Area - 2024 Promo Logos",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31772",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31773,
-            "title": "NGM.ag.org - Secure Area - 2025 Promo Logos",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31773",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31774,
-            "title": "NGM.ag.org - Secure Area - 2026 Promo Logos",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31774",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31775,
-            "title": "NGM.ag.org - Secure Area - Banners",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31775",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31776,
-            "title": "NGM.ag.org - Secure Area - NLT",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31776",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31777,
-            "title": "NGM.ag.org - Secure Area - Chartering",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31777",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31778,
-            "title": "NGM.ag.org - Secure Area - Coins for Kids",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31778",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31779,
-            "title": "NGM.ag.org - Secure Area - DGMD Manual",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31779",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31780,
-            "title": "NGM.ag.org - Secure Area - Honor Resources",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31780",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31781,
-            "title": "NGM.ag.org - Secure Area - Logos",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31781",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31782,
-            "title": "NGM.ag.org - Secure Area - Memberrship Cards",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31782",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31783,
-            "title": "NGM.ag.org - Secure Area - Miriam Spirit Award Nominations",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31783",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31784,
-            "title": "NGM.ag.org - Secure Area - Prayer Experience",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31784",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31785,
-            "title": "NGM.ag.org - Secure Area - Serve Day",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31785",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31786,
-            "title": "NGM.ag.org - Secure Area - Training",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31786",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          },
-          {
-            "id": 31787,
-            "title": "NGM.ag.org - Base Layout / Menu / CSS",
-            "type": "User Story",
-            "state": "Committed",
-            "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
-            "assignedTo": "Hull, Darrin",
-            "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/CMS%20vNext/_workitems/edit/31787",
-            "taskRemainingWork": 1,
-            "taskCompletedWork": 0
-          }
-        ],
-        "sprintGoals": "Delivering ngmagorg resources enhancements, along with dns cutover, women.ag.org: leading together 1, and 1 other items.",
+        "totalSP": 0,
+        "completedSP": 0,
+        "remainingSP": 0,
+        "storyCount": 0,
+        "stories": [],
+        "sprintGoals": "",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 78,
+          "totalSP": 0,
           "points": [
             {
               "date": "2026-07-29",
-              "remaining": 70
+              "remaining": 0
             },
             {
               "date": "2026-07-30",
-              "remaining": 70
+              "remaining": 0
             },
             {
               "date": "2026-07-31",
-              "remaining": 70
+              "remaining": 0
             }
           ],
           "ideal": [
             {
               "date": "2026-07-29",
-              "remaining": 78
+              "remaining": 0
             },
             {
               "date": "2026-07-30",
-              "remaining": 69.33333333333333
+              "remaining": 0
             },
             {
               "date": "2026-07-31",
-              "remaining": 60.66666666666667
+              "remaining": 0
             },
             {
               "date": "2026-08-03",
-              "remaining": 52
+              "remaining": 0
             },
             {
               "date": "2026-08-04",
-              "remaining": 43.333333333333336
+              "remaining": 0
             },
             {
               "date": "2026-08-05",
-              "remaining": 34.66666666666667
+              "remaining": 0
             },
             {
               "date": "2026-08-06",
-              "remaining": 26
+              "remaining": 0
             },
             {
               "date": "2026-08-07",
-              "remaining": 17.333333333333336
+              "remaining": 0
             },
             {
               "date": "2026-08-10",
-              "remaining": 8.666666666666671
+              "remaining": 0
             },
             {
               "date": "2026-08-11",
@@ -22052,20 +20185,7 @@ const projects = [
             }
           ]
         },
-        "personTaskBurndown": {
-          "Hull, Darrin": {
-            "2026-07-29": 2,
-            "2026-07-30": 70,
-            "2026-07-31": 70,
-            "2026-08-03": 70,
-            "2026-08-04": 70,
-            "2026-08-05": 70,
-            "2026-08-06": 70,
-            "2026-08-07": 70,
-            "2026-08-10": 70,
-            "2026-08-11": 70
-          }
-        },
+        "personTaskBurndown": {},
         "isCurrent": true
       },
       {
@@ -54137,7 +52257,7 @@ const supportRequests = {
     {
       "id": 32085,
       "title": "DATA REQUEST for AGWM Sept Appeal = due 8/10",
-      "state": "New",
+      "state": "Approved",
       "project": "Missions Support",
       "description": "[EXTERNAL EMAIL] Here is the data request for the September appeal. Please make sure to dedupe as we have previously discussed. Exclude Missionary Only giving donors for both churches and individuals who gave a largest gift of $1,000 or less in the last 24 months. NOTE: Run counts for both individua…",
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32085"
