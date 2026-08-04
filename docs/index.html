@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Tuesday, August 4, 2026 at 10:22 AM</span>
+    <span>Last updated: Tuesday, August 4, 2026 at 1:25 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -20644,14 +20644,21 @@ const projects = [
         "state": "New",
         "features": 1,
         "stories": 6
+      },
+      {
+        "id": 32116,
+        "title": "NA API Fine Arts–style functional refactor",
+        "state": "In Progress",
+        "features": 0,
+        "stories": 0
       }
     ],
     "estimation": {
-      "total": 733,
-      "estimated": 507,
+      "total": 740,
+      "estimated": 514,
       "unestimated": 226,
-      "totalSP": 883.05,
-      "incompleteSP": 176.5,
+      "totalSP": 890.55,
+      "incompleteSP": 182.5,
       "sprintSP": {
         "Q2 2025 - Sprint 1": 5,
         "CRM": 173,
@@ -20678,7 +20685,7 @@ const projects = [
         "Q2 2026 - Sprint 6": 48.5,
         "Q2 2026 - Sprint 4": 39,
         "Q2 2026 - Sprint 3": 64,
-        "Q3 2026 - Sprint 3": 13.5,
+        "Q3 2026 - Sprint 3": 21,
         "Q3 2026 - Sprint 1": 51.25,
         "Q2 2026 - Sprint 5": 40.5,
         "Q3 2026 - Sprint 4": 5.5
@@ -20688,10 +20695,10 @@ const projects = [
       "name": "Q3 2026 - Sprint 3",
       "startDate": "2026-07-29T00:00:00Z",
       "endDate": "2026-08-11T00:00:00Z",
-      "totalSP": 13.5,
-      "completedSP": 1.5,
-      "remainingSP": 12,
-      "storyCount": 10,
+      "totalSP": 21,
+      "completedSP": 3,
+      "remainingSP": 18,
+      "storyCount": 17,
       "stories": [
         {
           "id": 28461,
@@ -20832,73 +20839,171 @@ const projects = [
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31997",
           "taskRemainingWork": 1,
           "taskCompletedWork": 0
+        },
+        {
+          "id": 32114,
+          "title": "NA API: publish Fine Arts–style functional refactor plan for review",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 0.5,
+          "completedSP": 0.5,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-08-04T18:20:47.067Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32114",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 32117,
+          "title": "Phase 0: NA API conventions + platform (no Stub/createRequest)",
+          "type": "User Story",
+          "state": "Done",
+          "storyPoints": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": "2026-08-04T18:23:23.967Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32117",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 32118,
+          "title": "Phase 1: Refactor POST /accountnumber/request to functional style",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 1,
+          "completedSP": 0,
+          "remainingSP": 1,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32118",
+          "taskRemainingWork": 1,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 32119,
+          "title": "Phase 2: Relocate name-and-address to Fine Arts file layout",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32119",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 32120,
+          "title": "Phase 3: Refactor POST /accountnumber/lookup-or-create to functional style",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32120",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 32121,
+          "title": "Phase 4: Re-ship POST /account/update + Descriptors (abandon #8669)",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 2,
+          "completedSP": 0,
+          "remainingSP": 2,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32121",
+          "taskRemainingWork": 2,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 32122,
+          "title": "Phase 5: NA API cleanup — delete legacy Stub/Repo/DI",
+          "type": "User Story",
+          "state": "New",
+          "storyPoints": 0.5,
+          "completedSP": 0,
+          "remainingSP": 0.5,
+          "assignedTo": "Lamar, Brion",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32122",
+          "taskRemainingWork": 0.5,
+          "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering portal 360 enhancements, along with Modify the Update logic to parse and split Name..., Story 4.2 — Template-level RBAC mapped to WorkO..., and 3 other items.",
+      "sprintGoals": "Delivering phase post enhancements, portal 360 enhancements, api enhancements, and Modify the Update logic to parse and split Name..., Story 4.2 — Template-level RBAC mapped to WorkO..., and 2 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 13.5,
+        "totalSP": 21,
         "points": [
           {
             "date": "2026-07-29",
-            "remaining": 13
+            "remaining": 20.5
           },
           {
             "date": "2026-07-30",
-            "remaining": 12
+            "remaining": 19.5
           },
           {
             "date": "2026-07-31",
-            "remaining": 12
+            "remaining": 19.5
           },
           {
             "date": "2026-08-03",
-            "remaining": 12
+            "remaining": 19.5
           },
           {
             "date": "2026-08-04",
-            "remaining": 12
+            "remaining": 18
           }
         ],
         "ideal": [
           {
             "date": "2026-07-29",
-            "remaining": 13.5
+            "remaining": 21
           },
           {
             "date": "2026-07-30",
-            "remaining": 12
+            "remaining": 18.666666666666668
           },
           {
             "date": "2026-07-31",
-            "remaining": 10.5
+            "remaining": 16.333333333333332
           },
           {
             "date": "2026-08-03",
-            "remaining": 9
+            "remaining": 14
           },
           {
             "date": "2026-08-04",
-            "remaining": 7.5
+            "remaining": 11.666666666666666
           },
           {
             "date": "2026-08-05",
-            "remaining": 6
+            "remaining": 9.333333333333332
           },
           {
             "date": "2026-08-06",
-            "remaining": 4.5
+            "remaining": 7
           },
           {
             "date": "2026-08-07",
-            "remaining": 3
+            "remaining": 4.666666666666664
           },
           {
             "date": "2026-08-10",
-            "remaining": 1.5
+            "remaining": 2.333333333333332
           },
           {
             "date": "2026-08-11",
@@ -20948,12 +21053,12 @@ const projects = [
           "2026-07-30": 1,
           "2026-07-31": 0,
           "2026-08-03": 0,
-          "2026-08-04": 0,
-          "2026-08-05": 0,
-          "2026-08-06": 0,
-          "2026-08-07": 0,
-          "2026-08-10": 0,
-          "2026-08-11": 0
+          "2026-08-04": 6,
+          "2026-08-05": 6,
+          "2026-08-06": 6,
+          "2026-08-07": 6,
+          "2026-08-10": 6,
+          "2026-08-11": 6
         }
       },
       "isCurrent": true
@@ -29239,10 +29344,10 @@ const projects = [
         "name": "Q3 2026 - Sprint 3",
         "startDate": "2026-07-29T00:00:00Z",
         "endDate": "2026-08-11T00:00:00Z",
-        "totalSP": 13.5,
-        "completedSP": 1.5,
-        "remainingSP": 12,
-        "storyCount": 10,
+        "totalSP": 21,
+        "completedSP": 3,
+        "remainingSP": 18,
+        "storyCount": 17,
         "stories": [
           {
             "id": 28461,
@@ -29383,73 +29488,171 @@ const projects = [
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31997",
             "taskRemainingWork": 1,
             "taskCompletedWork": 0
+          },
+          {
+            "id": 32114,
+            "title": "NA API: publish Fine Arts–style functional refactor plan for review",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 0.5,
+            "completedSP": 0.5,
+            "remainingSP": 0,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": "2026-08-04T18:20:47.067Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32114",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32117,
+            "title": "Phase 0: NA API conventions + platform (no Stub/createRequest)",
+            "type": "User Story",
+            "state": "Done",
+            "storyPoints": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": "2026-08-04T18:23:23.967Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32117",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32118,
+            "title": "Phase 1: Refactor POST /accountnumber/request to functional style",
+            "type": "User Story",
+            "state": "New",
+            "storyPoints": 1,
+            "completedSP": 0,
+            "remainingSP": 1,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32118",
+            "taskRemainingWork": 1,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32119,
+            "title": "Phase 2: Relocate name-and-address to Fine Arts file layout",
+            "type": "User Story",
+            "state": "New",
+            "storyPoints": 0.5,
+            "completedSP": 0,
+            "remainingSP": 0.5,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32119",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32120,
+            "title": "Phase 3: Refactor POST /accountnumber/lookup-or-create to functional style",
+            "type": "User Story",
+            "state": "New",
+            "storyPoints": 2,
+            "completedSP": 0,
+            "remainingSP": 2,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32120",
+            "taskRemainingWork": 2,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32121,
+            "title": "Phase 4: Re-ship POST /account/update + Descriptors (abandon #8669)",
+            "type": "User Story",
+            "state": "New",
+            "storyPoints": 2,
+            "completedSP": 0,
+            "remainingSP": 2,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32121",
+            "taskRemainingWork": 2,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32122,
+            "title": "Phase 5: NA API cleanup — delete legacy Stub/Repo/DI",
+            "type": "User Story",
+            "state": "New",
+            "storyPoints": 0.5,
+            "completedSP": 0,
+            "remainingSP": 0.5,
+            "assignedTo": "Lamar, Brion",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/32122",
+            "taskRemainingWork": 0.5,
+            "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering portal 360 enhancements, along with Modify the Update logic to parse and split Name..., Story 4.2 — Template-level RBAC mapped to WorkO..., and 3 other items.",
+        "sprintGoals": "Delivering phase post enhancements, portal 360 enhancements, api enhancements, and Modify the Update logic to parse and split Name..., Story 4.2 — Template-level RBAC mapped to WorkO..., and 2 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 13.5,
+          "totalSP": 21,
           "points": [
             {
               "date": "2026-07-29",
-              "remaining": 13
+              "remaining": 20.5
             },
             {
               "date": "2026-07-30",
-              "remaining": 12
+              "remaining": 19.5
             },
             {
               "date": "2026-07-31",
-              "remaining": 12
+              "remaining": 19.5
             },
             {
               "date": "2026-08-03",
-              "remaining": 12
+              "remaining": 19.5
             },
             {
               "date": "2026-08-04",
-              "remaining": 12
+              "remaining": 18
             }
           ],
           "ideal": [
             {
               "date": "2026-07-29",
-              "remaining": 13.5
+              "remaining": 21
             },
             {
               "date": "2026-07-30",
-              "remaining": 12
+              "remaining": 18.666666666666668
             },
             {
               "date": "2026-07-31",
-              "remaining": 10.5
+              "remaining": 16.333333333333332
             },
             {
               "date": "2026-08-03",
-              "remaining": 9
+              "remaining": 14
             },
             {
               "date": "2026-08-04",
-              "remaining": 7.5
+              "remaining": 11.666666666666666
             },
             {
               "date": "2026-08-05",
-              "remaining": 6
+              "remaining": 9.333333333333332
             },
             {
               "date": "2026-08-06",
-              "remaining": 4.5
+              "remaining": 7
             },
             {
               "date": "2026-08-07",
-              "remaining": 3
+              "remaining": 4.666666666666664
             },
             {
               "date": "2026-08-10",
-              "remaining": 1.5
+              "remaining": 2.333333333333332
             },
             {
               "date": "2026-08-11",
@@ -29499,12 +29702,12 @@ const projects = [
             "2026-07-30": 1,
             "2026-07-31": 0,
             "2026-08-03": 0,
-            "2026-08-04": 0,
-            "2026-08-05": 0,
-            "2026-08-06": 0,
-            "2026-08-07": 0,
-            "2026-08-10": 0,
-            "2026-08-11": 0
+            "2026-08-04": 6,
+            "2026-08-05": 6,
+            "2026-08-06": 6,
+            "2026-08-07": 6,
+            "2026-08-10": 6,
+            "2026-08-11": 6
           }
         },
         "isCurrent": true
@@ -52493,6 +52696,14 @@ const supportRequests = {
       "project": "Missions Support",
       "description": "[EXTERNAL EMAIL] Here is the data request for the September appeal. Please make sure to dedupe as we have previously discussed. Exclude Missionary Only giving donors for both churches and individuals who gave a largest gift of $1,000 or less in the last 24 months. NOTE: Run counts for both individua…",
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32085"
+    },
+    {
+      "id": 32105,
+      "title": "July BGMC Monthly reports",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "Good afternoon, In anticipation of the month end closing this week, I would like to request that as soon as the month end occurs BGMC's monthly process be run so I can confirm the reports are accurate before the process is run to email them out. Thank you! Blessings, Becca Seroogy Projects & Finance…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32105"
     }
   ],
   "Stratton, Aurelia": [
@@ -52595,14 +52806,6 @@ const supportRequests = {
       "project": "Business Software Support",
       "description": "Urgent – part of July close, which is this Thursday. 7.13.26 Batch 216 4002 should be 4003 4003 should be 4002 THANK YOU! Debbie DiFonzo Manager, Contributor Services and Central Mail AG National Office | (417) 427-8550",
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32099"
-    },
-    {
-      "id": 32105,
-      "title": "July BGMC Monthly reports",
-      "state": "Approved",
-      "project": "Business Software Support",
-      "description": "Good afternoon, In anticipation of the month end closing this week, I would like to request that as soon as the month end occurs BGMC's monthly process be run so I can confirm the reports are accurate before the process is run to email them out. Thank you! Blessings, Becca Seroogy Projects & Finance…",
-      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32105"
     },
     {
       "id": 32109,
