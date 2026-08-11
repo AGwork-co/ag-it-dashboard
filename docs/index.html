@@ -337,7 +337,7 @@
   <div class="meta">
     <span>Prepared by Chris Oursbourn, Lead Product Manager</span>
     <span>|</span>
-    <span>Last updated: Tuesday, August 11, 2026 at 9:32 AM</span>
+    <span>Last updated: Tuesday, August 11, 2026 at 12:55 PM</span>
     <span class="live-badge"><span class="live-dot"></span> LIVE — Azure DevOps</span>
     <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
@@ -5128,7 +5128,7 @@ const projects = [
         "title": "AG Giving - v2025.Q3 (Donor Facing)",
         "state": "Active",
         "features": 11,
-        "stories": 75
+        "stories": 78
       },
       {
         "id": 31628,
@@ -5139,11 +5139,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 1126,
-      "estimated": 481,
-      "unestimated": 645,
-      "totalSP": 1752.5,
-      "incompleteSP": 134.75,
+      "total": 1129,
+      "estimated": 486,
+      "unestimated": 643,
+      "totalSP": 1775.5,
+      "incompleteSP": 157.75,
       "sprintSP": {
         "2020-33": 56,
         "AG.Giving": 488.5,
@@ -5192,9 +5192,11 @@ const projects = [
         "Q4 2025 - Sprint 4": 8.25,
         "Q1 2026 - Sprint 5": 0.75,
         "Q3 2026 - Sprint 3": 10.25,
+        "Q3 2026 - Sprint 4": 20,
         "Q2 2026 - Sprint 4": 0.25,
         "Q3 2026 - Sprint 2": 7.25,
-        "Q3 2026 - Sprint 1": 0.75
+        "Q3 2026 - Sprint 1": 0.75,
+        "Q3 2026 - Sprint 5": 3
       }
     },
     "currentSprint": {
@@ -5357,7 +5359,7 @@ const projects = [
           "assignedTo": "Lamar, Brion",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/32213",
-          "taskRemainingWork": 0.5,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         }
       ],
@@ -5476,7 +5478,7 @@ const projects = [
           "2026-08-06": 0,
           "2026-08-07": 0.25,
           "2026-08-10": 0,
-          "2026-08-11": 0.5
+          "2026-08-11": 0
         }
       },
       "isCurrent": true
@@ -7859,7 +7861,7 @@ const projects = [
             "assignedTo": "Lamar, Brion",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/32213",
-            "taskRemainingWork": 0.5,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           }
         ],
@@ -7978,7 +7980,7 @@ const projects = [
             "2026-08-06": 0,
             "2026-08-07": 0.25,
             "2026-08-10": 0,
-            "2026-08-11": 0.5
+            "2026-08-11": 0
           }
         },
         "isCurrent": true
@@ -7987,18 +7989,75 @@ const projects = [
         "name": "Q3 2026 - Sprint 4",
         "startDate": "2026-08-12T00:00:00Z",
         "endDate": "2026-08-25T00:00:00Z",
-        "totalSP": 0,
+        "totalSP": 20,
         "completedSP": 0,
-        "remainingSP": 0,
-        "storyCount": 0,
-        "stories": [],
-        "sprintGoals": "",
+        "remainingSP": 20,
+        "storyCount": 4,
+        "stories": [
+          {
+            "id": 27737,
+            "title": "Secure Acceptance: End-of-Life (due 9/30/26): PFL",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 5,
+            "completedSP": 0,
+            "remainingSP": 5,
+            "assignedTo": "Unassigned",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/27737",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 31433,
+            "title": "CSDE Integration with NA API",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 5,
+            "completedSP": 0,
+            "remainingSP": 5,
+            "assignedTo": "Unassigned",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/31433",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32227,
+            "title": "Secure Acceptance: End-of-Life (due 9/30/26): Royal Ranger Chartering",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 5,
+            "completedSP": 0,
+            "remainingSP": 5,
+            "assignedTo": "Unassigned",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/32227",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32228,
+            "title": "Secure Acceptance: End-of-Life (due 9/30/26): Royal Ranger TracClub",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 5,
+            "completedSP": 0,
+            "remainingSP": 5,
+            "assignedTo": "Unassigned",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/32228",
+            "taskRemainingWork": 5,
+            "taskCompletedWork": 0
+          }
+        ],
+        "sprintGoals": "Delivering 93026 secure enhancements, along with csde integration with na api.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 0,
+          "totalSP": 20,
           "points": [],
           "ideal": [
             {
@@ -8007,39 +8066,39 @@ const projects = [
             },
             {
               "date": "2026-08-13",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-14",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-17",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-18",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-19",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-20",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-21",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-24",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-25",
-              "remaining": null
+              "remaining": 0
             }
           ]
         },
@@ -8050,18 +8109,33 @@ const projects = [
         "name": "Q3 2026 - Sprint 5",
         "startDate": "2026-08-26T00:00:00Z",
         "endDate": "2026-09-08T00:00:00Z",
-        "totalSP": 0,
+        "totalSP": 3,
         "completedSP": 0,
-        "remainingSP": 0,
-        "storyCount": 0,
-        "stories": [],
-        "sprintGoals": "",
+        "remainingSP": 3,
+        "storyCount": 1,
+        "stories": [
+          {
+            "id": 32220,
+            "title": "CSDE Integration with NA API - Gloo AI Enabled",
+            "type": "User Story",
+            "state": "Approved",
+            "storyPoints": 3,
+            "completedSP": 0,
+            "remainingSP": 3,
+            "assignedTo": "Unassigned",
+            "completedDate": null,
+            "url": "https://dev.azure.com/AssembliesOfGod/AG.Giving/_workitems/edit/32220",
+            "taskRemainingWork": 3,
+            "taskCompletedWork": 0
+          }
+        ],
+        "sprintGoals": "Delivering csde integration with na api - gloo ai enabled.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 0,
+          "totalSP": 3,
           "points": [],
           "ideal": [
             {
@@ -8070,39 +8144,39 @@ const projects = [
             },
             {
               "date": "2026-08-27",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-28",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-08-31",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-09-01",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-09-02",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-09-03",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-09-04",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-09-07",
-              "remaining": null
+              "remaining": 0
             },
             {
               "date": "2026-09-08",
-              "remaining": null
+              "remaining": 0
             }
           ]
         },
@@ -12612,11 +12686,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 1102,
+      "total": 1103,
       "estimated": 335,
-      "unestimated": 767,
+      "unestimated": 768,
       "totalSP": 685.75,
-      "incompleteSP": 66,
+      "incompleteSP": 65,
       "sprintSP": {
         "Sprint 5": 11,
         "Sprint 6": 15,
@@ -12710,9 +12784,9 @@ const projects = [
       "startDate": "2026-07-29T00:00:00Z",
       "endDate": "2026-08-11T00:00:00Z",
       "totalSP": 4,
-      "completedSP": 1,
-      "remainingSP": 3,
-      "storyCount": 13,
+      "completedSP": 2,
+      "remainingSP": 2,
+      "storyCount": 14,
       "stories": [
         {
           "id": 31495,
@@ -12760,12 +12834,12 @@ const projects = [
           "id": 31499,
           "title": "Web purchase handling",
           "type": "User Story",
-          "state": "Approved",
+          "state": "Done",
           "storyPoints": 1,
-          "completedSP": 0,
-          "remainingSP": 1,
+          "completedSP": 1,
+          "remainingSP": 0,
           "assignedTo": "Greg Pawlik",
-          "completedDate": null,
+          "completedDate": "2026-08-11T14:35:55.9Z",
           "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31499",
           "taskRemainingWork": 3,
           "taskCompletedWork": 0
@@ -12886,13 +12960,27 @@ const projects = [
           "id": 32208,
           "title": "Fix react-native-skia build error",
           "type": "Bug",
+          "state": "Done",
+          "storyPoints": 0,
+          "completedSP": 0,
+          "remainingSP": 0,
+          "assignedTo": "Greg Pawlik",
+          "completedDate": "2026-08-11T14:36:02.81Z",
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/32208",
+          "taskRemainingWork": 0,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 32216,
+          "title": "Fix the keyboard layout on Android",
+          "type": "Bug",
           "state": "To Do",
           "storyPoints": 0,
           "completedSP": 0,
           "remainingSP": 0,
           "assignedTo": "Greg Pawlik",
           "completedDate": null,
-          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/32208",
+          "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/32216",
           "taskRemainingWork": 0,
           "taskCompletedWork": 0
         }
@@ -12943,7 +13031,7 @@ const projects = [
           },
           {
             "date": "2026-08-11",
-            "remaining": 3
+            "remaining": 2
           }
         ],
         "ideal": [
@@ -15798,9 +15886,9 @@ const projects = [
         "startDate": "2026-07-29T00:00:00Z",
         "endDate": "2026-08-11T00:00:00Z",
         "totalSP": 4,
-        "completedSP": 1,
-        "remainingSP": 3,
-        "storyCount": 13,
+        "completedSP": 2,
+        "remainingSP": 2,
+        "storyCount": 14,
         "stories": [
           {
             "id": 31495,
@@ -15848,12 +15936,12 @@ const projects = [
             "id": 31499,
             "title": "Web purchase handling",
             "type": "User Story",
-            "state": "Approved",
+            "state": "Done",
             "storyPoints": 1,
-            "completedSP": 0,
-            "remainingSP": 1,
+            "completedSP": 1,
+            "remainingSP": 0,
             "assignedTo": "Greg Pawlik",
-            "completedDate": null,
+            "completedDate": "2026-08-11T14:35:55.9Z",
             "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/31499",
             "taskRemainingWork": 3,
             "taskCompletedWork": 0
@@ -15974,13 +16062,27 @@ const projects = [
             "id": 32208,
             "title": "Fix react-native-skia build error",
             "type": "Bug",
+            "state": "Done",
+            "storyPoints": 0,
+            "completedSP": 0,
+            "remainingSP": 0,
+            "assignedTo": "Greg Pawlik",
+            "completedDate": "2026-08-11T14:36:02.81Z",
+            "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/32208",
+            "taskRemainingWork": 0,
+            "taskCompletedWork": 0
+          },
+          {
+            "id": 32216,
+            "title": "Fix the keyboard layout on Android",
+            "type": "Bug",
             "state": "To Do",
             "storyPoints": 0,
             "completedSP": 0,
             "remainingSP": 0,
             "assignedTo": "Greg Pawlik",
             "completedDate": null,
-            "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/32208",
+            "url": "https://dev.azure.com/AssembliesOfGod/Bible%20Engagement%20Project/_workitems/edit/32216",
             "taskRemainingWork": 0,
             "taskCompletedWork": 0
           }
@@ -16031,7 +16133,7 @@ const projects = [
             },
             {
               "date": "2026-08-11",
-              "remaining": 3
+              "remaining": 2
             }
           ],
           "ideal": [
@@ -21431,7 +21533,7 @@ const projects = [
           "assignedTo": "Roach, Joseph",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31566",
-          "taskRemainingWork": 0.5,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -21754,7 +21856,7 @@ const projects = [
           "2026-08-06": 8.5,
           "2026-08-07": 8.5,
           "2026-08-10": 1,
-          "2026-08-11": 1
+          "2026-08-11": 0.5
         }
       },
       "isCurrent": true
@@ -30140,7 +30242,7 @@ const projects = [
             "assignedTo": "Roach, Joseph",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/CRM/_workitems/edit/31566",
-            "taskRemainingWork": 0.5,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           },
           {
@@ -30463,7 +30565,7 @@ const projects = [
             "2026-08-06": 8.5,
             "2026-08-07": 8.5,
             "2026-08-10": 1,
-            "2026-08-11": 1
+            "2026-08-11": 0.5
           }
         },
         "isCurrent": true
@@ -40855,8 +40957,8 @@ const projects = [
         "id": 27287,
         "title": "GPH: MVP (Go Live)",
         "state": "Active",
-        "features": 8,
-        "stories": 163
+        "features": 9,
+        "stories": 171
       },
       {
         "id": 27290,
@@ -40874,11 +40976,11 @@ const projects = [
       }
     ],
     "estimation": {
-      "total": 322,
+      "total": 330,
       "estimated": 236,
-      "unestimated": 86,
-      "totalSP": 336.85,
-      "incompleteSP": 122,
+      "unestimated": 94,
+      "totalSP": 336.35,
+      "incompleteSP": 121.25,
       "sprintSP": {
         "Q2 2025 - Sprint 5": 4,
         "Q2 2025 - Sprint 3": 5,
@@ -40899,7 +41001,7 @@ const projects = [
         "Q2 2026 - Sprint 5": 12,
         "Q2 2026 - Sprint 4": 15,
         "Q2 2026 - Sprint 3": 14,
-        "Q3 2026 - Sprint 3": 44.25,
+        "Q3 2026 - Sprint 3": 43.75,
         "Q3 2026 - Sprint 1": 10,
         "Q3 2026 - Sprint 2": 17.75,
         "Q3 2026 - Sprint 4": 3.25
@@ -40909,9 +41011,9 @@ const projects = [
       "name": "Q3 2026 - Sprint 3",
       "startDate": "2026-07-29T00:00:00Z",
       "endDate": "2026-08-11T00:00:00Z",
-      "totalSP": 44.25,
-      "completedSP": 24.75,
-      "remainingSP": 19.5,
+      "totalSP": 43.75,
+      "completedSP": 25,
+      "remainingSP": 18.75,
       "storyCount": 36,
       "stories": [
         {
@@ -41310,14 +41412,14 @@ const projects = [
           "id": 32102,
           "title": "Order History: PO Number display",
           "type": "User Story",
-          "state": "Ready for Review",
+          "state": "Done",
           "storyPoints": 0.25,
-          "completedSP": 0,
-          "remainingSP": 0.25,
+          "completedSP": 0.25,
+          "remainingSP": 0,
           "assignedTo": "Butler, Justin",
-          "completedDate": null,
+          "completedDate": "2026-08-11T14:33:55.66Z",
           "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/32102",
-          "taskRemainingWork": 0.25,
+          "taskRemainingWork": 0,
           "taskCompletedWork": 0
         },
         {
@@ -41378,16 +41480,16 @@ const projects = [
         },
         {
           "id": 32189,
-          "title": "PO Number: Cleanup magic string",
+          "title": "Cleanup magic strings",
           "type": "User Story",
           "state": "Approved",
-          "storyPoints": 1,
+          "storyPoints": 0.5,
           "completedSP": 0,
-          "remainingSP": 1,
+          "remainingSP": 0.5,
           "assignedTo": "Butler, Justin",
           "completedDate": null,
           "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/32189",
-          "taskRemainingWork": 1,
+          "taskRemainingWork": 0.5,
           "taskCompletedWork": 0
         },
         {
@@ -41419,91 +41521,91 @@ const projects = [
           "taskCompletedWork": 0
         }
       ],
-      "sprintGoals": "Delivering fix search enhancements, order enhancements, number checkout enhancements, product variant enhancements, account org enhancements, checkout enhancements, org personal enhancements, gph field enhancements, and Downloads: Secure Download Links via Azure Blob..., search: match partial and hyphenated terms, and 8 other items.",
+      "sprintGoals": "Delivering fix search enhancements, order enhancements, product variant enhancements, account org enhancements, checkout validation enhancements, org personal enhancements, gph field enhancements, and Downloads: Secure Download Links via Azure Blob..., search: match partial and hyphenated terms, and 9 other items.",
       "capacity": {
         "hoursPerDay": 0,
         "members": []
       },
       "burndown": {
-        "totalSP": 44.25,
+        "totalSP": 43.75,
         "points": [
           {
             "date": "2026-07-29",
-            "remaining": 44.25
+            "remaining": 43.75
           },
           {
             "date": "2026-07-30",
-            "remaining": 44.25
+            "remaining": 43.75
           },
           {
             "date": "2026-07-31",
-            "remaining": 44.25
+            "remaining": 43.75
           },
           {
             "date": "2026-08-03",
-            "remaining": 40
+            "remaining": 39.5
           },
           {
             "date": "2026-08-04",
-            "remaining": 40
+            "remaining": 39.5
           },
           {
             "date": "2026-08-05",
-            "remaining": 27.5
+            "remaining": 27
           },
           {
             "date": "2026-08-06",
-            "remaining": 27.5
+            "remaining": 27
           },
           {
             "date": "2026-08-07",
-            "remaining": 27.5
+            "remaining": 27
           },
           {
             "date": "2026-08-10",
-            "remaining": 21.5
+            "remaining": 21
           },
           {
             "date": "2026-08-11",
-            "remaining": 19.5
+            "remaining": 18.75
           }
         ],
         "ideal": [
           {
             "date": "2026-07-29",
-            "remaining": 44.25
+            "remaining": 43.75
           },
           {
             "date": "2026-07-30",
-            "remaining": 39.333333333333336
+            "remaining": 38.888888888888886
           },
           {
             "date": "2026-07-31",
-            "remaining": 34.416666666666664
+            "remaining": 34.02777777777778
           },
           {
             "date": "2026-08-03",
-            "remaining": 29.5
+            "remaining": 29.166666666666668
           },
           {
             "date": "2026-08-04",
-            "remaining": 24.583333333333332
+            "remaining": 24.305555555555557
           },
           {
             "date": "2026-08-05",
-            "remaining": 19.666666666666664
+            "remaining": 19.444444444444446
           },
           {
             "date": "2026-08-06",
-            "remaining": 14.75
+            "remaining": 14.583333333333336
           },
           {
             "date": "2026-08-07",
-            "remaining": 9.833333333333329
+            "remaining": 9.722222222222229
           },
           {
             "date": "2026-08-10",
-            "remaining": 4.916666666666664
+            "remaining": 4.861111111111114
           },
           {
             "date": "2026-08-11",
@@ -41570,7 +41672,7 @@ const projects = [
           "2026-08-06": 7,
           "2026-08-07": 5.5,
           "2026-08-10": 6.25,
-          "2026-08-11": 6.25
+          "2026-08-11": 5.5
         },
         "Lamar, Brion": {
           "2026-07-29": 1,
@@ -44854,9 +44956,9 @@ const projects = [
         "name": "Q3 2026 - Sprint 3",
         "startDate": "2026-07-29T00:00:00Z",
         "endDate": "2026-08-11T00:00:00Z",
-        "totalSP": 44.25,
-        "completedSP": 24.75,
-        "remainingSP": 19.5,
+        "totalSP": 43.75,
+        "completedSP": 25,
+        "remainingSP": 18.75,
         "storyCount": 36,
         "stories": [
           {
@@ -45255,14 +45357,14 @@ const projects = [
             "id": 32102,
             "title": "Order History: PO Number display",
             "type": "User Story",
-            "state": "Ready for Review",
+            "state": "Done",
             "storyPoints": 0.25,
-            "completedSP": 0,
-            "remainingSP": 0.25,
+            "completedSP": 0.25,
+            "remainingSP": 0,
             "assignedTo": "Butler, Justin",
-            "completedDate": null,
+            "completedDate": "2026-08-11T14:33:55.66Z",
             "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/32102",
-            "taskRemainingWork": 0.25,
+            "taskRemainingWork": 0,
             "taskCompletedWork": 0
           },
           {
@@ -45323,16 +45425,16 @@ const projects = [
           },
           {
             "id": 32189,
-            "title": "PO Number: Cleanup magic string",
+            "title": "Cleanup magic strings",
             "type": "User Story",
             "state": "Approved",
-            "storyPoints": 1,
+            "storyPoints": 0.5,
             "completedSP": 0,
-            "remainingSP": 1,
+            "remainingSP": 0.5,
             "assignedTo": "Butler, Justin",
             "completedDate": null,
             "url": "https://dev.azure.com/AssembliesOfGod/GPH/_workitems/edit/32189",
-            "taskRemainingWork": 1,
+            "taskRemainingWork": 0.5,
             "taskCompletedWork": 0
           },
           {
@@ -45364,91 +45466,91 @@ const projects = [
             "taskCompletedWork": 0
           }
         ],
-        "sprintGoals": "Delivering fix search enhancements, order enhancements, number checkout enhancements, product variant enhancements, account org enhancements, checkout enhancements, org personal enhancements, gph field enhancements, and Downloads: Secure Download Links via Azure Blob..., search: match partial and hyphenated terms, and 8 other items.",
+        "sprintGoals": "Delivering fix search enhancements, order enhancements, product variant enhancements, account org enhancements, checkout validation enhancements, org personal enhancements, gph field enhancements, and Downloads: Secure Download Links via Azure Blob..., search: match partial and hyphenated terms, and 9 other items.",
         "capacity": {
           "hoursPerDay": 0,
           "members": []
         },
         "burndown": {
-          "totalSP": 44.25,
+          "totalSP": 43.75,
           "points": [
             {
               "date": "2026-07-29",
-              "remaining": 44.25
+              "remaining": 43.75
             },
             {
               "date": "2026-07-30",
-              "remaining": 44.25
+              "remaining": 43.75
             },
             {
               "date": "2026-07-31",
-              "remaining": 44.25
+              "remaining": 43.75
             },
             {
               "date": "2026-08-03",
-              "remaining": 40
+              "remaining": 39.5
             },
             {
               "date": "2026-08-04",
-              "remaining": 40
+              "remaining": 39.5
             },
             {
               "date": "2026-08-05",
-              "remaining": 27.5
+              "remaining": 27
             },
             {
               "date": "2026-08-06",
-              "remaining": 27.5
+              "remaining": 27
             },
             {
               "date": "2026-08-07",
-              "remaining": 27.5
+              "remaining": 27
             },
             {
               "date": "2026-08-10",
-              "remaining": 21.5
+              "remaining": 21
             },
             {
               "date": "2026-08-11",
-              "remaining": 19.5
+              "remaining": 18.75
             }
           ],
           "ideal": [
             {
               "date": "2026-07-29",
-              "remaining": 44.25
+              "remaining": 43.75
             },
             {
               "date": "2026-07-30",
-              "remaining": 39.333333333333336
+              "remaining": 38.888888888888886
             },
             {
               "date": "2026-07-31",
-              "remaining": 34.416666666666664
+              "remaining": 34.02777777777778
             },
             {
               "date": "2026-08-03",
-              "remaining": 29.5
+              "remaining": 29.166666666666668
             },
             {
               "date": "2026-08-04",
-              "remaining": 24.583333333333332
+              "remaining": 24.305555555555557
             },
             {
               "date": "2026-08-05",
-              "remaining": 19.666666666666664
+              "remaining": 19.444444444444446
             },
             {
               "date": "2026-08-06",
-              "remaining": 14.75
+              "remaining": 14.583333333333336
             },
             {
               "date": "2026-08-07",
-              "remaining": 9.833333333333329
+              "remaining": 9.722222222222229
             },
             {
               "date": "2026-08-10",
-              "remaining": 4.916666666666664
+              "remaining": 4.861111111111114
             },
             {
               "date": "2026-08-11",
@@ -45515,7 +45617,7 @@ const projects = [
             "2026-08-06": 7,
             "2026-08-07": 5.5,
             "2026-08-10": 6.25,
-            "2026-08-11": 6.25
+            "2026-08-11": 5.5
           },
           "Lamar, Brion": {
             "2026-07-29": 1,
@@ -53968,20 +54070,28 @@ const supportRequests = {
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/31600"
     },
     {
-      "id": 32139,
-      "title": "Uploading Corrected 1099s to Financial Reporting",
-      "state": "Waiting",
-      "project": "Missions Support",
-      "description": "I have place these in the folder for uploading to financial reporting. Please let me know when this is finished. Thank you, Lisa Ward Divisional Accounting, Tax Accountant Assemblies of God World Missions AG National Office | (417) 862-2781 Ext. 2400 Effective December 29, 2025, the National Office …",
-      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32139"
-    },
-    {
       "id": 32150,
       "title": "FW: Unit Update Review for SIAU 2026-08-05 - Julian, David & Amy (296869) - Asia Pacific, 3318 (48) #300",
       "state": "Waiting",
       "project": "Missions Support",
       "description": "This is a hot item. This email is going to Donna Duncan and not Lisa Huechteman and Lisa needs the permission to accept these items. Ann Bull AGWM Financial Services Manager (417) 862-2781 x. 3173 From: Huechteman, Lisa <lhuechteman@ag.org> Sent: Wednesday, August 5, 2026 8:47 AM To: Bull, Ann <ABul…",
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32150"
+    },
+    {
+      "id": 32179,
+      "title": "Still an issue ",
+      "state": "Waiting",
+      "project": "Missions Support",
+      "description": "Sam Bowdoin and Brent Teague are now employees and not on missionary allowance. Their Status’ have been changed to FC and FD as they should be. Both are continuing to have the “Service Increment ADP Over 20 Years” show up as a disbursement and we have to delete this every month. I need someone to fi…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32179"
+    },
+    {
+      "id": 32194,
+      "title": "FundView Access for Kim Partin",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "I should have access to FundView as I do things for this office where I need that. However, it’s not allowing me to look up things. Can you check to see if I have permission for this and if not, how I go about getting approval? Kim Partin Executive Administrative Assistant to the Executive Director …",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32194"
     }
   ],
   "Oursbourn, Chris": [
@@ -54110,12 +54220,28 @@ const supportRequests = {
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/31986"
     },
     {
+      "id": 32148,
+      "title": "July Harvest Documentation",
+      "state": "Waiting",
+      "project": "Missions Support",
+      "description": "EOM AGWM July Harvest - Phil did this. I need a ticket to attach documentation too.",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32148"
+    },
+    {
       "id": 32156,
       "title": "Financial Reporting Site",
       "state": "Waiting",
       "project": "Missions Support",
       "description": "Good morning. I’m having difficulty signing in to the Financial Reporting Site. I’ve tried my ag.org address, my gcag.net address, it won’t work. Evy McCroskey Missionary Services Manager, AGWM AG National Office – (417) 862-2781 x. 3145 Fax: (417) 862-5977 1445 N. Boonville Avenue, Springfield, MO …",
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32156"
+    },
+    {
+      "id": 32178,
+      "title": "FMACTCUR Account Combine Completed - ISSQL Report",
+      "state": "Committed",
+      "project": "Missions Support",
+      "description": "Good morning, Please remove Colleen Price as a recipient to receive the FMACTCUR Account Combine Completed – ISSQL report via email. Thank you. Blessings, Debbie Bain Administrative Minutes Coordinator Assemblies of God World Missions , Missionary Services AG National Office | (417) 862-2781 Ext. 31…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32178"
     }
   ],
   "Hassbaum, Ralph": [
@@ -54128,6 +54254,14 @@ const supportRequests = {
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/31974"
     },
     {
+      "id": 32085,
+      "title": "DATA REQUEST for AGWM Sept Appeal = due 8/10",
+      "state": "Committed",
+      "project": "Missions Support",
+      "description": "[EXTERNAL EMAIL] Here is the data request for the September appeal. Please make sure to dedupe as we have previously discussed. Exclude Missionary Only giving donors for both churches and individuals who gave a largest gift of $1,000 or less in the last 24 months. NOTE: Run counts for both individua…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32085"
+    },
+    {
       "id": 32131,
       "title": "report ",
       "state": "Approved",
@@ -54138,7 +54272,7 @@ const supportRequests = {
     {
       "id": 32160,
       "title": "Worldview Publication Mailing List for Colorgraphic",
-      "state": "New",
+      "state": "Approved",
       "project": "Missions Support",
       "description": "Good Afternoon, We are submitting our artwork to colorgraphic today for our next issue of Worldview and I know Richard normally requests the mailing list to send as well but he has been out, is there a way to get that by 5pm today? Thanks for your help, Mason K. Musick Communications Manager Assembl…",
       "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32160"
@@ -54154,6 +54288,14 @@ const supportRequests = {
   ],
   "Stratton, Aurelia": [
     {
+      "id": 32152,
+      "title": "Info Survey Error",
+      "state": "Approved",
+      "project": "Missions Support",
+      "description": "Good morning! I was just made aware of the issue described below. This is for the TCK Info Survey. I've attached the screenshot Amber sent. Thanks, David Dorsett Data Specialist, TCKI Office (417) 862-2781 ext. 2390 From: yantar@swissmail.org <yantar@swissmail.org> Sent: Wednesday, August 5, 2026 2:…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Missions%20Support/_workitems/edit/32152"
+    },
+    {
       "id": 21750,
       "title": "Create alternate FundView query for special requests",
       "state": "Waiting",
@@ -54162,12 +54304,28 @@ const supportRequests = {
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/21750"
     },
     {
+      "id": 32129,
+      "title": "Request from PennDel for Archived ACMRs",
+      "state": "New",
+      "project": "Business Software Support",
+      "description": "Would you please let me know if it is possible to send Rhonda in PenDel the archived version of all ACMRs from her district that have been completed on the ACMR website from January 1 through August 4, 2026? This should include annual reports, as well as those that churches submit weekly, monthly, a…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32129"
+    },
+    {
       "id": 32155,
       "title": "District Global Email address for Puerto Rico (#55)",
       "state": "Approved",
       "project": "Business Software Support",
       "description": "Please update the global email address for DIST Puerto Rico from info@cadpr.org to info@adpr.org . The change takes out the c right after the @ sign. Thanks so much! Karin Pekarek Certified Credentials Specialist Secretariat | General Secretary’s Office AG National Office | (417) 862-2781 x. 3234 14…",
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32155"
+    },
+    {
+      "id": 32212,
+      "title": "FYI wrong God’s Word for Today",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "[EXTERNAL EMAIL] Hi GWFT is on something in Genesis, but it should be on Jeremiah 1-3 Just FYI. God’s best to you Bonnie Sent from my iPhone",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32212"
     }
   ],
   "Butler, Justin": [
@@ -54226,6 +54384,14 @@ const supportRequests = {
       "project": "Business Software Support",
       "description": "Urgent – part of July close, which is this Thursday. 7.13.26 Batch 216 4002 should be 4003 4003 should be 4002 THANK YOU! Debbie DiFonzo Manager, Contributor Services and Central Mail AG National Office | (417) 427-8550",
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32099"
+    },
+    {
+      "id": 32153,
+      "title": "Odoo Adjustments",
+      "state": "Approved",
+      "project": "Business Software Support",
+      "description": "Good morning, Summary AR is experiencing a longstanding Odoo issue where small residual balances are not being fully cleared. A customer account shows a $0.60 balance that is 1,374 days past due on statements. A -$0.60 adjustment was entered to clear the balance, but Odoo still shows it as open. Odo…",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32153"
     }
   ],
   "drodrigues gloo.us": [
@@ -54238,14 +54404,14 @@ const supportRequests = {
       "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/30637"
     }
   ],
-  "Stratton, Jason": [
+  "Medina, Joel": [
     {
-      "id": 32182,
-      "title": "URGENT: BGMC Reports not working",
-      "state": "New",
+      "id": 32142,
+      "title": "Q2 2026 Royalites",
+      "state": "Approved",
       "project": "Business Software Support",
-      "description": "Hi, I am trying to access BGMC's reports and am getting this error for all of the monthly reports: Blessings, Becca Seroogy Projects & Finance Coordinator | BGMC AG National Office | (417) 862-2781 x4021 Hours: M-TH, 7:30 a.m.-5:00 p.m. (CT)",
-      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32182"
+      "description": "I’m ready to load the royalty files for Q2 (April-June) whenever you are able to provide them. Japheth",
+      "url": "https://dev.azure.com/AssembliesOfGod/Business%20Software%20Support/_workitems/edit/32142"
     }
   ]
 };
