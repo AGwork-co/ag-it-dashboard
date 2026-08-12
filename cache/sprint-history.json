@@ -42253,6 +42253,178 @@
       },
       "personTaskBurndown": {},
       "isCurrent": false
+    },
+    "AGWM Financial Reporting::b481977d-6b9a-4709-bae3-13b73e8fca50": {
+      "name": "Q3 2026 - Sprint 1",
+      "startDate": "2026-07-01T00:00:00Z",
+      "endDate": "2026-07-14T00:00:00Z",
+      "totalSP": 13,
+      "completedSP": 0,
+      "remainingSP": 13,
+      "storyCount": 3,
+      "stories": [
+        {
+          "id": 30045,
+          "title": "Knowledge Transfer",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 4,
+          "completedSP": 0,
+          "remainingSP": 4,
+          "assignedTo": "Campbell, Jack H",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/30045",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30166,
+          "title": "Redesign AGWM MAPS Tax Deduct Processes",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 5,
+          "completedSP": 0,
+          "remainingSP": 5,
+          "assignedTo": "Farrand, Phil",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/30166",
+          "taskRemainingWork": 5,
+          "taskCompletedWork": 0
+        },
+        {
+          "id": 30816,
+          "title": "Backlog Grooming",
+          "type": "User Story",
+          "state": "Committed",
+          "storyPoints": 4,
+          "completedSP": 0,
+          "remainingSP": 4,
+          "assignedTo": "Campbell, Jack H",
+          "completedDate": null,
+          "url": "https://dev.azure.com/AssembliesOfGod/AGWM%20Financial%20Reporting/_workitems/edit/30816",
+          "taskRemainingWork": 4,
+          "taskCompletedWork": 0
+        }
+      ],
+      "sprintGoals": "Delivering knowledge transfer, redesign agwm maps tax deduct processes, and 1 other items.",
+      "capacity": {
+        "hoursPerDay": 0,
+        "members": []
+      },
+      "burndown": {
+        "totalSP": 13,
+        "points": [
+          {
+            "date": "2026-07-01",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-02",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-03",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-06",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-07",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-08",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-09",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-10",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-13",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-14",
+            "remaining": 13
+          }
+        ],
+        "ideal": [
+          {
+            "date": "2026-07-01",
+            "remaining": 13
+          },
+          {
+            "date": "2026-07-02",
+            "remaining": 11.555555555555555
+          },
+          {
+            "date": "2026-07-03",
+            "remaining": 10.11111111111111
+          },
+          {
+            "date": "2026-07-06",
+            "remaining": 8.666666666666668
+          },
+          {
+            "date": "2026-07-07",
+            "remaining": 7.222222222222222
+          },
+          {
+            "date": "2026-07-08",
+            "remaining": 5.777777777777778
+          },
+          {
+            "date": "2026-07-09",
+            "remaining": 4.333333333333334
+          },
+          {
+            "date": "2026-07-10",
+            "remaining": 2.8888888888888893
+          },
+          {
+            "date": "2026-07-13",
+            "remaining": 1.4444444444444446
+          },
+          {
+            "date": "2026-07-14",
+            "remaining": 0
+          }
+        ]
+      },
+      "personTaskBurndown": {
+        "Campbell, Jack H": {
+          "2026-07-01": 8,
+          "2026-07-02": 8,
+          "2026-07-03": 8,
+          "2026-07-06": 8,
+          "2026-07-07": 8,
+          "2026-07-08": 8,
+          "2026-07-09": 8,
+          "2026-07-10": 8,
+          "2026-07-13": 8,
+          "2026-07-14": 8
+        },
+        "Farrand, Phil": {
+          "2026-07-01": 5,
+          "2026-07-02": 5,
+          "2026-07-03": 5,
+          "2026-07-06": 5,
+          "2026-07-07": 5,
+          "2026-07-08": 5,
+          "2026-07-09": 5,
+          "2026-07-10": 5,
+          "2026-07-13": 5,
+          "2026-07-14": 5
+        }
+      },
+      "isCurrent": false
     }
   }
 }
