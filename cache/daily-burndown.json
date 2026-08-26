@@ -3609,7 +3609,8 @@
       }
     },
     "AG.Giving::5f00f8bc-1933-4430-b034-2d68839aafe5": {
-      "Georgiades, George": {}
+      "Georgiades, George": {},
+      "Butler, Justin": {}
     },
     "AG.Giving::0c494bf1-6370-4689-ac7f-e71f5037f0e2": {},
     "CMS vNext::16444666-9e15-488d-8764-9c0fea5bf9bd": {
@@ -4342,9 +4343,15 @@
       }
     },
     "CRM::1bd348ea-670f-4a42-b4a3-3dc5d7b524d4": {
+      "Roach, Joseph": {},
+      "Lamar, Brion": {},
+      "Georgiades, George": {},
+      "Hassbaum, Ralph": {}
+    },
+    "CRM::12627536-0762-49ae-884c-2a8c06423f54": {
+      "Lamar, Brion": {},
       "Roach, Joseph": {}
     },
-    "CRM::12627536-0762-49ae-884c-2a8c06423f54": {},
     "AGWM Financial Reporting::e2cb7c03-8732-4188-a378-a1db605b408b": {
       "Georgiades, George": {
         "2026-08-12": 2,
