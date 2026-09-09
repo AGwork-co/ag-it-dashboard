@@ -4152,14 +4152,18 @@
       "Medina, Joel": {},
       "drodrigues gloo.us": {},
       "Hiebsch, Adin": {},
-      "Oursbourn, Chris": {}
+      "Oursbourn, Chris": {},
+      "Furr, Darren M": {}
     },
     "Infrastructure::7b64f704-6647-430d-930e-94ee65dfd674": {},
     "Infrastructure::578363af-da70-457c-bd5b-4ce992e1f804": {},
     "Infrastructure::80f38c7f-d24b-449f-969a-84f43b766178": {},
     "Infrastructure::048e44e7-6075-4109-b233-ba06ee814d3e": {},
     "Infrastructure::70e51510-cd7b-4e0c-be10-f393298577c4": {},
-    "Infrastructure::72500365-c6a8-4a9d-b526-aabb42d3ffe5": {},
+    "Infrastructure::72500365-c6a8-4a9d-b526-aabb42d3ffe5": {
+      "Georgiades, George": {},
+      "Butler, Justin": {}
+    },
     "Bible Engagement Project::fb255e10-6950-44cf-a011-2508ee1ffd69": {
       "Greg Pawlik": {
         "2026-07-01": 0,
@@ -4635,7 +4639,9 @@
       "Roach, Joseph": {},
       "Lamar, Brion": {}
     },
-    "GenSec::195657a0-9145-40ca-97e9-2b21c987ccc6": {},
+    "GenSec::195657a0-9145-40ca-97e9-2b21c987ccc6": {
+      "Butler, Justin": {}
+    },
     "AG.Giving::e3a7a19b-deaa-461b-b6c7-4ba0c2498237": {
       "Georgiades, George": {}
     },
