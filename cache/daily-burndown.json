@@ -3513,7 +3513,10 @@
     },
     "AG Accounts::f17cd8a4-2fb7-438d-8048-b7da95ecd506": {},
     "AG Accounts::5fd0ea10-93d2-418b-96e6-11dd5bafdae9": {},
-    "AG Accounts::3131e62c-f105-4c1d-a1c4-b79da691c89e": {},
+    "AG Accounts::3131e62c-f105-4c1d-a1c4-b79da691c89e": {
+      "Lamar, Brion": {},
+      "Medina, Joel": {}
+    },
     "AG Shared::004a4e0e-2e25-4b52-aa3f-a6cdaf4178d3": {},
     "AG Shared::e08e19e5-f032-4a6a-bb8d-6bdb69b45d0e": {},
     "AG Shared::df5787f5-8df6-4c08-8f34-299c030756dd": {},
@@ -3649,7 +3652,8 @@
     "AG.Giving::0c494bf1-6370-4689-ac7f-e71f5037f0e2": {
       "Butler, Justin": {},
       "Georgiades, George": {},
-      "Lamar, Brion": {}
+      "Lamar, Brion": {},
+      "Stratton, Aurelia": {}
     },
     "CMS vNext::16444666-9e15-488d-8764-9c0fea5bf9bd": {
       "Hull, Darrin": {
@@ -4144,7 +4148,11 @@
     },
     "GPH::73bc5b93-0fba-478d-8c27-27637d76f249": {
       "Butler, Justin": {},
-      "Keltner, Scott": {}
+      "Keltner, Scott": {},
+      "Medina, Joel": {},
+      "drodrigues gloo.us": {},
+      "Hiebsch, Adin": {},
+      "Oursbourn, Chris": {}
     },
     "Infrastructure::7b64f704-6647-430d-930e-94ee65dfd674": {},
     "Infrastructure::578363af-da70-457c-bd5b-4ce992e1f804": {},
@@ -4627,6 +4635,10 @@
       "Roach, Joseph": {},
       "Lamar, Brion": {}
     },
-    "GenSec::195657a0-9145-40ca-97e9-2b21c987ccc6": {}
+    "GenSec::195657a0-9145-40ca-97e9-2b21c987ccc6": {},
+    "AG.Giving::e3a7a19b-deaa-461b-b6c7-4ba0c2498237": {
+      "Georgiades, George": {}
+    },
+    "GPH::cfe13f65-cc84-4711-8739-53cda394dee0": {}
   }
 }
