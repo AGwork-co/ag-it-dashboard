@@ -3514,8 +3514,12 @@
     "AG Accounts::f17cd8a4-2fb7-438d-8048-b7da95ecd506": {},
     "AG Accounts::5fd0ea10-93d2-418b-96e6-11dd5bafdae9": {},
     "AG Accounts::3131e62c-f105-4c1d-a1c4-b79da691c89e": {
-      "Lamar, Brion": {},
-      "Medina, Joel": {}
+      "Lamar, Brion": {
+        "2026-09-09": 32
+      },
+      "Medina, Joel": {
+        "2026-09-09": 6
+      }
     },
     "AG Shared::004a4e0e-2e25-4b52-aa3f-a6cdaf4178d3": {},
     "AG Shared::e08e19e5-f032-4a6a-bb8d-6bdb69b45d0e": {},
@@ -3650,10 +3654,18 @@
       }
     },
     "AG.Giving::0c494bf1-6370-4689-ac7f-e71f5037f0e2": {
-      "Butler, Justin": {},
-      "Georgiades, George": {},
-      "Lamar, Brion": {},
-      "Stratton, Aurelia": {}
+      "Butler, Justin": {
+        "2026-09-09": 1
+      },
+      "Georgiades, George": {
+        "2026-09-09": 12
+      },
+      "Lamar, Brion": {
+        "2026-09-09": 8
+      },
+      "Stratton, Aurelia": {
+        "2026-09-09": 2
+      }
     },
     "CMS vNext::16444666-9e15-488d-8764-9c0fea5bf9bd": {
       "Hull, Darrin": {
@@ -4147,13 +4159,27 @@
       }
     },
     "GPH::73bc5b93-0fba-478d-8c27-27637d76f249": {
-      "Butler, Justin": {},
-      "Keltner, Scott": {},
-      "Medina, Joel": {},
-      "drodrigues gloo.us": {},
-      "Hiebsch, Adin": {},
-      "Oursbourn, Chris": {},
-      "Furr, Darren M": {}
+      "Butler, Justin": {
+        "2026-09-09": 9.25
+      },
+      "Keltner, Scott": {
+        "2026-09-09": 10
+      },
+      "Medina, Joel": {
+        "2026-09-09": 18
+      },
+      "drodrigues gloo.us": {
+        "2026-09-09": 1
+      },
+      "Hiebsch, Adin": {
+        "2026-09-09": 13
+      },
+      "Oursbourn, Chris": {
+        "2026-09-09": 0.25
+      },
+      "Furr, Darren M": {
+        "2026-09-09": 1
+      }
     },
     "Infrastructure::7b64f704-6647-430d-930e-94ee65dfd674": {},
     "Infrastructure::578363af-da70-457c-bd5b-4ce992e1f804": {},
@@ -4161,8 +4187,12 @@
     "Infrastructure::048e44e7-6075-4109-b233-ba06ee814d3e": {},
     "Infrastructure::70e51510-cd7b-4e0c-be10-f393298577c4": {},
     "Infrastructure::72500365-c6a8-4a9d-b526-aabb42d3ffe5": {
-      "Georgiades, George": {},
-      "Butler, Justin": {}
+      "Georgiades, George": {
+        "2026-09-09": 5
+      },
+      "Butler, Justin": {
+        "2026-09-09": 4
+      }
     },
     "Bible Engagement Project::fb255e10-6950-44cf-a011-2508ee1ffd69": {
       "Greg Pawlik": {
@@ -4298,7 +4328,9 @@
       }
     },
     "Bible Engagement Project::78014e4b-55ec-4a7e-bf07-4c55e5a7196a": {
-      "Greg Pawlik": {}
+      "Greg Pawlik": {
+        "2026-09-09": 0
+      }
     },
     "CRM::7ca43d99-bb72-4801-afc4-135aad65c431": {
       "Georgiades, George": {
@@ -4573,11 +4605,21 @@
       }
     },
     "CRM::12627536-0762-49ae-884c-2a8c06423f54": {
-      "Lamar, Brion": {},
-      "Roach, Joseph": {},
-      "Georgiades, George": {},
-      "Furr, Darren M": {},
-      "Hassbaum, Ralph": {}
+      "Lamar, Brion": {
+        "2026-09-09": 4
+      },
+      "Roach, Joseph": {
+        "2026-09-09": 20.5
+      },
+      "Georgiades, George": {
+        "2026-09-09": 3.5
+      },
+      "Furr, Darren M": {
+        "2026-09-09": 3
+      },
+      "Hassbaum, Ralph": {
+        "2026-09-09": 5.5
+      }
     },
     "AGWM Financial Reporting::e2cb7c03-8732-4188-a378-a1db605b408b": {
       "Georgiades, George": {
@@ -4632,15 +4674,21 @@
       }
     },
     "AGWM Financial Reporting::2561b518-a26d-4822-8404-f67373d9ec20": {
-      "Georgiades, George": {},
-      "Farrand, Phil": {}
+      "Georgiades, George": {
+        "2026-09-09": 2
+      },
+      "Farrand, Phil": {
+        "2026-09-09": 3
+      }
     },
     "CRM::c7b39a97-c464-492c-b21c-a6ebca018b85": {
       "Roach, Joseph": {},
       "Lamar, Brion": {}
     },
     "GenSec::195657a0-9145-40ca-97e9-2b21c987ccc6": {
-      "Butler, Justin": {}
+      "Butler, Justin": {
+        "2026-09-09": 2.25
+      }
     },
     "AG.Giving::e3a7a19b-deaa-461b-b6c7-4ba0c2498237": {
       "Georgiades, George": {}
