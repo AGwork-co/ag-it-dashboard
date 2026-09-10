@@ -4693,6 +4693,11 @@
     "AG.Giving::e3a7a19b-deaa-461b-b6c7-4ba0c2498237": {
       "Georgiades, George": {}
     },
-    "GPH::cfe13f65-cc84-4711-8739-53cda394dee0": {}
+    "GPH::cfe13f65-cc84-4711-8739-53cda394dee0": {},
+    "Missions Portal::7e715f32-bf49-4398-9466-293878dd1104": {
+      "Georgiades, George": {
+        "2026-09-09": 0
+      }
+    }
   }
 }
