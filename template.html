@@ -815,7 +815,7 @@ function renderSprintView() {
           <div class="spc-stat"><span class="num">${sp.storyCount}</span><span class="lbl">Stories</span></div>
           <div class="spc-stat"><span class="num">${sp.completedSP}</span><span class="lbl">Done SP</span></div>
           <div class="spc-stat"><span class="num">${sp.totalSP}</span><span class="lbl">Total SP</span></div>
-          <div class="spc-stat"><span class="num">${hrsLeft.toFixed(1)}h</span><span class="lbl">Hours Left (~${hoursToSP(hrsLeft).toFixed(1)} SP)</span></div>
+          <div class="spc-stat"><span class="num">${hoursToSP(hrsLeft).toFixed(1)}</span><span class="lbl">SP Left</span></div>
         </div>
         <div class="sprint-progress-bar"><div class="sprint-progress-fill" style="width:${pct}%"></div></div>
         <div class="sprint-progress-label">${pct}% SP complete (${sp.completedSP}/${sp.totalSP} SP)</div>
@@ -998,8 +998,8 @@ function showSprintDetail(idx) {
       ${sp.capacity?.members?.length > 0 ? `<div class="detail-section">
         <h4>Team Capacity</h4>
         <table class="stories-table">
-          <thead><tr><th>Team Member</th><th>Hours/Day</th></tr></thead>
-          <tbody>${sp.capacity.members.map(m => `<tr><td>${m.name}</td><td>${m.dailyHours}h</td></tr>`).join('')}</tbody>
+          <thead><tr><th>Team Member</th><th>SP/Day</th><th>Hours/Day</th></tr></thead>
+          <tbody>${sp.capacity.members.map(m => `<tr><td>${m.name}</td><td>${hoursToSP(m.dailyHours).toFixed(2)}</td><td>${m.dailyHours}h</td></tr>`).join('')}</tbody>
         </table>
       </div>` : ''}
     </div>`;
@@ -1030,19 +1030,34 @@ function showSprintDetail(idx) {
     const ptb = sp.personTaskBurndown || {};
     const personLast = {};
     Object.keys(ptb).forEach(p => { personLast[p] = null; });
-    const actualData = visibleDays.map(dateStr => {
-      let total = 0;
-      Object.entries(ptb).forEach(([person, dailyMap]) => {
-        if (dailyMap[dateStr] !== undefined) personLast[person] = dailyMap[dateStr];
-        if (personLast[person] !== null) total += personLast[person];
+    const hasHourHistory = Object.keys(ptb).length > 0;
+    let actualData;
+    let startingSP;
+    if (hasHourHistory) {
+      actualData = visibleDays.map(dateStr => {
+        let total = 0;
+        Object.entries(ptb).forEach(([person, dailyMap]) => {
+          if (dailyMap[dateStr] !== undefined) personLast[person] = dailyMap[dateStr];
+          if (personLast[person] !== null) total += personLast[person];
+        });
+        return Math.max(0, hoursToSP(total));
       });
-      return Math.max(0, total);
-    });
-    while (actualData.length < workingDays.length) actualData.push(null);
-
-    const startingHrs = actualData[0] || 0;
+      while (actualData.length < workingDays.length) actualData.push(null);
+      startingSP = actualData[0] || 0;
+    } else {
+      const bd = sp.burndown;
+      const byDate = {};
+      (bd?.points || []).forEach(pt => { byDate[pt.date] = pt.remaining; });
+      startingSP = bd?.totalSP || sp.totalSP || 0;
+      let last = startingSP;
+      actualData = workingDays.map(d => {
+        if (!visibleDays.includes(d)) return null;
+        if (byDate[d] != null) last = byDate[d];
+        return last;
+      });
+    }
     const idealData = workingDays.map((_, i) =>
-      workingDays.length > 1 ? Math.max(0, startingHrs - (startingHrs / (workingDays.length - 1)) * i) : startingHrs
+      workingDays.length > 1 ? Math.max(0, startingSP - (startingSP / (workingDays.length - 1)) * i) : startingSP
     );
 
     const labels = workingDays.map(d => {
@@ -1056,7 +1071,7 @@ function showSprintDetail(idx) {
         labels,
         datasets: [
           {
-            label: 'Actual Remaining',
+            label: 'Actual SP Remaining',
             data: actualData,
             borderColor: '#D4B86A',
             backgroundColor: 'rgba(212,184,106,0.15)',
@@ -1082,7 +1097,7 @@ function showSprintDetail(idx) {
         plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } },
         scales: {
           x: { grid: { display: false }, ticks: { font: { size: 10 } } },
-          y: { beginAtZero: true, title: { display: true, text: 'Hours Remaining', font: { size: 11 } }, grid: { color: '#334155' } }
+          y: { beginAtZero: true, title: { display: true, text: 'SP Remaining', font: { size: 11 } }, grid: { color: '#334155' } }
         }
       }
     });
@@ -1237,31 +1252,35 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
   people.forEach(([name, stories], idx) => {
     const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
     const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
-    // Hours only when child tasks exist (null task fields ⇒ 0h, do not treat SP as hours)
-    const remainingWork = stories.reduce((s, st) => s + (st.taskRemainingWork != null ? st.taskRemainingWork : 0), 0);
-    const committedWork = stories.reduce((s, st) => {
-      const rem = st.taskRemainingWork != null ? st.taskRemainingWork : 0;
-      const done = st.taskCompletedWork != null ? st.taskCompletedWork : 0;
-      return s + rem + done;
+    // Remaining SP: prefer task-hours converted at 1 SP = 4h; else binary remainingSP
+    const storyRemSP = (st) => {
+      if (DONE_STATES.includes(st.state)) return 0;
+      if (st.taskRemainingWork != null) return hoursToSP(st.taskRemainingWork);
+      return st.remainingSP != null ? st.remainingSP : (st.storyPoints || 0);
+    };
+    const remainingSP = stories.reduce((s, st) => s + storyRemSP(st), 0);
+    const committedSP = stories.reduce((s, st) => {
+      if (st.taskRemainingWork != null || st.taskCompletedWork != null) {
+        return s + hoursToSP((st.taskRemainingWork || 0) + (st.taskCompletedWork || 0));
+      }
+      return s + (st.storyPoints || 0);
     }, 0);
     const cap = personCapacity[name] || { capHrs: 0 };
-    const capHrs = cap.capHrs || 0;
-    // Utilization = committed task hours / ADO capacity hours (SP never treated as hours here)
-    const utilPct = capHrs > 0 ? Math.round((committedWork / capHrs) * 100) : 0;
+    const capSP = hoursToSP(cap.capHrs || 0);
+    // Utilization in SP terms
+    const utilPct = capSP > 0 ? Math.round((committedSP / capSP) * 100) : 0;
     const utilColor = utilPct > 100 ? '#F87171' : utilPct >= 80 ? '#FBBF24' : '#34D399';
 
     const rows = sorted.map(s => {
-      const origSP = s.storyPoints || 0;
-      const remSP = DONE_STATES.includes(s.state) ? 0 : origSP;
-      const hrs = s.taskRemainingWork;
-      const hrsLabel = hrs != null ? `${hrs}h left` : '—';
+      const estSP = s.storyPoints || 0;
+      const remSP = storyRemSP(s);
       const bugBadge = s.type === 'Bug' ? '<span class="type-badge bug">Bug</span>' : '';
       return `<tr>
         <td><a href="${s.url}" target="_blank">${s.id}</a></td>
         <td>${s.projectName}</td>
         <td>${bugBadge}${s.title}</td>
         <td><span class="state-pill ${stateClass(s.state)}">${s.state}</span></td>
-        <td style="text-align:center;white-space:nowrap">${origSP} SP (${spToHours(origSP)}h) · ${hrsLabel}</td>
+        <td style="text-align:center;white-space:nowrap">${estSP} / ${(+remSP).toFixed(2).replace(/\.00$/, '')}</td>
       </tr>`;
     }).join('');
 
@@ -1286,7 +1305,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     html += `<div class="team-member-card" id="tmCard_${idx}">
       <div class="tmc-header" onclick="toggleTeamCard(${idx})">
         <h4>${name}</h4>
-        <span class="tmc-stats">${totalSP} SP · ${remainingWork.toFixed(1)}h remaining / ${capHrs}h capacity (~${hoursToSP(capHrs).toFixed(1)} SP) <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span>${support.length > 0 ? ` <span class="tmc-support-pill">${support.length} support</span>` : ''}</span>
+        <span class="tmc-stats">${totalSP} SP est · ${remainingSP.toFixed(1)} SP rem / ${capSP.toFixed(1)} SP capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span>${support.length > 0 ? ` <span class="tmc-support-pill">${support.length} support</span>` : ''}</span>
       </div>
       <div class="tmc-detail">
         <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
@@ -1319,7 +1338,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
       if (d.getDay() !== 0 && d.getDay() !== 6) workingDays.push(d.toISOString().split('T')[0]);
     }
 
-    // Merge personTaskBurndown across projects: person -> { date -> hours }
+    // Merge personTaskBurndown across projects: person -> { date -> hours } (converted to SP for charts)
     const mergedPersonBurndown = {};
     sprintProjects.forEach(p => {
       const ptb = p.currentSprint?.personTaskBurndown || {};
@@ -1332,37 +1351,48 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     });
 
     people.forEach(([name, stories], idx) => {
-      // Daily Actual line: hours of task work remaining at end of each visible
-      // working day, sourced from the per-task revision history captured in
-      // build.js (personTaskBurndown). Carries forward the last known value
-      // when a day has no recorded change.
+      // Daily Actual: SP remaining. Prefer task-hour history converted at 1 SP = 4h;
+      // otherwise burn SP on story completedDate.
       const visibleDays = workingDays.filter(d => new Date(d + 'T12:00:00') <= cutoff);
-      const personDaily = mergedPersonBurndown[name] || {};
-      const initialHrs = stories.reduce((sum, s) => sum + (s.taskRemainingWork != null ? s.taskRemainingWork : (s.remainingSP || 0)), 0);
-      let lastKnown = null;
-      const actualData = visibleDays.map(dateStr => {
-        if (personDaily[dateStr] !== undefined) {
-          lastKnown = personDaily[dateStr];
-        } else if (lastKnown === null) {
-          // Before any recorded change — assume the original task estimate
-          lastKnown = initialHrs;
-        }
-        return Math.max(0, lastKnown);
-      });
-      // Ideal burndown line: linear decrease from this person's starting
-      // committed work to 0 across the sprint's working days. Uses the
-      // earliest recorded daily value (or the current task-remaining sum if
-      // no history exists) as the starting point so it matches Actual on day 1.
-      const sortedDates = Object.keys(personDaily).sort();
-      const startingHrs = sortedDates.length > 0 ? personDaily[sortedDates[0]] : initialHrs;
+      const personDailyHrs = mergedPersonBurndown[name] || {};
+      const hasHourHistory = Object.keys(personDailyHrs).length > 0;
+      const initialSP = stories.reduce((sum, s) => sum + (s.storyPoints || 0), 0);
+      let actualData;
+      let startingSP;
+      if (hasHourHistory) {
+        let lastKnown = null;
+        const initialHrs = stories.reduce((sum, s) => sum + (s.taskRemainingWork != null ? s.taskRemainingWork : spToHours(s.remainingSP || s.storyPoints || 0)), 0);
+        actualData = visibleDays.map(dateStr => {
+          if (personDailyHrs[dateStr] !== undefined) lastKnown = personDailyHrs[dateStr];
+          else if (lastKnown === null) lastKnown = initialHrs;
+          return Math.max(0, hoursToSP(lastKnown));
+        });
+        const sortedDates = Object.keys(personDailyHrs).sort();
+        startingSP = hoursToSP(sortedDates.length > 0 ? personDailyHrs[sortedDates[0]] : initialHrs);
+      } else {
+        // SP remaining by subtracting completed story points on their completedDate
+        const completedByDate = {};
+        stories.forEach(st => {
+          if (st.completedDate && st.storyPoints) {
+            const d = st.completedDate.split('T')[0];
+            completedByDate[d] = (completedByDate[d] || 0) + st.storyPoints;
+          }
+        });
+        let remaining = initialSP;
+        actualData = visibleDays.map(dateStr => {
+          remaining -= (completedByDate[dateStr] || 0);
+          return Math.max(0, remaining);
+        });
+        startingSP = initialSP;
+      }
       const idealData = workingDays.map((_, i) =>
-        workingDays.length > 1 ? Math.max(0, startingHrs - (startingHrs / (workingDays.length - 1)) * i) : startingHrs
+        workingDays.length > 1 ? Math.max(0, startingSP - (startingSP / (workingDays.length - 1)) * i) : startingSP
       );
       const idealLabels = workingDays.map(dateStr => {
         const d = new Date(dateStr + 'T12:00:00');
         return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       });
-      window._teamBurndownData[idx] = { actualData, idealData, idealLabels, startingHrs };
+      window._teamBurndownData[idx] = { actualData, idealData, idealLabels, startingSP };
     });
   }
 }
@@ -1386,14 +1416,14 @@ function toggleTeamCard(idx) {
             labels: data.idealLabels,
             datasets: [
               {
-                label: 'Actual Remaining',
+                label: 'Actual SP Remaining',
                 data: data.actualData,
                 borderColor: '#D4B86A',
                 backgroundColor: 'rgba(212,184,106,0.15)',
                 fill: true, tension: 0.3, pointRadius: 3, borderWidth: 2, spanGaps: false
               },
               {
-                label: 'Ideal Burndown',
+                label: 'Ideal SP Burndown',
                 data: data.idealData,
                 borderColor: '#34D399',
                 borderDash: [6, 4], pointRadius: 0, borderWidth: 2, fill: false
@@ -1405,7 +1435,7 @@ function toggleTeamCard(idx) {
             plugins: { legend: { display: true, labels: { font: { size: 10 }, color: '#94A3B8', boxWidth: 12, padding: 10 } } },
             scales: {
               x: { grid: { display: false }, ticks: { font: { size: 9 }, maxRotation: 0 } },
-              y: { beginAtZero: true, title: { display: true, text: 'Hours Remaining', font: { size: 10 } }, grid: { color: '#334155' }, ticks: { font: { size: 9 } } }
+              y: { beginAtZero: true, title: { display: true, text: 'SP Remaining', font: { size: 10 } }, grid: { color: '#334155' }, ticks: { font: { size: 9 } } }
             }
           }
         });
