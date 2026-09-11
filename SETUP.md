@@ -8,12 +8,13 @@ Already done! This repo is live at https://github.com/AGwork-co/ag-it-dashboard
 
 Go to: https://github.com/AGwork-co/ag-it-dashboard/settings/secrets/actions
 
-Add these two repository secrets:
+Add these repository secrets:
 
 | Secret Name              | Value                                       |
 |--------------------------|---------------------------------------------|
 | `AZURE_DEVOPS_PAT`      | Your Azure DevOps Personal Access Token      |
 | `AZURE_DEVOPS_ORG_URL`  | `https://dev.azure.com/AssembliesOfGod`      |
+| `REFRESH_WORKER_URL`    | Cloudflare Worker URL (in-page Refresh)      |
 
 **PAT Requirements**: Needs at minimum **Work Items (Read)** scope.
 
@@ -21,9 +22,7 @@ Add these two repository secrets:
 
 Go to: https://github.com/AGwork-co/ag-it-dashboard/settings/pages
 
-- **Source**: Deploy from a branch
-- **Branch**: `main`
-- **Folder**: `/docs`
+- **Source**: **GitHub Actions** (required — do **not** use "Deploy from a branch" / `/docs`)
 
 Click **Save**.
 
@@ -33,14 +32,14 @@ Go to: https://github.com/AGwork-co/ag-it-dashboard/actions
 
 Click **Build & Deploy Dashboard** → **Run workflow** → **Run workflow**
 
-Wait ~2 minutes for it to complete. Your dashboard will be live at:
+Wait ~2–3 minutes for build + Pages deploy. Your dashboard will be live at:
 `https://agwork-co.github.io/ag-it-dashboard/`
 
 ## Auto-Refresh Schedule
 
-The dashboard rebuilds automatically 3× per weekday:
-- 7:00 AM CST
-- 11:00 AM CST
-- 3:00 PM CST
+The dashboard rebuilds automatically 3× per weekday (UTC `13/17/21`):
+- ~7:00 AM CST / 8:00 AM CDT
+- ~11:00 AM CST / 12:00 PM CDT
+- ~3:00 PM CST / 4:00 PM CDT
 
-You can also trigger a manual refresh anytime from the Actions tab.
+You can also trigger a manual refresh anytime from the Actions tab or the in-page Refresh button.
