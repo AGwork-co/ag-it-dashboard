@@ -2,20 +2,30 @@ name: Build & Deploy Dashboard
 
 on:
   schedule:
+    # 13/17/21 UTC ≈ 7/11/3 AM CST (8/12/4 AM CDT)
     - cron: '0 13,17,21 * * 1-5'
   workflow_dispatch:
   push:
     branches: [main]
+    paths-ignore:
+      # Safety: ignore if generated paths ever reappear
+      - 'docs/index.html'
+      - 'cache/**'
 
 permissions:
-  contents: write
+  contents: read
   pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,6 +35,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Restore sprint/burndown cache
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: ado-dashboard-cache-${{ github.run_id }}
+          restore-keys: |
+            ado-dashboard-cache-
 
       - name: Install dependencies
         run: npm install
@@ -41,29 +59,25 @@ jobs:
           REFRESH_WORKER_URL: ${{ secrets.REFRESH_WORKER_URL }}
         run: npm run build
 
-      - name: Commit and push updated dashboard
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Save our freshly built file and caches
-          cp docs/index.html /tmp/dashboard.html
-          mkdir -p /tmp/cache
-          [ -f cache/sprint-history.json ] && cp cache/sprint-history.json /tmp/cache/sprint-history.json
-          [ -f cache/daily-burndown.json ] && cp cache/daily-burndown.json /tmp/cache/daily-burndown.json
-          # Reset to whatever remote has (no conflicts possible)
-          git fetch origin main
-          git reset --hard origin/main
-          # Put our built files back and commit
-          cp /tmp/dashboard.html docs/index.html
-          mkdir -p cache
-          if [ -f /tmp/cache/sprint-history.json ]; then
-            cp /tmp/cache/sprint-history.json cache/sprint-history.json
-            git add cache/sprint-history.json
-          fi
-          if [ -f /tmp/cache/daily-burndown.json ]; then
-            cp /tmp/cache/daily-burndown.json cache/daily-burndown.json
-            git add cache/daily-burndown.json
-          fi
-          git add docs/index.html
-          git diff --staged --quiet || git commit -m "Dashboard updated"
-          git push
+      - name: Save sprint/burndown cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: cache
+          key: ado-dashboard-cache-${{ github.run_id }}
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
