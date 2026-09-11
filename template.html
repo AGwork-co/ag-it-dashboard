@@ -1252,35 +1252,41 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
   people.forEach(([name, stories], idx) => {
     const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
     const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
-    // Remaining SP: prefer task-hours converted at 1 SP = 4h; else binary remainingSP
-    const storyRemSP = (st) => {
-      if (DONE_STATES.includes(st.state)) return 0;
-      if (st.taskRemainingWork != null) return hoursToSP(st.taskRemainingWork);
-      return st.remainingSP != null ? st.remainingSP : (st.storyPoints || 0);
-    };
-    const remainingSP = stories.reduce((s, st) => s + storyRemSP(st), 0);
-    const committedSP = stories.reduce((s, st) => {
+    // Per-story Est / Done / Rem in SP (original estimate breakdown).
+    // Prefer task-hour progress converted at 1 SP = 4h; else binary by state.
+    const storyEstDoneRem = (st) => {
+      const est = st.storyPoints || 0;
+      if (DONE_STATES.includes(st.state)) return { est, done: est, rem: 0 };
       if (st.taskRemainingWork != null || st.taskCompletedWork != null) {
-        return s + hoursToSP((st.taskRemainingWork || 0) + (st.taskCompletedWork || 0));
+        let rem = hoursToSP(st.taskRemainingWork || 0);
+        let done = hoursToSP(st.taskCompletedWork || 0);
+        // Keep Done + Rem aligned to Est when possible
+        if (est > 0 && Math.abs((done + rem) - est) > 0.05) {
+          rem = Math.min(est, rem);
+          done = Math.max(0, +(est - rem).toFixed(2));
+        }
+        return { est, done: +done.toFixed(2), rem: +rem.toFixed(2) };
       }
-      return s + (st.storyPoints || 0);
-    }, 0);
+      return { est, done: 0, rem: est };
+    };
+    const fmtSP = (n) => (+n).toFixed(2).replace(/\.00$/, '');
+    const remainingSP = stories.reduce((s, st) => s + storyEstDoneRem(st).rem, 0);
+    const committedSP = stories.reduce((s, st) => s + storyEstDoneRem(st).est, 0);
     const cap = personCapacity[name] || { capHrs: 0 };
     const capSP = hoursToSP(cap.capHrs || 0);
-    // Utilization in SP terms
+    // Utilization in SP terms (committed estimate vs capacity)
     const utilPct = capSP > 0 ? Math.round((committedSP / capSP) * 100) : 0;
     const utilColor = utilPct > 100 ? '#F87171' : utilPct >= 80 ? '#FBBF24' : '#34D399';
 
     const rows = sorted.map(s => {
-      const estSP = s.storyPoints || 0;
-      const remSP = storyRemSP(s);
+      const { est, done, rem } = storyEstDoneRem(s);
       const bugBadge = s.type === 'Bug' ? '<span class="type-badge bug">Bug</span>' : '';
       return `<tr>
         <td><a href="${s.url}" target="_blank">${s.id}</a></td>
         <td>${s.projectName}</td>
         <td>${bugBadge}${s.title}</td>
         <td><span class="state-pill ${stateClass(s.state)}">${s.state}</span></td>
-        <td style="text-align:center;white-space:nowrap">${estSP} / ${(+remSP).toFixed(2).replace(/\.00$/, '')}</td>
+        <td style="text-align:center;white-space:nowrap">${fmtSP(est)} / ${fmtSP(done)} / ${fmtSP(rem)}</td>
       </tr>`;
     }).join('');
 
@@ -1312,7 +1318,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
         <div class="tmc-section-header">User Story Assignments <span class="tmc-section-count">${stories.length}</span></div>
         <div class="tmc-stories">
           <table>
-            <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th style="white-space:nowrap">Est / Rem</th></tr></thead>
+            <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th style="white-space:nowrap">Est / Done / Rem</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
