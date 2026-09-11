@@ -21,6 +21,8 @@ const path = require('path');
 const ORG_URL = process.env.AZURE_DEVOPS_ORG_URL || 'https://dev.azure.com/AssembliesOfGod';
 const PAT = process.env.AZURE_DEVOPS_PAT;
 const API_VERSION = '7.1';
+// AG estimating standard (mirrored in template.html): 1 story point = 4 hours
+const SP_HOURS = 4;
 
 if (!PAT) {
   console.error('ERROR: AZURE_DEVOPS_PAT environment variable is required.');
@@ -192,12 +194,63 @@ async function getAllIterations(project) {
   return [];
 }
 
-/** Get team capacity for a specific iteration */
-async function getIterationCapacity(project, iterationId) {
-  const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations/${iterationId}/capacities?api-version=${API_VERSION}`;
+/** List teams in a project (needed for capacity API) */
+async function getProjectTeams(project) {
+  const url = `${ORG_URL}/_apis/projects/${encodeURIComponent(project)}/teams?api-version=${API_VERSION}`;
   const data = await adoFetch(url);
   if (data && data.value) return data.value;
   return [];
+}
+
+/** Get capacity for one team + iteration */
+async function getTeamIterationCapacity(project, teamIdOrName, iterationId) {
+  const team = encodeURIComponent(teamIdOrName);
+  const url = `${ORG_URL}/${encodeURIComponent(project)}/${team}/_apis/work/teamsettings/iterations/${iterationId}/capacities?api-version=${API_VERSION}`;
+  const data = await adoFetch(url);
+  if (data && data.value) return data.value;
+  return [];
+}
+
+/**
+ * Aggregate capacity across all project teams for an iteration.
+ * Dedupes people by normalized display name (max dailyHours wins).
+ */
+async function getIterationCapacity(project, iterationId) {
+  const teams = await getProjectTeams(project);
+  if (!teams.length) {
+    // Fallback: try project-default teamsettings path (legacy)
+    const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations/${iterationId}/capacities?api-version=${API_VERSION}`;
+    const data = await adoFetch(url);
+    return (data && data.value) ? data.value : [];
+  }
+  const byName = {};
+  for (const t of teams) {
+    const teamKey = t.id || t.name;
+    try {
+      const rows = await getTeamIterationCapacity(project, teamKey, iterationId);
+      rows.forEach(c => {
+        const assignee = c.teamMember || c;
+        const rawName = assignee.displayName || assignee.uniqueName || assignee.name || '';
+        const name = normalizeName(rawName);
+        if (!name || name === 'Unassigned') return;
+        const dailyHours = (c.activities || []).reduce((sum, a) => sum + (a.capacityPerDay || 0), 0);
+        const daysOffRanges = (c.daysOff || []).map(d => ({
+          start: d.start ? d.start.split('T')[0] : null,
+          end: d.end ? d.end.split('T')[0] : null
+        })).filter(d => d.start);
+        const prev = byName[name];
+        if (!prev || dailyHours > prev.dailyHours) {
+          byName[name] = { ...c, _normalizedName: name, _dailyHours: dailyHours, _daysOffRanges: daysOffRanges };
+        } else if (prev && daysOffRanges.length) {
+          // merge days off
+          prev._daysOffRanges = [...(prev._daysOffRanges || []), ...daysOffRanges];
+        }
+      });
+    } catch (e) {
+      // team may not have capacity configured
+    }
+  }
+  return Object.values(byName);
 }
 
 /** Get child task IDs for a set of work items via relations */
@@ -674,9 +727,11 @@ async function fetchProjectData(config) {
           s.taskRemainingWork = Math.round(taskWork.remaining * 100) / 100;
           s.taskCompletedWork = Math.round(taskWork.completed * 100) / 100;
         } else {
-          // Fallback: use story-level SP if no child tasks
-          s.taskRemainingWork = s.remainingSP;
-          s.taskCompletedWork = s.completedSP;
+          // No child tasks: leave task hours unset (null).
+          // Do NOT treat SP as hours — AG standard is 1 SP = 4h, and the UI
+          // converts explicitly when an hours estimate is needed.
+          s.taskRemainingWork = null;
+          s.taskCompletedWork = null;
         }
       });
 
@@ -776,13 +831,15 @@ async function fetchProjectData(config) {
       try {
         const capacities = await getIterationCapacity(project, iteration.id);
         capacities.forEach(c => {
-          const name = normalizeName(c.teamMember?.displayName || 'Unknown');
-          const dailyHours = (c.activities || []).reduce((sum, a) => sum + (a.capacityPerDay || 0), 0);
-          // Collect actual date ranges for days off (for dedup across projects)
-          const daysOffRanges = (c.daysOff || []).map(d => ({
+          const name = c._normalizedName || normalizeName(c.teamMember?.displayName || 'Unknown');
+          const dailyHours = c._dailyHours != null
+            ? c._dailyHours
+            : (c.activities || []).reduce((sum, a) => sum + (a.capacityPerDay || 0), 0);
+          const daysOffRanges = c._daysOffRanges || (c.daysOff || []).map(d => ({
             start: d.start ? d.start.split('T')[0] : null,
             end: d.end ? d.end.split('T')[0] : null
           })).filter(d => d.start);
+          if (!name || name === 'Unknown') return;
           members.push({ name, dailyHours, daysOffRanges });
           capacityHoursPerDay += dailyHours;
         });

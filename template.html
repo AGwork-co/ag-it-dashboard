@@ -356,7 +356,8 @@
   <div class="sprint-header" id="sprintHeader"></div>
   <div class="kpi-row" id="sprintKpiRow"></div>
   <div class="charts-row">
-    <div class="chart-card" style="grid-column: 1 / -1"><h3>Sprint Burndown — All Projects</h3><canvas id="chartSprintBurndown"></canvas></div>
+    <div class="chart-card" style="grid-column: 1 / -1"><h3>Sprint Burndown — Story Points (primary)</h3><canvas id="chartSprintBurndown"></canvas></div>
+    <div class="chart-card" style="grid-column: 1 / -1"><h3>Task Hours Remaining (secondary)</h3><canvas id="chartSprintHoursBurndown"></canvas></div>
   </div>
   <div class="sprint-project-cards" id="sprintProjectCards"></div>
   <!-- Sprint project drill-down -->
@@ -394,6 +395,10 @@ Chart.defaults.borderColor = '#334155';
 // LIVE DATA — Injected by build.js from Azure DevOps
 // ============================================================
 const projects = /*__PROJECT_DATA__*/[];
+// AG estimating standard: 1 story point = 4 hours (½ working day)
+const SP_HOURS = 4;
+const hoursToSP = (h) => (h == null ? 0 : h / SP_HOURS);
+const spToHours = (sp) => (sp == null ? 0 : sp * SP_HOURS);
 const supportRequests = /*__SUPPORT_DATA__*/{};
 
 // ============================================================
@@ -699,9 +704,6 @@ function renderSprintView() {
   );
   const totalMembers = memberNames.size;
 
-  // Capacity/Day (SP) = whole-team's average daily story-point throughput for
-  // the selected sprint = total sprint SP / working days (Mon–Fri) in the sprint.
-
   const sprintStart = selectedSlot?.start || sprintProjects[0]?.currentSprint.startDate;
   const sprintEnd = selectedSlot?.end || sprintProjects[0]?.currentSprint.endDate;
   const dateRange = sprintStart && sprintEnd
@@ -718,7 +720,45 @@ function renderSprintView() {
       if (dow !== 0 && dow !== 6) workingDays++;
     }
   }
-  const dailySpCapacity = workingDays > 0 ? totalSprintSP / workingDays : 0;
+
+  // Capacity/Day from ADO capacity (unique people × dailyHours), not commitment÷days.
+  const capacityByPerson = {};
+  sprintProjects.forEach(p => {
+    (p.currentSprint?.capacity?.members || []).forEach(m => {
+      if (!m?.name) return;
+      const prev = capacityByPerson[m.name];
+      if (!prev || (m.dailyHours || 0) > prev) capacityByPerson[m.name] = m.dailyHours || 0;
+    });
+  });
+  const adoCapacityHoursPerDay = Object.values(capacityByPerson).reduce((s, h) => s + h, 0);
+
+  // Velocity fallback (SP/day): avg completed SP per working day across recent closed sprints.
+  let velocitySamples = [];
+  projects.forEach(p => {
+    (p.allSprints || []).forEach(s => {
+      if (s.isCurrent) return;
+      if (!s.endDate || !s.startDate || !(s.completedSP > 0)) return;
+      let wd = 0;
+      const sd = parseSprintDate(s.startDate), ed = parseSprintDate(s.endDate);
+      for (let d = new Date(sd); d <= ed; d.setDate(d.getDate() + 1)) {
+        if (d.getDay() !== 0 && d.getDay() !== 6) wd++;
+      }
+      if (wd > 0) velocitySamples.push(s.completedSP / wd);
+    });
+  });
+  velocitySamples.sort((a, b) => a - b);
+  const velocitySpPerDay = velocitySamples.length
+    ? velocitySamples.slice(-6).reduce((a, b) => a + b, 0) / Math.min(6, velocitySamples.length)
+    : 0;
+
+  // Convert ADO hours/day → SP/day using AG standard (1 SP = 4h)
+  const adoCapacitySpPerDay = hoursToSP(adoCapacityHoursPerDay);
+  const capacityKpi = adoCapacityHoursPerDay > 0
+    ? { value: adoCapacitySpPerDay.toFixed(1) + ' SP', label: `ADO Capacity/Day (${adoCapacityHoursPerDay.toFixed(1)}h · 1SP=4h)` }
+    : (velocitySpPerDay > 0
+      ? { value: velocitySpPerDay.toFixed(1) + ' SP', label: 'Velocity/Day (fallback)' }
+      : { value: '—', label: 'ADO Capacity/Day' });
+  const requiredBurn = workingDays > 0 ? (remainingSprintSP / workingDays) : 0;
 
   // Sprint header with dropdown
   const optionsHtml = slots.map(slot => {
@@ -741,7 +781,8 @@ function renderSprintView() {
     { value: completedSprintSP, label: 'Completed SP' },
     { value: remainingSprintSP, label: 'Remaining SP' },
     { value: totalMembers || '—', label: 'Team Members' },
-    { value: dailySpCapacity > 0 ? dailySpCapacity.toFixed(1) + ' SP' : '—', label: 'Capacity/Day' },
+    capacityKpi,
+    { value: requiredBurn > 0 ? requiredBurn.toFixed(1) + ' SP' : '—', label: 'Required Burn/Day' },
   ].map(k => `<div class="kpi-card"><div class="value">${k.value}</div><div class="label">${k.label}</div></div>`).join('');
 
   renderSprintBurndown(sprintProjects);
@@ -775,10 +816,10 @@ function renderSprintView() {
           <div class="spc-stat"><span class="num">${sp.storyCount}</span><span class="lbl">Stories</span></div>
           <div class="spc-stat"><span class="num">${sp.completedSP}</span><span class="lbl">Done SP</span></div>
           <div class="spc-stat"><span class="num">${sp.totalSP}</span><span class="lbl">Total SP</span></div>
-          <div class="spc-stat"><span class="num">${hrsLeft.toFixed(1)}h</span><span class="lbl">Work Left</span></div>
+          <div class="spc-stat"><span class="num">${hrsLeft.toFixed(1)}h</span><span class="lbl">Hours Left (~${hoursToSP(hrsLeft).toFixed(1)} SP)</span></div>
         </div>
         <div class="sprint-progress-bar"><div class="sprint-progress-fill" style="width:${pct}%"></div></div>
-        <div class="sprint-progress-label">${pct}% complete</div>
+        <div class="sprint-progress-label">${pct}% SP complete (${sp.completedSP}/${sp.totalSP} SP)</div>
       </div>
     </div>`;
   }).join('');
@@ -801,16 +842,16 @@ function onSprintChange(newStart) {
 let sprintBurndownChart = null;
 function renderSprintBurndown(sprintProjects) {
   const canvas = document.getElementById('chartSprintBurndown');
+  const hoursCanvas = document.getElementById('chartSprintHoursBurndown');
   if (!canvas) return;
 
   if (sprintBurndownChart) { sprintBurndownChart.destroy(); sprintBurndownChart = null; }
+  if (window.sprintHoursBurndownChart) { window.sprintHoursBurndownChart.destroy(); window.sprintHoursBurndownChart = null; }
 
-  // Determine sprint date range from any project
   const sprintStart = sprintProjects[0]?.currentSprint?.startDate;
   const sprintEnd = sprintProjects[0]?.currentSprint?.endDate;
   if (!sprintStart || !sprintEnd) return;
 
-  // Build the working-day list
   const start = parseSprintDate(sprintStart);
   const end = parseSprintDate(sprintEnd);
   const today = new Date(); today.setHours(23, 59, 59, 999);
@@ -823,46 +864,61 @@ function renderSprintBurndown(sprintProjects) {
   }
   if (workingDays.length === 0) return;
 
-  // Merge personTaskBurndown across projects: { person -> { date -> hours } }
-  const merged = {};
-  sprintProjects.forEach(p => {
-    const ptb = p.currentSprint?.personTaskBurndown || {};
-    Object.entries(ptb).forEach(([person, dailyMap]) => {
-      if (!merged[person]) merged[person] = {};
-      Object.entries(dailyMap).forEach(([date, hrs]) => {
-        merged[person][date] = (merged[person][date] || 0) + hrs;
-      });
-    });
-  });
-
-  // Sum daily team-wide remaining hours by carrying each person's last-known
-  // value forward when a day has no recorded change for them.
-  const visibleDays = workingDays.filter(d => new Date(d + 'T12:00:00') <= cutoff);
-  const personLast = {};
-  Object.keys(merged).forEach(p => { personLast[p] = null; });
-  const actualData = visibleDays.map(dateStr => {
-    let total = 0;
-    Object.entries(merged).forEach(([person, dailyMap]) => {
-      if (dailyMap[dateStr] !== undefined) personLast[person] = dailyMap[dateStr];
-      if (personLast[person] !== null) total += personLast[person];
-    });
-    return Math.max(0, total);
-  });
-
-  // Ideal line: starts at the team's total committed hours on day 1 (= the
-  // first actual point) and burns down linearly to 0 across all working days.
-  const startingHrs = actualData[0] || 0;
-  const idealData = workingDays.map((_, i) =>
-    workingDays.length > 1 ? Math.max(0, startingHrs - (startingHrs / (workingDays.length - 1)) * i) : startingHrs
-  );
-
   const labels = workingDays.map(d => {
     const dt = new Date(d + 'T12:00:00');
     return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   });
+  const visibleDays = workingDays.filter(d => new Date(d + 'T12:00:00') <= cutoff);
 
-  // Pad actualData with nulls for future days so it doesn't extend past cutoff
-  while (actualData.length < workingDays.length) actualData.push(null);
+  // ── Primary: Story Points burndown (from build.js burndown.points / ideal) ──
+  // Merge SP remaining by date across projects (sum remaining on each day).
+  const spByDate = {};
+  const idealByDate = {};
+  let totalSpCommit = 0;
+  sprintProjects.forEach(p => {
+    const bd = p.currentSprint?.burndown;
+    if (!bd) return;
+    totalSpCommit += bd.totalSP || p.currentSprint.totalSP || 0;
+    (bd.points || []).forEach(pt => {
+      spByDate[pt.date] = (spByDate[pt.date] || 0) + (pt.remaining || 0);
+    });
+    (bd.ideal || []).forEach(pt => {
+      idealByDate[pt.date] = (idealByDate[pt.date] || 0) + (pt.remaining || 0);
+    });
+  });
+  // If no burndown payloads, synthesize from story Done dates
+  if (Object.keys(spByDate).length === 0) {
+    totalSpCommit = sprintProjects.reduce((s, p) => s + (p.currentSprint.totalSP || 0), 0);
+    const completedByDate = {};
+    sprintProjects.forEach(p => {
+      (p.currentSprint.stories || []).forEach(st => {
+        if (st.completedDate && st.storyPoints) {
+          const d = st.completedDate.split('T')[0];
+          completedByDate[d] = (completedByDate[d] || 0) + st.storyPoints;
+        }
+      });
+    });
+    let remaining = totalSpCommit;
+    workingDays.forEach(dateStr => {
+      remaining -= (completedByDate[dateStr] || 0);
+      if (new Date(dateStr + 'T12:00:00') <= cutoff) spByDate[dateStr] = Math.max(0, remaining);
+    });
+  }
+
+  const spActual = workingDays.map(d => (visibleDays.includes(d) ? (spByDate[d] ?? null) : null));
+  // Carry forward last known SP remaining for gaps inside visible range
+  let lastSp = totalSpCommit;
+  for (let i = 0; i < spActual.length; i++) {
+    if (spActual[i] == null && workingDays[i] && visibleDays.includes(workingDays[i])) {
+      spActual[i] = lastSp;
+    } else if (spActual[i] != null) lastSp = spActual[i];
+  }
+  const spIdeal = workingDays.map((d, i) => {
+    if (idealByDate[d] != null) return idealByDate[d];
+    return workingDays.length > 1
+      ? Math.max(0, totalSpCommit - (totalSpCommit / (workingDays.length - 1)) * i)
+      : totalSpCommit;
+  });
 
   sprintBurndownChart = new Chart(canvas, {
     type: 'line',
@@ -870,8 +926,8 @@ function renderSprintBurndown(sprintProjects) {
       labels,
       datasets: [
         {
-          label: 'Actual Remaining',
-          data: actualData,
+          label: 'Actual SP Remaining',
+          data: spActual,
           borderColor: '#D4B86A',
           backgroundColor: 'rgba(212,184,106,0.15)',
           fill: true,
@@ -881,8 +937,8 @@ function renderSprintBurndown(sprintProjects) {
           spanGaps: false
         },
         {
-          label: 'Ideal Burndown',
-          data: idealData,
+          label: 'Ideal SP Burndown',
+          data: spIdeal,
           borderColor: '#475569',
           borderDash: [6, 4],
           pointRadius: 0,
@@ -896,13 +952,78 @@ function renderSprintBurndown(sprintProjects) {
       plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } },
       scales: {
         x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-        y: { beginAtZero: true, title: { display: true, text: 'Hours Remaining', font: { size: 11 } }, grid: { color: '#334155' } }
+        y: { beginAtZero: true, title: { display: true, text: 'Story Points Remaining', font: { size: 11 } }, grid: { color: '#334155' } }
+      }
+    }
+  });
+
+  // ── Secondary: Task hours remaining (personTaskBurndown) ──
+  if (!hoursCanvas) return;
+  const merged = {};
+  sprintProjects.forEach(p => {
+    const ptb = p.currentSprint?.personTaskBurndown || {};
+    Object.entries(ptb).forEach(([person, dailyMap]) => {
+      if (!merged[person]) merged[person] = {};
+      Object.entries(dailyMap).forEach(([date, hrs]) => {
+        merged[person][date] = (merged[person][date] || 0) + hrs;
+      });
+    });
+  });
+  const personLast = {};
+  Object.keys(merged).forEach(p => { personLast[p] = null; });
+  const hoursActual = visibleDays.map(dateStr => {
+    let total = 0;
+    Object.entries(merged).forEach(([person, dailyMap]) => {
+      if (dailyMap[dateStr] !== undefined) personLast[person] = dailyMap[dateStr];
+      if (personLast[person] !== null) total += personLast[person];
+    });
+    return Math.max(0, total);
+  });
+  while (hoursActual.length < workingDays.length) hoursActual.push(null);
+  const startingHrs = hoursActual.find(v => v != null) || 0;
+  const hoursIdeal = workingDays.map((_, i) =>
+    workingDays.length > 1 ? Math.max(0, startingHrs - (startingHrs / (workingDays.length - 1)) * i) : startingHrs
+  );
+
+  window.sprintHoursBurndownChart = new Chart(hoursCanvas, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Actual Hours Remaining',
+          data: hoursActual,
+          borderColor: '#34D399',
+          backgroundColor: 'rgba(52,211,153,0.12)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 3,
+          borderWidth: 2,
+          spanGaps: false
+        },
+        {
+          label: 'Ideal Hours Burndown',
+          data: hoursIdeal,
+          borderColor: '#64748B',
+          borderDash: [6, 4],
+          pointRadius: 0,
+          borderWidth: 2,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { beginAtZero: true, title: { display: true, text: 'Task Hours Remaining', font: { size: 11 } }, grid: { color: '#334155' } }
       }
     }
   });
 }
 
-let sprintDetailChart = null;
+
 function showSprintDetail(idx) {
   const p = (window._sprintCardProjects || [])[idx];
   if (!p) return;
@@ -1118,16 +1239,18 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
       if (d.getDay() !== 0 && d.getDay() !== 6) sprintWorkingDays++;
     }
   }
-  const capacityFactor = 0.80; // 80% planning rule
-
-  // Collect and deduplicate days-off per person across all projects
+  // Collect ADO capacity dailyHours + days-off per person (dedup across projects)
   const personDaysOff = {};
+  const personDailyHours = {};
   sprintProjects.forEach(p => {
     const members = p.currentSprint?.capacity?.members || [];
     members.forEach(m => {
+      if (!m?.name) return;
+      if (personDailyHours[m.name] == null || (m.dailyHours || 0) > personDailyHours[m.name]) {
+        personDailyHours[m.name] = m.dailyHours || 0;
+      }
       if (!personDaysOff[m.name]) personDaysOff[m.name] = new Set();
       (m.daysOffRanges || []).forEach(range => {
-        // Expand date range to individual dates and add to set for dedup
         const rs = new Date(range.start + 'T12:00:00');
         const re = range.end ? new Date(range.end + 'T12:00:00') : rs;
         for (let d = new Date(rs); d <= re; d.setDate(d.getDate() + 1)) {
@@ -1147,12 +1270,21 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     byPerson[name].push(s);
   });
 
-  // Calculate capacity per person: (workingDays * 80%) - daysOff
+  // Capacity hours = ADO dailyHours × (working days − days off).
+  // Fallback only when ADO has no capacity row: 8h × 80% planning rule.
   const personCapacity = {};
   Object.keys(byPerson).forEach(name => {
     const daysOff = personDaysOff[name] ? personDaysOff[name].size : 0;
-    const available = Math.max(0, Math.round((sprintWorkingDays * capacityFactor - daysOff) * 100) / 100);
-    personCapacity[name] = { available, daysOff, totalWorkingDays: sprintWorkingDays };
+    const workDays = Math.max(0, sprintWorkingDays - daysOff);
+    const adoDaily = personDailyHours[name];
+    let capHrs;
+    if (adoDaily != null && adoDaily > 0) {
+      capHrs = Math.round(adoDaily * workDays * 100) / 100;
+    } else {
+      // No ADO capacity row: 8h day × 80% planning = 6.4h/day (= 1.6 SP/day at 1SP=4h)
+      capHrs = Math.round(SP_HOURS * 2 * 0.80 * workDays * 100) / 100;
+    }
+    personCapacity[name] = { availableDays: workDays, daysOff, totalWorkingDays: sprintWorkingDays, capHrs, adoDaily: adoDaily || 0 };
   });
 
   // Sort people: by total SP descending
@@ -1174,30 +1306,31 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
   people.forEach(([name, stories], idx) => {
     const sorted = [...stories].sort((a, b) => (stateOrder[a.state] ?? 9) - (stateOrder[b.state] ?? 9));
     const totalSP = stories.reduce((s, st) => s + (st.storyPoints || 0), 0);
-    const remainingWork = stories.reduce((s, st) => s + (st.taskRemainingWork != null ? st.taskRemainingWork : st.remainingSP), 0);
-    // Committed work = total task hours assigned (remaining + completed)
+    // Hours only when child tasks exist (null task fields ⇒ 0h, do not treat SP as hours)
+    const remainingWork = stories.reduce((s, st) => s + (st.taskRemainingWork != null ? st.taskRemainingWork : 0), 0);
     const committedWork = stories.reduce((s, st) => {
-      const rem = st.taskRemainingWork != null ? st.taskRemainingWork : (st.remainingSP || 0);
-      const done = st.taskCompletedWork != null ? st.taskCompletedWork : (st.completedSP || 0);
+      const rem = st.taskRemainingWork != null ? st.taskRemainingWork : 0;
+      const done = st.taskCompletedWork != null ? st.taskCompletedWork : 0;
       return s + rem + done;
     }, 0);
-    const cap = personCapacity[name] || { available: 0 };
-    // Capacity in hours = available days × 8h/day
-    const capHrs = (cap.available || 0) * 8;
-    // Utilization = how loaded the person is = committed work / capacity
+    const cap = personCapacity[name] || { capHrs: 0 };
+    const capHrs = cap.capHrs || 0;
+    // Utilization = committed task hours / ADO capacity hours (SP never treated as hours here)
     const utilPct = capHrs > 0 ? Math.round((committedWork / capHrs) * 100) : 0;
     const utilColor = utilPct > 100 ? '#F87171' : utilPct >= 80 ? '#FBBF24' : '#34D399';
 
     const rows = sorted.map(s => {
       const origSP = s.storyPoints || 0;
-      const remSP = s.taskRemainingWork != null ? s.taskRemainingWork : s.remainingSP;
+      const remSP = DONE_STATES.includes(s.state) ? 0 : origSP;
+      const hrs = s.taskRemainingWork;
+      const hrsLabel = hrs != null ? `${hrs}h left` : '—';
       const bugBadge = s.type === 'Bug' ? '<span class="type-badge bug">Bug</span>' : '';
       return `<tr>
         <td><a href="${s.url}" target="_blank">${s.id}</a></td>
         <td>${s.projectName}</td>
         <td>${bugBadge}${s.title}</td>
         <td><span class="state-pill ${stateClass(s.state)}">${s.state}</span></td>
-        <td style="text-align:center;white-space:nowrap">${origSP} / ${remSP}</td>
+        <td style="text-align:center;white-space:nowrap">${origSP} SP (${spToHours(origSP)}h) · ${hrsLabel}</td>
       </tr>`;
     }).join('');
 
@@ -1214,7 +1347,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
         <div class="tmc-section-header">Support Requests <span class="tmc-section-count">${support.length}</span></div>
         <div class="tmc-stories">
           <table>
-            <thead><tr><th>BPI</th><th>Project</th><th>Title</th><th>State</th></tr></thead>
+            <thead><tr><th>PBI</th><th>Project</th><th>Title</th><th>State</th></tr></thead>
             <tbody>${supportRows}</tbody>
           </table>
         </div>` : '';
@@ -1222,7 +1355,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     html += `<div class="team-member-card" id="tmCard_${idx}">
       <div class="tmc-header" onclick="toggleTeamCard(${idx})">
         <h4>${name}</h4>
-        <span class="tmc-stats">${totalSP} sp · ${remainingWork.toFixed(1)}h remaining / ${capHrs}h capacity <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span>${support.length > 0 ? ` <span class="tmc-support-pill">${support.length} support</span>` : ''}</span>
+        <span class="tmc-stats">${totalSP} SP · ${remainingWork.toFixed(1)}h remaining / ${capHrs}h capacity (~${hoursToSP(capHrs).toFixed(1)} SP) <span style="color:${utilColor};font-weight:700">| ${utilPct}% utilization</span>${support.length > 0 ? ` <span class="tmc-support-pill">${support.length} support</span>` : ''}</span>
       </div>
       <div class="tmc-detail">
         <div class="tmc-burndown"><canvas id="teamBurndown_${idx}"></canvas></div>
