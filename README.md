@@ -52,3 +52,7 @@ npm install
 npm run build
 open docs/index.html
 ```
+
+## Estimating standard
+
+AG uses **1 story point = 4 hours** (½ working day). The dashboard converts ADO capacity hours ↔ SP with this ratio.
