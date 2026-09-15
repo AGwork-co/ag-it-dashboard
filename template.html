@@ -421,6 +421,14 @@ const projects = /*__PROJECT_DATA__*/[];
 const SP_HOURS = 4;
 const hoursToSP = (h) => (h == null ? 0 : h / SP_HOURS);
 const spToHours = (sp) => (sp == null ? 0 : sp * SP_HOURS);
+// Delivery/PM names excluded from planning sprint capacity
+const CAPACITY_EXCLUDE_NAMES = new Set([
+  'Oursbourn, Chris',
+  'Furr, Darren M',
+  'Stratton, Aurelia',
+]);
+// Planning rule: 2 SP/day × 80% scheduled = 1.6 SP/day per developer
+const PLANNING_SP_PER_DAY = 2 * 0.80;
 const supportRequests = /*__SUPPORT_DATA__*/{};
 
 // ============================================================
@@ -743,43 +751,46 @@ function renderSprintView() {
     }
   }
 
-  // Capacity/Day from ADO capacity (unique people × dailyHours), not commitment÷days.
-  const capacityByPerson = {};
+  // Planning Sprint Capacity:
+  // per developer (story assignee, excl delivery/PM): (workingDays − ADO days off) × 2 SP × 80%
+  // Days off from ADO Sprint → Capacity (capacity.members[].daysOffRanges).
+  const personDaysOffDates = {};
   sprintProjects.forEach(p => {
     (p.currentSprint?.capacity?.members || []).forEach(m => {
       if (!m?.name) return;
-      const prev = capacityByPerson[m.name];
-      if (!prev || (m.dailyHours || 0) > prev) capacityByPerson[m.name] = m.dailyHours || 0;
+      if (!personDaysOffDates[m.name]) personDaysOffDates[m.name] = new Set();
+      (m.daysOffRanges || []).forEach(range => {
+        if (!range.start) return;
+        const rs = new Date(range.start + 'T12:00:00');
+        const re = range.end ? new Date(range.end + 'T12:00:00') : rs;
+        for (let d = new Date(rs); d <= re; d.setDate(d.getDate() + 1)) {
+          if (d.getDay() !== 0 && d.getDay() !== 6) {
+            personDaysOffDates[m.name].add(d.toISOString().split('T')[0]);
+          }
+        }
+      });
     });
   });
-  const adoCapacityHoursPerDay = Object.values(capacityByPerson).reduce((s, h) => s + h, 0);
 
-  // Velocity fallback (SP/day): avg completed SP per working day across recent closed sprints.
-  let velocitySamples = [];
-  projects.forEach(p => {
-    (p.allSprints || []).forEach(s => {
-      if (s.isCurrent) return;
-      if (!s.endDate || !s.startDate || !(s.completedSP > 0)) return;
-      let wd = 0;
-      const sd = parseSprintDate(s.startDate), ed = parseSprintDate(s.endDate);
-      for (let d = new Date(sd); d <= ed; d.setDate(d.getDate() + 1)) {
-        if (d.getDay() !== 0 && d.getDay() !== 6) wd++;
+  const capacityDevs = new Set(
+    allSprintStories
+      .map(s => s.assignedTo)
+      .filter(a => a && a !== 'Unassigned' && !CAPACITY_EXCLUDE_NAMES.has(a))
+  );
+  let sprintCapacitySP = 0;
+  let totalDaysOff = 0;
+  capacityDevs.forEach(name => {
+    const off = personDaysOffDates[name] ? personDaysOffDates[name].size : 0;
+    totalDaysOff += off;
+    const avail = Math.max(0, workingDays - off);
+    sprintCapacitySP += avail * PLANNING_SP_PER_DAY;
+  });
+  const capacityKpi = capacityDevs.size > 0
+    ? {
+        value: (+sprintCapacitySP.toFixed(1)).toString().replace(/\.0$/, '') + ' SP',
+        label: `Sprint Capacity (${capacityDevs.size} devs · 2SP×80%${totalDaysOff ? ` · ${totalDaysOff} days off` : ''})`
       }
-      if (wd > 0) velocitySamples.push(s.completedSP / wd);
-    });
-  });
-  velocitySamples.sort((a, b) => a - b);
-  const velocitySpPerDay = velocitySamples.length
-    ? velocitySamples.slice(-6).reduce((a, b) => a + b, 0) / Math.min(6, velocitySamples.length)
-    : 0;
-
-  // Convert ADO hours/day → SP/day using AG standard (1 SP = 4h)
-  const adoCapacitySpPerDay = hoursToSP(adoCapacityHoursPerDay);
-  const capacityKpi = adoCapacityHoursPerDay > 0
-    ? { value: adoCapacitySpPerDay.toFixed(1) + ' SP', label: `ADO Capacity/Day (${adoCapacityHoursPerDay.toFixed(1)}h · 1SP=4h)` }
-    : (velocitySpPerDay > 0
-      ? { value: velocitySpPerDay.toFixed(1) + ' SP', label: 'Velocity/Day (fallback)' }
-      : { value: '—', label: 'ADO Capacity/Day' });
+    : { value: '—', label: 'Sprint Capacity' };
   const requiredBurn = workingDays > 0 ? (remainingSprintSP / workingDays) : 0;
 
   // Sprint header with dropdown

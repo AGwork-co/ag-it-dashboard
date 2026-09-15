@@ -35,7 +35,7 @@ const AUTH_HEADER = 'Basic ' + Buffer.from(':' + PAT).toString('base64');
 // Closed sprints are immutable, so we cache them on disk and only re-fetch
 // when the iteration end date is today or in the future.
 const SPRINT_CACHE_PATH = path.join(__dirname, 'cache', 'sprint-history.json');
-const SPRINT_CACHE_VERSION = 5;
+const SPRINT_CACHE_VERSION = 6;
 const sprintCache = (() => {
   try {
     const raw = JSON.parse(fs.readFileSync(SPRINT_CACHE_PATH, 'utf8'));
@@ -251,8 +251,9 @@ function ingestCapacityRows(rows, byName) {
     })).filter(d => d.start);
     const prev = byName[name];
     if (!prev || dailyHours > prev._dailyHours) {
-      byName[name] = { ...c, _normalizedName: name, _dailyHours: dailyHours, _daysOffRanges: daysOffRanges };
-    } else if (prev && daysOffRanges.length) {
+      const mergedOff = [...daysOffRanges, ...((prev && prev._daysOffRanges) || [])];
+      byName[name] = { ...c, _normalizedName: name, _dailyHours: dailyHours, _daysOffRanges: mergedOff };
+    } else if (daysOffRanges.length) {
       prev._daysOffRanges = [...(prev._daysOffRanges || []), ...daysOffRanges];
     }
   });
@@ -266,17 +267,19 @@ function ingestCapacityRows(rows, byName) {
  * teamIterCache: optional map teamKey -> iterations[] to avoid re-fetching per sprint.
  */
 async function getIterationCapacity(project, iteration, teamIterCache = {}) {
-  const teams = await getProjectTeams(project);
   const byName = {};
 
-  if (!teams.length) {
-    // Fallback: try project-default teamsettings path (legacy)
+  // Always hit the default-team path first (same team as getAllIterations).
+  // Days off live here even when capacityPerDay is left at 0.
+  try {
     const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations/${iteration.id}/capacities?api-version=${API_VERSION}`;
     const data = await adoFetch(url);
     if (data && data.value) ingestCapacityRows(data.value, byName);
-    return Object.values(byName);
+  } catch (e) {
+    // default team capacity may be unavailable
   }
 
+  const teams = await getProjectTeams(project);
   for (const t of teams) {
     const teamKey = t.id || t.name;
     try {
@@ -285,9 +288,18 @@ async function getIterationCapacity(project, iteration, teamIterCache = {}) {
       }
       const teamIters = teamIterCache[teamKey] || [];
       const matched = matchTeamIteration(teamIters, iteration);
-      if (!matched) continue; // team does not share this sprint window
-      const rows = await getTeamIterationCapacity(project, teamKey, matched.id);
-      ingestCapacityRows(rows, byName);
+      // Try matched id first; always also try the default-team iteration id
+      // (404s are soft-failed by adoFetch). Skip duplicate id.
+      const idsToTry = [];
+      if (matched?.id) idsToTry.push(matched.id);
+      if (!idsToTry.includes(iteration.id)) idsToTry.push(iteration.id);
+      for (const iterId of idsToTry) {
+        const rows = await getTeamIterationCapacity(project, teamKey, iterId);
+        if (rows.length) {
+          ingestCapacityRows(rows, byName);
+          break;
+        }
+      }
     } catch (e) {
       // team may not have capacity configured
     }
@@ -926,9 +938,10 @@ async function fetchProjectData(config) {
         sprintCache[cacheKey] = { ...sprintRecord, isCurrent: false };
       }
 
+      const daysOffCount = members.reduce((n, m) => n + ((m.daysOffRanges || []).length ? 1 : 0), 0);
       const capNote = members.length
-        ? `, capacity ${capacityHoursPerDay.toFixed(1)}h/day (${members.length} people)`
-        : ', capacity empty (not filled in ADO or no matching team iteration)';
+        ? `, capacity ${capacityHoursPerDay.toFixed(1)}h/day (${members.length} people${daysOffCount ? `, ${daysOffCount} with days off` : ''})`
+        : ', capacity empty (ADO returned no capacity rows)';
       console.log(`   🏃 Sprint "${sprintName}"${isCurrent ? ' (current)' : ''}: ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)${capNote}`);
     }
   } catch (e) {
