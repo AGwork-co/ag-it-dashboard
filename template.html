@@ -1249,21 +1249,14 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
     byPerson[name].push(s);
   });
 
-  // Capacity hours = ADO dailyHours × (working days − days off).
-  // Fallback only when ADO has no capacity row: 8h × 80% planning rule.
+  // Capacity hours = planning rule only (ignore ADO Capacity per Day).
+  // (working days − ADO days off) × 2 SP/day × 80%, converted at 1 SP = 4h → 6.4h/day.
   const personCapacity = {};
   Object.keys(byPerson).forEach(name => {
     const daysOff = personDaysOff[name] ? personDaysOff[name].size : 0;
     const workDays = Math.max(0, sprintWorkingDays - daysOff);
-    const adoDaily = personDailyHours[name];
-    let capHrs;
-    if (adoDaily != null && adoDaily > 0) {
-      capHrs = Math.round(adoDaily * workDays * 100) / 100;
-    } else {
-      // No ADO capacity row: 8h day × 80% planning = 6.4h/day (= 1.6 SP/day at 1SP=4h)
-      capHrs = Math.round(SP_HOURS * 2 * 0.80 * workDays * 100) / 100;
-    }
-    personCapacity[name] = { availableDays: workDays, daysOff, totalWorkingDays: sprintWorkingDays, capHrs, adoDaily: adoDaily || 0 };
+    const capHrs = Math.round(spToHours(PLANNING_SP_PER_DAY) * workDays * 100) / 100;
+    personCapacity[name] = { availableDays: workDays, daysOff, totalWorkingDays: sprintWorkingDays, capHrs, adoDaily: 0 };
   });
 
   // Sort people: by total SP descending
