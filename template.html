@@ -262,6 +262,29 @@
   .tmc-stories tr:hover td { background: rgba(212,184,106,0.1); }
   .tmc-stories a { color: var(--primary-light); text-decoration: none; font-weight: 500; }
   .tmc-stories a:hover { text-decoration: underline; }
+  .edr-cell {
+    text-align: center;
+    white-space: nowrap;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+  }
+  .edr-cell .edr-n {
+    display: inline-block;
+    min-width: 3.5ch;
+    text-align: right;
+  }
+  .edr-cell .edr-sep {
+    display: inline-block;
+    width: 1.2em;
+    text-align: center;
+    color: var(--text-muted);
+  }
+  .tmc-stories th.edr-th {
+    text-align: center;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
   .tmc-section-header {
     padding: 10px 18px 6px; font-size: 12px; font-weight: 700; color: var(--primary-light);
     text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 8px;
@@ -1286,7 +1309,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
         <td>${s.projectName}</td>
         <td>${bugBadge}${s.title}</td>
         <td><span class="state-pill ${stateClass(s.state)}">${s.state}</span></td>
-        <td style="text-align:center;white-space:nowrap">${fmtSP(est)} / ${fmtSP(done)} / ${fmtSP(rem)}</td>
+        <td class="edr-cell"><span class="edr-n">${fmtSP(est)}</span><span class="edr-sep">|</span><span class="edr-n">${fmtSP(done)}</span><span class="edr-sep">|</span><span class="edr-n">${fmtSP(rem)}</span></td>
       </tr>`;
     }).join('');
 
@@ -1318,7 +1341,7 @@ function renderTeamSprintView(sprintProjects, sprintStart, sprintEnd) {
         <div class="tmc-section-header">User Story Assignments <span class="tmc-section-count">${stories.length}</span></div>
         <div class="tmc-stories">
           <table>
-            <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th style="white-space:nowrap">Est / Done / Rem</th></tr></thead>
+            <thead><tr><th>ID</th><th>Project</th><th>Story</th><th>State</th><th class="edr-th" style="white-space:nowrap">Est | Done | Rem</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
