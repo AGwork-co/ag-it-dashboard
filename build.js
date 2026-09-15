@@ -35,7 +35,7 @@ const AUTH_HEADER = 'Basic ' + Buffer.from(':' + PAT).toString('base64');
 // Closed sprints are immutable, so we cache them on disk and only re-fetch
 // when the iteration end date is today or in the future.
 const SPRINT_CACHE_PATH = path.join(__dirname, 'cache', 'sprint-history.json');
-const SPRINT_CACHE_VERSION = 4;
+const SPRINT_CACHE_VERSION = 5;
 const sprintCache = (() => {
   try {
     const raw = JSON.parse(fs.readFileSync(SPRINT_CACHE_PATH, 'utf8'));
@@ -202,6 +202,15 @@ async function getProjectTeams(project) {
   return [];
 }
 
+/** Get iterations for a specific team (IDs differ per team in ADO) */
+async function getTeamIterations(project, teamIdOrName) {
+  const team = encodeURIComponent(teamIdOrName);
+  const url = `${ORG_URL}/${encodeURIComponent(project)}/${team}/_apis/work/teamsettings/iterations?api-version=${API_VERSION}`;
+  const data = await adoFetch(url);
+  if (data && data.value) return data.value;
+  return [];
+}
+
 /** Get capacity for one team + iteration */
 async function getTeamIterationCapacity(project, teamIdOrName, iterationId) {
   const team = encodeURIComponent(teamIdOrName);
@@ -212,40 +221,73 @@ async function getTeamIterationCapacity(project, teamIdOrName, iterationId) {
 }
 
 /**
- * Aggregate capacity across all project teams for an iteration.
- * Dedupes people by normalized display name (max dailyHours wins).
+ * Resolve a team's own iteration ID that matches the default-team iteration
+ * (by start date, then name, then identical id). Returns null if no match.
  */
-async function getIterationCapacity(project, iterationId) {
+function matchTeamIteration(teamIterations, iteration) {
+  const startDay = (iteration.attributes?.startDate || '').split('T')[0];
+  const name = iteration.name || '';
+  if (startDay) {
+    const byDate = teamIterations.find(it => (it.attributes?.startDate || '').split('T')[0] === startDay);
+    if (byDate) return byDate;
+  }
+  if (name) {
+    const byName = teamIterations.find(it => it.name === name);
+    if (byName) return byName;
+  }
+  return teamIterations.find(it => it.id === iteration.id) || null;
+}
+
+function ingestCapacityRows(rows, byName) {
+  rows.forEach(c => {
+    const assignee = c.teamMember || c;
+    const rawName = assignee.displayName || assignee.uniqueName || assignee.name || '';
+    const name = normalizeName(rawName);
+    if (!name || name === 'Unassigned') return;
+    const dailyHours = (c.activities || []).reduce((sum, a) => sum + (a.capacityPerDay || 0), 0);
+    const daysOffRanges = (c.daysOff || []).map(d => ({
+      start: d.start ? d.start.split('T')[0] : null,
+      end: d.end ? d.end.split('T')[0] : null
+    })).filter(d => d.start);
+    const prev = byName[name];
+    if (!prev || dailyHours > prev._dailyHours) {
+      byName[name] = { ...c, _normalizedName: name, _dailyHours: dailyHours, _daysOffRanges: daysOffRanges };
+    } else if (prev && daysOffRanges.length) {
+      prev._daysOffRanges = [...(prev._daysOffRanges || []), ...daysOffRanges];
+    }
+  });
+}
+
+/**
+ * Aggregate capacity across all project teams for an iteration.
+ * Uses each team's own iteration ID (matched by start date/name) — ADO returns
+ * 404 when a default-team iteration GUID is used against a different team.
+ * Dedupes people by normalized display name (max dailyHours wins).
+ * teamIterCache: optional map teamKey -> iterations[] to avoid re-fetching per sprint.
+ */
+async function getIterationCapacity(project, iteration, teamIterCache = {}) {
   const teams = await getProjectTeams(project);
+  const byName = {};
+
   if (!teams.length) {
     // Fallback: try project-default teamsettings path (legacy)
-    const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations/${iterationId}/capacities?api-version=${API_VERSION}`;
+    const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations/${iteration.id}/capacities?api-version=${API_VERSION}`;
     const data = await adoFetch(url);
-    return (data && data.value) ? data.value : [];
+    if (data && data.value) ingestCapacityRows(data.value, byName);
+    return Object.values(byName);
   }
-  const byName = {};
+
   for (const t of teams) {
     const teamKey = t.id || t.name;
     try {
-      const rows = await getTeamIterationCapacity(project, teamKey, iterationId);
-      rows.forEach(c => {
-        const assignee = c.teamMember || c;
-        const rawName = assignee.displayName || assignee.uniqueName || assignee.name || '';
-        const name = normalizeName(rawName);
-        if (!name || name === 'Unassigned') return;
-        const dailyHours = (c.activities || []).reduce((sum, a) => sum + (a.capacityPerDay || 0), 0);
-        const daysOffRanges = (c.daysOff || []).map(d => ({
-          start: d.start ? d.start.split('T')[0] : null,
-          end: d.end ? d.end.split('T')[0] : null
-        })).filter(d => d.start);
-        const prev = byName[name];
-        if (!prev || dailyHours > prev.dailyHours) {
-          byName[name] = { ...c, _normalizedName: name, _dailyHours: dailyHours, _daysOffRanges: daysOffRanges };
-        } else if (prev && daysOffRanges.length) {
-          // merge days off
-          prev._daysOffRanges = [...(prev._daysOffRanges || []), ...daysOffRanges];
-        }
-      });
+      if (!teamIterCache[teamKey]) {
+        teamIterCache[teamKey] = await getTeamIterations(project, teamKey);
+      }
+      const teamIters = teamIterCache[teamKey] || [];
+      const matched = matchTeamIteration(teamIters, iteration);
+      if (!matched) continue; // team does not share this sprint window
+      const rows = await getTeamIterationCapacity(project, teamKey, matched.id);
+      ingestCapacityRows(rows, byName);
     } catch (e) {
       // team may not have capacity configured
     }
@@ -635,6 +677,8 @@ async function fetchProjectData(config) {
       .sort((a, b) => (a.attributes.startDate || '').localeCompare(b.attributes.startDate || ''));
 
     const today = new Date().toISOString().split('T')[0];
+    // Cache per-team iteration lists for capacity matching (IDs differ by team)
+    const teamIterCache = {};
 
     for (const iteration of relevantIterations) {
       const isCurrent = iteration.id === currentIterId;
@@ -829,7 +873,7 @@ async function fetchProjectData(config) {
       let capacityHoursPerDay = 0;
       let members = [];
       try {
-        const capacities = await getIterationCapacity(project, iteration.id);
+        const capacities = await getIterationCapacity(project, iteration, teamIterCache);
         capacities.forEach(c => {
           const name = c._normalizedName || normalizeName(c.teamMember?.displayName || 'Unknown');
           const dailyHours = c._dailyHours != null
@@ -882,7 +926,10 @@ async function fetchProjectData(config) {
         sprintCache[cacheKey] = { ...sprintRecord, isCurrent: false };
       }
 
-      console.log(`   🏃 Sprint "${sprintName}"${isCurrent ? ' (current)' : ''}: ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)`);
+      const capNote = members.length
+        ? `, capacity ${capacityHoursPerDay.toFixed(1)}h/day (${members.length} people)`
+        : ', capacity empty (not filled in ADO or no matching team iteration)';
+      console.log(`   🏃 Sprint "${sprintName}"${isCurrent ? ' (current)' : ''}: ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)${capNote}`);
     }
   } catch (e) {
     console.warn(`   ⚠ Could not fetch sprint data for ${project}: ${e.message}`);
