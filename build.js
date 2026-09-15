@@ -35,7 +35,7 @@ const AUTH_HEADER = 'Basic ' + Buffer.from(':' + PAT).toString('base64');
 // Closed sprints are immutable, so we cache them on disk and only re-fetch
 // when the iteration end date is today or in the future.
 const SPRINT_CACHE_PATH = path.join(__dirname, 'cache', 'sprint-history.json');
-const SPRINT_CACHE_VERSION = 6;
+const SPRINT_CACHE_VERSION = 7;
 const sprintCache = (() => {
   try {
     const raw = JSON.parse(fs.readFileSync(SPRINT_CACHE_PATH, 'utf8'));
@@ -211,13 +211,24 @@ async function getTeamIterations(project, teamIdOrName) {
   return [];
 }
 
-/** Get capacity for one team + iteration */
+/** Normalize capacities API payload across API shapes.
+ * api-version 7.1 returns TeamCapacity { teamMembers, totalDaysOff, ... }
+ * older shapes used { value: [...] }.
+ */
+function capacityRowsFromResponse(data) {
+  if (!data) return [];
+  if (Array.isArray(data.teamMembers)) return data.teamMembers;
+  if (Array.isArray(data.value)) return data.value;
+  if (Array.isArray(data)) return data;
+  return [];
+}
+
+/** Get capacity for one team + iteration (includes per-member daysOff) */
 async function getTeamIterationCapacity(project, teamIdOrName, iterationId) {
   const team = encodeURIComponent(teamIdOrName);
   const url = `${ORG_URL}/${encodeURIComponent(project)}/${team}/_apis/work/teamsettings/iterations/${iterationId}/capacities?api-version=${API_VERSION}`;
   const data = await adoFetch(url);
-  if (data && data.value) return data.value;
-  return [];
+  return capacityRowsFromResponse(data);
 }
 
 /**
@@ -274,7 +285,7 @@ async function getIterationCapacity(project, iteration, teamIterCache = {}) {
   try {
     const url = `${ORG_URL}/${encodeURIComponent(project)}/_apis/work/teamsettings/iterations/${iteration.id}/capacities?api-version=${API_VERSION}`;
     const data = await adoFetch(url);
-    if (data && data.value) ingestCapacityRows(data.value, byName);
+    ingestCapacityRows(capacityRowsFromResponse(data), byName);
   } catch (e) {
     // default team capacity may be unavailable
   }
@@ -938,9 +949,9 @@ async function fetchProjectData(config) {
         sprintCache[cacheKey] = { ...sprintRecord, isCurrent: false };
       }
 
-      const daysOffCount = members.reduce((n, m) => n + ((m.daysOffRanges || []).length ? 1 : 0), 0);
+      const withDaysOff = members.filter(m => (m.daysOffRanges || []).length > 0);
       const capNote = members.length
-        ? `, capacity ${capacityHoursPerDay.toFixed(1)}h/day (${members.length} people${daysOffCount ? `, ${daysOffCount} with days off` : ''})`
+        ? `, capacity rows ${members.length} people (${withDaysOff.length} with daysOff; ADO h/day ignored)`
         : ', capacity empty (ADO returned no capacity rows)';
       console.log(`   🏃 Sprint "${sprintName}"${isCurrent ? ' (current)' : ''}: ${sprintStoryDetails.length} stories, ${sprintTotalSP} SP (${sprintCompletedSP} done)${capNote}`);
     }
