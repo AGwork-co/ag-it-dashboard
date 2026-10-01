@@ -928,6 +928,11 @@ async function fetchProjectData(config) {
 
       const sprintRecord = {
         name: sprintName,
+        // Kept so a later dashboard build can tell parallel project iterations
+        // apart. The dropdown does not key rows by this path: one menu row
+        // spans every project that shares the sprint window.
+        iterationPath: iterPath,
+        iterationId: iteration.id || null,
         startDate,
         endDate,
         totalSP: sprintTotalSP,
