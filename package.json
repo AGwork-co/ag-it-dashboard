@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "node build.js",
-    "dev": "node build.js && open docs/index.html"
+    "dev": "node build.js && open docs/index.html",
+    "test": "node test/sprint-slots.test.js"
   },
   "dependencies": {
     "node-fetch": "^2.7.0"

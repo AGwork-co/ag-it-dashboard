@@ -673,34 +673,179 @@ async function triggerRefresh() {
 // Parse date strings from Azure DevOps safely (strips time component to avoid UTC→local shift)
 const parseSprintDate = s => new Date(s.split('T')[0] + 'T12:00:00');
 
-// Selected sprint slot (start date). Null means default to current sprint.
+// Selected sprint slot. Value is the slot's canonical start (earliest ADO start
+// in the group). Null means default to the current sprint.
 let selectedSprintStart = null;
 
-/** Aggregate all sprint slots across projects, sorted newest-first.
- * A slot is "current" only if today's date falls within its [start, end] range. */
-function getSprintSlots() {
+// ADO teams sometimes save the same iteration one calendar day apart
+// (Q4 2026 - Sprint 1 is 2026-09-30 on most projects and 2026-10-01 on others).
+const SPRINT_START_SKEW_DAYS = 1;
+const SPRINT_MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function sprintCalendarDay(iso) {
+  return (iso || '').split('T')[0];
+}
+
+function calendarDaysApart(a, b) {
+  if (!a || !b) return Number.POSITIVE_INFINITY;
+  const ms = Date.parse(a + 'T12:00:00Z') - Date.parse(b + 'T12:00:00Z');
+  if (Number.isNaN(ms)) return Number.POSITIVE_INFINITY;
+  return Math.abs(Math.round(ms / 86400000));
+}
+
+function sprintLabelName(names) {
+  return Object.entries(names).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] || 'Sprint';
+}
+
+function formatSprintDay(iso) {
+  const day = sprintCalendarDay(iso);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return '';
+  const month = SPRINT_MONTHS[Number(day.slice(5, 7)) - 1];
+  return `${month} ${Number(day.slice(8, 10))}`;
+}
+
+function sprintRangeLabel(start, end) {
+  const a = formatSprintDay(start);
+  const b = formatSprintDay(end);
+  if (a && b) return `${a}–${b}`;
+  return a || b || '';
+}
+
+/** Aggregate sprint dropdown rows across projects, newest first.
+ * Same-day iterations share one row (majority name wins). Iterations with the
+ * same majority name whose start and end differ by at most a day are one row
+ * too, so a one-day ADO skew does not list the sprint twice. Same name with a
+ * genuinely different window keeps its own row and a date-range suffix.
+ * `todayIso` is injectable for tests; default is the UTC calendar day. */
+function getSprintSlots(todayIso) {
   const slotMap = {};
   projects.forEach(p => {
     (p.allSprints || []).forEach(s => {
       if (!s.startDate) return;
       if (!slotMap[s.startDate]) {
-        slotMap[s.startDate] = { start: s.startDate, end: s.endDate, names: {}, hasStories: false };
+        slotMap[s.startDate] = {
+          start: s.startDate,
+          latestStart: s.startDate,
+          end: s.endDate,
+          names: {},
+          projects: [],
+          paths: [],
+          hasStories: false,
+          startDates: [s.startDate]
+        };
       }
-      slotMap[s.startDate].names[s.name] = (slotMap[s.startDate].names[s.name] || 0) + 1;
-      if (s.storyCount > 0) slotMap[s.startDate].hasStories = true;
+      const slot = slotMap[s.startDate];
+      slot.names[s.name] = (slot.names[s.name] || 0) + 1;
+      if (s.storyCount > 0) {
+        slot.hasStories = true;
+        if (p.shortName && !slot.projects.includes(p.shortName)) slot.projects.push(p.shortName);
+        if (s.iterationPath && !slot.paths.includes(s.iterationPath)) slot.paths.push(s.iterationPath);
+      }
     });
   });
-  const today = new Date().toISOString().split('T')[0];
-  return Object.values(slotMap)
+
+  const byStart = Object.values(slotMap)
     .filter(slot => slot.hasStories)
-    .map(slot => {
-      const name = Object.entries(slot.names).sort((a, b) => b[1] - a[1])[0]?.[0] || 'Sprint';
-      const startDay = (slot.start || '').split('T')[0];
-      const endDay = (slot.end || '').split('T')[0];
-      const isCurrent = startDay && endDay && startDay <= today && today <= endDay;
-      return { start: slot.start, end: slot.end, name, isCurrent };
-    })
-    .sort((a, b) => b.start.localeCompare(a.start));
+    .sort((a, b) => a.start.localeCompare(b.start));
+
+  const merged = [];
+  byStart.forEach(slot => {
+    const name = sprintLabelName(slot.names);
+    const startDay = sprintCalendarDay(slot.start);
+    const endDay = sprintCalendarDay(slot.end);
+    let target = null;
+    let bestGap = Infinity;
+    merged.forEach(prev => {
+      if (sprintLabelName(prev.names) !== name) return;
+      const gap = calendarDaysApart(startDay, sprintCalendarDay(prev.latestStart));
+      const endGap = calendarDaysApart(endDay, sprintCalendarDay(prev.end));
+      if (gap > 0 && gap <= SPRINT_START_SKEW_DAYS && endGap <= SPRINT_START_SKEW_DAYS && gap < bestGap) {
+        target = prev;
+        bestGap = gap;
+      }
+    });
+    if (target) {
+      Object.entries(slot.names).forEach(([n, count]) => {
+        target.names[n] = (target.names[n] || 0) + count;
+      });
+      slot.startDates.forEach(d => {
+        if (!target.startDates.includes(d)) target.startDates.push(d);
+      });
+      (slot.projects || []).forEach(name => {
+        if (!target.projects.includes(name)) target.projects.push(name);
+      });
+      (slot.paths || []).forEach(path => {
+        if (!target.paths.includes(path)) target.paths.push(path);
+      });
+      if (slot.start > target.latestStart) target.latestStart = slot.start;
+      if (slot.end && (!target.end || slot.end > target.end)) target.end = slot.end;
+      target.hasStories = target.hasStories || slot.hasStories;
+    } else {
+      merged.push({
+        start: slot.start,
+        latestStart: slot.latestStart,
+        end: slot.end,
+        names: { ...slot.names },
+        projects: (slot.projects || []).slice(),
+        paths: (slot.paths || []).slice(),
+        hasStories: slot.hasStories,
+        startDates: slot.startDates.slice()
+      });
+    }
+  });
+
+  const today = todayIso || new Date().toISOString().split('T')[0];
+  const built = merged.map(slot => {
+    const startDay = sprintCalendarDay(slot.start);
+    const endDay = sprintCalendarDay(slot.end);
+    const isCurrent = !!(startDay && endDay && startDay <= today && today <= endDay);
+    return {
+      start: slot.start,
+      startDates: slot.startDates.slice(),
+      end: slot.end,
+      name: sprintLabelName(slot.names),
+      projects: (slot.projects || []).slice(),
+      paths: (slot.paths || []).slice(),
+      isCurrent
+    };
+  });
+
+  // Same display name on genuinely different windows: keep both rows, but
+  // make the labels distinguishable with the date range and project names.
+  // Each ADO project has its own iteration path; the path is shown only when
+  // the payload has no project name.
+  const nameCounts = {};
+  built.forEach(s => { nameCounts[s.name] = (nameCounts[s.name] || 0) + 1; });
+  built.forEach(s => {
+    if (nameCounts[s.name] <= 1) return;
+    const range = sprintRangeLabel(s.start, s.end);
+    let who = '';
+    if (s.projects.length) {
+      const shown = s.projects.slice(0, 3);
+      const more = s.projects.length > shown.length ? ` +${s.projects.length - shown.length}` : '';
+      who = `${shown.join(', ')}${more}`;
+    } else if (s.paths.length) {
+      who = s.paths.map(path => path.split('\\').filter(Boolean).slice(0, 2).join(' / ')).join(', ');
+    }
+    const suffix = [range, who].filter(Boolean).join(' · ');
+    if (suffix) s.name = `${s.name} (${suffix})`;
+  });
+
+  return built.sort((a, b) => b.start.localeCompare(a.start));
+}
+
+/** Projects that have stories in any ADO start date belonging to this slot. */
+function projectsInSprintSlot(slot) {
+  if (!slot) return [];
+  const starts = new Set(
+    (slot.startDates && slot.startDates.length) ? slot.startDates : [slot.start]
+  );
+  const sprintProjects = [];
+  projects.forEach(p => {
+    const match = (p.allSprints || []).find(s => starts.has(s.startDate) && s.storyCount > 0);
+    if (match) sprintProjects.push({ ...p, currentSprint: match });
+  });
+  return sprintProjects;
 }
 
 function renderSprintView() {
@@ -714,13 +859,9 @@ function renderSprintView() {
 
   const selectedSlot = slots.find(s => s.start === selectedSprintStart) || slots[0];
 
-  // For each project, find the sprint matching the selected start date.
-  // Wrap into { ...p, currentSprint: matchingSprint } so existing helpers work unchanged.
-  const sprintProjects = [];
-  projects.forEach(p => {
-    const match = (p.allSprints || []).find(s => s.startDate === selectedSprintStart && s.storyCount > 0);
-    if (match) sprintProjects.push({ ...p, currentSprint: match });
-  });
+  // Include every project whose sprint belongs to this slot, including ADO
+  // iterations merged in because their start date is a day off.
+  const sprintProjects = projectsInSprintSlot(selectedSlot);
 
   const allSprintStories = sprintProjects.flatMap(p => p.currentSprint.stories || []);
   const totalSprintSP = sprintProjects.reduce((s, p) => s + p.currentSprint.totalSP, 0);
@@ -817,7 +958,7 @@ function renderSprintView() {
     { value: requiredBurn > 0 ? requiredBurn.toFixed(1) + ' SP' : '—', label: 'Required Burn/Day' },
   ].map(k => `<div class="kpi-card"><div class="value">${k.value}</div><div class="label">${k.label}</div></div>`).join('');
 
-  renderSprintBurndown(sprintProjects);
+  renderSprintBurndown(sprintProjects, sprintStart, sprintEnd);
 
   window._sprintCardProjects = sprintProjects;
   const grid = document.getElementById('sprintProjectCards');
@@ -872,12 +1013,12 @@ function onSprintChange(newStart) {
 }
 
 let sprintBurndownChart = null;
-function renderSprintBurndown(sprintProjects) {
+function renderSprintBurndown(sprintProjects, sprintStart, sprintEnd) {
   const canvas = document.getElementById('chartSprintBurndown');
   if (!canvas) return;
   if (sprintBurndownChart) { sprintBurndownChart.destroy(); sprintBurndownChart = null; }
-  const sprintStart = sprintProjects[0]?.currentSprint?.startDate;
-  const sprintEnd = sprintProjects[0]?.currentSprint?.endDate;
+  sprintStart = sprintStart || sprintProjects[0]?.currentSprint?.startDate;
+  sprintEnd = sprintEnd || sprintProjects[0]?.currentSprint?.endDate;
   if (!sprintStart || !sprintEnd) return;
 
   const start = parseSprintDate(sprintStart);
